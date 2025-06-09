@@ -52,8 +52,8 @@ const HowItWorks = () => {
 
   return (
     <section className="w-full px-6 py-12 -mt-4 bg-visa-gray-50">
-      <div className="flex flex-col items-center mb-8">
-        <h2 className="how-it-works-title mb-2">How It Works</h2>
+      <div className="flex flex-col items-center mb-12">
+        <h2 className="how-it-works-title mb-8">How It Works</h2>
         
         <div className="progress-bar">
           <div 
@@ -64,14 +64,14 @@ const HowItWorks = () => {
       </div>
       
       <div className="relative flex flex-col items-center">
-        <div className="how-it-works-circle mb-10">
+        <div className="how-it-works-circle mb-16">
           {steps[current].icon}
         </div>
         
-        <h3 className="how-it-works-step-title mt-4">{steps[current].title}</h3>
-        <p className="text-lg text-visa-gray-800 text-center max-w-md font-medium mb-8">{steps[current].description}</p>
+        <h3 className="how-it-works-step-title mt-6">{steps[current].title}</h3>
+        <p className="text-lg text-visa-gray-800 text-center max-w-md font-medium mb-10">{steps[current].description}</p>
         
-        <div className="flex gap-6 mt-2">
+        <div className="flex gap-6 mt-4">
           <button onClick={prev} className="nav-button">
             <FaChevronLeft size={24} />
           </button>

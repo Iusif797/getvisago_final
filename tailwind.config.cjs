@@ -17,11 +17,15 @@ module.exports = {
       colors: {
         'visa-green': {
           DEFAULT: '#00BFA6',
-          light: '#00D8B8'
+          light: '#00D8B8',
+          'feature': '#06E2A4',
+          'feature-hover': '#05C292'
         },
         'visa-purple': {
           DEFAULT: '#9B5DE5',
-          dark: '#8048c8'
+          dark: '#8048c8',
+          'feature': '#A259F7',
+          'feature-hover': '#8E41F5'
         },
         'visa-gray': {
           50: '#f8f9fa',
@@ -32,13 +36,21 @@ module.exports = {
           900: '#222222'
         }
       },
+      spacing: {
+        '320': '320px',
+        '540': '540px',
+        '720': '720px',
+        '60': '60px'
+      },
       boxShadow: {
         'card': '0 10px 25px rgba(0, 0, 0, 0.07)',
         'card-hover': '0 15px 30px rgba(0, 0, 0, 0.1)',
         'button': '0 8px 15px rgba(155, 93, 229, 0.3)',
         'button-hover': '0 10px 20px rgba(155, 93, 229, 0.4)',
         'green-button': '0 4px 10px rgba(0, 191, 166, 0.1)',
-        'green-button-hover': '0 6px 15px rgba(0, 191, 166, 0.2)'
+        'green-button-hover': '0 6px 15px rgba(0, 191, 166, 0.2)',
+        'feature': '0 4px 10px rgba(0, 0, 0, 0.1)',
+        'feature-hover': '0 6px 15px rgba(0, 0, 0, 0.15)'
       },
       animation: {
         'pulse-shadow': 'pulse-shadow 3s infinite',

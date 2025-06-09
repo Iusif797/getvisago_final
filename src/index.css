@@ -15,7 +15,7 @@
 
 @layer components {
   .container-app {
-    @apply w-full min-w-[320px] max-w-[100%] sm:max-w-[540px] md:max-w-[720px] mx-auto bg-white min-h-screen relative font-montserrat overflow-hidden;
+    @apply w-full min-w-[320px] max-w-full sm:max-w-[540px] md:max-w-[720px] mx-auto bg-white min-h-screen relative font-montserrat overflow-hidden;
   }
   
   .header {
@@ -51,50 +51,62 @@
   }
 
   .why-choose-us-section {
-    @apply w-full mb-10 pt-10 px-4 bg-visa-gray-50;
+    @apply w-full mb-12 pt-10 px-4 pb-8 bg-visa-gray-50;
   }
 
   .why-choose-us-section h2 {
-    @apply text-4xl font-extrabold text-center text-[#06E2A4] mb-8;
+    @apply text-5xl font-extrabold text-center text-visa-green-feature mb-10 animate-fade-in-up;
   }
 
   .feature-card {
-    @apply flex items-center justify-center rounded-full shadow-lg h-[60px] mb-5 relative overflow-hidden;
+    @apply flex items-center rounded-[40px] shadow-feature h-[90px] mb-6 relative overflow-hidden transition-all duration-300 hover:shadow-feature-hover cursor-pointer w-full transform hover:scale-[1.02];
   }
 
   .feature-card.purple {
-    @apply bg-[#A259F7];
+    @apply bg-visa-purple-feature hover:bg-visa-purple-feature-hover;
   }
 
   .feature-card.green {
-    @apply bg-[#06E2A4];
+    @apply bg-visa-green-feature hover:bg-visa-green-feature-hover;
+  }
+
+  .feature-card-left {
+    @apply pl-[75px] pr-8;
+  }
+
+  .feature-card-right {
+    @apply pr-[75px] pl-8;
   }
 
   .feature-card-left .feature-icon {
-    @apply absolute left-4;
+    @apply absolute left-3;
   }
 
   .feature-card-right .feature-icon {
-    @apply absolute right-4;
+    @apply absolute right-3;
   }
 
   .feature-icon {
-    @apply w-10 h-10 rounded-full flex items-center justify-center shadow-xl;
+    @apply w-[50px] h-[50px] rounded-full flex items-center justify-center bg-white shadow-lg transition-all duration-300;
   }
 
-  .feature-icon.purple {
-    @apply bg-[#A259F7];
-  }
-
-  .feature-icon.green {
-    @apply bg-[#06E2A4];
+  .feature-card:hover .feature-icon {
+    @apply transform scale-110 rotate-6;
   }
 
   .feature-icon img {
-    @apply w-6 h-6 object-contain;
+    @apply w-9 h-9 object-contain transition-transform duration-300;
+  }
+
+  .feature-card:hover .feature-icon img {
+    @apply transform scale-110 rotate-12;
   }
 
   .feature-text {
-    @apply text-white font-bold text-xl w-full text-center;
+    @apply text-white font-bold text-2xl w-full text-center transition-all duration-300;
+  }
+
+  .feature-card:hover .feature-text {
+    @apply transform scale-105;
   }
 }

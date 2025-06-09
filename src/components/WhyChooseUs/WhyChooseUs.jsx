@@ -11,32 +11,32 @@ const WhyChooseUs = () => {
       
       <div className="flex flex-col">
         {/* Fast Processing - фиолетовый блок с иконкой справа */}
-        <div className="feature-card purple feature-card-right">
+        <div className="feature-card purple feature-card-right animate-fade-in-up" style={{animationDelay: '0.1s'}}>
           <span className="feature-text">Fast Processing</span>
-          <div className="feature-icon purple">
+          <div className="feature-icon">
             <img src={molnia} alt="Fast Processing" />
           </div>
         </div>
         
         {/* Simple Application - зеленый блок с иконкой слева */}
-        <div className="feature-card green feature-card-left">
-          <div className="feature-icon green">
+        <div className="feature-card green feature-card-left animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <div className="feature-icon">
             <img src={todo} alt="Simple Application" />
           </div>
           <span className="feature-text">Simple Application</span>
         </div>
         
         {/* Refund Guarantee - фиолетовый блок с иконкой справа */}
-        <div className="feature-card purple feature-card-right">
+        <div className="feature-card purple feature-card-right animate-fade-in-up" style={{animationDelay: '0.3s'}}>
           <span className="feature-text">Refund Guarantee</span>
-          <div className="feature-icon purple">
+          <div className="feature-icon">
             <img src={money} alt="Refund Guarantee" />
           </div>
         </div>
         
         {/* Customer Support - зеленый блок с иконкой слева */}
-        <div className="feature-card green feature-card-left">
-          <div className="feature-icon green">
+        <div className="feature-card green feature-card-left animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+          <div className="feature-icon">
             <img src={naushniki} alt="Customer Support" />
           </div>
           <span className="feature-text">Customer Support</span>

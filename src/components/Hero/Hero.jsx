@@ -10,7 +10,7 @@ const Hero = () => {
         Fast and<br />
         Reliable eVisas
       </h1>
-      <p className="text-visa-gray-800 text-base mb-6">
+      <p className="subtitle">
         Apply for eVisa to your dream destinations in minutes.
       </p>
 

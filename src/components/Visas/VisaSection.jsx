@@ -32,7 +32,7 @@ const VisaSection = () => {
 
   return (
     <section className="mb-12 w-full">
-      <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center text-visa-green uppercase">
+      <h2 className="section-title text-center text-visa-green uppercase">
         OUR eVISAS:
       </h2>
       
@@ -48,7 +48,7 @@ const VisaSection = () => {
         ))}
       </div>
       
-      <button className="flex items-center justify-center gap-2 mx-auto px-6 sm:px-8 py-2 sm:py-3 rounded-full border-2 border-visa-green text-visa-green font-semibold text-sm sm:text-base transition-all duration-300">
+      <button className="flex items-center justify-center gap-2 mx-auto px-6 sm:px-8 py-2 sm:py-3 rounded-full border-2 border-visa-green text-visa-green font-semibold text-sm sm:text-base transition-all duration-300 tracking-wide hover:bg-visa-green hover:text-white">
         SEE ALL COUNTRIES
         <FaChevronDown size={16} />
       </button>

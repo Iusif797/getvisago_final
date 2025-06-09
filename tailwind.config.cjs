@@ -42,6 +42,8 @@ module.exports = {
         '720': '720px',
         '60': '60px'
       },
+      minWidth: theme => theme('spacing'),
+      maxWidth: theme => theme('spacing'),
       boxShadow: {
         'card': '0 10px 25px rgba(0, 0, 0, 0.07)',
         'card-hover': '0 15px 30px rgba(0, 0, 0, 0.1)',

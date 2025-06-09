@@ -15,7 +15,7 @@
 
 @layer components {
   .container-app {
-    @apply w-full min-w-[320px] max-w-full sm:max-w-[540px] md:max-w-[720px] mx-auto bg-white min-h-screen relative font-montserrat overflow-hidden;
+    @apply w-full min-w-320 max-w-full sm:max-w-540 md:max-w-720 mx-auto bg-white min-h-screen relative font-montserrat overflow-hidden;
   }
   
   .header {
@@ -59,7 +59,7 @@
   }
 
   .feature-card {
-    @apply flex items-center rounded-[40px] shadow-feature h-[90px] mb-6 relative overflow-hidden transition-all duration-300 hover:shadow-feature-hover cursor-pointer w-full transform hover:scale-[1.02];
+    @apply flex items-center rounded-full shadow-feature h-20 mb-6 relative overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-feature-hover cursor-pointer w-full;
   }
 
   .feature-card.purple {
@@ -71,11 +71,11 @@
   }
 
   .feature-card-left {
-    @apply pl-[75px] pr-8;
+    @apply pl-20 pr-8;
   }
 
   .feature-card-right {
-    @apply pr-[75px] pl-8;
+    @apply pr-20 pl-8;
   }
 
   .feature-card-left .feature-icon {
@@ -87,7 +87,7 @@
   }
 
   .feature-icon {
-    @apply w-[50px] h-[50px] rounded-full flex items-center justify-center bg-white shadow-lg transition-all duration-300;
+    @apply w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-lg transition-transform duration-300;
   }
 
   .feature-card:hover .feature-icon {
@@ -95,7 +95,7 @@
   }
 
   .feature-icon img {
-    @apply w-9 h-9 object-contain transition-transform duration-300;
+    @apply w-8 h-8 object-contain transition-transform duration-300;
   }
 
   .feature-card:hover .feature-icon img {
@@ -108,5 +108,40 @@
 
   .feature-card:hover .feature-text {
     @apply transform scale-105;
+  }
+  
+  /* Стили для блока How It Works */
+  .how-it-works-circle {
+    @apply relative w-64 h-64 bg-visa-purple-feature rounded-full flex items-center justify-center shadow-xl transition-transform duration-500 hover:scale-105;
+  }
+  
+  .how-it-works-circle::before {
+    content: '';
+    @apply absolute w-full h-full rounded-full border-4 border-visa-green-feature opacity-20 animate-pulse;
+    animation-duration: 3s;
+  }
+  
+  .how-it-works-title {
+    @apply text-6xl font-extrabold text-center bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
+  }
+  
+  .how-it-works-step-title {
+    @apply text-3xl sm:text-4xl font-bold text-visa-gray-900 mb-4 text-center;
+  }
+  
+  .nav-button {
+    @apply w-14 h-14 bg-visa-purple-feature rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300;
+  }
+  
+  .nav-button:hover {
+    @apply bg-visa-purple-feature-hover transform scale-110 shadow-xl;
+  }
+  
+  .progress-bar {
+    @apply w-full h-1 bg-visa-gray-200 rounded-full overflow-hidden mt-4 mb-8;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-visa-green transition-all duration-500;
   }
 }

@@ -21,7 +21,7 @@ const Header = () => {
     <header className="header">
       <div>
         <h1 className="logo-text">
-          <span className="logo-gradient">GET</span>
+          <span className="text-visa-green font-bold">GET</span>
           <span className="text-visa-purple font-extrabold">VISAGO</span>
         </h1>
       </div>

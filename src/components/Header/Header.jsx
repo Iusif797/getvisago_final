@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ukFlag from '../../assets/uk-flag.svg';
 import indiaFlag from '../../assets/flag_india.svg';
+import logoGetVisago from '../../assets/logo_getvisago.svg';
 import LanguageSelector from './LanguageSelector';
 import { FaBars } from 'react-icons/fa';
 
@@ -27,9 +28,7 @@ const Header = () => {
           </div>
         </div>
         <div>
-          <h1 className="logo-text">
-            <span className="logo-gradient premium-text">GETVISAGO</span>
-          </h1>
+          <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
         </div>
       </div>
       

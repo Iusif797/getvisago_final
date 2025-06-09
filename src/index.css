@@ -51,34 +51,50 @@
   }
 
   .why-choose-us-section {
-    @apply w-full mb-10 pt-10;
+    @apply w-full mb-10 pt-10 px-4 bg-visa-gray-50;
   }
 
   .why-choose-us-section h2 {
-    @apply text-3xl font-extrabold text-center text-[#06E2A4] mb-8;
+    @apply text-4xl font-extrabold text-center text-[#06E2A4] mb-8;
   }
 
-  .why-choose-us-section .feature-card {
-    @apply flex items-center px-5 py-4 rounded-full shadow-lg h-[60px];
+  .feature-card {
+    @apply flex items-center justify-center rounded-full shadow-lg h-[60px] mb-5 relative overflow-hidden;
   }
 
-  .why-choose-us-section .feature-card.purple {
+  .feature-card.purple {
     @apply bg-[#A259F7];
   }
 
-  .why-choose-us-section .feature-card.green {
+  .feature-card.green {
     @apply bg-[#06E2A4];
   }
 
-  .why-choose-us-section .icon-container {
-    @apply w-10 h-10 rounded-full flex items-center justify-center shadow-xl mr-5 flex-shrink-0;
+  .feature-card-left .feature-icon {
+    @apply absolute left-4;
   }
 
-  .why-choose-us-section .icon-container img {
-    @apply w-7 h-7 object-contain;
+  .feature-card-right .feature-icon {
+    @apply absolute right-4;
   }
 
-  .why-choose-us-section .feature-text {
-    @apply text-white font-bold text-lg flex-grow text-center -ml-5;
+  .feature-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center shadow-xl;
+  }
+
+  .feature-icon.purple {
+    @apply bg-[#A259F7];
+  }
+
+  .feature-icon.green {
+    @apply bg-[#06E2A4];
+  }
+
+  .feature-icon img {
+    @apply w-6 h-6 object-contain;
+  }
+
+  .feature-text {
+    @apply text-white font-bold text-xl w-full text-center;
   }
 }

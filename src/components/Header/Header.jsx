@@ -22,14 +22,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="flex items-center">
-        <div className="mr-2">
-          <div className="w-10 h-10 bg-gradient-to-r from-visa-green to-visa-purple rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-xl">G</span>
-          </div>
-        </div>
-        <div>
-          <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
-        </div>
+        <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
       </div>
       
       <div className="flex items-center">

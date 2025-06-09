@@ -1,13 +1,12 @@
 import React from 'react';
-import mobileVisa from '../../assets/mobile-visa.png';
 import firstBanner from '../../assets/first-banner.png';
 import CTAButtons from './CTAButtons';
 import VisaSection from '../Visas/VisaSection';
 
 const Hero = () => {
   return (
-    <main className="px-6 pt-6 pb-8 bg-visa-gray-50">
-      <h1 className="text-4xl font-bold leading-tight mb-2 bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent">
+    <main className="hero-container">
+      <h1 className="hero-title">
         Fast and<br />
         Reliable eVisas
       </h1>

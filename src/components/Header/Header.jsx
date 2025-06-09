@@ -18,10 +18,10 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center px-4 py-5 bg-white shadow-md sticky top-0 z-50">
+    <header className="header">
       <div>
-        <h1 className="text-xl font-bold tracking-wide">
-          <span className="bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent">GET</span>
+        <h1 className="logo-text">
+          <span className="logo-gradient">GET</span>
           <span className="text-visa-purple font-extrabold">VISAGO</span>
         </h1>
       </div>

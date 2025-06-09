@@ -4,7 +4,7 @@ import Hero from './components/Hero/Hero';
 
 function App() {
   return (
-    <div className="max-w-[375px] mx-auto bg-white min-h-screen relative font-montserrat">
+    <div className="container-app">
       <Header />
       <Hero />
     </div>

@@ -12,3 +12,41 @@
     @apply bg-white;
   }
 }
+
+@layer components {
+  .container-app {
+    @apply max-w-[375px] mx-auto bg-white min-h-screen relative font-montserrat;
+  }
+  
+  .header {
+    @apply flex justify-between items-center px-4 py-5 bg-white shadow-md sticky top-0 z-50;
+  }
+  
+  .logo-text {
+    @apply text-xl font-bold tracking-wide;
+  }
+  
+  .logo-gradient {
+    @apply bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
+  }
+  
+  .hero-container {
+    @apply px-6 pt-6 pb-8 bg-visa-gray-50;
+  }
+  
+  .hero-title {
+    @apply text-4xl font-bold leading-tight mb-2 bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
+  }
+  
+  .visa-card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+  
+  .button-primary {
+    @apply flex justify-between items-center px-6 py-4 rounded-full bg-visa-purple text-white font-semibold text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .button-outline {
+    @apply flex justify-between items-center px-6 py-4 rounded-full bg-white text-visa-green border-2 border-visa-green font-semibold text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+}

@@ -165,7 +165,7 @@
   }
 
   .section-title {
-    @apply text-5xl font-extrabold tracking-tight mb-4 font-playfair;
+    @apply text-5xl font-extrabold tracking-tight mb-4;
     letter-spacing: -0.03em;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.06);
   }

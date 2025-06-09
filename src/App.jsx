@@ -4,9 +4,11 @@ import Hero from './components/Hero/Hero';
 
 function App() {
   return (
-    <div className="container-app">
-      <Header />
-      <Hero />
+    <div className="w-full min-h-screen bg-white">
+      <div className="container-app">
+        <Header />
+        <Hero />
+      </div>
     </div>
   );
 }

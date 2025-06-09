@@ -31,12 +31,12 @@ const VisaSection = () => {
   ];
 
   return (
-    <section className="mb-12">
-      <h2 className="text-2xl font-bold mb-6 text-center text-visa-green uppercase">
+    <section className="mb-12 w-full">
+      <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center text-visa-green uppercase">
         OUR eVISAS:
       </h2>
       
-      <div className="flex flex-col gap-6 mb-8">
+      <div className="flex flex-col gap-6 mb-8 w-full">
         {visas.map(visa => (
           <VisaCard 
             key={visa.id}
@@ -48,7 +48,7 @@ const VisaSection = () => {
         ))}
       </div>
       
-      <button className="flex items-center justify-center gap-2 mx-auto px-8 py-3 rounded-full border-2 border-visa-green text-visa-green font-semibold transition-all duration-300">
+      <button className="flex items-center justify-center gap-2 mx-auto px-6 sm:px-8 py-2 sm:py-3 rounded-full border-2 border-visa-green text-visa-green font-semibold text-sm sm:text-base transition-all duration-300">
         SEE ALL COUNTRIES
         <FaChevronDown size={16} />
       </button>

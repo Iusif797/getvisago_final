@@ -9,17 +9,17 @@
     font-family: 'Montserrat', sans-serif;
   }
   body {
-    @apply bg-white;
+    @apply bg-white m-0 p-0 overflow-x-hidden;
   }
 }
 
 @layer components {
   .container-app {
-    @apply max-w-[375px] mx-auto bg-white min-h-screen relative font-montserrat;
+    @apply w-full min-w-[320px] max-w-[100%] sm:max-w-[540px] md:max-w-[720px] mx-auto bg-white min-h-screen relative font-montserrat overflow-hidden;
   }
   
   .header {
-    @apply flex justify-between items-center px-4 py-5 bg-white shadow-md sticky top-0 z-50;
+    @apply flex justify-between items-center px-4 py-5 bg-white shadow-md sticky top-0 z-50 w-full;
   }
   
   .logo-text {
@@ -31,22 +31,22 @@
   }
   
   .hero-container {
-    @apply px-6 pt-6 pb-8 bg-visa-gray-50;
+    @apply px-6 pt-6 pb-8 bg-visa-gray-50 w-full;
   }
   
   .hero-title {
-    @apply text-4xl font-bold leading-tight mb-2 bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
+    @apply text-3xl sm:text-4xl font-bold leading-tight mb-2 bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
   }
   
   .visa-card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden;
+    @apply bg-white rounded-xl shadow-md overflow-hidden w-full;
   }
   
   .button-primary {
-    @apply flex justify-between items-center px-6 py-4 rounded-full bg-visa-purple text-white font-semibold text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300;
+    @apply flex justify-between items-center px-5 sm:px-6 py-3 sm:py-4 rounded-full bg-visa-purple text-white font-semibold text-sm sm:text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300 w-full;
   }
   
   .button-outline {
-    @apply flex justify-between items-center px-6 py-4 rounded-full bg-white text-visa-green border-2 border-visa-green font-semibold text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300;
+    @apply flex justify-between items-center px-5 sm:px-6 py-3 sm:py-4 rounded-full bg-white text-visa-green border-2 border-visa-green font-semibold text-sm sm:text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300 w-full;
   }
 }

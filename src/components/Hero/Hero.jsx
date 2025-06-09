@@ -14,8 +14,8 @@ const Hero = () => {
         Apply for eVisa to your dream destinations in minutes.
       </p>
 
-      <div className="relative flex justify-center items-center mb-8 animate-fade-in-up">
-        <img src={firstBanner} alt="Visa Application" className="w-full object-contain" />
+      <div className="relative flex justify-center items-center mb-8 w-full animate-fade-in-up">
+        <img src={firstBanner} alt="Visa Application" className="w-full h-auto object-contain" />
       </div>
 
       <CTAButtons />

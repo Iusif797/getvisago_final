@@ -91,7 +91,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      'sans': ['Poppins', 'sans-serif']
+      'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif']
     }
   },
   plugins: [],

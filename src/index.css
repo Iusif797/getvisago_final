@@ -49,4 +49,36 @@
   .button-outline {
     @apply flex justify-between items-center px-5 sm:px-6 py-3 sm:py-4 rounded-full bg-white text-visa-green border-2 border-visa-green font-semibold text-sm sm:text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300 w-full;
   }
+
+  .why-choose-us-section {
+    @apply w-full mb-10 pt-10;
+  }
+
+  .why-choose-us-section h2 {
+    @apply text-3xl font-extrabold text-center text-[#06E2A4] mb-8;
+  }
+
+  .why-choose-us-section .feature-card {
+    @apply flex items-center px-5 py-4 rounded-full shadow-lg h-[60px];
+  }
+
+  .why-choose-us-section .feature-card.purple {
+    @apply bg-[#A259F7];
+  }
+
+  .why-choose-us-section .feature-card.green {
+    @apply bg-[#06E2A4];
+  }
+
+  .why-choose-us-section .icon-container {
+    @apply w-10 h-10 rounded-full flex items-center justify-center shadow-xl mr-5 flex-shrink-0;
+  }
+
+  .why-choose-us-section .icon-container img {
+    @apply w-7 h-7 object-contain;
+  }
+
+  .why-choose-us-section .feature-text {
+    @apply text-white font-bold text-lg flex-grow text-center -ml-5;
+  }
 }

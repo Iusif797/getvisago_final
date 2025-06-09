@@ -201,9 +201,9 @@
   }
   
   .premium-text {
-    @apply font-playfair font-bold;
-    letter-spacing: -0.02em;
-  }
+  @apply font-bold;
+  letter-spacing: -0.02em;
+}
   
   .premium-button {
     @apply transition-all duration-300;

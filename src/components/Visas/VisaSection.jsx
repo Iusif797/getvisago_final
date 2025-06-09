@@ -32,9 +32,12 @@ const VisaSection = () => {
 
   return (
     <section className="mb-12 w-full">
-      <h2 className="section-title text-center text-visa-green uppercase">
-        OUR eVISAS:
-      </h2>
+      <div className="flex flex-col items-center mb-8">
+        <h2 className="section-title text-center text-gradient uppercase">
+          OUR eVISAS
+        </h2>
+        <div className="w-16 h-1 bg-visa-purple-feature rounded-full mb-4"></div>
+      </div>
       
       <div className="flex flex-col gap-6 mb-8 w-full">
         {visas.map(visa => (
@@ -48,7 +51,7 @@ const VisaSection = () => {
         ))}
       </div>
       
-      <button className="flex items-center justify-center gap-2 mx-auto px-6 sm:px-8 py-2 sm:py-3 rounded-full border-2 border-visa-green text-visa-green font-semibold text-sm sm:text-base transition-all duration-300 tracking-wide hover:bg-visa-green hover:text-white">
+      <button className="premium-button flex items-center justify-center gap-2 mx-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-visa-green text-visa-green font-semibold text-sm sm:text-base transition-all duration-300 tracking-wide hover:bg-visa-green hover:text-white">
         SEE ALL COUNTRIES
         <FaChevronDown size={16} />
       </button>

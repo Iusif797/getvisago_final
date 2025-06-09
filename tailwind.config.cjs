@@ -92,7 +92,8 @@ module.exports = {
     },
     fontFamily: {
       'montserrat': ['Montserrat', 'sans-serif'],
-      'poppins': ['Poppins', 'Montserrat', 'sans-serif']
+      'poppins': ['Poppins', 'Montserrat', 'sans-serif'],
+      'playfair': ['"Playfair Display"', 'serif']
     }
   },
   plugins: [],

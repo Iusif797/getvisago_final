@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="flex items-center">
+      <div className="flex items-center pl-6">
         <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
       </div>
       
@@ -32,8 +32,8 @@ const Header = () => {
           toggleLanguages={toggleLanguages}
           selectLanguage={selectLanguage}
         />
-        <button className="ml-4 p-2 hover:bg-visa-gray-100 rounded-full transition-colors">
-          <FaBars size={20} className="text-visa-gray-800" />
+        <button className="ml-4 hover:bg-visa-gray-100 rounded-full transition-colors">
+          <FaBars size={32} className="text-visa-gray-800" />
         </button>
       </div>
     </header>

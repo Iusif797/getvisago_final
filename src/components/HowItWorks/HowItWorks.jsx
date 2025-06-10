@@ -51,9 +51,9 @@ const HowItWorks = () => {
   }, [current]);
 
   return (
-    <section className="w-full px-6 py-12 -mt-4 bg-visa-gray-50">
-      <div className="flex flex-col items-center mb-12">
-        <h2 className="how-it-works-title mb-8">How It Works:</h2>
+    <section className="w-full px-6 py-6 bg-visa-gray-50">
+      <div className="flex flex-col items-center mb-8">
+        <h2 className="how-it-works-title mb-6">How It Works:</h2>
         
         <div className="progress-bar">
           <div 

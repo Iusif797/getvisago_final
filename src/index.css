@@ -576,8 +576,18 @@
   }
 
   .footer-nav {
-    @apply py-3 flex justify-between items-center bg-gradient-to-r from-visa-purple to-visa-purple-feature rounded-t-xl shadow-lg w-full fixed bottom-0 left-0;
+    @apply py-3 flex justify-between items-center bg-gradient-to-r from-visa-purple to-visa-purple-feature rounded-t-xl shadow-lg w-full fixed bottom-0 left-0 transition-all duration-500;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(100%);
+    z-index: 50;
+  }
+
+  .footer-nav.visible {
+    transform: translateY(0);
+  }
+
+  .footer-nav.hidden {
+    transform: translateY(100%);
   }
 
   .nav-item {

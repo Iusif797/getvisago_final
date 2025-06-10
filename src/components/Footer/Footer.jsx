@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import visaIcon from '../../assets/icon_VISA.svg';
 import masterCardIcon from '../../assets/mastercard.svg';
 import { FaUserCircle, FaBars, FaCommentAlt, FaQuestionCircle, FaPhoneAlt } from 'react-icons/fa';
 
 const Footer = () => {
   const [activeNav, setActiveNav] = useState('account');
+  const [showNav, setShowNav] = useState(false);
   
   const handleNavClick = (navItem) => {
     setActiveNav(navItem);
   };
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      // Проверяем, достиг ли пользователь конца страницы
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      
+      // Показываем меню если пользователь прокрутил страницу на 90% или больше
+      const scrolledToBottom = scrollTop + windowHeight >= documentHeight * 0.9;
+      
+      setShowNav(scrolledToBottom);
+    };
+    
+    // Добавляем слушатель события прокрутки
+    window.addEventListener('scroll', handleScroll);
+    
+    // Вызываем функцию сразу, чтобы установить правильное состояние при загрузке
+    handleScroll();
+    
+    // Очищаем слушатель при размонтировании компонента
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   return (
     <footer className="footer-section">
@@ -26,7 +52,7 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="footer-nav">
+      <div className={`footer-nav ${showNav ? 'visible' : 'hidden'}`}>
         <div 
           className={`nav-item ${activeNav === 'account' ? 'active' : ''}`}
           onClick={() => handleNavClick('account')}

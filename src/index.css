@@ -260,46 +260,78 @@
 
   /* Стили для секции отзывов */
   .reviews-section {
-    @apply w-full py-16 bg-white;
+    @apply w-full py-10 bg-gray-100;
   }
 
   .reviews-container {
-    @apply max-w-5xl mx-auto px-6 flex flex-col items-center;
+    @apply max-w-[375px] mx-auto px-4 flex flex-col items-center;
   }
 
   .reviews-header {
-    @apply mb-12 text-center;
+    @apply mb-6 text-center;
   }
 
-  .reviews-logo {
-    @apply h-16 w-auto;
+  .reviews-title {
+    @apply text-5xl font-bold text-visa-green;
+  }
+
+  .reviews-carousel-wrapper {
+    @apply relative w-full flex items-center justify-center mb-4;
   }
 
   .reviews-carousel {
-    @apply w-full flex items-center justify-between mb-8;
+    @apply w-full max-w-[280px] px-1;
   }
 
   .arrow-button {
-    @apply p-3 flex items-center justify-center rounded-full transition-all duration-300 focus:outline-none;
+    @apply absolute p-0 flex items-center justify-center bg-visa-purple text-white shadow-md focus:outline-none z-10;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 12px;
+  }
+
+  .arrow-button.left {
+    left: -28px;
+  }
+
+  .arrow-button.right {
+    right: -28px;
   }
 
   .arrow-button:hover {
-    @apply transform scale-110;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15));
+    @apply bg-visa-purple-feature;
+  }
+
+  .arrow-button::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-style: solid;
+    border-width: 4px 4px 0 0;
+    position: relative;
+  }
+
+  .arrow-button.left::before {
+    transform: rotate(-135deg);
+    left: 3px;
+  }
+
+  .arrow-button.right::before {
+    transform: rotate(45deg);
+    right: 3px;
   }
 
   .arrow-icon {
-    @apply w-10 h-10;
-  }
-
-  .reviews-content {
-    @apply w-full max-w-2xl px-8;
+    display: none;
   }
 
   .review-card {
-    @apply bg-white p-8 rounded-xl shadow-lg text-center min-h-[280px] flex flex-col justify-between;
-    box-shadow: 0 10px 25px rgba(140, 74, 255, 0.08);
-    transition: all 0.5s ease;
+    @apply bg-white p-6 rounded-3xl shadow-lg text-center flex flex-col items-center;
+    min-height: 300px;
+    transition: all 0.3s ease;
   }
 
   .review-card.slide-left {
@@ -332,43 +364,44 @@
     }
   }
 
+  .review-author-name {
+    @apply text-[32px] font-bold mb-1 text-visa-gray-900;
+  }
+
   .stars {
-    @apply flex items-center justify-center mb-6;
+    @apply flex items-center justify-center mb-4;
   }
 
   .star {
-    @apply text-yellow-400 text-2xl mx-0.5;
+    @apply text-visa-purple text-[28px] mx-1;
   }
 
   .review-text {
-    @apply text-visa-gray-800 text-lg leading-relaxed mb-6 font-medium;
+    @apply text-visa-gray-800 text-base leading-relaxed mb-4 font-normal;
   }
 
-  .review-author {
-    @apply text-visa-purple font-bold text-xl;
+  .review-footer {
+    @apply w-full flex items-center justify-between mt-auto;
   }
 
-  .reviews-footer {
-    @apply my-8;
+  .review-date {
+    @apply text-visa-gray-800 text-sm font-medium;
   }
 
-  .google-reviews-logo {
-    @apply h-12 transition-transform duration-300;
-  }
-
-  .google-reviews-logo:hover {
-    @apply transform scale-110;
+  .review-google-logo {
+    @apply h-6 w-auto;
   }
 
   .reviews-pagination {
-    @apply flex items-center justify-center space-x-2 mt-6;
+    @apply flex items-center justify-center space-x-3 mt-4;
   }
 
   .pagination-dot {
-    @apply w-3 h-3 rounded-full bg-visa-gray-300 cursor-pointer transition-all duration-300;
+    @apply w-3 h-3 rounded-full cursor-pointer transition-all duration-300;
+    background-color: rgba(155, 93, 229, 0.3);
   }
 
   .pagination-dot.active {
-    @apply w-5 bg-visa-purple;
+    @apply bg-visa-purple;
   }
 }

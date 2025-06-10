@@ -1,42 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import reviewsLogo from '../../assets/reviews_logo.svg';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
-import googleReviews from '../../assets/google_rewiews.svg';
+import googleLogo from '../../assets/google_rewiews.svg';
 
 const Reviews = () => {
   const reviews = [
     {
       id: 1,
-      text: "GetVisago made my visa application process incredibly smooth. I was worried about all the paperwork, but their step-by-step guidance helped me complete everything correctly the first time. Highly recommended for anyone needing visa assistance!",
-      author: "Michael Thompson",
+      text: "Спасибо за помощь в подаче на визу в Индию. Не смог разобраться на официальном сайте, а тут всё просто и понятно и можно оплатить любой картой) Спасибо! А если отзыв длинный об...",
+      author: "Abdula",
+      date: "01.12.24",
       rating: 5
     },
     {
       id: 2,
-      text: "I've used several visa services before, but GetVisago stands out for their attention to detail and customer support. They were available whenever I had questions and ensured my application was submitted well before my travel date.",
-      author: "Sarah Johnson",
+      text: "I've used several visa services before, but GetVisago stands out for their attention to detail and customer support. They were available whenever I had questions.",
+      author: "Abdula",
+      date: "01.12.24",
       rating: 5
     },
     {
       id: 3,
-      text: "The refund guarantee gave me confidence to use GetVisago, but I didn't even need it! My visa was approved without any issues. Their interface is user-friendly and the process was much faster than I expected.",
-      author: "David Wilson",
+      text: "The refund guarantee gave me confidence to use GetVisago, but I didn't even need it! My visa was approved without any issues. Their interface is user-friendly.",
+      author: "Abdula",
+      date: "01.12.24",
       rating: 5
     }
   ];
 
   const [currentReview, setCurrentReview] = useState(0);
   const [animation, setAnimation] = useState('');
-
-  useEffect(() => {
-    // Автоматическое переключение отзывов каждые 8 секунд
-    const intervalId = setInterval(() => {
-      goToNext();
-    }, 8000);
-    
-    return () => clearInterval(intervalId);
-  }, [currentReview]);
 
   const goToPrevious = () => {
     setAnimation('slide-right');
@@ -58,14 +51,10 @@ const Reviews = () => {
     <section className="reviews-section">
       <div className="reviews-container">
         <div className="reviews-header">
-          <img 
-            src={reviewsLogo} 
-            alt="Reviews" 
-            className="reviews-logo" 
-          />
+          <h2 className="reviews-title">Reviews</h2>
         </div>
         
-        <div className="reviews-carousel">
+        <div className="reviews-carousel-wrapper">
           <button 
             className="arrow-button left" 
             onClick={goToPrevious}
@@ -74,15 +63,22 @@ const Reviews = () => {
             <img src={arrowLeft} alt="Previous" className="arrow-icon" />
           </button>
 
-          <div className="reviews-content">
+          <div className="reviews-carousel">
             <div className={`review-card ${animation}`}>
+              <h3 className="review-author-name">{reviews[currentReview].author}</h3>
+              
               <div className="stars">
                 {[...Array(reviews[currentReview].rating)].map((_, i) => (
                   <span key={i} className="star">★</span>
                 ))}
               </div>
-              <p className="review-text">"{reviews[currentReview].text}"</p>
-              <p className="review-author">{reviews[currentReview].author}</p>
+              
+              <p className="review-text">{reviews[currentReview].text}</p>
+              
+              <div className="review-footer">
+                <span className="review-date">{reviews[currentReview].date}</span>
+                <img src={googleLogo} alt="Google" className="review-google-logo" />
+              </div>
             </div>
           </div>
 
@@ -103,12 +99,6 @@ const Reviews = () => {
               onClick={() => setCurrentReview(index)}
             />
           ))}
-        </div>
-
-        <div className="reviews-footer">
-          <a href="https://www.google.com/maps/place/your-business" target="_blank" rel="noopener noreferrer">
-            <img src={googleReviews} alt="Google Reviews" className="google-reviews-logo" />
-          </a>
         </div>
       </div>
     </section>

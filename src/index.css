@@ -620,4 +620,9 @@
     @apply text-white scale-110;
     filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
   }
+
+  /* Стиль заголовка для секции Visas */
+  .visas-title {
+    @apply text-4xl font-bold text-visa-green text-center w-full;
+  }
 }

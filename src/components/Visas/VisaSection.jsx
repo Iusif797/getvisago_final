@@ -32,12 +32,9 @@ const VisaSection = () => {
 
   return (
     <section className="mb-12 w-full">
-      <div className="flex flex-col items-center mb-8">
-        <h2 className="section-title text-center text-gradient uppercase">
-          OUR eVISAS
-        </h2>
-        <div className="w-16 h-1 bg-visa-purple-feature rounded-full mb-4"></div>
-      </div>
+      <h2 className="visas-title mb-8">
+        OUR eVISAS:
+      </h2>
       
       <div className="flex flex-col gap-6 mb-8 w-full">
         {visas.map(visa => (

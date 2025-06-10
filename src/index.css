@@ -541,4 +541,85 @@
   .document-link {
     @apply text-sm text-black underline hover:text-visa-purple transition-colors duration-200 text-center;
   }
+
+  /* Стили для футера */
+  .footer-section {
+    @apply w-full bg-white border-t border-visa-gray-200;
+  }
+
+  .footer-container {
+    @apply max-w-[375px] mx-auto px-4 flex flex-col;
+  }
+
+  .footer-top {
+    @apply py-6 flex justify-between items-center border-b border-visa-gray-200;
+  }
+
+  .footer-info {
+    @apply flex flex-col;
+  }
+
+  .footer-address {
+    @apply text-sm text-visa-gray-800 mb-1;
+  }
+
+  .footer-copyright {
+    @apply text-xs text-visa-gray-800;
+  }
+
+  .payment-methods {
+    @apply flex space-x-2;
+  }
+
+  .payment-icon {
+    @apply h-11 w-auto;
+  }
+
+  .footer-nav {
+    @apply py-3 flex justify-between items-center bg-gradient-to-r from-visa-purple to-visa-purple-feature rounded-t-xl shadow-lg;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center cursor-pointer px-3 py-2 relative transition-all duration-300;
+    width: 20%;
+  }
+
+  .nav-icon-wrapper {
+    @apply bg-transparent flex items-center justify-center mb-1 rounded-full transition-all duration-300 p-1;
+  }
+
+  .nav-icon {
+    @apply text-white text-lg transition-all duration-300;
+  }
+
+  .nav-label {
+    @apply text-white text-xs font-medium opacity-80 transition-all duration-300;
+  }
+
+  .nav-item:hover .nav-icon {
+    @apply transform scale-110;
+  }
+
+  .nav-item:hover .nav-label {
+    @apply opacity-100;
+  }
+
+  .nav-item.active {
+    @apply relative;
+  }
+
+  .nav-item.active::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-1.5 h-1.5 bg-white rounded-full transform -translate-x-1/2 transition-all duration-300;
+  }
+
+  .nav-item.active .nav-icon {
+    @apply text-white scale-110;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
+  }
+
+  .nav-item.active .nav-label {
+    @apply opacity-100 font-semibold;
+  }
 }

@@ -8,6 +8,7 @@ import Reviews from './components/Reviews/Reviews';
 import FAQ from './components/FAQ/FAQ';
 import Contact from './components/Contact/Contact';
 import SocialMediaDocs from './components/SocialMediaDocs/SocialMediaDocs';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <FAQ />
         <Contact />
         <SocialMediaDocs />
+        <Footer />
       </div>
     </div>
   );

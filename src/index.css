@@ -463,4 +463,41 @@
   .faq-item.open {
     @apply bg-white;
   }
+
+  /* Стили для секции Contact */
+  .contact-section {
+    @apply w-full py-10 bg-white;
+  }
+
+  .contact-container {
+    @apply max-w-[375px] mx-auto px-4 flex flex-col items-center;
+  }
+
+  .contact-logo {
+    @apply mb-4;
+  }
+
+  .contact-logo-img {
+    @apply h-5 w-auto;
+  }
+
+  .contact-title {
+    @apply text-4xl font-bold text-visa-green mb-6 text-center;
+  }
+
+  .contact-buttons {
+    @apply w-full flex flex-col items-center space-y-4;
+  }
+
+  .contact-button {
+    @apply w-full flex justify-center items-center cursor-pointer transition-transform duration-200;
+  }
+
+  .contact-button:hover {
+    @apply transform scale-105;
+  }
+
+  .contact-button-img {
+    @apply w-full max-w-[320px];
+  }
 }

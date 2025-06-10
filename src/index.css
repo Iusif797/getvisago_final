@@ -415,7 +415,7 @@
   }
 
   .faq-title {
-    @apply text-5xl font-bold text-visa-green mb-6;
+    @apply text-5xl font-bold text-visa-green mb-6 text-center;
   }
 
   .faq-questions {

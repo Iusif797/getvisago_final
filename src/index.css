@@ -131,8 +131,9 @@
   }
   
   .how-it-works-title {
-    @apply text-4xl font-bold text-center bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
+    @apply text-3xl font-bold text-visa-green text-center;
     position: relative;
+    letter-spacing: -0.025em;
   }
   
   .how-it-works-step-title {
@@ -628,6 +629,13 @@
 
   /* Стиль заголовка для секции Why Choose Us */
   .why-choose-us-title {
-    @apply text-4xl font-bold text-visa-green text-center w-full;
+    @apply text-3xl font-bold text-visa-green text-center w-full;
+    letter-spacing: -0.025em;
   }
+}
+
+/* Переопределяем стили для заголовков Why Choose Us и How It Works */
+.why-choose-us-title, .how-it-works-title {
+  @apply text-3xl font-bold text-visa-green text-center;
+  letter-spacing: -0.025em;
 }

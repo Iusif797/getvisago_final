@@ -7,7 +7,7 @@ import naushniki from '../../assets/naushniki.svg';
 const WhyChooseUs = () => {
   return (
     <section className="why-choose-us-section">
-      <h2>Why Choose Us</h2>
+      <h2 className="why-choose-us-title mb-8">Why Choose Us:</h2>
       
       <div className="flex flex-col">
         {/* Fast Processing - фиолетовый блок с иконкой справа */}

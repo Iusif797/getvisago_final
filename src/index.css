@@ -625,4 +625,9 @@
   .visas-title {
     @apply text-4xl font-bold text-visa-green text-center w-full;
   }
+
+  /* Стиль заголовка для секции Why Choose Us */
+  .why-choose-us-title {
+    @apply text-4xl font-bold text-visa-green text-center w-full;
+  }
 }

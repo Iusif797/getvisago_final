@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="flex items-center pl-6">
+      <div className="flex items-center pl-3">
         <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
       </div>
       

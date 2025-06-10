@@ -7,6 +7,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Reviews from './components/Reviews/Reviews';
 import FAQ from './components/FAQ/FAQ';
 import Contact from './components/Contact/Contact';
+import SocialMediaDocs from './components/SocialMediaDocs/SocialMediaDocs';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Reviews />
         <FAQ />
         <Contact />
+        <SocialMediaDocs />
       </div>
     </div>
   );

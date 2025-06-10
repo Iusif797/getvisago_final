@@ -60,12 +60,12 @@
   }
 
   .why-choose-us-section h2 {
-    @apply text-5xl font-extrabold text-center bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent mb-10 animate-fade-in-up tracking-tight;
+    @apply text-4xl font-bold text-center bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent mb-6 animate-fade-in-up tracking-tight;
     letter-spacing: -0.025em;
   }
 
   .feature-card {
-    @apply flex items-center rounded-full shadow-feature h-20 mb-6 relative overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-feature-hover cursor-pointer w-full;
+    @apply flex items-center rounded-full shadow-feature h-16 mb-5 relative overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-feature-hover cursor-pointer w-full;
   }
 
   .feature-card.purple {
@@ -109,7 +109,7 @@
   }
 
   .feature-text {
-    @apply text-white font-bold text-2xl w-full text-center transition-all duration-300 tracking-wide;
+    @apply text-white font-bold text-xl w-full text-center transition-all duration-300 tracking-wide;
     letter-spacing: 0.02em;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   }
@@ -120,7 +120,7 @@
    
   /* Стили для блока How It Works */
   .how-it-works-circle {
-    @apply relative w-64 h-64 bg-visa-purple-feature rounded-full flex items-center justify-center shadow-xl transition-transform duration-500 hover:scale-105;
+    @apply relative w-48 h-48 bg-visa-purple-feature rounded-full flex items-center justify-center shadow-xl transition-transform duration-500 hover:scale-105;
     box-shadow: 0 10px 30px rgba(155, 93, 229, 0.25), inset 0 -2px 6px rgba(0, 0, 0, 0.1);
   }
   
@@ -131,12 +131,12 @@
   }
   
   .how-it-works-title {
-    @apply text-6xl font-bold text-center bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
+    @apply text-4xl font-bold text-center bg-gradient-to-r from-visa-green to-visa-purple bg-clip-text text-transparent;
     position: relative;
   }
   
   .how-it-works-step-title {
-    @apply text-3xl sm:text-4xl font-bold text-visa-gray-900 mb-4 text-center;
+    @apply text-2xl font-bold text-visa-gray-900 mb-3 text-center;
   }
   
   .nav-button {
@@ -231,7 +231,7 @@
   }
   
   .about-us-title {
-    @apply text-white text-4xl font-bold leading-tight mb-8;
+    @apply text-white text-3xl font-bold leading-tight mb-6;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
@@ -272,7 +272,7 @@
   }
 
   .reviews-title {
-    @apply text-5xl font-bold text-visa-green;
+    @apply text-4xl font-bold text-visa-green;
   }
 
   .reviews-carousel-wrapper {
@@ -365,7 +365,7 @@
   }
 
   .review-author-name {
-    @apply text-[32px] font-bold mb-1 text-visa-gray-900;
+    @apply text-2xl font-bold mb-1 text-visa-gray-900;
   }
 
   .stars {
@@ -373,7 +373,7 @@
   }
 
   .star {
-    @apply text-visa-purple text-[28px] mx-1;
+    @apply text-visa-purple text-xl mx-1;
   }
 
   .review-text {
@@ -415,7 +415,7 @@
   }
 
   .faq-title {
-    @apply text-5xl font-bold text-visa-green mb-6 text-center;
+    @apply text-4xl font-bold text-visa-green mb-6 text-center;
   }
 
   .faq-questions {

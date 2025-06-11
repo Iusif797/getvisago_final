@@ -3,8 +3,19 @@ import molnia from '../../assets/molnia.svg';
 import money from '../../assets/money.svg';
 import todo from '../../assets/todo.svg';
 import naushniki from '../../assets/naushniki.svg';
+import useWindowSize from '../../hooks/useWindowSize';
+import DesktopWhyChooseUs from './DesktopWhyChooseUs';
 
 const WhyChooseUs = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
+
+  // Десктопная версия
+  if (isDesktop) {
+    return <DesktopWhyChooseUs />;
+  }
+
+  // Мобильная версия
   return (
     <section className="why-choose-us-section">
       <h2 className="why-choose-us-title mb-8">Why Choose Us:</h2>

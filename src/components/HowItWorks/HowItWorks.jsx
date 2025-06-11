@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight, FaBolt, FaClipboardList, FaMoneyBillWave, FaHeadset } from 'react-icons/fa';
+import useWindowSize from '../../hooks/useWindowSize';
+import DesktopHowItWorks from './DesktopHowItWorks';
 
 const steps = [
   {
@@ -25,6 +27,10 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
+  
+  // Инициализация хуков до условного рендеринга
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -49,7 +55,13 @@ const HowItWorks = () => {
     
     return () => clearTimeout(timer);
   }, [current]);
-
+  
+  // Если десктоп, рендерим DesktopHowItWorks
+  if (isDesktop) {
+    return <DesktopHowItWorks />;
+  }
+  
+  // Мобильная версия
   return (
     <section className="w-full px-6 py-6 bg-visa-gray-50">
       <div className="flex flex-col items-center mb-8">

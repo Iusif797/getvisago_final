@@ -1,7 +1,6 @@
 import React from 'react';
 import firstBanner from '../../assets/first-banner.png';
 import CTAButtons from './CTAButtons';
-import VisaSection from '../Visas/VisaSection';
 
 const Hero = () => {
   return (
@@ -19,8 +18,6 @@ const Hero = () => {
       </div>
 
       <CTAButtons />
-      
-      <VisaSection />
     </main>
   );
 };

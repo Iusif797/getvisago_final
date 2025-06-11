@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VisaCard from './VisaCard';
 import { FaChevronDown } from 'react-icons/fa';
 import visaUAE from '../../assets/Visa_Title.png';
 import visaSaudiArabia from '../../assets/Visa_Title2.png';
 import visaRussia from '../../assets/Visa_Title3.png';
+import useWindowSize from '../../hooks/useWindowSize';
+import DesktopVisaSection from './DesktopVisaSection';
 
 const VisaSection = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
+
   const visas = [
     {
       id: 1,
       image: visaUAE,
+      country: 'UAE',
       title: 'Tourist Visa',
       days: 30,
       price: 50
@@ -17,6 +23,7 @@ const VisaSection = () => {
     {
       id: 2,
       image: visaSaudiArabia,
+      country: 'Saudi Arabia',
       title: 'Tourist Visa',
       days: 30,
       price: 50
@@ -24,11 +31,17 @@ const VisaSection = () => {
     {
       id: 3,
       image: visaRussia,
+      country: 'Russian Federation',
+      subTitle: 'Underground',
       title: 'Tourist Visa',
       days: 30,
       price: 50
     }
   ];
+
+  if (isDesktop) {
+    return <DesktopVisaSection visas={visas} />;
+  }
 
   return (
     <section className="mb-12 w-full">

@@ -1,33 +1,59 @@
 import React from 'react';
-import facebookLogo from '../../assets/facebook_logo.svg';
-import twitterLogo from '../../assets/twitter_logo.svg';
-import instagramLogo from '../../assets/instagram_logo.svg';
+import { FaFacebook, FaTwitter, FaInstagram, FaCcVisa, FaCcMastercard } from 'react-icons/fa';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const SocialMediaDocs = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
+
+  // Компонент скрыт на десктопе, так как эта информация отображается в компоненте Contact
+  if (isDesktop) {
+    return null;
+  }
+
   return (
-    <section className="social-docs-section">
-      <div className="social-docs-container">
-        <div className="social-media-block">
-          <h2 className="social-media-title">Social media</h2>
-          <div className="social-media-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon-link">
-              <img src={facebookLogo} alt="Facebook" className="social-icon" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon-link">
-              <img src={twitterLogo} alt="Twitter" className="social-icon" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon-link">
-              <img src={instagramLogo} alt="Instagram" className="social-icon" />
-            </a>
+    <section className="w-full py-8 bg-white">
+      <div className="w-full max-w-[1400px] mx-auto px-4 flex flex-col items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-md">
+          <div className="flex flex-col items-center">
+            <h2 className="text-emerald-500 text-2xl font-bold mb-4">Documents</h2>
+            <div className="flex flex-col space-y-3 items-center">
+              <a href="#document1" className="text-gray-700 hover:text-violet-600">
+                My document 1
+              </a>
+              <a href="#document2" className="text-gray-700 hover:text-violet-600">
+                My document 123
+              </a>
+              <a href="#document3" className="text-gray-700 hover:text-violet-600">
+                Your document 6
+              </a>
+            </div>
+          </div>
+          
+          <div className="flex flex-col items-center">
+            <h2 className="text-emerald-500 text-2xl font-bold mb-4">Social media</h2>
+            <div className="flex space-x-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 hover:bg-violet-200 transition-all duration-300">
+                <FaFacebook size={20} />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 hover:bg-violet-200 transition-all duration-300">
+                <FaTwitter size={20} />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-violet-100 flex items-center justify-center text-violet-600 hover:bg-violet-200 transition-all duration-300">
+                <FaInstagram size={20} />
+              </a>
+            </div>
           </div>
         </div>
         
-        <div className="documents-block">
-          <h2 className="documents-title">Documents</h2>
-          <div className="documents-links">
-            <a href="#document1" className="document-link">My document 1</a>
-            <a href="#document2" className="document-link">My document 123</a>
-            <a href="#document3" className="document-link">Your document 6</a>
+        <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col items-center w-full max-w-md">
+          <div className="flex items-center space-x-8 justify-center mb-4">
+            <FaCcVisa size={48} className="text-blue-700" />
+            <FaCcMastercard size={48} className="text-red-500" />
+          </div>
+          
+          <div className="text-sm text-gray-500 text-center">
+            <p>© 2023 GETVISAGO</p>
           </div>
         </div>
       </div>

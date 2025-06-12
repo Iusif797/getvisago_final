@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import visaIcon from '../../assets/icon_VISA.svg';
-import masterCardIcon from '../../assets/mastercard.svg';
 import { FaUserCircle, FaBars, FaCommentAlt, FaQuestionCircle, FaPhoneAlt } from 'react-icons/fa';
+import useWindowSize from '../../hooks/useWindowSize';
+import visaLogo from '../../assets/visa-logo.png';
+import mastercardLogo from '../../assets/mastercard-logo.png';
 
 const Footer = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
   const [activeNav, setActiveNav] = useState('account');
   const [showNav, setShowNav] = useState(false);
   
@@ -12,6 +15,8 @@ const Footer = () => {
   };
   
   useEffect(() => {
+    if (isDesktop) return; // Не применяем эту логику для десктопа
+    
     const handleScroll = () => {
       // Проверяем, достиг ли пользователь конца страницы
       const windowHeight = window.innerHeight;
@@ -34,68 +39,57 @@ const Footer = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isDesktop]);
   
+  // Десктопная версия футера не нужна, так как информация уже отображается в Contact и SocialMediaDocs
+  if (isDesktop) {
+    return null;
+  }
+  
+  // Мобильная версия
   return (
-    <footer className="footer-section">
-      <div className="footer-container">
-        <div className="footer-top">
-          <div className="footer-info">
-            <p className="footer-address">Adress. Vsya huynya</p>
-            <p className="footer-copyright">© 2025 GOVISAGO</p>
-          </div>
+    <footer className="w-full">
+      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50 border-t border-gray-200">
+        <div className={`flex justify-around items-center py-3 px-4 ${showNav ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
+          <button 
+            className={`flex flex-col items-center ${activeNav === 'account' ? 'text-violet-600' : 'text-gray-500'}`}
+            onClick={() => handleNavClick('account')}
+          >
+            <FaUserCircle className="text-2xl mb-1" />
+            <span className="text-xs">Account</span>
+          </button>
           
-          <div className="payment-methods">
-            <img src={visaIcon} alt="Visa" className="payment-icon" />
-            <img src={masterCardIcon} alt="MasterCard" className="payment-icon" />
-          </div>
-        </div>
-      </div>
-      
-      <div className={`footer-nav ${showNav ? 'visible' : 'hidden'}`}>
-        <div 
-          className={`nav-item ${activeNav === 'account' ? 'active' : ''}`}
-          onClick={() => handleNavClick('account')}
-        >
-          <div className="nav-icon-wrapper">
-            <FaUserCircle className="nav-icon" />
-          </div>
-        </div>
-        
-        <div 
-          className={`nav-item ${activeNav === 'menu' ? 'active' : ''}`}
-          onClick={() => handleNavClick('menu')}
-        >
-          <div className="nav-icon-wrapper">
-            <FaBars className="nav-icon" />
-          </div>
-        </div>
-        
-        <div 
-          className={`nav-item ${activeNav === 'chat' ? 'active' : ''}`}
-          onClick={() => handleNavClick('chat')}
-        >
-          <div className="nav-icon-wrapper">
-            <FaCommentAlt className="nav-icon" />
-          </div>
-        </div>
-        
-        <div 
-          className={`nav-item ${activeNav === 'help' ? 'active' : ''}`}
-          onClick={() => handleNavClick('help')}
-        >
-          <div className="nav-icon-wrapper">
-            <FaQuestionCircle className="nav-icon" />
-          </div>
-        </div>
-        
-        <div 
-          className={`nav-item ${activeNav === 'call' ? 'active' : ''}`}
-          onClick={() => handleNavClick('call')}
-        >
-          <div className="nav-icon-wrapper">
-            <FaPhoneAlt className="nav-icon" />
-          </div>
+          <button 
+            className={`flex flex-col items-center ${activeNav === 'menu' ? 'text-violet-600' : 'text-gray-500'}`}
+            onClick={() => handleNavClick('menu')}
+          >
+            <FaBars className="text-2xl mb-1" />
+            <span className="text-xs">Menu</span>
+          </button>
+          
+          <button 
+            className={`flex flex-col items-center ${activeNav === 'chat' ? 'text-violet-600' : 'text-gray-500'}`}
+            onClick={() => handleNavClick('chat')}
+          >
+            <FaCommentAlt className="text-2xl mb-1" />
+            <span className="text-xs">Chat</span>
+          </button>
+          
+          <button 
+            className={`flex flex-col items-center ${activeNav === 'help' ? 'text-violet-600' : 'text-gray-500'}`}
+            onClick={() => handleNavClick('help')}
+          >
+            <FaQuestionCircle className="text-2xl mb-1" />
+            <span className="text-xs">Help</span>
+          </button>
+          
+          <button 
+            className={`flex flex-col items-center ${activeNav === 'call' ? 'text-violet-600' : 'text-gray-500'}`}
+            onClick={() => handleNavClick('call')}
+          >
+            <FaPhoneAlt className="text-2xl mb-1" />
+            <span className="text-xs">Call</span>
+          </button>
         </div>
       </div>
     </footer>

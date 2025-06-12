@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import DesktopReviews from './DesktopReviews';
-import MobileReviews from './MobileReviews';
+import DesktopAboutUsBanner from './DesktopAboutUsBanner';
+import MobileAboutUsBanner from './MobileAboutUsBanner';
 
-const Reviews = () => {
+const AboutUsBanner = () => {
   const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
@@ -18,7 +18,7 @@ const Reviews = () => {
     };
   }, []);
 
-  return isMobile ? <MobileReviews /> : <DesktopReviews />;
+  return isMobile ? <MobileAboutUsBanner /> : <DesktopAboutUsBanner />;
 };
 
-export default Reviews; 
+export default AboutUsBanner; 

@@ -2,8 +2,17 @@ import React from 'react';
 import firstBanner from '../../assets/first-banner.png';
 import CTAButtons from './CTAButtons';
 import VisaSection from '../Visas/VisaSection';
+import DesktopHero from './DesktopHero';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const Hero = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
+
+  if (isDesktop) {
+    return <DesktopHero />;
+  }
+
   return (
     <main className="hero-container">
       <h1 className="hero-title">

@@ -4,8 +4,12 @@ import indiaFlag from '../../assets/flag_india.svg';
 import logoGetVisago from '../../assets/logo_getvisago.svg';
 import LanguageSelector from './LanguageSelector';
 import { FaBars } from 'react-icons/fa';
+import DesktopHeader from './DesktopHeader';
+import useWindowSize from '../../hooks/useWindowSize';
 
 const Header = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
   const [showLanguages, setShowLanguages] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('en');
 
@@ -18,6 +22,10 @@ const Header = () => {
     setCurrentLanguage(lang);
     setShowLanguages(false);
   };
+
+  if (isDesktop) {
+    return <DesktopHeader />;
+  }
 
   return (
     <header className="header">

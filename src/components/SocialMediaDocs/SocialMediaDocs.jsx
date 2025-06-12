@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaCcVisa, FaCcMastercard } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaCcVisa } from 'react-icons/fa';
 import useWindowSize from '../../hooks/useWindowSize';
+import mastercardSvg from '../../assets/mastercard.svg';
 
 const SocialMediaDocs = () => {
   const { width } = useWindowSize();
@@ -49,7 +50,7 @@ const SocialMediaDocs = () => {
         <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col items-center w-full max-w-md">
           <div className="flex items-center space-x-8 justify-center mb-4">
             <FaCcVisa size={48} className="text-blue-700" />
-            <FaCcMastercard size={48} className="text-red-500" />
+            <img src={mastercardSvg} alt="MasterCard" className="h-[48px]" />
           </div>
           
           <div className="text-sm text-gray-500 text-center">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaPhone, FaEnvelope, FaComments, FaFacebook, FaTwitter, FaInstagram, FaCcVisa, FaCcMastercard } from 'react-icons/fa';
 import useWindowSize from '../../hooks/useWindowSize';
+import mastercardSvg from '../../assets/mastercard.svg';
 
 const Contact = () => {
   const { width } = useWindowSize();
@@ -130,7 +131,7 @@ const Contact = () => {
           </div>
           <div className="flex items-center space-x-8 justify-center">
             <FaCcVisa size={60} className="text-blue-700" />
-            <FaCcMastercard size={60} className="text-red-500" />
+            <img src={mastercardSvg} alt="MasterCard" className="h-[60px]" />
           </div>
         </div>
       </div>

@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight, FaBolt, FaClipboardList, FaMoneyBillWave, FaHeadset } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaWpforms, FaCreditCard, FaCheckCircle, FaPassport } from 'react-icons/fa';
 
 const steps = [
   {
-    title: "Fast Processing",
-    description: "We've made the form super simple to ensure a smooth and stress-free experience.",
-    icon: <FaBolt className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
+    title: "Fill Application",
+    description: "Complete our simple online application form with your details.",
+    icon: <FaWpforms className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
   },
   {
-    title: "Simple Application",
-    description: "Apply in minutes with our easy-to-use application process.",
-    icon: <FaClipboardList className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
+    title: "Make Payment",
+    description: "Pay securely using your preferred payment method.",
+    icon: <FaCreditCard className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
   },
   {
-    title: "Refund Guarantee",
-    description: "Get your money back if you don't get your visa as promised.",
-    icon: <FaMoneyBillWave className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
+    title: "Verification",
+    description: "Our team verifies your information and processes your application.",
+    icon: <FaCheckCircle className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
   },
   {
-    title: "Customer Support",
-    description: "We're here 24/7 to help you with any questions or concerns.",
-    icon: <FaHeadset className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
+    title: "Get eVisa",
+    description: "Receive your eVisa directly to your email within 24-72 hours.",
+    icon: <FaPassport className="text-[#7C3AED] text-4xl group-hover:text-5xl transition-all duration-300" />,
   },
 ];
 
 const DesktopHowItWorks = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
   const totalPages = Math.ceil(steps.length / itemsPerPage);
   
   const prev = () => {
@@ -68,28 +68,15 @@ const DesktopHowItWorks = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-3 gap-8">
-          {currentItems().map((step, index) => (
+        <div className="grid grid-cols-4 gap-6">
+          {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center group">
-              <div className="w-48 h-48 bg-[#C4B5FD] rounded-full flex items-center justify-center mb-6 shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:bg-[#DDD6FE]">
+              <div className="w-40 h-40 bg-[#C4B5FD] rounded-full flex items-center justify-center mb-6 shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:bg-[#DDD6FE]">
                 {step.icon}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
               <p className="text-base text-gray-700 text-center max-w-xs">{step.description}</p>
             </div>
-          ))}
-        </div>
-        
-        <div className="flex justify-center mt-12 space-x-2">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentPage === index ? 'bg-[#7C3AED] transform scale-125' : 'bg-[#DDD6FE]'
-              }`}
-              aria-label={`Go to page ${index + 1}`}
-            />
           ))}
         </div>
       </div>

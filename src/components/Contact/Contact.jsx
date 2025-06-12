@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaPhone, FaEnvelope, FaComments, FaFacebook, FaTwitter, FaInstagram, FaCcVisa, FaCcMastercard } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaComments, FaFacebook, FaTwitter, FaInstagram, FaCcVisa } from 'react-icons/fa';
 import useWindowSize from '../../hooks/useWindowSize';
 import mastercardSvg from '../../assets/mastercard.svg';
 
@@ -131,7 +131,9 @@ const Contact = () => {
           </div>
           <div className="flex items-center space-x-8 justify-center">
             <FaCcVisa size={60} className="text-blue-700" />
-            <img src={mastercardSvg} alt="MasterCard" className="h-[60px]" />
+            <div className="w-[60px] h-[60px] flex items-center justify-center">
+              <img src={mastercardSvg} alt="MasterCard" className="w-full h-full" />
+            </div>
           </div>
         </div>
       </div>

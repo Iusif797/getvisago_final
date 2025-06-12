@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight, FaBolt, FaClipboardList, FaMoneyBillWave, FaHeadset } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaWpforms, FaCreditCard, FaCheckCircle, FaPassport } from 'react-icons/fa';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopHowItWorks from './DesktopHowItWorks';
 
 const steps = [
   {
-    title: "Fast Processing",
-    description: "We've made the form super simple to ensure a smooth and stress-free experience.",
-    icon: <FaBolt className="text-visa-green text-7xl" />,
+    title: "Fill Application",
+    description: "Complete our simple online application form with your details.",
+    icon: <FaWpforms className="text-visa-green text-7xl" />,
   },
   {
-    title: "Simple Application",
-    description: "Apply in minutes with our easy-to-use application process.",
-    icon: <FaClipboardList className="text-visa-green text-7xl" />,
+    title: "Make Payment",
+    description: "Pay securely using your preferred payment method.",
+    icon: <FaCreditCard className="text-visa-green text-7xl" />,
   },
   {
-    title: "Refund Guarantee",
-    description: "Get your money back if you don't get your visa as promised.",
-    icon: <FaMoneyBillWave className="text-visa-green text-7xl" />,
+    title: "Verification",
+    description: "Our team verifies your information and processes your application.",
+    icon: <FaCheckCircle className="text-visa-green text-7xl" />,
   },
   {
-    title: "Customer Support",
-    description: "We're here 24/7 to help you with any questions or concerns.",
-    icon: <FaHeadset className="text-visa-green text-7xl" />,
+    title: "Get eVisa",
+    description: "Receive your eVisa directly to your email within 24-72 hours.",
+    icon: <FaPassport className="text-visa-green text-7xl" />,
   },
 ];
 

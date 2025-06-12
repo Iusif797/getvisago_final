@@ -1,7 +1,6 @@
 import React from 'react';
 import firstBanner from '../../assets/first-banner.png';
 import CTAButtons from './CTAButtons';
-import VisaSection from '../Visas/VisaSection';
 import DesktopHero from './DesktopHero';
 import useWindowSize from '../../hooks/useWindowSize';
 
@@ -28,8 +27,6 @@ const Hero = () => {
       </div>
 
       <CTAButtons />
-      
-      <VisaSection />
     </main>
   );
 };

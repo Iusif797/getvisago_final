@@ -10,8 +10,12 @@ import FAQ from './components/FAQ/FAQ';
 import Contact from './components/Contact/Contact';
 import SocialMediaDocs from './components/SocialMediaDocs/SocialMediaDocs';
 import Footer from './components/Footer/Footer';
+import useWindowSize from './hooks/useWindowSize';
 
 function App() {
+  const { width } = useWindowSize();
+  const isMobile = width < 1024;
+
   return (
     <div className="App">
       <Header />
@@ -23,7 +27,7 @@ function App() {
       <Reviews />
       <FAQ />
       <Contact />
-      <SocialMediaDocs />
+      {isMobile && <SocialMediaDocs />}
       <Footer />
     </div>
   );

@@ -50,7 +50,9 @@ const SocialMediaDocs = () => {
         <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col items-center w-full max-w-md">
           <div className="flex items-center space-x-8 justify-center mb-4">
             <FaCcVisa size={48} className="text-blue-700" />
-            <img src={mastercardSvg} alt="MasterCard" className="h-[48px]" />
+            <div className="w-[48px] h-[48px] flex items-center justify-center">
+              <img src={mastercardSvg} alt="MasterCard" className="w-full h-full" />
+            </div>
           </div>
           
           <div className="text-sm text-gray-500 text-center">

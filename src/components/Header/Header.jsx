@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ukFlag from '../../assets/uk-flag.svg';
 import indiaFlag from '../../assets/flag_india.svg';
 import logoGetVisago from '../../assets/logo_getvisago.svg';
@@ -30,7 +31,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="flex items-center pl-3">
-        <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
+        <Link to="/">
+          <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
+        </Link>
       </div>
       
       <div className="flex items-center">

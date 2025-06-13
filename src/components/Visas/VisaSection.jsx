@@ -57,7 +57,6 @@ const VisaSection = () => {
             title={visa.title}
             days={visa.days}
             price={visa.price}
-            country={visa.country}
           />
         ))}
       </div>

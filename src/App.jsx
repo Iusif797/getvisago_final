@@ -7,16 +7,17 @@ import SaudiArabiaVisa from './pages/SaudiArabiaVisa';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/visa/saudi-arabia" element={<SaudiArabiaVisa />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/visa/saudi-arabia" element={<SaudiArabiaVisa />} />
+        <Route path="/visa-status" element={<Home />} />
+        <Route path="/contacts" element={<Home />} />
+        <Route path="/get-visa" element={<Home />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

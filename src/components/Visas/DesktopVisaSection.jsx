@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 
 const DesktopVisaSection = ({ visas }) => {
   const [showAllCountries, setShowAllCountries] = useState(false);
-
-  // Функция для определения URL в зависимости от страны
-  const getVisaUrl = (country) => {
-    if (country === 'Saudi Arabia') {
-      return '/visa/saudi-arabia';
-    }
-    return '/'; // По умолчанию - главная страница
-  };
 
   return (
     <section className="w-full py-12 bg-gray-50">
@@ -37,15 +28,13 @@ const DesktopVisaSection = ({ visas }) => {
               className="rounded-2xl overflow-hidden shadow-[0px_4px_16px_rgba(0,0,0,0.05)] bg-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg"
             >
               {/* Изображение */}
-              <Link to={getVisaUrl(visa.country)}>
-                <div className="relative w-full overflow-hidden">
-                  <img 
-                    src={visa.image} 
-                    alt={`${visa.country} Visa`} 
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              </Link>
+              <div className="relative w-full overflow-hidden">
+                <img 
+                  src={visa.image} 
+                  alt={`${visa.country} Visa`} 
+                  className="w-full h-auto object-contain"
+                />
+              </div>
               
               {/* Информация о визе */}
               <div className="p-6 text-center">
@@ -55,12 +44,9 @@ const DesktopVisaSection = ({ visas }) => {
                 <p className="text-gray-800 text-base mb-4">
                   {visa.days} Days, {visa.price}$
                 </p>
-                <Link 
-                  to={getVisaUrl(visa.country)}
-                  className="block w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08]"
-                >
+                <button className="w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08]">
                   BUY NOW
-                </Link>
+                </button>
               </div>
             </div>
           ))}

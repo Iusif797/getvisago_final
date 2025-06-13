@@ -1,35 +1,22 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import AboutUs from './components/AboutUs/AboutUs';
-import HowItWorks from './components/HowItWorks/HowItWorks';
-import Visas from './components/Visas/Visas';
-import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
-import Reviews from './components/Reviews/Reviews';
-import FAQ from './components/FAQ/FAQ';
-import Contact from './components/Contact/Contact';
-import SocialMediaDocs from './components/SocialMediaDocs/SocialMediaDocs';
 import Footer from './components/Footer/Footer';
-import useWindowSize from './hooks/useWindowSize';
+import Home from './pages/Home';
+import SaudiArabiaVisa from './pages/SaudiArabiaVisa';
 
 function App() {
-  const { width } = useWindowSize();
-  const isMobile = width < 1024;
-
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <AboutUs />
-      <HowItWorks />
-      <Visas />
-      <WhyChooseUs />
-      <Reviews />
-      <FAQ />
-      <Contact />
-      {isMobile && <SocialMediaDocs />}
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/visa/saudi-arabia" element={<SaudiArabiaVisa />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

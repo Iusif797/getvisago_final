@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import saudiArabia from '../assets/saudi-arabia.png';
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
+import Reviews from '../components/Reviews/Reviews';
+import FAQ from '../components/FAQ/FAQ';
+import Contact from '../components/Contact/Contact';
+import SocialMediaDocs from '../components/SocialMediaDocs/SocialMediaDocs';
 
 const SaudiArabiaVisa = () => {
   const { width } = useWindowSize();
@@ -88,10 +93,10 @@ const SaudiArabiaVisa = () => {
                   Obtaining an official visa to Saudi Arabia online in a matter of minutes—without visiting the embassy and unnecessary bureaucracy. 24/7 support and guaranteed results will make your journey smooth.
                 </p>
                 
-                <button className="bg-[#7950ED] text-white py-4 px-12 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-[#6A40E3] flex items-center justify-center gap-2">
+                <Link to="/get-visa" className="bg-[#7950ED] text-white py-4 px-12 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-[#6A40E3] flex items-center justify-center gap-2">
                   GET VISA
                   <FaCreditCard size={20} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -133,10 +138,10 @@ const SaudiArabiaVisa = () => {
               Obtaining an official visa to Saudi Arabia online in a matter of minutes—without visiting the embassy and unnecessary bureaucracy. 24/7 support and guaranteed results will make your journey smooth.
             </p>
             
-            <button className="w-full bg-[#7950ED] text-white py-3 px-6 rounded-full font-bold text-base shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#6A40E3] flex items-center justify-center gap-2">
+            <Link to="/get-visa" className="w-full bg-[#7950ED] text-white py-3 px-6 rounded-full font-bold text-base shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#6A40E3] flex items-center justify-center gap-2">
               GET VISA
               <FaCreditCard size={18} />
-            </button>
+            </Link>
           </div>
         </div>
       )}
@@ -170,9 +175,9 @@ const SaudiArabiaVisa = () => {
                   </div>
                 </div>
                 
-                <button className="w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300">
+                <Link to="/get-visa" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
                   BUY NOW
-                </button>
+                </Link>
               </div>
             </div>
             
@@ -197,9 +202,9 @@ const SaudiArabiaVisa = () => {
                   </div>
                 </div>
                 
-                <button className="w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300">
+                <Link to="/get-visa" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
                   BUY NOW
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -316,6 +321,18 @@ const SaudiArabiaVisa = () => {
           </div>
         </div>
       </div>
+
+      {/* Reviews Section */}
+      <Reviews />
+
+      {/* FAQ Section */}
+      <FAQ />
+
+      {/* Contact Section (Desktop Footer) */}
+      <Contact />
+
+      {/* SocialMediaDocs for Mobile */}
+      <SocialMediaDocs />
     </div>
   );
 };

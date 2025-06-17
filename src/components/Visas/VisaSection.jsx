@@ -55,6 +55,7 @@ const VisaSection = () => {
             key={visa.id}
             image={visa.image}
             title={visa.title}
+            country={visa.country}
             days={visa.days}
             price={visa.price}
           />

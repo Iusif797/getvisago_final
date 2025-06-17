@@ -39,7 +39,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full py-10 bg-gray-50">
+    <section id="faq" className="w-full py-10 bg-gray-50">
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col items-center">
         <h2 className="text-emerald-500 text-4xl font-bold mb-8 text-center">FAQ</h2>
         

@@ -14,6 +14,10 @@ const Footer = () => {
     setActiveNav(navItem);
   };
   
+  // Временно отключаем мобильное меню на всех страницах
+  return null;
+  
+  /* Закомментировано для временного отключения мобильного меню
   useEffect(() => {
     if (isDesktop) return; // Не применяем эту логику для десктопа
     
@@ -94,6 +98,7 @@ const Footer = () => {
       </div>
     </footer>
   );
+  */
 };
 
 export default Footer; 

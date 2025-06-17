@@ -10,7 +10,7 @@ const Contact = () => {
   // Мобильная версия
   if (!isDesktop) {
     return (
-      <section className="w-full py-10 bg-gradient-to-b from-gray-50 to-white">
+      <section id="contacts" className="w-full py-10 bg-gradient-to-b from-gray-50 to-white">
         <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col items-center">
           <div className="mb-6 text-center">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-emerald-500 bg-clip-text text-transparent">
@@ -67,7 +67,7 @@ const Contact = () => {
 
   // Десктопная версия
   return (
-    <section className="w-full py-16 bg-white">
+    <section id="contacts" className="w-full py-16 bg-white">
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
         <div className="flex justify-center">
           <div className="grid grid-cols-3 gap-16 w-full max-w-4xl">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ukFlag from '../../assets/uk-flag.svg';
 import indianFlag from '../../assets/flag_india.svg';
 import { FaIdCard } from 'react-icons/fa';
@@ -16,38 +17,63 @@ const DesktopHeader = () => {
     setShowLanguageDropdown(false);
   };
 
+  // Обработчик для скролла к FAQ
+  const handleFAQClick = (e) => {
+    e.preventDefault();
+    const faqElement = document.getElementById('faq');
+    if (faqElement) {
+      faqElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Если элемент не найден на текущей странице, перенаправляем на главную с якорем
+      window.location.href = '/#faq';
+    }
+  };
+
+  // Обработчик для скролла к Contacts
+  const handleContactsClick = (e) => {
+    e.preventDefault();
+    const contactsElement = document.getElementById('contacts');
+    if (contactsElement) {
+      contactsElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Если элемент не найден на текущей странице, перенаправляем на главную с якорем
+      window.location.href = '/#contacts';
+    }
+  };
+
   return (
     <header className="flex w-full bg-white shadow-md sticky top-0 z-50">
       <div className="w-full flex justify-between items-center py-4 px-8 lg:px-16 xl:px-24">
         {/* Логотип */}
         <div className="flex items-center">
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-[#00BFA5] font-bold text-2xl">GET</span>
               <span className="text-[#7950ED] font-bold text-2xl">VISAGO</span>
-            </a>
+            </Link>
           </div>
         </div>
         
         {/* Навигация */}
-        <nav className="flex items-center">
-          <ul className="flex space-x-10">
-            <li className="list-none">
-              <a href="/visa/saudi-arabia" className="text-visa-gray-800 font-medium hover:text-visa-purple transition-colors">
-                Visas <span className="text-xs">&#9662;</span>
-              </a>
-            </li>
-            <li className="list-none">
-              <a href="#" className="text-visa-gray-800 font-medium hover:text-visa-purple transition-colors">
-                Visa Status
-              </a>
-            </li>
-            <li className="list-none">
-              <a href="#" className="text-visa-gray-800 font-medium hover:text-visa-purple transition-colors">
-                Contacts
-              </a>
-            </li>
-          </ul>
+        <nav className="flex items-center space-x-8">
+          <Link to="/" className="text-visa-gray-800 hover:text-visa-purple transition-colors">
+            Home
+          </Link>
+          <Link to="/visas" className="text-visa-gray-800 hover:text-visa-purple transition-colors">
+            Visas
+          </Link>
+          <Link to="/visa-status" className="text-visa-gray-800 hover:text-visa-purple transition-colors">
+            Visa Status
+          </Link>
+          <Link to="/blog" className="text-visa-gray-800 hover:text-visa-purple transition-colors">
+            Blog
+          </Link>
+          <a href="/#faq" onClick={handleFAQClick} className="text-visa-gray-800 hover:text-visa-purple transition-colors cursor-pointer">
+            FAQ
+          </a>
+          <a href="/#contacts" onClick={handleContactsClick} className="text-visa-gray-800 hover:text-visa-purple transition-colors cursor-pointer">
+            Contacts
+          </a>
         </nav>
         
         {/* Правая часть (язык и кнопка) */}
@@ -78,10 +104,10 @@ const DesktopHeader = () => {
             )}
           </div>
           
-          <button className="flex items-center bg-[#00BFA5] text-white py-2 px-6 rounded-full font-semibold gap-2">
+          <Link to="/get-visa" className="flex items-center bg-[#00BFA5] text-white py-2 px-6 rounded-full font-semibold gap-2">
             GET VISA
             <FaIdCard className="text-white" size={18} />
-          </button>
+          </Link>
         </div>
       </div>
     </header>

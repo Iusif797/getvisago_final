@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 
 const DesktopVisaSection = ({ visas }) => {
   const [showAllCountries, setShowAllCountries] = useState(false);
+
+  // Функция для определения маршрута по стране
+  const getPathByCountry = (country) => {
+    if (country === 'Saudi Arabia') {
+      return '/visa/saudi-arabia';
+    }
+    return '/get-visa';
+  };
 
   return (
     <section className="w-full py-12 bg-gray-50">
@@ -44,9 +53,12 @@ const DesktopVisaSection = ({ visas }) => {
                 <p className="text-gray-800 text-base mb-4">
                   {visa.days} Days, {visa.price}$
                 </p>
-                <button className="w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08]">
+                <Link 
+                  to={getPathByCountry(visa.country)}
+                  className="block w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08] text-center"
+                >
                   BUY NOW
-                </button>
+                </Link>
               </div>
             </div>
           ))}

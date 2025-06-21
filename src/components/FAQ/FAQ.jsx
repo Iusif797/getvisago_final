@@ -42,7 +42,7 @@ const FAQ = () => {
   return (
     <section id="faq" className="w-full py-10 bg-white">
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
-        <h2 className="text-[#04C495] text-4xl font-bold mb-8">FAQ</h2>
+        <h2 className="text-[#04C495] text-4xl font-bold mb-8 text-center">FAQ</h2>
         
         <div className={`${isDesktop ? 'grid grid-cols-2 gap-6' : 'space-y-4'} w-full`}>
           {faqItems.map((item, index) => (

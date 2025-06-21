@@ -1,53 +1,50 @@
 import React from 'react';
-import { FaClipboardCheck, FaBolt, FaHeadset, FaMoneyBillWave } from 'react-icons/fa';
+import simpleApplicationImg from '../../assets/simple_application.png';
+import fastProcessingImg from '../../assets/fast_processing.png';
+import customerSupportImg from '../../assets/customer_support.png';
+import guaranteeImg from '../../assets/guarantee.png';
 
 const DesktopWhyChooseUs = () => {
   return (
-    <section className="w-full py-16 bg-gray-50">
-      <div className="w-full px-4 lg:px-8 max-w-[1400px] mx-auto">
+    <section className="w-full py-16 bg-white">
+      <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
         <h2 className="text-[#00BFA5] text-4xl font-bold mb-12 text-center">
           Why Choose Us
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Fast Processing */}
-          <div className="rounded-full bg-gradient-to-r from-[#7C3AED] to-[#9061F9] py-5 px-8 flex items-center justify-between shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:translate-y-[-4px] group">
-            <div className="flex items-center">
-              <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                <FaBolt className="text-[#7C3AED] text-2xl group-hover:text-3xl transition-all duration-300" />
-              </div>
-              <span className="text-white text-xl font-semibold tracking-wide">Fast Processing</span>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Первый ряд */}
+          <div className="flex justify-center">
+            <img 
+              src={simpleApplicationImg} 
+              alt="Simple Application" 
+              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
+            />
           </div>
           
-          {/* Simple Application */}
-          <div className="rounded-full bg-gradient-to-r from-[#00BFA5] to-[#00D8B8] py-5 px-8 flex items-center justify-between shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:translate-y-[-4px] group">
-            <div className="flex items-center">
-              <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                <FaClipboardCheck className="text-[#00BFA5] text-2xl group-hover:text-3xl transition-all duration-300" />
-              </div>
-              <span className="text-white text-xl font-semibold tracking-wide">Simple Application</span>
-            </div>
+          <div className="flex justify-center">
+            <img 
+              src={fastProcessingImg} 
+              alt="Fast Processing" 
+              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
+            />
           </div>
           
-          {/* Refund Guarantee */}
-          <div className="rounded-full bg-gradient-to-r from-[#7C3AED] to-[#9061F9] py-5 px-8 flex items-center justify-between shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:translate-y-[-4px] group">
-            <div className="flex items-center">
-              <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                <FaMoneyBillWave className="text-[#7C3AED] text-2xl group-hover:text-3xl transition-all duration-300" />
-              </div>
-              <span className="text-white text-xl font-semibold tracking-wide">Refund Guarantee</span>
-            </div>
+          {/* Второй ряд */}
+          <div className="flex justify-center">
+            <img 
+              src={customerSupportImg} 
+              alt="Customer Support" 
+              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
+            />
           </div>
           
-          {/* Customer Support */}
-          <div className="rounded-full bg-gradient-to-r from-[#00BFA5] to-[#00D8B8] py-5 px-8 flex items-center justify-between shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:translate-y-[-4px] group">
-            <div className="flex items-center">
-              <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                <FaHeadset className="text-[#00BFA5] text-2xl group-hover:text-3xl transition-all duration-300" />
-              </div>
-              <span className="text-white text-xl font-semibold tracking-wide">Customer Support</span>
-            </div>
+          <div className="flex justify-center">
+            <img 
+              src={guaranteeImg} 
+              alt="Refund Guarantee" 
+              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
+            />
           </div>
         </div>
       </div>

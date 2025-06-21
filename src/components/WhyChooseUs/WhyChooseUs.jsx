@@ -1,56 +1,50 @@
 import React from 'react';
-import molnia from '../../assets/molnia.svg';
-import money from '../../assets/money.svg';
-import todo from '../../assets/todo.svg';
-import naushniki from '../../assets/naushniki.svg';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopWhyChooseUs from './DesktopWhyChooseUs';
+import simpleApplicationMobile from '../../assets/simpleapplication_mobile.png';
+import fastProcessingMobile from '../../assets/fast_processing_mobile.png';
+import customerSupportMobile from '../../assets/customer_support_mobile.png';
+import guaranteeMobile from '../../assets/guarantee_mobile.png';
 
 const WhyChooseUs = () => {
   const { width } = useWindowSize();
-  const isDesktop = width >= 1024;
-
-  // Десктопная версия
-  if (isDesktop) {
+  
+  if (width >= 1024) {
     return <DesktopWhyChooseUs />;
   }
-
-  // Мобильная версия
+  
   return (
-    <section className="why-choose-us-section">
-      <h2 className="why-choose-us-title mb-8">Why Choose Us:</h2>
-      
-      <div className="flex flex-col">
-        {/* Fast Processing - фиолетовый блок с иконкой справа */}
-        <div className="feature-card purple feature-card-right animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-          <span className="feature-text">Fast Processing</span>
-          <div className="feature-icon">
-            <img src={molnia} alt="Fast Processing" />
-          </div>
-        </div>
+    <section className="w-full py-8 bg-white">
+      <div className="w-full max-w-[1400px] mx-auto px-4">
+        <h2 className="text-[#00BFA5] text-3xl font-bold mb-8 text-center">
+          Why Choose Us
+        </h2>
         
-        {/* Simple Application - зеленый блок с иконкой слева */}
-        <div className="feature-card green feature-card-left animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-          <div className="feature-icon">
-            <img src={todo} alt="Simple Application" />
-          </div>
-          <span className="feature-text">Simple Application</span>
-        </div>
-        
-        {/* Refund Guarantee - фиолетовый блок с иконкой справа */}
-        <div className="feature-card purple feature-card-right animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-          <span className="feature-text">Refund Guarantee</span>
-          <div className="feature-icon">
-            <img src={money} alt="Refund Guarantee" />
-          </div>
-        </div>
-        
-        {/* Customer Support - зеленый блок с иконкой слева */}
-        <div className="feature-card green feature-card-left animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-          <div className="feature-icon">
-            <img src={naushniki} alt="Customer Support" />
-          </div>
-          <span className="feature-text">Customer Support</span>
+        <div className="flex flex-col items-center gap-6">
+          {/* Мобильные изображения */}
+          <img 
+            src={simpleApplicationMobile} 
+            alt="Simple Application" 
+            className="w-full max-w-sm transition-transform hover:scale-105 duration-300"
+          />
+          
+          <img 
+            src={fastProcessingMobile} 
+            alt="Fast Processing" 
+            className="w-full max-w-sm transition-transform hover:scale-105 duration-300"
+          />
+          
+          <img 
+            src={customerSupportMobile} 
+            alt="Customer Support" 
+            className="w-full max-w-sm transition-transform hover:scale-105 duration-300"
+          />
+          
+          <img 
+            src={guaranteeMobile} 
+            alt="Refund Guarantee" 
+            className="w-full max-w-sm transition-transform hover:scale-105 duration-300"
+          />
         </div>
       </div>
     </section>

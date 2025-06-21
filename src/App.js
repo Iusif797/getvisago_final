@@ -1,5 +1,5 @@
 import VisaStatus from './pages/VisaStatus';
-
+ 
 <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/saudi-arabia-visa" element={<SaudiArabiaVisa />} />

@@ -6,8 +6,7 @@ import checkButton from '../assets/check_button.svg';
 import useWindowSize from '../hooks/useWindowSize';
 import Reviews from '../components/Reviews/Reviews';
 import FAQ from '../components/FAQ/FAQ';
-import Contact from '../components/Contact/Contact';
-import SocialMediaDocs from '../components/SocialMediaDocs/SocialMediaDocs';
+import Footer from '../components/Footer/Footer';
 
 const VisaStatus = () => {
   const { width } = useWindowSize();
@@ -103,10 +102,7 @@ const VisaStatus = () => {
       <div className={`faq-section ${isAnimated ? 'animated' : ''}`}>
         <FAQ />
       </div>
-      <div className={`contact-section ${isAnimated ? 'animated' : ''}`}>
-        <Contact />
-      </div>
-      {isMobile && <SocialMediaDocs />}
+      <Footer />
     </div>
   );
 };

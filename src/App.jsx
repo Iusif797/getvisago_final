@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import SaudiArabiaVisa from './pages/SaudiArabiaVisa';
 import VisaStatus from './pages/VisaStatus';
@@ -24,7 +23,6 @@ function App() {
         <Route path="/visa-application" element={<VisaApplication />} />
         <Route path="/get-visa" element={<VisaApplication />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

@@ -6,14 +6,9 @@ import Visas from '../components/Visas/Visas';
 import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Reviews from '../components/Reviews/Reviews';
 import FAQ from '../components/FAQ/FAQ';
-import Contact from '../components/Contact/Contact';
-import SocialMediaDocs from '../components/SocialMediaDocs/SocialMediaDocs';
-import useWindowSize from '../hooks/useWindowSize';
+import Footer from '../components/Footer/Footer';
 
 const Home = () => {
-  const { width } = useWindowSize();
-  const isMobile = width < 1024;
-
   return (
     <>
       <Hero />
@@ -23,8 +18,7 @@ const Home = () => {
       <WhyChooseUs />
       <Reviews />
       <FAQ />
-      <Contact />
-      {isMobile && <SocialMediaDocs />}
+      <Footer />
     </>
   );
 };

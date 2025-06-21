@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import useWindowSize from '../hooks/useWindowSize';
 import Reviews from '../components/Reviews/Reviews';
 import FAQ from '../components/FAQ/FAQ';
-import Contact from '../components/Contact/Contact';
-import SocialMediaDocs from '../components/SocialMediaDocs/SocialMediaDocs';
+import Footer from '../components/Footer/Footer';
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 
@@ -109,8 +108,7 @@ const Blog = () => {
       
       <Reviews />
       <FAQ />
-      <Contact />
-      {isMobile && <SocialMediaDocs />}
+      <Footer />
     </div>
   );
 };

@@ -7,8 +7,7 @@ import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
 import Reviews from '../components/Reviews/Reviews';
 import FAQ from '../components/FAQ/FAQ';
-import Contact from '../components/Contact/Contact';
-import SocialMediaDocs from '../components/SocialMediaDocs/SocialMediaDocs';
+import Footer from '../components/Footer/Footer';
 
 const SaudiArabiaVisa = () => {
   const { width } = useWindowSize();
@@ -327,12 +326,9 @@ const SaudiArabiaVisa = () => {
 
       {/* FAQ Section */}
       <FAQ />
-
-      {/* Contact Section (Desktop Footer) */}
-      <Contact />
-
-      {/* SocialMediaDocs for Mobile */}
-      <SocialMediaDocs />
+      
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };

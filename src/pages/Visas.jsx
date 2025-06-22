@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 import visaUAE from '../assets/Visa_Title.png';
 import visaSaudiArabia from '../assets/Visa_Title2.png';
-import visaRussia from '../assets/russia.png';
+import visaRussia from '../assets/Visa_Title3.png';
 import visaOman from '../assets/oman.png';
 import visaIsrael from '../assets/israel.png';
 import visaEgypt from '../assets/egypt.png';

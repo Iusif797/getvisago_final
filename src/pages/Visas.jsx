@@ -15,6 +15,7 @@ import visaIndonesia from '../assets/indonesia.png';
 import visaCambodia from '../assets/cambodia.png';
 import visaSouthKorea from '../assets/southkorea.png';
 import visaMalaysia from '../assets/malaysia.png';
+import ourEvisasSvg from '../assets/OUR eVISAS_.svg';
 import useWindowSize from '../hooks/useWindowSize';
 import Footer from '../components/Footer/Footer';
 
@@ -147,9 +148,9 @@ const Visas = () => {
     <>
       <div className="min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-[#00BFA5] text-3xl md:text-4xl font-bold mb-8 text-center">
-            OUR eVISAS
-          </h1>
+          <div className="flex justify-start mb-8 mt-16">
+            <img src={ourEvisasSvg} alt="OUR eVISAS:" className="h-8 md:h-10" />
+          </div>
           
           <div className={`grid grid-cols-1 ${isDesktop ? 'md:grid-cols-3' : ''} gap-6 mb-12 mt-4`}>
             {visasToShow.map((visa) => (

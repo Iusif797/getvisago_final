@@ -84,7 +84,7 @@ const VisaStatus = () => {
 
         <div className="find-id-section">
           <div className="find-id-content">
-            <h2 className="find-id-title">Where can I find<br />the application ID?</h2>
+            <h2 className="find-id-title">Where can I<br />find the<br />application ID?</h2>
             <p className="find-id-text">
               Your Application ID is included in the confirmation email we sent you after you submitted your application. Make sure you enter the same email address you used when you submitted your application.
             </p>
@@ -157,23 +157,38 @@ const VisaStatus = () => {
         @media (max-width: 768px) {
           .find-id-section {
             padding: 25px;
-            margin: 40px 0 80px 0;
+            margin: 30px 0;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 20px;
           }
 
-          .hand-icon-wrapper {
-            position: absolute;
-            right: 20px;
-            top: auto;
-            bottom: -60px;
-            transform: none;
-          }
-
-          .hand-icon {
-            width: 70px;
+          .find-id-content {
+            flex: 1;
           }
 
           .find-id-title {
             font-size: 22px;
+            font-weight: 700;
+            color: #9B51E0;
+            margin-bottom: 10px;
+            line-height: 1.2;
+          }
+
+          .hand-icon-wrapper {
+            position: relative;
+            right: 0;
+            top: 0;
+            transform: none;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+          }
+
+          .hand-icon {
+            width: 60px;
           }
         }
       `}</style>

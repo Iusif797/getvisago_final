@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaEnvelope, FaCheck } from 'react-icons/fa';
+import { FaUser, FaEnvelope } from 'react-icons/fa';
 import statusTimer from '../assets/status_timer.svg';
 import checkButton from '../assets/check_button.svg';
 import handSvg from '../assets/hand_svg.svg';
@@ -82,20 +82,17 @@ const VisaStatus = () => {
           </div>
         </div>
 
-        <div className={`find-id-row ${isAnimated ? 'animated' : ''}`}>
-          <div className="find-id-title">
-            <h2 className="where-can-i-find">Where can I find<br />the application ID?</h2>
-            <div className="hand-icon-container">
-              <img src={handSvg} alt="Hand pointing" className="hand-icon" />
+        <div className="find-id-section">
+          <div className={`find-id-container ${isAnimated ? 'animated' : ''}`}>
+            <div className="find-id-content">
+              <h2 className="find-id-title">Where can I find<br />the application ID?</h2>
+              <p className="find-id-text">
+                Your Application ID is included in the confirmation email we sent you after you submitted your application. Make sure you enter the same email address you used when you submitted your application.
+              </p>
             </div>
           </div>
-          <div className="find-id-content">
-            <p className="application-id-info">
-              Your Application ID is included in the confirmation email we sent you after you submitted your application. Make sure you enter the same email address you used when you submitted your application.
-            </p>
-            <div className="info-badge">
-              <FaCheck className="check-icon" /> Important information
-            </div>
+          <div className="hand-icon-container">
+            <img src={handSvg} alt="Hand pointing" className="hand-icon" />
           </div>
         </div>
       </div>
@@ -109,43 +106,46 @@ const VisaStatus = () => {
       <Footer />
 
       <style jsx>{`
-        .find-id-row {
+        .find-id-section {
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          background-color: #f9f9f9;
-          border-radius: 8px;
-          padding: 30px;
-          margin-top: 40px;
+          align-items: center;
+          margin: 40px 0;
           position: relative;
         }
 
-        .find-id-title {
-          display: flex;
-          align-items: center;
-          margin-bottom: 20px;
-          position: relative;
+        .find-id-container {
+          background-color: #ffffff;
+          border-radius: 16px;
+          padding: 30px;
+          flex: 1;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .find-id-content {
           width: 100%;
         }
 
-        .where-can-i-find {
+        .find-id-title {
           font-size: 24px;
-          font-weight: 600;
-          color: #333;
-          margin-right: 20px;
+          font-weight: 700;
+          color: #9B51E0;
+          margin-bottom: 16px;
+        }
+
+        .find-id-text {
+          font-size: 16px;
+          line-height: 1.5;
+          color: #000000;
         }
 
         .hand-icon-container {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
+          position: relative;
+          margin-left: 20px;
         }
 
         .hand-icon {
-          width: 80px;
+          width: 90px;
           height: auto;
-          margin-left: 15px;
           animation: pointingAnimation 2s infinite ease-in-out;
         }
 
@@ -158,58 +158,27 @@ const VisaStatus = () => {
           }
         }
 
-        .find-id-content {
-          width: 100%;
-        }
-
-        .application-id-info {
-          font-size: 16px;
-          line-height: 1.6;
-          color: #555;
-          margin-bottom: 20px;
-        }
-
-        .info-badge {
-          display: inline-flex;
-          align-items: center;
-          background-color: #e8f4ff;
-          padding: 10px 15px;
-          border-radius: 4px;
-          font-size: 14px;
-          color: #0066cc;
-        }
-
-        .check-icon {
-          margin-right: 8px;
-          color: #00aa55;
-        }
-
         @media (max-width: 768px) {
-          .find-id-row {
-            padding: 20px;
+          .find-id-section {
+            flex-direction: column;
           }
 
-          .find-id-title {
-            flex-direction: column;
-            align-items: flex-start;
+          .find-id-container {
+            width: 100%;
           }
 
           .hand-icon-container {
-            position: relative;
-            right: auto;
-            top: auto;
-            transform: none;
-            margin-top: 15px;
+            margin-left: 0;
+            margin-top: 20px;
             align-self: flex-end;
           }
 
           .hand-icon {
-            width: 60px;
+            width: 70px;
           }
 
-          .where-can-i-find {
+          .find-id-title {
             font-size: 20px;
-            margin-right: 0;
           }
         }
       `}</style>

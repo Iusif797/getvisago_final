@@ -83,15 +83,13 @@ const VisaStatus = () => {
         </div>
 
         <div className="find-id-section">
-          <div className={`find-id-container ${isAnimated ? 'animated' : ''}`}>
-            <div className="find-id-content">
-              <h2 className="find-id-title">Where can I find<br />the application ID?</h2>
-              <p className="find-id-text">
-                Your Application ID is included in the confirmation email we sent you after you submitted your application. Make sure you enter the same email address you used when you submitted your application.
-              </p>
-            </div>
+          <div className="find-id-content">
+            <h2 className="find-id-title">Where can I find<br />the application ID?</h2>
+            <p className="find-id-text">
+              Your Application ID is included in the confirmation email we sent you after you submitted your application. Make sure you enter the same email address you used when you submitted your application.
+            </p>
           </div>
-          <div className="hand-icon-container">
+          <div className="hand-icon-wrapper">
             <img src={handSvg} alt="Hand pointing" className="hand-icon" />
           </div>
         </div>
@@ -107,29 +105,25 @@ const VisaStatus = () => {
 
       <style jsx>{`
         .find-id-section {
+          position: relative;
+          background-color: #ffffff;
+          border-radius: 20px;
+          padding: 30px;
+          margin: 50px 0;
           display: flex;
           align-items: center;
-          margin: 40px 0;
-          position: relative;
-        }
-
-        .find-id-container {
-          background-color: #ffffff;
-          border-radius: 16px;
-          padding: 30px;
-          flex: 1;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .find-id-content {
-          width: 100%;
+          flex: 1;
         }
 
         .find-id-title {
-          font-size: 24px;
+          font-size: 26px;
           font-weight: 700;
           color: #9B51E0;
-          margin-bottom: 16px;
+          margin-bottom: 15px;
+          line-height: 1.3;
         }
 
         .find-id-text {
@@ -138,9 +132,11 @@ const VisaStatus = () => {
           color: #000000;
         }
 
-        .hand-icon-container {
-          position: relative;
-          margin-left: 20px;
+        .hand-icon-wrapper {
+          position: absolute;
+          right: -30px;
+          top: 50%;
+          transform: translateY(-50%);
         }
 
         .hand-icon {
@@ -160,17 +156,16 @@ const VisaStatus = () => {
 
         @media (max-width: 768px) {
           .find-id-section {
-            flex-direction: column;
+            padding: 25px;
+            margin: 40px 0 80px 0;
           }
 
-          .find-id-container {
-            width: 100%;
-          }
-
-          .hand-icon-container {
-            margin-left: 0;
-            margin-top: 20px;
-            align-self: flex-end;
+          .hand-icon-wrapper {
+            position: absolute;
+            right: 20px;
+            top: auto;
+            bottom: -60px;
+            transform: none;
           }
 
           .hand-icon {
@@ -178,7 +173,7 @@ const VisaStatus = () => {
           }
 
           .find-id-title {
-            font-size: 20px;
+            font-size: 22px;
           }
         }
       `}</style>
@@ -186,4 +181,4 @@ const VisaStatus = () => {
   );
 };
 
-export default VisaStatus; 
+export default VisaStatus;

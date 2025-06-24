@@ -78,7 +78,7 @@ const FAQ = () => {
         </div>
         
         {!isDesktop && (
-          <div className="w-full flex justify-center mt-8">
+          <div className="w-full flex justify-center mt-4 mb-0">
             <img src={questionsButton} alt="More Questions" className="h-auto cursor-pointer" />
           </div>
         )}

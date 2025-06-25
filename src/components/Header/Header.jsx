@@ -102,10 +102,10 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
-        <div className="flex items-center pl-3">
+      <header className="mx-3 my-2 bg-white rounded-full shadow-md flex items-center justify-between py-1.5 px-3 z-40">
+        <div className="flex items-center">
           <Link to="/">
-            <img src={logoGetVisago} alt="GETVISAGO" className="h-6" />
+            <img src={logoGetVisago} alt="GETVISAGO" className="h-5" />
           </Link>
         </div>
         
@@ -118,9 +118,9 @@ const Header = () => {
           />
           <button 
             onClick={toggleMobileMenu} 
-            className="ml-4 hover:bg-visa-gray-100 rounded-full transition-colors p-2"
+            className="ml-2 hover:bg-visa-gray-100 rounded-full transition-colors w-9 h-9 flex items-center justify-center"
           >
-            <FaBars size={24} className="text-visa-gray-800" />
+            <FaBars size={20} className="text-visa-gray-800" />
           </button>
         </div>
       </header>
@@ -248,7 +248,7 @@ const Header = () => {
             </a>
           </div>
           <div className="text-xs text-center text-gray-500">
-            © 2023 GETVISAGO
+            © 2023 GETVISAGO. All rights reserved.
           </div>
         </div>
       </div>

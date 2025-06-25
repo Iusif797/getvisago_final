@@ -57,7 +57,9 @@ module.exports = {
       animation: {
         'pulse-shadow': 'pulse-shadow 3s infinite',
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
-        'slide-in': 'slide-in 0.3s forwards'
+        'slide-in': 'slide-in 0.3s forwards',
+        'fade-in': 'fade-in 0.5s ease-in-out forwards',
+        'float': 'float 15s ease-in-out infinite'
       },
       keyframes: {
         'pulse-shadow': {
@@ -86,6 +88,22 @@ module.exports = {
           '100%': {
             opacity: '1',
             transform: 'translateY(0)'
+          }
+        },
+        'fade-in': {
+          '0%': {
+            opacity: '0'
+          },
+          '100%': {
+            opacity: '1'
+          }
+        },
+        'float': {
+          '0%, 100%': {
+            transform: 'translateY(0px) rotate(30deg)'
+          },
+          '50%': {
+            transform: 'translateY(-20px) rotate(30deg)'
           }
         }
       }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaGlobeAsia, FaPlane } from 'react-icons/fa';
+import VisaCard from './VisaCard';
 
 const DesktopVisaSection = ({ visas, additionalVisas = [] }) => {
-  const [showAllCountries, setShowAllCountries] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   // Функция для определения маршрута по стране
   const getPathByCountry = (country) => {
@@ -13,90 +13,60 @@ const DesktopVisaSection = ({ visas, additionalVisas = [] }) => {
     return '/get-visa';
   };
 
+  const allVisas = [...visas, ...(showAll ? additionalVisas : [])];
+
   return (
-    <section className="w-full py-12 bg-gray-50">
-      <div className="w-full px-4 lg:px-8 max-w-[1400px] mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-[#00BFA5] text-3xl font-bold">
-            OUR eVISAS:
+    <section className="relative py-24 px-8 overflow-hidden bg-gradient-to-b from-white to-[#f8fafc]">
+      {/* Фоновые декоративные элементы */}
+      <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-[#00BFA5]/5 -translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full bg-[#9B51E0]/5 translate-x-1/4 translate-y-1/4 blur-3xl"></div>
+      <div className="absolute top-1/2 right-1/4 w-60 h-60 rounded-full bg-[#FFD700]/5 -translate-y-1/2 blur-2xl"></div>
+      
+      {/* Анимированный самолет */}
+      <div className="absolute top-[15%] left-[5%] animate-[float_15s_ease-in-out_infinite]">
+        <FaPlane className="text-[#9B51E0]/20 text-5xl transform rotate-[30deg]" />
+      </div>
+      
+      <div className="relative max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-20">
+          <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#00BFA5] to-[#00D6A9] shadow-xl mb-6">
+            <FaGlobeAsia className="text-white text-3xl" />
+          </div>
+          
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-center bg-gradient-to-r from-[#00BFA5] to-[#9B51E0] bg-clip-text text-transparent mb-4">
+            OUR eVISAS
           </h2>
           
-          <button 
-            onClick={() => setShowAllCountries(!showAllCountries)}
-            className="flex items-center justify-center gap-2 px-8 py-3 rounded-full border-2 border-[#00BFA5] text-[#00BFA5] font-semibold transition-all duration-300 hover:bg-[#00BFA5] hover:text-white"
-          >
-            {showAllCountries ? 'SHOW LESS' : 'SEE ALL COUNTRIES'}
-            <FaChevronDown className={`transform transition-transform ${showAllCountries ? 'rotate-180' : ''}`} />
-          </button>
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#00BFA5] to-[#9B51E0] rounded-full mb-6"></div>
+          
+          <p className="text-gray-600 text-center text-lg max-w-2xl">
+            Fast and reliable visa services for your global travel needs with secure processing and expert support
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {visas.map((visa) => (
-            <div 
-              key={visa.id} 
-              className="rounded-2xl overflow-hidden shadow-[0px_4px_16px_rgba(0,0,0,0.05)] bg-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg"
-            >
-              {/* Изображение */}
-              <div className="relative w-full overflow-hidden">
-                <img 
-                  src={visa.image} 
-                  alt={`${visa.country} Visa`} 
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              
-              {/* Информация о визе */}
-              <div className="p-6 text-center">
-                <h3 className="text-[#7C3AED] font-semibold text-lg mb-2">
-                  {visa.title}
-                </h3>
-                <p className="text-gray-800 text-base mb-4">
-                  {visa.days} Days, {visa.price}$
-                </p>
-                <Link 
-                  to={getPathByCountry(visa.country)}
-                  className="block w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08] text-center"
-                >
-                  BUY NOW
-                </Link>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+          {allVisas.map(visa => (
+            <VisaCard 
+              key={visa.id}
+              image={visa.image}
+              title={visa.title}
+              country={visa.country}
+              days={visa.days}
+              price={visa.price}
+              processTime={visa.processTime}
+            />
           ))}
         </div>
         
-        {showAllCountries && additionalVisas && additionalVisas.length > 0 && (
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {additionalVisas.map((visa) => (
-              <div 
-                key={visa.id} 
-                className="rounded-2xl overflow-hidden shadow-[0px_4px_16px_rgba(0,0,0,0.05)] bg-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg"
-              >
-                {/* Изображение */}
-                <div className="relative w-full overflow-hidden">
-                  <img 
-                    src={visa.image} 
-                    alt={`${visa.country} Visa`} 
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-                
-                {/* Информация о визе */}
-                <div className="p-6 text-center">
-                  <h3 className="text-[#7C3AED] font-semibold text-lg mb-2">
-                    {visa.title}
-                  </h3>
-                  <p className="text-gray-800 text-base mb-4">
-                    {visa.days} Days, {visa.price}$
-                  </p>
-                  <Link 
-                    to={getPathByCountry(visa.country)}
-                    className="block w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08] text-center"
-                  >
-                    BUY NOW
-                  </Link>
-                </div>
-              </div>
-            ))}
+        {additionalVisas.length > 0 && (
+          <div className="flex justify-center">
+            <button 
+              onClick={() => setShowAll(!showAll)}
+              className="flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-white border-2 border-[#9B51E0] text-[#9B51E0] font-bold tracking-wider transition-all duration-300 hover:bg-[#9B51E0] hover:text-white shadow-lg hover:shadow-[0_8px_20px_rgba(155,81,224,0.3)]"
+            >
+              {showAll ? 'SHOW LESS' : 'SEE ALL COUNTRIES'}
+              <FaChevronDown className={`transform transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
+            </button>
           </div>
         )}
       </div>

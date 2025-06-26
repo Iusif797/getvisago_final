@@ -101,7 +101,7 @@ const Footer = () => {
 
   // Мобильная версия
   return (
-    <footer id="contacts" className="w-full bg-white py-0 px-4">
+    <footer id="contacts" className="w-full bg-white py-0 px-4 pb-20">
       <div className="flex flex-col">
         {/* Contact Us */}
         <div className="mb-6">

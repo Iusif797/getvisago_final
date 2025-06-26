@@ -8,8 +8,13 @@ import Blog from './pages/Blog';
 import VisaApplication from './pages/VisaApplication';
 import Visas from './pages/Visas';
 import ScrollToTop from './components/ScrollToTop';
+import MobileNavigation from './components/MobileNavigation/MobileNavigation';
+import useWindowSize from './hooks/useWindowSize';
 
 function App() {
+  const { width } = useWindowSize();
+  const isMobile = width < 1024;
+
   return (
     <div className="App">
       <ScrollToTop />
@@ -23,6 +28,7 @@ function App() {
         <Route path="/visa-application" element={<VisaApplication />} />
         <Route path="/get-visa" element={<VisaApplication />} />
       </Routes>
+      {isMobile && <MobileNavigation />}
     </div>
   );
 }

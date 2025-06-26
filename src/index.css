@@ -120,7 +120,7 @@
    
   /* Стили для блока How It Works */
   .how-it-works-circle {
-    @apply relative w-48 h-48 bg-visa-purple-feature rounded-full flex items-center justify-center shadow-xl transition-transform duration-500 hover:scale-105;
+    @apply relative w-32 h-32 bg-visa-purple-feature rounded-full flex items-center justify-center shadow-xl transition-transform duration-500 hover:scale-105;
     box-shadow: 0 10px 30px rgba(155, 93, 229, 0.25), inset 0 -2px 6px rgba(0, 0, 0, 0.1);
   }
   
@@ -141,7 +141,7 @@
   }
   
   .nav-button {
-    @apply w-14 h-14 bg-visa-purple-feature rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300;
+    @apply w-12 h-12 bg-visa-purple-feature rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300;
     box-shadow: 0 4px 15px rgba(155, 93, 229, 0.3);
   }
   

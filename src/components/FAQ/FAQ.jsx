@@ -54,15 +54,15 @@ const FAQ = () => {
             >
               <div 
                 className={`flex justify-between items-center p-5 cursor-pointer ${
-                  isDesktop ? 'border border-gray-200 rounded-lg' : 'border-b border-gray-200'
-                } ${openQuestion === index ? 'bg-white' : ''}`}
+                  isDesktop ? 'border border-gray-200 rounded-lg' : ''
+                } ${openQuestion === index && !isDesktop ? 'bg-[#f8fafc]' : 'bg-white'}`}
                 onClick={() => toggleQuestion(index)}
               >
                 <h3 className="text-base font-medium text-gray-800">{item.question}</h3>
                 <div className={`flex-shrink-0 ml-4 transition-transform duration-300 ${
                   openQuestion === index ? 'rotate-180' : ''
                 }`}>
-                  <img src={strelkaIcon} alt="Toggle" />
+                  <img src={strelkaIcon} alt="Toggle" className="w-4 h-4" />
                 </div>
               </div>
               
@@ -78,7 +78,7 @@ const FAQ = () => {
         </div>
         
         {!isDesktop && (
-          <div className="w-full flex justify-center mt-4 mb-0">
+          <div className="w-full flex justify-center mt-8 mb-0">
             <img src={questionsButton} alt="More Questions" className="h-auto cursor-pointer" />
           </div>
         )}

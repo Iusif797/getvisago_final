@@ -30,8 +30,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/visa-application" element={<VisaApplication />} />
         <Route path="/get-visa" element={<VisaApplication />} />
-        <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
-        <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
+        <Route path="/about" element={<><AboutUs /><Footer /></>} />
+        <Route path="/faq" element={<><FAQ /><Footer /></>} />
       </Routes>
       {isMobile && <MobileNavigation />}
     </div>

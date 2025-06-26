@@ -10,6 +10,9 @@ import Visas from './pages/Visas';
 import ScrollToTop from './components/ScrollToTop';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import useWindowSize from './hooks/useWindowSize';
+import AboutUs from './components/AboutUs/AboutUs';
+import FAQ from './components/FAQ/FAQ';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const { width } = useWindowSize();
@@ -27,6 +30,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/visa-application" element={<VisaApplication />} />
         <Route path="/get-visa" element={<VisaApplication />} />
+        <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
+        <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
       </Routes>
       {isMobile && <MobileNavigation />}
     </div>

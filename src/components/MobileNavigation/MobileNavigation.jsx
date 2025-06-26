@@ -19,7 +19,7 @@ const MobileNavigation = () => {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-[#9B51E0] z-50">
+    <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-[#9B51E0] rounded-full shadow-lg px-2 py-1 z-50 w-[90%] max-w-md">
       <div className="flex justify-between items-center">
         <NavItem 
           to="/" 
@@ -34,10 +34,10 @@ const MobileNavigation = () => {
           isActive={isActive('/visa-status')} 
         />
         <NavItem 
-          to="/about-us" 
+          to="/about" 
           icon={AboutIcon} 
           label="About us" 
-          isActive={isActive('/about-us')} 
+          isActive={isActive('/about')} 
         />
         <NavItem 
           to="/faq" 
@@ -46,10 +46,10 @@ const MobileNavigation = () => {
           isActive={isActive('/faq')} 
         />
         <NavItem 
-          to="/contact" 
+          to="/#contacts" 
           icon={ContactsIcon} 
           label="Contacts" 
-          isActive={isActive('/contact')} 
+          isActive={location.hash === '#contacts'} 
         />
       </div>
     </nav>
@@ -63,15 +63,17 @@ const NavItem = ({ to, icon, label, isActive }) => {
       to={to} 
       className={`flex flex-col items-center justify-center py-2 px-2 transition-all duration-300 ${
         isActive 
-          ? 'text-white' 
-          : 'text-white/80 hover:text-white'
+          ? 'text-white scale-110' 
+          : 'text-white/80 hover:text-white hover:scale-105'
       }`}
     >
-      <img 
-        src={icon} 
-        alt={label} 
-        className="h-8 w-8 mb-1" 
-      />
+      <div className={`relative ${isActive ? 'after:absolute after:w-6 after:h-1 after:-bottom-1 after:left-1/2 after:transform after:-translate-x-1/2 after:bg-white after:rounded-full' : ''}`}>
+        <img 
+          src={icon} 
+          alt={label} 
+          className={`h-8 w-8 mb-1 transition-transform duration-300 ${isActive ? 'filter brightness-110' : ''}`} 
+        />
+      </div>
       <span className="text-xs font-medium">{label}</span>
     </Link>
   );

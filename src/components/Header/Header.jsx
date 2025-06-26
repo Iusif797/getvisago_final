@@ -110,17 +110,19 @@ const Header = () => {
         </div>
         
         <div className="flex items-center">
-          <LanguageSelector 
-            showLanguages={showLanguages}
-            currentLanguage={currentLanguage}
-            toggleLanguages={toggleLanguages}
-            selectLanguage={selectLanguage}
-          />
+          <div className="scale-90">
+            <LanguageSelector 
+              showLanguages={showLanguages}
+              currentLanguage={currentLanguage}
+              toggleLanguages={toggleLanguages}
+              selectLanguage={selectLanguage}
+            />
+          </div>
           <button 
             onClick={toggleMobileMenu} 
-            className="ml-2 hover:bg-visa-gray-100 rounded-full transition-colors w-9 h-9 flex items-center justify-center"
+            className="ml-2 hover:bg-visa-gray-100 rounded-full transition-colors w-10 h-10 flex items-center justify-center"
           >
-            <FaBars size={20} className="text-visa-gray-800" />
+            <FaBars size={24} className="text-visa-gray-800" />
           </button>
         </div>
       </header>
@@ -248,7 +250,7 @@ const Header = () => {
             </a>
           </div>
           <div className="text-xs text-center text-gray-500">
-            © 2023 GETVISAGO. All rights reserved.
+            © 2025 GETVISAGO. All rights reserved.
           </div>
         </div>
       </div>

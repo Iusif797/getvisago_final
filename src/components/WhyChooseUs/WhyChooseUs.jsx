@@ -1,11 +1,12 @@
 import React from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopWhyChooseUs from './DesktopWhyChooseUs';
-// Импортируем иконки из библиотеки React Icons
-import { BsLightningChargeFill } from 'react-icons/bs';
-import { TbFileCheck } from 'react-icons/tb';
-import { BiSolidBadgeCheck } from 'react-icons/bi';
-import { FaHeadset } from 'react-icons/fa';
+
+// Импортируем иконки из ассетов
+import icon1 from '../../assets/icon1.png';
+import icon2 from '../../assets/icon2.png';
+import icon3 from '../../assets/icon3.png';
+import icon4 from '../../assets/icon4.png';
 
 const WhyChooseUs = () => {
   const { width } = useWindowSize();
@@ -14,53 +15,66 @@ const WhyChooseUs = () => {
     return <DesktopWhyChooseUs />;
   }
   
+  // Данные для мобильных карточек точно по макету
+  const mobileFeatures = [
+    { 
+      icon: icon1, 
+      title: "Fast Processing", 
+      bgColor: "bg-white", 
+      textColor: "text-black",
+      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.15)]"
+    },
+    { 
+      icon: icon2, 
+      title: "Simple Application", 
+      bgColor: "bg-[#00BFA5]", 
+      textColor: "text-white",
+      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.3)]"
+    },
+    { 
+      icon: icon3, 
+      title: "Refund Guarantee", 
+      bgColor: "bg-white", 
+      textColor: "text-black",
+      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.15)]"
+    },
+    { 
+      icon: icon4, 
+      title: "Customer Support", 
+      bgColor: "bg-[#00BFA5]", 
+      textColor: "text-white",
+      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.3)]"
+    }
+  ];
+  
   return (
-    <section className="w-full py-10 bg-white">
-      <div className="w-full max-w-[1400px] mx-auto px-4">
-        <h2 className="text-[#00BFA5] text-3xl font-bold mb-10 text-center">
+    <section className="w-full py-12 bg-[#f5f5f5] relative overflow-hidden">
+      {/* Декоративные элементы */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-[#00BFA5] opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#00BFA5] opacity-5 rounded-full translate-x-1/2 translate-y-1/2"></div>
+      
+      <div className="w-full max-w-[1400px] mx-auto px-5 relative z-10">
+        <h2 className="text-[#00BFA5] text-3xl font-bold mb-8 text-center">
           Why Choose Us
         </h2>
         
-        <div className="flex flex-col items-center gap-6">
-          {/* Блок "Fast Processing" */}
-          <div className="w-full max-w-sm bg-gradient-to-r from-[#8A3FEC] to-[#9B51E0] rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
-            <div className="flex items-center p-5">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mr-4">
-                <BsLightningChargeFill className="text-white text-2xl" />
+        <div className="flex flex-col items-center gap-4">
+          {mobileFeatures.map((feature, index) => (
+            <div 
+              key={index} 
+              className={`w-full flex items-center rounded-full py-3.5 px-5 ${feature.bgColor} ${feature.shadowColor} transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg`}
+            >
+              <div className="w-12 h-12 flex-shrink-0 mr-4 flex items-center justify-center">
+                <img 
+                  src={feature.icon} 
+                  alt={feature.title} 
+                  className="w-full h-full object-contain" 
+                  style={{ imageRendering: 'crisp-edges' }}
+                />
               </div>
-              <h3 className="text-white text-xl font-bold">Fast Processing</h3>
+              <span className={`font-bold text-lg ${feature.textColor}`}>{feature.title}</span>
             </div>
-          </div>
-          
-          {/* Блок "Simple Application" */}
-          <div className="w-full max-w-sm bg-gradient-to-r from-[#00B399] to-[#00C6A2] rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
-            <div className="flex items-center p-5">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mr-4">
-                <TbFileCheck className="text-white text-2xl" />
-              </div>
-              <h3 className="text-white text-xl font-bold">Simple Application</h3>
-            </div>
-          </div>
-          
-          {/* Блок "Refund Guarantee" */}
-          <div className="w-full max-w-sm bg-gradient-to-r from-[#8A3FEC] to-[#9B51E0] rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
-            <div className="flex items-center p-5">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mr-4">
-                <BiSolidBadgeCheck className="text-white text-2xl" />
-              </div>
-              <h3 className="text-white text-xl font-bold">Refund Guarantee</h3>
-            </div>
-          </div>
-          
-          {/* Блок "Customer Support" */}
-          <div className="w-full max-w-sm bg-gradient-to-r from-[#00B399] to-[#00C6A2] rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-[-2px]">
-            <div className="flex items-center p-5">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mr-4">
-                <FaHeadset className="text-white text-2xl" />
-              </div>
-              <h3 className="text-white text-xl font-bold">Customer Support</h3>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

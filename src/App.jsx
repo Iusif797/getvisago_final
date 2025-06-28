@@ -13,25 +13,30 @@ import useWindowSize from './hooks/useWindowSize';
 import AboutUs from './components/AboutUs/AboutUs';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
+import VisaDetailPage from './pages/VisaDetailPage';
 
 function App() {
   const { width } = useWindowSize();
-  const isMobile = width < 1024;
+  const isMobile = width < 768;
 
   return (
     <div className="App">
       <ScrollToTop />
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/visas" element={<Visas />} />
-        <Route path="/visa/saudi-arabia" element={<SaudiArabiaVisa />} />
-        <Route path="/visa-status" element={<VisaStatus />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/visa-application" element={<VisaApplication />} />
-        <Route path="/get-visa" element={<VisaApplication />} />
-        <Route path="/about" element={<><AboutUs /><Footer /></>} />
-        <Route path="/faq" element={<><FAQ /><Footer /></>} />
+        {/* Routes with header */}
+        <Route path="/" element={<><Header /><Home /></>} />
+        <Route path="/visas" element={<><Header /><Visas /></>} />
+        <Route path="/visa/saudi-arabia" element={<><Header /><SaudiArabiaVisa /></>} />
+        <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
+        <Route path="/blog" element={<><Header /><Blog /></>} />
+        <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />
+        <Route path="/get-visa" element={<><Header /><VisaApplication /></>} />
+        <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
+        <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
+        
+        {/* Routes without header (has its own header) */}
+        <Route path="/visa/dubai" element={<VisaDetailPage />} />
+        <Route path="/visa-detail/:country" element={<VisaDetailPage />} />
       </Routes>
       {isMobile && <MobileNavigation />}
     </div>

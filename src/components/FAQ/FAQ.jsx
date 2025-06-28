@@ -7,6 +7,7 @@ const FAQ = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
   const { width } = useWindowSize();
   const isDesktop = width >= 1024;
+  const isMobile = width < 768;
 
   const faqItems = [
     {
@@ -40,9 +41,9 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="w-full py-10 bg-white">
+    <section id="faq" className={`w-full ${isMobile ? 'mobile-section' : 'py-10'} bg-white`}>
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
-        <h2 className="text-[#04C495] text-4xl font-bold mb-8 text-center">FAQ</h2>
+        <h2 className={isMobile ? "section-title" : "text-[#04C495] text-4xl font-bold mb-8 text-center"}>FAQ</h2>
         
         <div className={`${isDesktop ? 'grid grid-cols-2 gap-6' : 'space-y-4'} w-full`}>
           {faqItems.map((item, index) => (
@@ -50,7 +51,7 @@ const FAQ = () => {
               key={index} 
               className={`bg-white rounded-lg overflow-hidden transition-all duration-300 ${
                 openQuestion === index ? 'shadow-md' : ''
-              }`}
+              } ${isMobile ? 'card-spacing' : ''}`}
             >
               <div 
                 className={`flex justify-between items-center p-5 cursor-pointer ${

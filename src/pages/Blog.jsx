@@ -57,9 +57,9 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
-      <div className="container">
-        <div className="blog-hero">
-          <h1 className="blog-title">Welcome to our blog</h1>
+      <div className="container section-container">
+        <div className="blog-hero section-spacing">
+          <h1 className="mobile-gradient-heading text-center">Welcome to our blog</h1>
         </div>
         
         <div className="blog-categories">
@@ -83,12 +83,12 @@ const Blog = () => {
         </div>
       </div>
       
-      <div className="blog-content">
-        <h2 className="last-news-title">Last news</h2>
+      <div className="blog-content section-container section-spacing">
+        <h2 className="section-title">Last news</h2>
         
         <div className="news-grid">
           {newsItems.map((item) => (
-            <div key={item.id} className="news-card">
+            <div key={item.id} className="news-card card-spacing">
               <div className="news-image-container">
                 <img src={item.image} alt={item.title} className="news-image" />
               </div>

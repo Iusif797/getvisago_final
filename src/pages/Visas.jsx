@@ -22,6 +22,7 @@ import Footer from '../components/Footer/Footer';
 const Visas = () => {
   const { width } = useWindowSize();
   const isDesktop = width >= 1024;
+  const isMobile = width < 768;
   const [showAllCountries, setShowAllCountries] = useState(false);
 
   const mainVisas = [
@@ -147,9 +148,13 @@ const Visas = () => {
   return (
     <>
       <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto px-4 py-8">
+        <div className={isMobile ? "section-container section-spacing" : "container mx-auto px-4 py-8"}>
           <div className="flex justify-start mb-8 mt-16">
-            <img src={ourEvisasSvg} alt="OUR eVISAS:" className="h-8 md:h-10" />
+            {isMobile ? (
+              <h1 className="mobile-gradient-heading">OUR eVISAS:</h1>
+            ) : (
+              <img src={ourEvisasSvg} alt="OUR eVISAS:" className="h-8 md:h-10" />
+            )}
           </div>
           
           <div className={`grid grid-cols-1 ${isDesktop ? 'md:grid-cols-3' : ''} gap-6 mb-12 mt-4`}>
@@ -157,7 +162,7 @@ const Visas = () => {
               <Link 
                 key={visa.id} 
                 to="/visa/saudi-arabia" 
-                className="rounded-2xl overflow-hidden shadow-[0px_4px_16px_rgba(0,0,0,0.05)] bg-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg"
+                className={`rounded-2xl overflow-hidden shadow-[0px_4px_16px_rgba(0,0,0,0.05)] bg-white transition-all duration-150 hover:scale-[1.02] hover:shadow-lg ${isMobile ? 'card-spacing' : ''}`}
               >
                 {/* Изображение */}
                 <div className="relative w-full overflow-hidden flex justify-center p-4">

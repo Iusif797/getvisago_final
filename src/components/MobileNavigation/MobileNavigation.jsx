@@ -1,79 +1,46 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-
-// Импортируем SVG иконки
-import PassportIcon from '../../assets/Passport_SVG.svg';
-import ProgressIcon from '../../assets/Progress_Indicator_SVG.svg';
-import AboutIcon from '../../assets/About_SVG.svg';
-import QuestionsIcon from '../../assets/Questions_SV.svg';
-import ContactsIcon from '../../assets/Contacts_SVG.svg';
+import { Link } from 'react-router-dom';
+import { FaPassport, FaQuestionCircle, FaInfoCircle, FaPhone } from 'react-icons/fa';
+import { MdOutlineQueryStats } from 'react-icons/md';
 
 const MobileNavigation = () => {
-  const location = useLocation();
-  
-  // Функция для определения активного состояния ссылки
-  const isActive = (path) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  };
-
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-[#9B51E0] z-50">
-      <div className="flex justify-between items-center">
-        <NavItem 
-          to="/" 
-          icon={PassportIcon} 
-          label="Visas" 
-          isActive={isActive('/')} 
-        />
-        <NavItem 
-          to="/visa-status" 
-          icon={ProgressIcon} 
-          label="Status" 
-          isActive={isActive('/visa-status')} 
-        />
-        <NavItem 
-          to="/about" 
-          icon={AboutIcon} 
-          label="About us" 
-          isActive={isActive('/about')} 
-        />
-        <NavItem 
-          to="/faq" 
-          icon={QuestionsIcon} 
-          label="FAQ" 
-          isActive={isActive('/faq')} 
-        />
-        <NavItem 
-          to="/#contacts" 
-          icon={ContactsIcon} 
-          label="Contacts" 
-          isActive={location.hash === '#contacts'} 
-        />
-      </div>
+    <nav className="mobile-nav-bar">
+      <Link to="/visas" className="mobile-nav-item">
+        <div className="mobile-nav-icon text-white">
+          <FaPassport size={24} />
+        </div>
+        <span className="mobile-nav-text">Visas</span>
+      </Link>
+      
+      <Link to="/status" className="mobile-nav-item">
+        <div className="mobile-nav-icon text-white">
+          <MdOutlineQueryStats size={24} />
+        </div>
+        <span className="mobile-nav-text">Status</span>
+      </Link>
+      
+      <Link to="/about" className="mobile-nav-item">
+        <div className="mobile-nav-icon text-white">
+          <FaInfoCircle size={24} />
+        </div>
+        <span className="mobile-nav-text">About us</span>
+      </Link>
+      
+      <Link to="/faq" className="mobile-nav-item">
+        <div className="mobile-nav-icon text-white">
+          <FaQuestionCircle size={24} />
+        </div>
+        <span className="mobile-nav-text">FAQ</span>
+      </Link>
+      
+      <Link to="/contacts" className="mobile-nav-item">
+        <div className="mobile-nav-icon text-white">
+          <FaPhone size={24} />
+        </div>
+        <span className="mobile-nav-text">Contacts</span>
+      </Link>
     </nav>
-  );
-};
-
-// Компонент для отдельного элемента навигации
-const NavItem = ({ to, icon, label, isActive }) => {
-  return (
-    <Link 
-      to={to} 
-      className={`flex flex-col items-center justify-center py-2 flex-1 transition-all duration-300 ${
-        isActive 
-          ? 'text-white' 
-          : 'text-white/80 hover:text-white'
-      }`}
-    >
-      <img 
-        src={icon} 
-        alt={label} 
-        className="h-6 w-6 mb-1" 
-      />
-      <span className="text-xs font-medium">{label}</span>
-    </Link>
   );
 };
 

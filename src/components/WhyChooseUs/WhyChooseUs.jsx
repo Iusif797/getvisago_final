@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
     { 
       icon: icon1, 
       title: "Fast Processing", 
-      bgColor: "bg-white", 
+      bgColor: "bg-[#F6F7FA]", 
       textColor: "text-black",
       shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.15)]"
     },
@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
     { 
       icon: icon3, 
       title: "Refund Guarantee", 
-      bgColor: "bg-white", 
+      bgColor: "bg-[#F6F7FA]", 
       textColor: "text-black",
       shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.15)]"
     },
@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
   ];
   
   return (
-    <section className="w-full py-12 bg-[#f5f5f5] relative overflow-hidden">
+    <section className="w-full py-12 bg-[#F6F7FA] relative overflow-hidden">
       {/* Декоративные элементы */}
       <div className="absolute top-0 left-0 w-32 h-32 bg-[#00BFA5] opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#00BFA5] opacity-5 rounded-full translate-x-1/2 translate-y-1/2"></div>

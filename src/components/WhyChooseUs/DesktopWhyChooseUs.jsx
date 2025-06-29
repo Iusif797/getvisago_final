@@ -6,7 +6,7 @@ import guaranteeImg from '../../assets/guarantee.png';
 
 const DesktopWhyChooseUs = () => {
   return (
-    <section className="w-full py-16 bg-white">
+    <section className="w-full py-16 bg-[#F6F7FA]">
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
         <h2 className="text-[#00BFA5] text-4xl font-bold mb-12 text-center">
           Why Choose Us

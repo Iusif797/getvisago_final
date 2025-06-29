@@ -64,12 +64,11 @@ const WhyChooseUs = () => {
               key={index} 
               className={`w-full flex items-center rounded-full py-3.5 px-5 ${feature.bgColor} ${feature.shadowColor} transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg`}
             >
-              <div className="w-12 h-12 flex-shrink-0 mr-4 flex items-center justify-center">
+              <div className="w-10 h-10 flex-shrink-0 mr-4 flex items-center justify-center">
                 <img 
                   src={feature.icon} 
                   alt={feature.title} 
-                  className="w-full h-full object-contain" 
-                  style={{ imageRendering: 'crisp-edges' }}
+                  className="w-10 h-10 object-contain [image-rendering:crisp-edges]" 
                 />
               </div>
               <span className={`font-bold text-lg ${feature.textColor}`}>{feature.title}</span>

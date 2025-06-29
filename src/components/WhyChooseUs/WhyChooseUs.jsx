@@ -3,10 +3,10 @@ import useWindowSize from '../../hooks/useWindowSize';
 import DesktopWhyChooseUs from './DesktopWhyChooseUs';
 
 // Импортируем иконки из ассетов
-import icon1 from '../../assets/icon1.png';
-import icon2 from '../../assets/icon2.png';
-import icon3 from '../../assets/icon3.png';
-import icon4 from '../../assets/icon4.png';
+import icon1 from '../../assets/icon_newformat.png';
+import icon2 from '../../assets/icon2_newformat.png';
+import icon3 from '../../assets/icon3_newformat.png';
+import icon4 from '../../assets/icon4_newformat.png';
 
 const WhyChooseUs = () => {
   const { width } = useWindowSize();

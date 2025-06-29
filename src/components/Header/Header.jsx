@@ -33,8 +33,10 @@ const Header = () => {
     // Блокировать скролл страницы при открытом меню
     if (!showMobileMenu) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     }
   };
 
@@ -42,6 +44,7 @@ const Header = () => {
     setIsAnimating(true);
     setShowMobileMenu(false);
     document.body.style.overflow = '';
+    document.body.classList.remove('menu-open');
   };
   
   // Сбрасываем состояние анимации

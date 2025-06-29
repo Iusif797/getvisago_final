@@ -1979,3 +1979,8 @@
 .mobile-nav-text {
   @apply text-white text-xs font-medium;
 }
+
+/* Скрыть нижнюю мобильную навигацию, когда открыто боковое меню */
+body.menu-open .mobile-nav-bar {
+  display: none;
+}

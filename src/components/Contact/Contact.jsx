@@ -25,37 +25,31 @@ const Contact = () => {
               href="tel:+91-123-456-78-90" 
               className="flex items-center justify-between py-4 px-6 bg-white rounded-full border-2 border-[#9B51E0] transition-all duration-300"
             >
-              <div className="flex items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="#9B51E0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="text-[#9B51E0] font-semibold text-lg">+91-123 456 78-90</span>
-              </div>
+              <span className="text-[#9B51E0] font-semibold text-lg">+91-123 456 78-90</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16.42V19.956C21.0001 20.2092 20.9042 20.453 20.7316 20.6382C20.559 20.8234 20.3226 20.9363 20.07 20.954C19.633 20.984 19.276 21 19 21C10.163 21 3 13.837 3 5C3 4.724 3.015 4.367 3.046 3.93C3.06372 3.67744 3.17658 3.44101 3.3618 3.26841C3.54703 3.09581 3.79082 2.99989 4.044 3H7.58C7.70404 2.99987 7.8237 3.04586 7.91573 3.12902C8.00776 3.21218 8.0656 3.32658 8.078 3.45C8.101 3.68 8.122 3.863 8.142 4.002C8.34073 5.38892 8.748 6.73783 9.35 8.003C9.445 8.203 9.383 8.442 9.203 8.57L7.045 10.112C8.36445 13.1865 10.8145 15.6365 13.889 16.956L15.429 14.802C15.4919 14.714 15.5838 14.6509 15.6885 14.6237C15.7932 14.5964 15.9042 14.6068 16.002 14.653C17.267 15.2539 18.6156 15.6601 20.002 15.858C20.141 15.878 20.324 15.9 20.552 15.922C20.6752 15.9346 20.7894 15.9926 20.8724 16.0846C20.9553 16.1766 21.0012 16.2961 21.001 16.42H21Z" stroke="#9B51E0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </a>
             
             <a 
               href="mailto:support@visadoc.com" 
               className="flex items-center justify-between py-4 px-6 bg-white rounded-full border-2 border-[#9B51E0] transition-all duration-300"
             >
-              <div className="flex items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3">
-                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="#9B51E0" strokeWidth="2.5"/>
-                  <path d="M22 7L12 14L2 7" stroke="#9B51E0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="text-[#9B51E0] font-semibold text-lg uppercase">SUPPORT@VISADOC.COM</span>
-              </div>
+              <span className="text-[#9B51E0] font-semibold text-lg uppercase">SUPPORT@VISADOC.COM</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#9B51E0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M22 6L12 13L2 6" stroke="#9B51E0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </a>
             
             <a 
               href="#chat" 
               className="flex items-center justify-between py-4 px-6 bg-white rounded-full border-2 border-[#9B51E0] transition-all duration-300"
             >
-              <div className="flex items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3">
-                  <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="#9B51E0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="text-[#9B51E0] font-semibold text-lg">CHAT HELP</span>
-              </div>
+              <span className="text-[#9B51E0] font-semibold text-lg">CHAT HELP</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12C21 16.971 16.971 21 12 21C10.4241 21 8.94379 20.5297 7.69173 19.7266L3 21L4.3 16.1C3.4784 14.8196 3 13.3081 3 11.7C3 6.72898 7.02898 2.7 12 2.7C16.971 2.7 21 6.72898 21 12Z" stroke="#9B51E0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </a>
           </div>
         </div>

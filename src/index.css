@@ -7,7 +7,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
   body {
-    @apply bg-white m-0 p-0 overflow-x-hidden text-visa-gray-800;
+    @apply bg-[#F6F7FA] m-0 p-0 overflow-x-hidden text-visa-gray-800;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
@@ -32,11 +32,11 @@
 
 @layer components {
   .container-app {
-    @apply w-full min-w-320 max-w-full sm:max-w-540 md:max-w-720 mx-auto bg-white min-h-screen relative overflow-hidden;
+    @apply w-full min-w-320 max-w-full sm:max-w-540 md:max-w-720 mx-auto bg-[#F6F7FA] min-h-screen relative overflow-hidden;
   }
   
   .header {
-    @apply flex justify-between items-center px-4 py-5 bg-white shadow-md sticky top-0 z-50 w-full;
+    @apply flex justify-between items-center px-4 py-5 bg-[#F6F7FA] shadow-md sticky top-0 z-50 w-full;
   }
   
   .logo-text {
@@ -57,7 +57,7 @@
   }
   
   .visa-card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden w-full;
+    @apply bg-[#F6F7FA] rounded-xl shadow-md overflow-hidden w-full;
   }
   
   .button-primary {
@@ -65,7 +65,7 @@
   }
   
   .button-outline {
-    @apply flex justify-between items-center px-5 sm:px-6 py-3 sm:py-4 rounded-full bg-white text-visa-green border-2 border-visa-green font-semibold text-sm sm:text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300 w-full tracking-wider;
+    @apply flex justify-between items-center px-5 sm:px-6 py-3 sm:py-4 rounded-full bg-[#F6F7FA] text-visa-green border-2 border-visa-green font-semibold text-sm sm:text-base uppercase shadow-md hover:shadow-lg transition-shadow duration-300 w-full tracking-wider;
   }
 
   .why-choose-us-section {
@@ -106,7 +106,7 @@
   }
 
   .feature-icon {
-    @apply w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-lg transition-transform duration-300;
+    @apply w-12 h-12 rounded-full flex items-center justify-center bg-[#F6F7FA] shadow-lg transition-transform duration-300;
   }
 
   .feature-card:hover .feature-icon {
@@ -343,7 +343,7 @@
   }
 
   .review-card {
-    @apply bg-white p-6 rounded-3xl shadow-lg text-center flex flex-col items-center;
+    @apply bg-[#F6F7FA] p-6 rounded-3xl shadow-lg text-center flex flex-col items-center;
     min-height: 300px;
     transition: all 0.3s ease;
   }
@@ -421,7 +421,7 @@
 
   /* Стили для секции FAQ */
   .faq-section {
-    @apply w-full py-10 bg-white;
+    @apply w-full py-10 bg-[#F6F7FA];
   }
 
   .faq-container {
@@ -437,7 +437,7 @@
   }
 
   .faq-item {
-    @apply bg-white rounded-lg shadow-md mb-4 overflow-hidden;
+    @apply bg-[#F6F7FA] rounded-lg shadow-md mb-4 overflow-hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
@@ -475,12 +475,12 @@
   }
 
   .faq-item.open {
-    @apply bg-white;
+    @apply bg-[#F6F7FA];
   }
 
   /* Стили для секции Contact */
   .contact-section {
-    @apply w-full py-10 bg-white;
+    @apply w-full py-10 bg-[#F6F7FA];
   }
 
   .contact-container {
@@ -517,7 +517,7 @@
 
   /* Стили для блока Social Media и Documents */
   .social-docs-section {
-    @apply w-full py-6 bg-white;
+    @apply w-full py-6 bg-[#F6F7FA];
   }
 
   .social-docs-container {
@@ -558,7 +558,7 @@
 
   /* Стили для футера */
   .footer-section {
-    @apply w-full bg-white border-t border-visa-gray-200 relative pb-16;
+    @apply w-full bg-[#F6F7FA] border-t border-visa-gray-200 relative pb-16;
   }
 
   .footer-container {

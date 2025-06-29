@@ -63,7 +63,22 @@ const FAQ = () => {
                 <div className={`flex-shrink-0 ml-4 transition-transform duration-300 ${
                   openQuestion === index ? 'rotate-180' : ''
                 }`}>
-                  <img src={strelkaIcon} alt="Toggle" className="w-4 h-4" />
+                  <svg 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                  >
+                    <path 
+                      d="M7 10L12 15L17 10" 
+                      stroke="#9B51E0" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
               </div>
               

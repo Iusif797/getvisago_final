@@ -8,7 +8,7 @@ const LanguageSelector = ({ showLanguages, currentLanguage, toggleLanguages, sel
       <img 
         src={currentLanguage === 'en' ? ukFlag : indiaFlag} 
         alt="Select Language" 
-        className="w-10 h-10 rounded-full cursor-pointer hover:shadow-sm transition-shadow"
+        className="w-8 h-8 rounded-full cursor-pointer hover:shadow-sm transition-shadow"
         onClick={toggleLanguages}
       />
       

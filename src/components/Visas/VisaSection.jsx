@@ -77,7 +77,7 @@ const VisaSection = () => {
   }
 
   return (
-    <section className="relative py-14 px-4 overflow-hidden bg-gradient-to-b from-[#f8fafc] to-[#eef2ff]">
+    <section className="relative py-14 px-4 overflow-hidden bg-gradient-to-b from-[#F6F7FA] to-[#F6F7FA]">
       {/* Фоновые декоративные элементы */}
       <div className="absolute top-0 left-0 w-40 h-40 rounded-full bg-[#00BFA5]/10 -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-60 h-60 rounded-full bg-[#9B51E0]/10 translate-x-1/3 translate-y-1/3 blur-3xl"></div>
@@ -116,7 +116,7 @@ const VisaSection = () => {
           <div className="flex justify-center">
             <button 
               onClick={() => setShowAll(!showAll)}
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white border-2 border-[#9B51E0] text-[#9B51E0] font-bold text-sm transition-all duration-300 tracking-wide hover:bg-[#9B51E0] hover:text-white shadow-md hover:shadow-[0_5px_15px_rgba(155,81,224,0.3)]"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#F6F7FA] border-2 border-[#9B51E0] text-[#9B51E0] font-bold text-sm transition-all duration-300 tracking-wide hover:bg-[#9B51E0] hover:text-white shadow-md hover:shadow-[0_5px_15px_rgba(155,81,224,0.3)]"
             >
               {showAll ? 'SHOW LESS' : 'SEE ALL COUNTRIES'}
               <FaChevronDown className={`transform transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />

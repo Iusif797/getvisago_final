@@ -69,7 +69,7 @@
   }
 
   .why-choose-us-section {
-    @apply w-full mb-0 pt-8 px-4 pb-6 bg-visa-gray-50;
+    @apply w-full mb-0 pt-8 px-4 pb-6 bg-[#F6F7FA];
   }
 
   .why-choose-us-section h2 {

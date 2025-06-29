@@ -1,5 +1,6 @@
 import React from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
+import { FaPhoneAlt, FaEnvelope, FaRegComments } from 'react-icons/fa';
 
 import phoneIcon from '../../assets/phone_footer.svg';
 import emailIcon from '../../assets/e-mail_footer.svg';
@@ -13,6 +14,8 @@ import mastercardIcon from '../../assets/MASTERCARD_footer.svg';
 import phoneIconMobile from '../../assets/numbermobile_footer.svg';
 import emailIconMobile from '../../assets/e-mailmobile_footer.svg';
 import supportIconMobile from '../../assets/supportmobile_footer.svg';
+
+// Используем тонкие иконки, как на макете
 
 const Footer = () => {
   const { width } = useWindowSize();
@@ -107,20 +110,23 @@ const Footer = () => {
         <div className="mb-6">
           <h2 className="text-emerald-500 text-2xl font-bold mb-4">Contact us</h2>
           
-          <div className="flex flex-col space-y-4 w-full">
-            <a href="tel:+91-123-456-78-90" className="flex items-center justify-center text-violet-600 hover:text-violet-700 py-3 px-6 rounded-full border-2 border-violet-600 transition-all duration-300 transform hover:scale-105">
-              <img src={phoneIcon} alt="Phone" className="mr-3 h-6" />
-              <span>+91-123 456 78-90</span>
+          <div className="flex flex-col space-y-6 w-full">
+            {/* Phone */}
+            <a href="tel:+91-123-456-78-90" className="group flex items-center justify-between w-full py-4 pl-8 pr-6 bg-white rounded-full border-2 border-[#9B51E0] shadow-sm">
+              <span className="text-[#9B51E0] font-extrabold text-lg tracking-tight">+91-123 456 78-90</span>
+              <FaPhoneAlt size={26} className="text-[#9B51E0] transition-transform duration-300 group-hover:scale-110" />
             </a>
-            
-            <a href="mailto:support@visadoc.com" className="flex items-center justify-center text-violet-600 hover:text-violet-700 uppercase py-3 px-6 rounded-full border-2 border-violet-600 transition-all duration-300 transform hover:scale-105">
-              <img src={emailIcon} alt="Email" className="mr-3 h-6" />
-              <span>SUPPORT@VISADOC.COM</span>
+
+            {/* Email */}
+            <a href="mailto:support@visadoc.com" className="group flex items-center justify-between w-full py-4 pl-8 pr-6 bg-white rounded-full border-2 border-[#9B51E0] shadow-sm">
+              <span className="text-[#9B51E0] font-extrabold text-lg tracking-tight uppercase">SUPPORT@VISADOC.COM</span>
+              <FaEnvelope size={26} className="text-[#9B51E0] transition-transform duration-300 group-hover:scale-110" />
             </a>
-            
-            <a href="#chat" className="flex items-center justify-center text-violet-600 hover:text-violet-700 py-3 px-6 rounded-full border-2 border-violet-600 transition-all duration-300 transform hover:scale-105">
-              <img src={messageIcon} alt="Chat" className="mr-3 h-6" />
-              <span>CHAT HELP</span>
+
+            {/* Chat */}
+            <a href="#chat" className="group flex items-center justify-between w-full py-4 pl-8 pr-6 bg-white rounded-full border-2 border-[#9B51E0] shadow-sm">
+              <span className="text-[#9B51E0] font-extrabold text-lg tracking-tight">CHAT HELP</span>
+              <FaRegComments size={26} className="text-[#9B51E0] transition-transform duration-300 group-hover:scale-110" />
             </a>
           </div>
         </div>

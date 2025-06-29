@@ -125,7 +125,7 @@ const Header = () => {
             onClick={toggleMobileMenu} 
             className="ml-2 hover:bg-visa-gray-100 rounded-full transition-colors w-10 h-10 flex items-center justify-center"
           >
-            <FaBars size={26} className="text-visa-gray-800" />
+            <FaBars size={30} className="text-visa-gray-800" />
           </button>
         </div>
       </header>

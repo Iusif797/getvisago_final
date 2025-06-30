@@ -4,9 +4,9 @@ import firstBanner from '../../assets/first-banner.png';
 
 const DesktopHero = () => {
   return (
-    <div className="w-full flex items-center py-14 bg-white px-8 lg:px-16 xl:px-24 overflow-hidden">
+    <div className="w-full flex items-center py-14 bg-[#F6F7FA] px-8 lg:px-16 xl:px-24 overflow-hidden">
       {/* Левая колонка (текст) */}
-      <div className="w-1/2 pr-8 z-10">
+      <div className="w-1/2 pl-2 pr-8 z-10">
         <h1 className="text-5xl xl:text-6xl font-bold mb-5 leading-tight">
           <span className="text-[#00BFA5]">Fast and</span> <br />
           <span className="text-[#7950ED]">Reliable eVisas</span>
@@ -34,9 +34,9 @@ const DesktopHero = () => {
       </div>
       
       {/* Правая колонка (изображение) */}
-      <div className="w-1/2 relative flex justify-center items-center h-[500px]">
+      <div className="w-1/2 relative flex justify-center items-center h-[500px] pl-8">
         {/* Овальный фон */}
-        <div className="absolute right-0 w-[80%] h-[90%] bg-[#E8F5FF] rounded-full z-0"></div>
+        <div className="absolute right-8 w-[80%] h-[90%] bg-[#E8F5FF] rounded-full z-0"></div>
         
         {/* Телефон */}
         <div className="relative z-10 transform -rotate-3 hover:rotate-0 transition-all duration-700">

@@ -13,7 +13,7 @@ const SocialMediaDocs = () => {
   }
 
   return (
-    <section className="w-full py-8 bg-white">
+    <section className="w-full py-8 bg-[#F6F7FA]">
       <div className="w-full max-w-[1400px] mx-auto px-4 flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-md">
           <div className="flex flex-col items-center">

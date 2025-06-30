@@ -67,7 +67,7 @@ const MobileReviews = () => {
   };
 
   return (
-    <section className="w-full py-12 bg-white">
+    <section className="w-full py-12 bg-[#F6F7FA]">
       <div className="w-full px-6 mx-auto relative">
         <h2 className="text-emerald-500 text-3xl font-bold mb-8 text-center">Reviews</h2>
         

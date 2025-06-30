@@ -77,7 +77,7 @@ const VisaSection = () => {
   }
 
   return (
-    <section className="relative py-14 px-4 overflow-hidden bg-gradient-to-b from-[#F6F7FA] to-[#F6F7FA]">
+    <section className="relative py-14 px-4 overflow-hidden bg-[#F6F7FA]">
       {/* Фоновые декоративные элементы */}
       <div className="absolute top-0 left-0 w-40 h-40 rounded-full bg-[#00BFA5]/10 -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-60 h-60 rounded-full bg-[#9B51E0]/10 translate-x-1/3 translate-y-1/3 blur-3xl"></div>

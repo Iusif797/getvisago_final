@@ -1984,3 +1984,142 @@
 body.menu-open .mobile-nav-bar {
   display: none;
 }
+
+/* Добавляем стили для анимаций и эффектов */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(0, 191, 165, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(0, 191, 165, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(0, 191, 165, 0.3));
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+.animation-duration-2000 {
+  animation-duration: 2000ms !important;
+}
+
+.animation-duration-3000 {
+  animation-duration: 3000ms !important;
+}
+
+.transition-delay-0 {
+  transition-delay: 0ms;
+}
+
+.transition-delay-100 {
+  transition-delay: 100ms;
+}
+
+.transition-delay-200 {
+  transition-delay: 200ms;
+}
+
+.transition-delay-300 {
+  transition-delay: 300ms;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
+
+/* Улучшенные стили для градиентов и теней */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.shadow-neon-green {
+  box-shadow: 0 0 15px rgba(0, 191, 165, 0.5);
+}
+
+.shadow-neon-purple {
+  box-shadow: 0 0 15px rgba(138, 63, 252, 0.5);
+}
+
+/* Стили для hover эффектов */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Фильтры для SVG иконок */
+.filter-white {
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
+.filter-green {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(130deg) brightness(118%) contrast(119%) drop-shadow(0 0 3px rgba(0, 191, 165, 0.5));
+}
+
+.filter-purple {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(248deg) brightness(104%) contrast(97%) drop-shadow(0 0 3px rgba(138, 63, 252, 0.5));
+}
+
+/* Улучшенные тени для иконок */
+.icon-shadow-white {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+.icon-shadow-green {
+  filter: drop-shadow(0 0 8px rgba(0, 191, 165, 0.8));
+}
+
+.icon-shadow-purple {
+  filter: drop-shadow(0 0 8px rgba(138, 63, 252, 0.8));
+}

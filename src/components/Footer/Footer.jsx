@@ -23,7 +23,7 @@ const Footer = () => {
 
   if (isDesktop) {
     return (
-      <footer id="contacts" className="w-full py-16 bg-white">
+      <footer id="contacts" className="w-full py-16 bg-[#F6F7FA]">
         <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
           <div className="flex justify-center">
             <div className="grid grid-cols-3 gap-16 w-full max-w-4xl">
@@ -104,7 +104,7 @@ const Footer = () => {
 
   // Мобильная версия
   return (
-    <footer id="contacts" className="w-full bg-white py-0 px-4 pb-20">
+    <footer id="contacts" className="w-full bg-[#F6F7FA] py-0 px-4 pb-20">
       <div className="flex flex-col">
         {/* Contact Us */}
         <div className="mb-6">

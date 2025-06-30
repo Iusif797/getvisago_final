@@ -91,7 +91,7 @@ const DesktopReviews = () => {
   };
 
   return (
-    <section className="w-full py-16 bg-gradient-to-b from-white to-gray-50">
+    <section className="w-full py-16 bg-[#F6F7FA]">
       <div className="w-full px-4 lg:px-8 max-w-[1400px] mx-auto relative">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-4xl font-bold mx-auto bg-gradient-to-r from-emerald-500 to-violet-600 bg-clip-text text-transparent">

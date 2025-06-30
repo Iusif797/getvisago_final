@@ -41,7 +41,7 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className={`w-full ${isMobile ? 'mobile-section' : 'py-10'} bg-white`}>
+    <section id="faq" className={`w-full ${isMobile ? 'mobile-section' : 'py-10'} bg-[#F6F7FA]`}>
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
         <h2 className={isMobile ? "section-title" : "text-[#04C495] text-4xl font-bold mb-8 text-center"}>FAQ</h2>
         

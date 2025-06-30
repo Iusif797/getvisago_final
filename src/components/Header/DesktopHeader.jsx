@@ -43,7 +43,7 @@ const DesktopHeader = () => {
   };
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-gray-50 py-3 px-6">
+    <header className="w-full sticky top-0 z-50 bg-[#F6F7FA] py-3 px-6">
       <div className="w-full max-w-6xl mx-auto bg-white rounded-full py-3 px-8 flex justify-between items-center shadow-sm">
         {/* Логотип */}
         <div className="flex items-center pl-2">

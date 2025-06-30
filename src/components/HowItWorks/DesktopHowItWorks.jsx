@@ -45,7 +45,7 @@ const DesktopHowItWorks = () => {
   };
   
   return (
-    <section className="w-full py-8 bg-gray-50">
+    <section className="w-full py-8 bg-[#F6F7FA]">
       <div className="w-full px-4 lg:px-8 max-w-[1400px] mx-auto relative">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-[#00BFA5] text-4xl font-bold">How It Works</h2>

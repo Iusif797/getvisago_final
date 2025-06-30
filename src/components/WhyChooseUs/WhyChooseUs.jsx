@@ -2,8 +2,8 @@ import React from 'react';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopWhyChooseUs from './DesktopWhyChooseUs';
 
-// Импортируем иконки из ассетов
-import icon1 from '../../assets/icon_newformat.png';
+// Импортируем PNG иконки высокого качества
+import icon1 from '../../assets/icon1_4х.png';
 import icon2 from '../../assets/icon2_newformat.png';
 import icon3 from '../../assets/icon3_newformat.png';
 import icon4 from '../../assets/icon4_newformat.png';
@@ -15,45 +15,47 @@ const WhyChooseUs = () => {
     return <DesktopWhyChooseUs />;
   }
   
-  // Данные для мобильных карточек точно по макету
+  // Данные для мобильных карточек с PNG иконками, как на втором скриншоте
   const mobileFeatures = [
     { 
       icon: icon1, 
       title: "Fast Processing", 
-      bgColor: "bg-[#F6F7FA]", 
+      bgColor: "bg-white", 
       textColor: "text-black",
-      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.15)]"
+      shadowColor: "shadow-md",
+      borderColor: "border border-[#8A3FFC]",
+      hoverEffect: "hover:shadow-lg hover:border-[#A56EFF]"
     },
     { 
       icon: icon2, 
       title: "Simple Application", 
       bgColor: "bg-[#00BFA5]", 
       textColor: "text-white",
-      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.3)]"
+      shadowColor: "shadow-md",
+      hoverEffect: "hover:shadow-lg hover:bg-[#00D9BC]"
     },
     { 
       icon: icon3, 
       title: "Refund Guarantee", 
-      bgColor: "bg-[#F6F7FA]", 
+      bgColor: "bg-white", 
       textColor: "text-black",
-      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.15)]"
+      shadowColor: "shadow-md",
+      borderColor: "border border-[#8A3FFC]",
+      hoverEffect: "hover:shadow-lg hover:border-[#A56EFF]"
     },
     { 
       icon: icon4, 
       title: "Customer Support", 
       bgColor: "bg-[#00BFA5]", 
       textColor: "text-white",
-      shadowColor: "shadow-[0_4px_12px_rgba(0,191,165,0.3)]"
+      shadowColor: "shadow-md",
+      hoverEffect: "hover:shadow-lg hover:bg-[#00D9BC]"
     }
   ];
   
   return (
-    <section className="w-full py-12 bg-[#F6F7FA] relative overflow-hidden">
-      {/* Декоративные элементы */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-[#00BFA5] opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#00BFA5] opacity-5 rounded-full translate-x-1/2 translate-y-1/2"></div>
-      
-      <div className="w-full max-w-[1400px] mx-auto px-5 relative z-10">
+    <section className="w-full py-12 bg-[#F6F7FA]">
+      <div className="w-full max-w-[1400px] mx-auto px-5">
         <h2 className="text-[#00BFA5] text-3xl font-bold mb-8 text-center">
           Why Choose Us
         </h2>
@@ -62,13 +64,14 @@ const WhyChooseUs = () => {
           {mobileFeatures.map((feature, index) => (
             <div 
               key={index} 
-              className={`w-full flex items-center rounded-full py-3.5 px-5 ${feature.bgColor} ${feature.shadowColor} transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg`}
+              className={`w-full flex items-center rounded-full py-3 px-5 ${feature.bgColor} ${feature.shadowColor} ${feature.borderColor || ''} ${feature.hoverEffect} transition-all duration-300 hover:translate-y-[-2px]`}
             >
               <div className="w-10 h-10 flex-shrink-0 mr-4 flex items-center justify-center">
                 <img 
                   src={feature.icon} 
                   alt={feature.title} 
-                  className="w-10 h-10 object-contain [image-rendering:crisp-edges]" 
+                  className="w-10 h-10 object-contain hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
                 />
               </div>
               <span className={`font-bold text-lg ${feature.textColor}`}>{feature.title}</span>

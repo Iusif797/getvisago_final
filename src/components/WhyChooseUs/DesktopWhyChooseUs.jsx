@@ -1,8 +1,10 @@
 import React from 'react';
-import simpleApplicationImg from '../../assets/simple_application.png';
-import fastProcessingImg from '../../assets/fast_processing.png';
-import customerSupportImg from '../../assets/customer_support.png';
-import guaranteeImg from '../../assets/guarantee.png';
+
+// Импортируем PNG иконки высокого качества
+import icon1 from '../../assets/icon1_4х.png';
+import icon2 from '../../assets/icon2_newformat.png';
+import icon3 from '../../assets/icon3_newformat.png';
+import icon4 from '../../assets/icon4_newformat.png';
 
 const DesktopWhyChooseUs = () => {
   return (
@@ -13,38 +15,72 @@ const DesktopWhyChooseUs = () => {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Первый ряд */}
+          {/* Первый ряд - левая колонка */}
           <div className="flex justify-center">
-            <img 
-              src={simpleApplicationImg} 
-              alt="Simple Application" 
-              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
-            />
+            <div className="w-full">
+              <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#00BFA5] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
+                <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
+                  <img 
+                    src={icon2} 
+                    alt="Simple Application" 
+                    className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-bold text-xl text-white">Simple Application</span>
+              </div>
+            </div>
           </div>
           
+          {/* Первый ряд - правая колонка */}
           <div className="flex justify-center">
-            <img 
-              src={fastProcessingImg} 
-              alt="Fast Processing" 
-              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
-            />
+            <div className="w-full">
+              <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#8A3FFC] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
+                <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
+                  <img 
+                    src={icon1} 
+                    alt="Fast Processing" 
+                    className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-bold text-xl text-white">Fast Processing</span>
+              </div>
+            </div>
           </div>
           
-          {/* Второй ряд */}
+          {/* Второй ряд - левая колонка */}
           <div className="flex justify-center">
-            <img 
-              src={customerSupportImg} 
-              alt="Customer Support" 
-              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
-            />
+            <div className="w-full">
+              <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#00BFA5] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
+                <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
+                  <img 
+                    src={icon4} 
+                    alt="Customer Support" 
+                    className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-bold text-xl text-white">Customer Support</span>
+              </div>
+            </div>
           </div>
           
+          {/* Второй ряд - правая колонка */}
           <div className="flex justify-center">
-            <img 
-              src={guaranteeImg} 
-              alt="Refund Guarantee" 
-              className="w-full max-w-md transition-transform hover:scale-105 duration-300"
-            />
+            <div className="w-full">
+              <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#8A3FFC] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
+                <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
+                  <img 
+                    src={icon3} 
+                    alt="Refund Guarantee" 
+                    className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-bold text-xl text-white">Refund Guarantee</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

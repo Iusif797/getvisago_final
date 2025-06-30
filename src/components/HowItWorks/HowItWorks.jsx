@@ -63,7 +63,7 @@ const HowItWorks = () => {
   
   // Мобильная версия
   return (
-    <section className="w-full px-6 py-4 bg-visa-gray-50">
+    <section className="w-full px-6 py-4 bg-[#F6F7FA]">
       <div className="flex flex-col items-center mb-4">
         <h2 className="how-it-works-title mb-4">How It Works:</h2>
         

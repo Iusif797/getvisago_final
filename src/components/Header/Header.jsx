@@ -105,7 +105,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="mx-3 my-2 bg-white rounded-full shadow-md flex items-center justify-between py-1.5 px-3 z-40">
+      <header className="mx-3 my-2 bg-[#F6F7FA] rounded-full shadow-md flex items-center justify-between py-1.5 px-3 z-40">
         <div className="flex items-center">
           <Link to="/">
             <img src={logoGetVisago} alt="GETVISAGO" className="h-5" />
@@ -252,8 +252,8 @@ const Header = () => {
               <FaInstagram size={20} />
             </a>
           </div>
-          <div className="text-xs text-center text-gray-500">
-            © 2025 GETVISAGO. All rights reserved.
+          <div className="text-sm text-center text-visa-gray-500">
+            © 2025 GETVISAGO LTD
           </div>
         </div>
       </div>

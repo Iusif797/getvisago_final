@@ -16,7 +16,7 @@ const DesktopVisaSection = ({ visas, additionalVisas = [] }) => {
   const allVisas = [...visas, ...(showAll ? additionalVisas : [])];
 
   return (
-    <section className="relative py-24 px-8 overflow-hidden bg-gradient-to-b from-[#F6F7FA] to-[#F6F7FA]">
+    <section className="relative py-24 px-8 overflow-hidden bg-[#F6F7FA]">
       {/* Фоновые декоративные элементы */}
       <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-[#00BFA5]/5 -translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full bg-[#9B51E0]/5 translate-x-1/4 translate-y-1/4 blur-3xl"></div>

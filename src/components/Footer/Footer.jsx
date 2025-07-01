@@ -104,11 +104,17 @@ const Footer = () => {
 
   // Мобильная версия
   return (
-    <footer id="contacts" className="w-full bg-[#F6F7FA] py-0 px-4 pb-20">
+    <footer id="contacts" className="w-full bg-white rounded-t-[20px] py-0 px-4 pb-20">
       <div className="flex flex-col">
+        {/* Brand */}
+        <div className="mb-6 mt-6">
+          <h2 className="text-2xl font-extrabold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">
+            GETVISAGO
+          </h2>
+        </div>
         {/* Contact Us */}
         <div className="mb-6">
-          <h2 className="text-emerald-500 text-2xl font-bold mb-4">Contact us</h2>
+          <h2 className="text-2xl font-extrabold mb-4 bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">Contact us</h2>
           
           <div className="flex flex-col space-y-6 w-full">
             {/* Phone */}
@@ -133,7 +139,7 @@ const Footer = () => {
         
         {/* Social Media */}
         <div className="mb-6">
-          <h2 className="text-emerald-500 text-2xl font-bold mb-4">Social media</h2>
+          <h2 className="text-2xl font-extrabold mb-4 bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">Social media</h2>
           <div className="flex space-x-6 mb-4">
             <a href="#facebook" className="transition-transform duration-300 transform hover:scale-110">
               <img src={facebookIcon} alt="Facebook" className="h-8 w-8" />
@@ -149,7 +155,7 @@ const Footer = () => {
         
         {/* Documents */}
         <div className="mb-6">
-          <h2 className="text-emerald-500 text-2xl font-bold mb-4">Documents</h2>
+          <h2 className="text-2xl font-extrabold mb-4 bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">Documents</h2>
           <div className="flex flex-col space-y-3">
             <a href="#document1" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
               My document 1

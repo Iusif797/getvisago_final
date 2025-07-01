@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaWpforms, FaCreditCard, FaCheckCircle, FaPassport } from 'react-icons/fa';
-import arrowLeft from '../../assets/slider_arrow_master.svg';
-import arrowRight from '../../assets/slider_arrow_master1.svg';
+import arrowLeft from '../../assets/arrow-left.svg';
+import arrowRight from '../../assets/arrow-right.svg';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopHowItWorks from './DesktopHowItWorks';
 

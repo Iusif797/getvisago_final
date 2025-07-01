@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight, FaWpforms, FaCreditCard, FaCheckCircle, FaPassport } from 'react-icons/fa';
+import { FaWpforms, FaCreditCard, FaCheckCircle, FaPassport } from 'react-icons/fa';
+import arrowLeft from '../../assets/slider_arrow_master.svg';
+import arrowRight from '../../assets/slider_arrow_master1.svg';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopHowItWorks from './DesktopHowItWorks';
 
@@ -64,34 +66,37 @@ const HowItWorks = () => {
   // Мобильная версия
   return (
     <section className="w-full px-6 py-4 bg-[#F6F7FA]">
-      <div className="flex flex-col items-center mb-4">
-        <h2 className="how-it-works-title mb-4">How It Works:</h2>
-        
-        <div className="progress-bar">
-          <div 
-            className="progress-fill" 
-            style={{ width: `${(current + 1) / steps.length * 100}%` }}
-          ></div>
+      {/* Header and arrows */}
+      <div className="flex justify-between items-start mb-8">
+        <h2 className="text-3xl font-extrabold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent leading-none">
+          How It<br />Works
+        </h2>
+        <div className="flex space-x-4 mt-1">
+          <button onClick={prev} aria-label="Previous" className="w-10 h-10 flex items-center justify-center active:scale-95 transition-transform">
+            <img src={arrowLeft} alt="Prev" className="w-full h-full" />
+          </button>
+          <button onClick={next} aria-label="Next" className="w-10 h-10 flex items-center justify-center active:scale-95 transition-transform">
+            <img src={arrowRight} alt="Next" className="w-full h-full" />
+          </button>
         </div>
       </div>
-      
-      <div className="relative flex flex-col items-center">
+
+      <div className="flex flex-col items-center">
         <div className="how-it-works-circle mb-6">
           {steps[current].icon}
         </div>
-        
-        <div className="flex flex-col items-center">
-          <h3 className="how-it-works-step-title mb-2">{steps[current].title}</h3>
-          <p className="text-center text-sm max-w-xs mb-4">{steps[current].description}</p>
-        </div>
-        
-        <div className="flex gap-4 mt-2">
-          <button onClick={prev} className="nav-button">
-            <FaChevronLeft size={20} />
-          </button>
-          <button onClick={next} className="nav-button">
-            <FaChevronRight size={20} />
-          </button>
+
+        <h3 className="how-it-works-step-title mb-2">{steps[current].title}</h3>
+        <p className="text-center text-sm max-w-xs mb-8">{steps[current].description}</p>
+
+        {/* Dots indicator */}
+        <div className="flex space-x-2">
+          {steps.map((_, idx) => (
+            <span
+              key={idx}
+              className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#9B51E0]' : 'bg-[#E4D9FF]'}`}
+            ></span>
+          ))}
         </div>
       </div>
     </section>

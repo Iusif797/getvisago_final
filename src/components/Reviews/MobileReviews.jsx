@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
 import { BiUser } from 'react-icons/bi';
+import leftArrow from '../../assets/slider_arrow_master.svg';
+import rightArrow from '../../assets/slider_arrow_master1.svg';
+import googleIcon from '../../assets/rewiew_service_icon.svg';
 
 const reviewsData = [
   {
@@ -69,62 +70,38 @@ const MobileReviews = () => {
   return (
     <section className="w-full py-12 bg-[#F6F7FA]">
       <div className="w-full px-6 mx-auto relative">
-        <h2 className="text-emerald-500 text-3xl font-bold mb-8 text-center">Reviews</h2>
+        <div className="flex justify-between items-start mb-6">
+          <h2 className="text-3xl font-extrabold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">Reviews</h2>
+          <div className="flex space-x-3">
+            <button onClick={prev} aria-label="Previous" className="w-9 h-9 active:scale-95 transition-transform">
+              <img src={leftArrow} alt="Prev" className="w-full h-full" />
+            </button>
+            <button onClick={next} aria-label="Next" className="w-9 h-9 active:scale-95 transition-transform">
+              <img src={rightArrow} alt="Next" className="w-full h-full" />
+            </button>
+          </div>
+        </div>
         
         <div className="relative px-6">
-          <div className="rounded-lg p-5 shadow-lg border border-gray-100 bg-white">
+          <div className="rounded-xl p-5 bg-white w-[90%] mx-auto">
             <div className="flex flex-col h-full justify-between">
               <div>
-                <div className="flex items-center mb-3 justify-center">
-                  {reviewsData[currentIndex].avatar ? (
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-emerald-400 flex items-center justify-center text-white font-bold mr-2 shadow-md">
-                      {reviewsData[currentIndex].avatar}
-                    </div>
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-emerald-400 flex items-center justify-center text-white mr-2 shadow-md">
-                      <BiUser size={16} />
-                    </div>
-                  )}
-                  <h3 className="text-lg font-bold text-gray-900">{reviewsData[currentIndex].name}</h3>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{reviewsData[currentIndex].name}</h3>
                 <div className="flex mb-3 justify-center">
                   {renderStars(reviewsData[currentIndex].rating)}
                 </div>
-                <p className="text-gray-700 mb-4 text-sm line-clamp-4 text-center">
+                <p className="text-gray-800 mb-4 text-sm line-clamp-3">
                   {reviewsData[currentIndex].text}
                 </p>
               </div>
               
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mt-2">
                 <span className="text-xs text-gray-500">{reviewsData[currentIndex].date}</span>
                 {reviewsData[currentIndex].source === 'google' && (
-                  <div className="flex items-center">
-                    <span className="text-xs text-gray-500 mr-1">via</span>
-                    <FcGoogle size={18} />
-                  </div>
+                  <img src={googleIcon} alt="Google" className="w-5 h-5" />
                 )}
               </div>
             </div>
-          </div>
-          
-          <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
-            <button 
-              onClick={prev} 
-              className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-violet-600 shadow-md border border-gray-100"
-              aria-label="Previous"
-            >
-              <FaChevronLeft size={14} />
-            </button>
-          </div>
-          
-          <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
-            <button 
-              onClick={next} 
-              className="w-8 h-8 bg-violet-600 rounded-full flex items-center justify-center text-white shadow-md"
-              aria-label="Next"
-            >
-              <FaChevronRight size={14} />
-            </button>
           </div>
         </div>
         
@@ -135,10 +112,8 @@ const MobileReviews = () => {
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 currentIndex === index 
-                  ? 'bg-violet-600 transform scale-125' 
-                  : index === currentIndex - 1 || index === currentIndex + 1 
-                    ? 'bg-violet-300'
-                    : 'bg-violet-200'
+                  ? 'bg-[#9B51E0] transform scale-125' 
+                  : 'bg-[#E4D9FF]'
               }`}
               aria-label={`Go to review ${index + 1}`}
             />

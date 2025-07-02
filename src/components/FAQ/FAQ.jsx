@@ -43,7 +43,13 @@ const FAQ = () => {
   return (
     <section id="faq" className={`w-full ${isMobile ? 'mobile-section' : 'py-10'} bg-[#F6F7FA]`}>
       <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
-        <h2 className={isMobile ? "section-title" : "text-[#04C495] text-4xl font-bold mb-8 text-center"}>FAQ</h2>
+        {isMobile ? (
+          <div className="flex justify-start items-start mb-6">
+            <h2 className="text-3xl font-extrabold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">FAQ</h2>
+          </div>
+        ) : (
+          <h2 className="text-[#04C495] text-4xl font-bold mb-8 text-center">FAQ</h2>
+        )}
         
         <div className={`${isDesktop ? 'grid grid-cols-2 gap-6' : 'space-y-4'} w-full`}>
           {faqItems.map((item, index) => (

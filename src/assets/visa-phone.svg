@@ -1,0 +1,23 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фоновый эллипс -->
+  <ellipse cx="120" cy="120" r="110" fill="#B8D5E6" opacity="0.8"/>
+  
+  <!-- Силуэт города -->
+  <path d="M30 140L40 135L50 142L65 130L75 135L90 120L100 125L110 115L125 120L140 110L155 115L165 105L175 110L190 100L200 105L210 95V180H30V140Z" fill="#1F3B5A" opacity="0.7"/>
+  
+  <!-- Пальмы -->
+  <path d="M40 140C40 140 45 125 50 130C55 135 60 120 65 130C70 140 40 140 40 140Z" fill="#0D6B3E"/>
+  <path d="M190 140C190 140 185 120 180 125C175 130 170 115 165 125C160 135 190 140 190 140Z" fill="#0D6B3E"/>
+  
+  <!-- Контур телефона -->
+  <rect x="85" y="70" width="70" height="140" rx="10" fill="#F0F0F0" stroke="#333333" stroke-width="2"/>
+  <rect x="90" y="80" width="60" height="110" rx="5" fill="#9B5DE5"/>
+  <path d="M115 75H125V77H115V75Z" fill="#333333"/>
+  
+  <!-- Надпись VISA -->
+  <text x="120" y="125" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle">VISA</text>
+  
+  <!-- Зеленая галочка в круге -->
+  <circle cx="120" cy="160" r="20" fill="#00D1A1"/>
+  <path d="M110 160L117 167L130 155" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import VisaCard from './VisaCard';
 import { FaChevronDown, FaGlobeAsia } from 'react-icons/fa';
 import dubaiImage from '../../assets/dubai_getvisago.JPG';
+import omanImage from '../../assets/oman.JPG';
+import australiaImage from '../../assets/australia.JPG';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -31,7 +33,7 @@ const VisaSection = () => {
     },
     {
       id: 3,
-      image: dubaiImage,
+      image: australiaImage,
       country: 'Australia',
       title: 'Tourist Visa',
       days: 30,
@@ -43,7 +45,7 @@ const VisaSection = () => {
   const additionalVisas = [
     {
       id: 4,
-      image: dubaiImage,
+      image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
       days: 30,

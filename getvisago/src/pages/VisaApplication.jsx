@@ -45,6 +45,18 @@ const VisaApplication = () => {
     const [paymentSubStep, setPaymentSubStep] = useState(1);
     const [billingSubStep, setBillingSubStep] = useState(1);
 
+    const ProgressBar = ({ currentStep, totalSteps }) => {
+        const progressPercentage = (currentStep / totalSteps) * 100;
+        return (
+            <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                <div 
+                    className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out" 
+                    style={{ width: `${progressPercentage}%` }}
+                ></div>
+            </div>
+        );
+    };
+
 
     const CustomRadio = ({ selected }) => (
         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center mr-4 flex-shrink-0 ${selected ? 'border-purple-600' : 'border-gray-300'}`}>
@@ -156,8 +168,7 @@ const VisaApplication = () => {
     );
 
     const Step1Mobile = () => (
-         <div className="bg-white p-5 rounded-2xl shadow-xl w-full max-w-md mx-auto">
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6"><div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '25%' }}></div></div>
+        <>
             <h2 className="text-xl font-bold text-gray-900 mb-5">1. Select visa type</h2>
             <div className="space-y-4">
                 <div className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === 'tourist' ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100'}`} onClick={() => setSelectedVisa('tourist')}><div className="flex justify-between items-center"><div className="flex items-center"><CustomRadio selected={selectedVisa === 'tourist'} /><span className="font-bold text-gray-800 text-base">Tourist visa B2</span></div><span className="font-bold text-gray-800">55 USD</span></div><div className="pl-10 mt-2"><div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">90 days</div><p className="text-gray-500 text-sm leading-tight">Up to 90 days, for tourism, visiting family, or short-term business.</p></div></div>
@@ -166,12 +177,11 @@ const VisaApplication = () => {
             <div className="mt-8"><h3 className="text-lg font-bold text-gray-900 mb-3">Select number of visas</h3><div className="flex items-center justify-between p-1 rounded-lg bg-gray-100 w-32"><button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition"><FaMinus /></button><span className="font-bold text-lg text-gray-900">{visaCount}</span><button onClick={() => setVisaCount(v => v + 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition"><FaPlus /></button></div></div>
             <div className="mt-8 flex items-center"><input type="checkbox" id="privacy-mobile-1" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" /><label htmlFor="privacy-mobile-1" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label></div>
             <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
-        </div>
+        </>
     );
 
     const Step2Mobile = () => (
-        <div className="bg-white p-5 rounded-2xl shadow-xl w-full max-w-md mx-auto">
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6"><div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '50%' }}></div></div>
+        <>
             <h2 className="text-xl font-bold text-gray-900 mb-5">2. Dates & purpose</h2>
              <div className="space-y-5">
                 <div>
@@ -191,14 +201,11 @@ const VisaApplication = () => {
                 <button onClick={() => setStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                 <button onClick={() => setStep(3)} className="bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 px-12 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
             </div>
-        </div>
+        </>
     );
 
     const Step3Mobile = () => (
-        <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '75%' }}></div>
-            </div>
+        <>
             <h2 className="text-xl font-bold text-black mb-6">3. Client data</h2>
             <div className="space-y-4">
                 <div>
@@ -238,14 +245,11 @@ const VisaApplication = () => {
                     Continue
                 </button>
             </div>
-        </div>
+        </>
     );
 
     const Step4Mobile = () => (
-        <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div>
-            </div>
+        <>
             <h2 className="text-xl font-bold text-black mb-2">4. Passport details</h2>
             <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
             
@@ -341,12 +345,11 @@ const VisaApplication = () => {
                     Continue
                 </button>
             </div>
-        </div>
+        </>
     );
 
     const Step5Mobile = () => (
-        <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6"><div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '85%' }}></div></div>
+        <>
             <h2 className="text-xl font-bold text-black mb-2">5. Personal information</h2>
             <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
             <div className="space-y-4">
@@ -383,16 +386,13 @@ const VisaApplication = () => {
                 <button onClick={() => setStep(4)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                 <button onClick={() => setStep(6)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
             </div>
-        </div>
+        </>
     );
-
+    
     const Step6Mobile = () => {
         if (paymentSubStep === 1) {
             return (
-                <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-                    <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                        <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '95%' }}></div>
-                    </div>
+                <>
                     <h2 className="text-xl font-bold text-black mb-1">6. Data verification</h2>
                     <p className="font-bold text-black mb-4">Visa information:</p>
                     
@@ -443,15 +443,12 @@ const VisaApplication = () => {
                         <button onClick={() => setStep(5)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                         <button onClick={() => setPaymentSubStep(2)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
                     </div>
-                </div>
+                </>
             );
         }
 
         return (
-            <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                    <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '95%' }}></div>
-                </div>
+            <>
                 <h2 className="text-xl font-bold text-black mb-6">6. Select payment method</h2>
                 
                 <div className="flex justify-start items-center space-x-4 mb-6">
@@ -477,17 +474,14 @@ const VisaApplication = () => {
                     <button onClick={() => setPaymentSubStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                     <button onClick={() => setStep(7)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
                 </div>
-            </div>
+            </>
         );
     };
 
     const Step7Mobile = () => {
         if (billingSubStep === 1) { // Billing Address
             return (
-                <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-                    <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                        <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div>
-                    </div>
+                <>
                     <h2 className="text-xl font-bold text-black mb-6">7. Billing Address</h2>
                     <div className="space-y-4">
                         <div>
@@ -511,16 +505,13 @@ const VisaApplication = () => {
                         <button onClick={() => setStep(6)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                         <button onClick={() => setBillingSubStep(2)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
                     </div>
-                </div>
+                </>
             );
         }
 
         // Card View
         return (
-            <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                    <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div>
-                </div>
+            <>
                 <h2 className="text-xl font-bold text-black mb-6">7. Card</h2>
                 <div className="space-y-4">
                     <div>
@@ -549,13 +540,12 @@ const VisaApplication = () => {
                     <button onClick={() => setBillingSubStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                     <button onClick={() => setStep(8) } className="flex-grow ml-4 bg-[#00D6A9] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">PAY 55$</button>
                 </div>
-            </div>
+            </>
         );
     };
 
     const Step8Mobile = () => (
-        <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-6"><div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div></div>
+        <>
             <h2 className="text-xl font-bold text-black mb-2">8. Add photos</h2>
             <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
             <div className="space-y-4">
@@ -576,10 +566,10 @@ const VisaApplication = () => {
                 <button onClick={() => setStep(7)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                 <button onClick={() => { /* Final submission logic goes here */ }} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
             </div>
-        </div>
+        </>
     );
 
-    const renderMobileStep = () => {
+    const renderMobileStepContent = () => {
         switch (step) {
             case 1:
                 return <Step1Mobile />;
@@ -616,7 +606,10 @@ const VisaApplication = () => {
                     {step === 2 && <Step2Desktop />}
                 </div>
             ) : (
-                renderMobileStep()
+                <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
+                    <ProgressBar currentStep={step} totalSteps={8} />
+                    {renderMobileStepContent()}
+                </div>
             )}
         </div>
     );

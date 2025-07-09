@@ -73,7 +73,7 @@ const IsraelVisa = () => {
               </p>
               
               <Link to="/get-visa" className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-3 px-10 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 self-start">
-                GET VISA
+                APPLY NOW
                 <FaCreditCard size={20} />
               </Link>
             </div>
@@ -111,7 +111,7 @@ const IsraelVisa = () => {
                 </div>
                 
                 <Link to="/get-visa" className="block w-full bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-lg hover:bg-purple-50 transition-all duration-300 text-center">
-                  BUY NOW
+                  APPLY NOW
                 </Link>
               </div>
             </div>

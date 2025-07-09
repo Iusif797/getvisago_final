@@ -43,6 +43,8 @@ const VisaApplication = () => {
     const [agreed, setAgreed] = useState(false);
     const [passportSubStep, setPassportSubStep] = useState(1);
     const [paymentSubStep, setPaymentSubStep] = useState(1);
+    const [billingSubStep, setBillingSubStep] = useState(1);
+
 
     const CustomRadio = ({ selected }) => (
         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center mr-4 flex-shrink-0 ${selected ? 'border-purple-600' : 'border-gray-300'}`}>
@@ -383,7 +385,7 @@ const VisaApplication = () => {
             </div>
         </div>
     );
-    
+
     const Step6Mobile = () => {
         if (paymentSubStep === 1) {
             return (
@@ -479,10 +481,82 @@ const VisaApplication = () => {
         );
     };
 
-    const Step7Mobile = () => (
+    const Step7Mobile = () => {
+        if (billingSubStep === 1) { // Billing Address
+            return (
+                <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                        <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div>
+                    </div>
+                    <h2 className="text-xl font-bold text-black mb-6">7. Billing Address</h2>
+                    <div className="space-y-4">
+                        <div>
+                            <label className="text-sm font-medium text-gray-700 mb-1 block">Address Line</label>
+                            <input type="text" placeholder="Address Line" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                        <div>
+                            <label className="text-sm font-medium text-gray-700 mb-1 block">Country</label>
+                            <input type="text" placeholder="Address Line" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                        <div>
+                            <label className="text-sm font-medium text-gray-700 mb-1 block">City</label>
+                            <input type="text" placeholder="Address Line" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                        <div>
+                            <label className="text-sm font-medium text-gray-700 mb-1 block">Postal code</label>
+                            <input type="text" placeholder="Address Line" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-between mt-8">
+                        <button onClick={() => setStep(6)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
+                        <button onClick={() => setBillingSubStep(2)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
+                    </div>
+                </div>
+            );
+        }
+
+        // Card View
+        return (
+            <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
+                <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+                    <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div>
+                </div>
+                <h2 className="text-xl font-bold text-black mb-6">7. Card</h2>
+                <div className="space-y-4">
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Full name</label>
+                        <div className="relative flex items-center">
+                            <FaUser className="absolute left-4 text-purple-400" />
+                            <input type="text" placeholder="Your Name" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Card Number</label>
+                        <input type="text" placeholder="XXXX XXXX XXXX XXXX" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div className="flex space-x-4">
+                        <div className="flex-1">
+                            <label className="text-sm font-medium text-gray-700 mb-1 block">MM/YY</label>
+                            <input type="text" placeholder="MM/YY" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                        <div className="flex-1">
+                            <label className="text-sm font-medium text-gray-700 mb-1 block">CVV</label>
+                            <input type="text" placeholder="XXX" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                </div>
+                <div className="flex items-center justify-between mt-8">
+                    <button onClick={() => setBillingSubStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
+                    <button onClick={() => setStep(8) } className="flex-grow ml-4 bg-[#00D6A9] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">PAY 55$</button>
+                </div>
+            </div>
+        );
+    };
+
+    const Step8Mobile = () => (
         <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">
             <div className="w-full bg-gray-200 rounded-full h-2 mb-6"><div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: '100%' }}></div></div>
-            <h2 className="text-xl font-bold text-black mb-2">7. Add photos</h2>
+            <h2 className="text-xl font-bold text-black mb-2">8. Add photos</h2>
             <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
             <div className="space-y-4">
                 <button className="w-full flex justify-between items-center p-4 border-2 border-[#04C495] rounded-xl text-[#04C495] font-bold">
@@ -499,7 +573,7 @@ const VisaApplication = () => {
                 </button>
             </div>
             <div className="flex items-center justify-between mt-8">
-                <button onClick={() => setStep(6)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
+                <button onClick={() => setStep(7)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                 <button onClick={() => { /* Final submission logic goes here */ }} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
             </div>
         </div>
@@ -521,6 +595,8 @@ const VisaApplication = () => {
                 return <Step6Mobile />;
             case 7:
                 return <Step7Mobile />;
+            case 8:
+                return <Step8Mobile />;
             default:
                 return <Step1Mobile />;
         }

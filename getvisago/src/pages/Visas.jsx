@@ -188,7 +188,7 @@ const Visas = () => {
                   <div 
                     className="block w-full py-3 rounded-full border-2 border-[#7C3AED] text-[#7C3AED] font-semibold uppercase transition-all duration-200 hover:bg-[#7C3AED]/[0.08] text-center"
                   >
-                    BUY NOW
+                    APPLY NOW
                   </div>
                 </div>
               </Link>

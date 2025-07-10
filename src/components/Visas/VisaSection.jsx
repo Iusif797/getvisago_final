@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import VisaCard from './VisaCard';
 import { FaChevronDown, FaGlobeAsia } from 'react-icons/fa';
-import dubaiImage from '../../assets/dubai_getvisago.JPG';
-import omanImage from '../../assets/oman.JPG';
+import dubaiImage from '../../assets/dubai_getvisago.jpg';
+import omanImage from '../../assets/oman.png';
 import australiaImage from '../../assets/australia.jpg';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';

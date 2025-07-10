@@ -7,7 +7,7 @@ import { MdOutlineVerified, MdStar } from 'react-icons/md';
 import image1 from '../../assets/IMG_6426.JPG';
 import image2 from '../../assets/IMG_6427.JPG';
 import image3 from '../../assets/IMG_6428.JPG';
-import dubaiImage from '../../assets/dubai_getvisago.JPG';
+import dubaiImage from '../../assets/dubai_getvisago.jpg';
 
 // Import feature icons
 import icon1 from '../../assets/icon1.png';
@@ -71,9 +71,8 @@ const VisaDetailView = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
+              className={`absolute inset-0 transition-opacity duration-500 ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
             >
               <img
                 src={image}
@@ -109,11 +108,10 @@ const VisaDetailView = () => {
               <button
                 key={idx}
                 onClick={() => goToSlide(idx)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  idx === currentIndex 
-                    ? 'bg-white w-8 shadow-lg' 
+                className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex
+                    ? 'bg-white w-8 shadow-lg'
                     : 'bg-white/40 hover:bg-white/70'
-                }`}
+                  }`}
                 aria-label={`Go to image ${idx + 1}`}
               />
             ))}
@@ -130,10 +128,10 @@ const VisaDetailView = () => {
       <div className="bg-gradient-to-r from-[#00BFA5] to-[#009688] text-white p-6 shadow-md">
         <div className="max-w-4xl mx-auto w-full">
           <div className="flex items-center">
-            <img 
-              src="https://flagcdn.com/w40/ae.png" 
-              alt="UAE Flag" 
-              className="h-8 mr-3 rounded shadow-md border-2 border-white/30" 
+            <img
+              src="https://flagcdn.com/w40/ae.png"
+              alt="UAE Flag"
+              className="h-8 mr-3 rounded shadow-md border-2 border-white/30"
             />
             <h1 className="text-2xl md:text-3xl font-bold">Dubai Visa For Indians</h1>
             <div className="ml-auto bg-[#9B51E0] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg flex items-center">
@@ -141,7 +139,7 @@ const VisaDetailView = () => {
             </div>
           </div>
           <p className="text-white/90 text-sm mt-2 max-w-2xl">Explore magnificent Dubai with our tourist visa - fast processing and hassle-free application</p>
-          
+
           {/* Quick info badges */}
           <div className="flex flex-wrap gap-3 mt-4">
             <div className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium flex items-center">
@@ -161,32 +159,29 @@ const VisaDetailView = () => {
       <div className="bg-white z-20 p-4 md:p-8 max-w-4xl mx-auto w-full">
         {/* Tabs - more elegant */}
         <div className="flex mb-8 gap-2 justify-center">
-          <button 
-            className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${
-              activeTab === 'all' 
-                ? 'bg-[#00BFA5] text-white shadow-md' 
+          <button
+            className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${activeTab === 'all'
+                ? 'bg-[#00BFA5] text-white shadow-md'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
+              }`}
             onClick={() => setActiveTab('all')}
           >
             All
           </button>
-          <button 
-            className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${
-              activeTab === 'transit' 
-                ? 'bg-[#00BFA5] text-white shadow-md' 
+          <button
+            className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${activeTab === 'transit'
+                ? 'bg-[#00BFA5] text-white shadow-md'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
+              }`}
             onClick={() => setActiveTab('transit')}
           >
             Transit
           </button>
-          <button 
-            className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${
-              activeTab === 'business' 
-                ? 'bg-[#00BFA5] text-white shadow-md' 
+          <button
+            className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${activeTab === 'business'
+                ? 'bg-[#00BFA5] text-white shadow-md'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
+              }`}
             onClick={() => setActiveTab('business')}
           >
             Business
@@ -212,8 +207,8 @@ const VisaDetailView = () => {
         {/* Visa features - desktop version */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
           {visaFeatures.map((feature, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="flex items-start p-5 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-all hover:bg-white border border-gray-100"
             >
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#00BFA5]/10 flex items-center justify-center mr-4 shadow-sm">
@@ -257,7 +252,7 @@ const VisaDetailView = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-gray-50 p-6 rounded-xl shadow-sm border border-gray-100">
             <h3 className="text-xl font-semibold mb-5 flex items-center text-gray-800">
               <FaPassport className="text-[#00BFA5] mr-3" />
@@ -299,7 +294,7 @@ const VisaDetailView = () => {
             <p className="text-gray-700 mb-5 leading-relaxed">
               Dubai is one of the world's most popular tourist destinations, known for its impressive skyscrapers, luxury shopping malls, and beautiful beaches. This visa allows you to visit all emirates of the UAE.
             </p>
-            
+
             {/* Popular attractions */}
             <div className="mb-5">
               <h4 className="font-medium text-gray-800 mb-3">Popular Attractions:</h4>
@@ -322,7 +317,7 @@ const VisaDetailView = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-[#00BFA5]/10 p-4 rounded-lg border border-[#00BFA5]/20">
               <p className="text-sm text-gray-700 flex items-start">
                 <FaInfoCircle className="text-[#00BFA5] mr-3 mt-0.5 flex-shrink-0" size={18} />

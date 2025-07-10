@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import useWindowSize from '../hooks/useWindowSize';
 import { FaUser, FaEnvelope, FaPhone, FaHome, FaMinus, FaPlus, FaChevronLeft, FaInfoCircle, FaMapMarkerAlt, FaPencilAlt, FaUpload, FaHourglassHalf, FaRegCreditCard, FaPaypal, FaApple, FaGoogle } from 'react-icons/fa';
 import { FaPlaneDeparture, FaRegCalendarDays, FaArrowsLeftRight } from "react-icons/fa6";
@@ -13,27 +14,55 @@ import applePay from '../assets/apple_pay_form.svg';
 import bankCardButton from '../assets/bank_card_button.png';
 import mobilePayButton from '../assets/mobile_pay_button.png';
 import israelFlagIcon from '../assets/Israel (IL).svg';
+import omanFlagIcon from '../assets/oman.png';
+import australiaFlagIcon from '../assets/australia.jpg';
 
 
 const FlagIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" className="absolute left-4">
         <defs>
             <clipPath id="clip0_105_2">
-                <rect width="24" height="24" rx="4" fill="white"/>
+                <rect width="24" height="24" rx="4" fill="white" />
             </clipPath>
         </defs>
         <g clipPath="url(#clip0_105_2)">
-            <path fill="#007A4D" d="M0 0h24v24H0z"/>
-            <path stroke="#FFFFFF" strokeWidth="1.2" d="M0 8h24M0 16h24"/>
-            <path fill="#FFB612" d="M0 10.5h24v3H0z"/>
-            <path d="M0 0v24l12-12L0 0z" fill="#000000"/>
-            <path d="M0 0v24l10-12L0 0z" stroke="#FFB612" strokeWidth="1.2"/>
-            <path d="M0 0h9L0 7V0z" fill="#DE3831"/>
+            <path fill="#007A4D" d="M0 0h24v24H0z" />
+            <path stroke="#FFFFFF" strokeWidth="1.2" d="M0 8h24M0 16h24" />
+            <path fill="#FFB612" d="M0 10.5h24v3H0z" />
+            <path d="M0 0v24l12-12L0 0z" fill="#000000" />
+            <path d="M0 0v24l10-12L0 0z" stroke="#FFB612" strokeWidth="1.2" />
+            <path d="M0 0h9L0 7V0z" fill="#DE3831" />
         </g>
     </svg>
 );
 
 const VisaApplication = () => {
+    const { country: paramCountry } = useParams();
+    const countrySlug = (paramCountry || 'israel').toLowerCase();
+
+    const visaMeta = {
+        israel: {
+            flag: israelFlagIcon,
+            title: 'Tourist visa B2',
+            price: 55,
+            validity: '2 years',
+        },
+        oman: {
+            flag: omanFlagIcon,
+            title: 'Tourist visa',
+            price: 50,
+            validity: '30 days',
+        },
+        australia: {
+            flag: australiaFlagIcon,
+            title: 'Tourist visa',
+            price: 60,
+            validity: '1 year',
+        },
+    };
+
+    const meta = visaMeta[countrySlug] || visaMeta.israel;
+
     const { width } = useWindowSize();
     const isDesktop = width >= 1024;
     const [step, setStep] = useState(1);
@@ -49,8 +78,8 @@ const VisaApplication = () => {
         const progressPercentage = (currentStep / totalSteps) * 100;
         return (
             <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-                <div 
-                    className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out" 
+                <div
+                    className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out"
                     style={{ width: `${progressPercentage}%` }}
                 ></div>
             </div>
@@ -71,7 +100,7 @@ const VisaApplication = () => {
                     <option>01</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-1 flex items-center px-2 text-gray-400">
-                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                 </div>
             </div>
             <span className="border-l border-gray-300 h-6"></span>
@@ -80,7 +109,7 @@ const VisaApplication = () => {
                     <option>01</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-1 flex items-center px-2 text-gray-400">
-                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                 </div>
             </div>
             <span className="border-l border-gray-300 h-6"></span>
@@ -89,19 +118,19 @@ const VisaApplication = () => {
                     <option>{isStep4 ? '2024' : '2025'}</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-1 flex items-center px-2 text-gray-400">
-                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                 </div>
             </div>
-             <button className={`flex-shrink-0 flex items-center justify-center self-stretch ${isStep4 ? '' : ''}`}>
-                {isStep4 ? 
-                    <img src={calendarIcon} alt="Select Date" /> 
-                    : 
+            <button className={`flex-shrink-0 flex items-center justify-center self-stretch ${isStep4 ? '' : ''}`}>
+                {isStep4 ?
+                    <img src={calendarIcon} alt="Select Date" />
+                    :
                     <img src={calendarIconDefault} alt="Select Date" className="w-11 h-11" />
                 }
             </button>
         </div>
     );
-    
+
     const Step1Desktop = () => (
         <div className="grid grid-cols-2 gap-x-16">
             <div>
@@ -131,9 +160,9 @@ const VisaApplication = () => {
             </div>
         </div>
     );
-    
+
     const Step2Desktop = () => (
-         <div className="grid grid-cols-2 gap-x-16">
+        <div className="grid grid-cols-2 gap-x-16">
             <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">2. Dates & purpose</h2>
                 <div className="space-y-5">
@@ -161,7 +190,7 @@ const VisaApplication = () => {
                     <div><label className="text-sm font-medium text-gray-700 mb-2 block">Date of birth</label><DateSelector isStep4={true} /></div>
                 </div>
             </div>
-             <div className="col-span-2 flex justify-center mt-8">
+            <div className="col-span-2 flex justify-center mt-8">
                 <button className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
             </div>
         </div>
@@ -183,7 +212,7 @@ const VisaApplication = () => {
     const Step2Mobile = () => (
         <>
             <h2 className="text-xl font-bold text-gray-900 mb-5">2. Dates & purpose</h2>
-             <div className="space-y-5">
+            <div className="space-y-5">
                 <div>
                     <label className="text-sm font-medium text-gray-700 mb-2 block flex items-center">Planned date of entry <FaInfoCircle className="ml-2 text-gray-400" /></label>
                     <DateSelector />
@@ -252,7 +281,7 @@ const VisaApplication = () => {
         <>
             <h2 className="text-xl font-bold text-black mb-2">4. Passport details</h2>
             <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
-            
+
             {passportSubStep === 1 && (
                 <div className="space-y-4">
                     <div>
@@ -266,7 +295,7 @@ const VisaApplication = () => {
                                 <option>Ordinary/Diplomatic/Official/Other</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                             </div>
                         </div>
                     </div>
@@ -278,7 +307,7 @@ const VisaApplication = () => {
                                 <option>Your nationality</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                             </div>
                         </div>
                     </div>
@@ -295,7 +324,7 @@ const VisaApplication = () => {
 
             {passportSubStep === 2 && (
                 <div className="space-y-4">
-                     <div>
+                    <div>
                         <label className="text-sm font-medium text-gray-700 mb-1 block">Place of issue</label>
                         <div className="relative flex items-center">
                             <FaMapMarkerAlt className="absolute left-4 text-purple-400" />
@@ -306,31 +335,31 @@ const VisaApplication = () => {
                         <label className="text-sm font-medium text-gray-700 mb-1 block">Issuing Authority</label>
                         <input type="text" placeholder="Issuing authority" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
                     </div>
-                     <div>
+                    <div>
                         <label className="text-sm font-medium text-gray-700 mb-1 block">Religion</label>
                         <input type="text" placeholder="Enter religion" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
                     </div>
                     <div>
                         <label className="text-sm font-medium text-gray-700 mb-1 block">Place of birth</label>
-                         <div className="relative flex items-center">
+                        <div className="relative flex items-center">
                             <FlagIcon />
                             <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
                                 <option>Select country</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                             </div>
                         </div>
                     </div>
-                     <div>
+                    <div>
                         <label className="text-sm font-medium text-gray-700 mb-1 block">Additional nationality</label>
-                         <div className="relative flex items-center">
+                        <div className="relative flex items-center">
                             <FlagIcon />
                             <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
                                 <option>Select country</option>
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                             </div>
                         </div>
                     </div>
@@ -361,7 +390,7 @@ const VisaApplication = () => {
                             <option>Single</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                           <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"/></svg>
+                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
                         </div>
                     </div>
                 </div>
@@ -382,30 +411,30 @@ const VisaApplication = () => {
                     <input type="text" placeholder="Hotel Address / Person Contacts" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
                 </div>
             </div>
-             <div className="flex items-center justify-between mt-8">
+            <div className="flex items-center justify-between mt-8">
                 <button onClick={() => setStep(4)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
                 <button onClick={() => setStep(6)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
             </div>
         </>
     );
-    
+
     const Step6Mobile = () => {
         if (paymentSubStep === 1) {
             return (
                 <>
                     <h2 className="text-xl font-bold text-black mb-1">6. Data verification</h2>
                     <p className="font-bold text-black mb-4">Visa information:</p>
-                    
+
                     <div className="space-y-3 text-sm mb-6">
                         <div className="flex justify-between items-center">
                             <div className="flex items-center text-purple-600 font-bold">
-                                <img src={israelFlagIcon} alt="Israel Flag" className="w-6 h-6 mr-2" />
-                                <span>Tourist visa B2</span>
+                                <img src={meta.flag} alt={countrySlug} className="w-6 h-6 mr-2" />
+                                <span>{meta.title}</span>
                             </div>
                         </div>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center text-gray-700"><FaHourglassHalf className="mr-2 text-gray-400" /><span>Validity:</span></div>
-                            <span className="font-bold text-purple-600">2 years</span>
+                            <span className="font-bold text-purple-600">{meta.validity}</span>
                         </div>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center text-gray-700"><FaArrowsLeftRight className="mr-2 text-gray-400" /><span>Entries:</span></div>
@@ -415,7 +444,7 @@ const VisaApplication = () => {
                             <div className="flex items-center text-gray-700"><FaRegCalendarDays className="mr-2 text-gray-400" /><span>Stay:</span></div>
                             <span className="font-bold text-purple-600">up to 90 days per visit</span>
                         </div>
-                         <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center">
                             <div className="flex items-center text-gray-700"><FaPlaneDeparture className="mr-2 text-gray-400" /><span>Будет готова через</span></div>
                             <span className="font-bold text-purple-600">2 days</span>
                         </div>
@@ -436,7 +465,7 @@ const VisaApplication = () => {
                     </div>
 
                     <div className="bg-[#00D6A9] text-white font-bold text-xl text-center p-4 rounded-xl mb-6">
-                        Total price: 55 $
+                        Total price: {meta.price} $
                     </div>
 
                     <div className="flex items-center justify-between">
@@ -450,23 +479,23 @@ const VisaApplication = () => {
         return (
             <>
                 <h2 className="text-xl font-bold text-black mb-6">6. Select payment method</h2>
-                
+
                 <div className="flex justify-start items-center space-x-4 mb-6">
-                    <img src={visaCard} alt="Visa" className="h-8"/>
-                    <img src={masterCard} alt="Mastercard" className="h-8"/>
-                    <img src={amexCard} alt="Amex" className="h-8"/>
+                    <img src={visaCard} alt="Visa" className="h-8" />
+                    <img src={masterCard} alt="Mastercard" className="h-8" />
+                    <img src={amexCard} alt="Amex" className="h-8" />
                 </div>
 
                 <div className="space-y-4 mb-6">
                     <button className="w-full">
-                        <img src={bankCardButton} alt="Bank Card" className="w-full h-auto"/>
+                        <img src={bankCardButton} alt="Bank Card" className="w-full h-auto" />
                     </button>
-                     <div className="flex justify-start items-center space-x-4">
-                        <img src={gPay} alt="Google Pay" className="h-8"/>
-                        <img src={applePay} alt="Apple Pay" className="h-8"/>
+                    <div className="flex justify-start items-center space-x-4">
+                        <img src={gPay} alt="Google Pay" className="h-8" />
+                        <img src={applePay} alt="Apple Pay" className="h-8" />
                     </div>
                     <button className="w-full">
-                        <img src={mobilePayButton} alt="Mobile Pay" className="w-full h-auto"/>
+                        <img src={mobilePayButton} alt="Mobile Pay" className="w-full h-auto" />
                     </button>
                 </div>
 
@@ -538,7 +567,7 @@ const VisaApplication = () => {
                 </div>
                 <div className="flex items-center justify-between mt-8">
                     <button onClick={() => setBillingSubStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
-                    <button onClick={() => setStep(8) } className="flex-grow ml-4 bg-[#00D6A9] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">PAY 55$</button>
+                    <button onClick={() => setStep(8)} className="flex-grow ml-4 bg-[#00D6A9] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">PAY 55$</button>
                 </div>
             </>
         );

@@ -72,7 +72,7 @@ const IsraelVisa = () => {
                 GetVisaGo Ltd — your independent private agency for fast and secure Israel e-Visa-B2 processing. Apply fully online in minutes, without embassy visits or paperwork hassle. Our single transparent fee covers both our professional service (document check, secure submission, and 24/7 support) and the official government visa cost — no extra payments required. We are not affiliated with the Israel government; we assist you to get your visa easily and stress-free.
               </p>
               
-              <Link to="/get-visa" className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-3 px-10 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 self-start">
+              <Link to="/get-visa/israel" className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-3 px-10 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 self-start">
                 APPLY NOW
                 <FaCreditCard size={20} />
               </Link>

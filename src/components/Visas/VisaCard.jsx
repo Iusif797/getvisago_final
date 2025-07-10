@@ -79,7 +79,7 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
             className="flex items-center justify-between bg-gradient-to-r from-[#8A3FEC] to-[#9B51E0] text-white py-3 px-5 rounded-full font-semibold transition-all duration-300 hover:shadow-[0_5px_15px_rgba(155,81,224,0.5)] overflow-hidden group-hover:from-[#9B51E0] group-hover:to-[#8A3FEC]"
             onClick={(e) => isMobile && e.stopPropagation()} // Предотвращаем всплытие события для мобильных устройств
           >
-            <span>Apply Now</span>
+            <span>APPLY NOW</span>
             <FaArrowRight className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>

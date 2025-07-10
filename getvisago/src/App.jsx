@@ -32,7 +32,7 @@ function App() {
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
         <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />
-        <Route path="/get-visa" element={<><Header /><VisaApplication /></>} />
+        <Route path="/get-visa/:country?" element={<><Header /><VisaApplication /></>} />
         <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
         <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
         

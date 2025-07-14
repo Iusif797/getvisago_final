@@ -4,6 +4,8 @@ import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRi
 import saudiArabiaImage from '../assets/saudi_arabia_visa.png';
 import buttonGetVisa from '../assets/button_getvisa.png';
 import handRightSideIcon from '../assets/hand_rightside.svg'; // Новая иконка
+import touristIcon from '../assets/simple-3d-icon-of-a-tourist--blender-style--clean-.png';
+import businessIcon from '../assets/simple-3d-square-icon-of-business-man--blender-sty.png';
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
@@ -112,66 +114,71 @@ const SaudiArabiaVisa = () => {
         </div>
       </div>
 
-      {/* Visa Type Selection Section - Both Desktop and Mobile */}
-      <div className="bg-gray-50 pt-12 pb-12">
-        <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#00BFA5] mb-10 text-center">
-            Select visa type
+      {/* Visa Type Selection Section - СТРОГО ПО МАКЕТУ */}
+      <div className="bg-gray-50 py-12">
+        <div className="w-full max-w-md mx-auto px-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8">
+            <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Select visa </span>
+            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">type</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-8">
             {/* Tourist Visa Card */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="p-6 md:p-8">
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-bold text-[#7950ED]">Tourist visa</h3>
-                  <div className="bg-[#E0F2F1] p-3 rounded-lg">
-                    <FaUser className="text-[#00BFA5] text-2xl" />
-                  </div>
-                </div>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Validity:</span>
-                    <span className="font-semibold">1 year, multiple entry</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Stay per visit:</span>
-                    <span className="font-semibold">up to 90 days</span>
-                  </div>
-                </div>
-
-                <Link to="/visa-application/saudi-arabia" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
-                  BUY NOW
-                </Link>
+            <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold text-purple-600">Tourist visa</h3>
+                <img src={touristIcon} alt="Tourist Visa" className="w-12 h-12 object-contain" />
               </div>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Validity:</span>
+                  <span className="font-semibold text-gray-800">1 year, multiple entry</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Stay per visit:</span>
+                  <span className="font-semibold text-gray-800">up to 90 days</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Government fee:</span>
+                  <span className="font-semibold text-gray-800">13017,32 ₹</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Service fee:</span>
+                  <span className="font-semibold text-gray-800">2500,00 ₹</span>
+                </div>
+              </div>
+              <Link to="/visa-application/saudi-arabia" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
+                APPLY NOW
+              </Link>
             </div>
 
             {/* Business Visa Card */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="p-6 md:p-8">
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-bold text-[#7950ED]">Business Visa</h3>
-                  <div className="bg-[#E0F2F1] p-3 rounded-lg">
-                    <FaBriefcase className="text-[#00BFA5] text-2xl" />
-                  </div>
-                </div>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Validity:</span>
-                    <span className="font-semibold">1 year, multiple entry</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Stay per visit:</span>
-                    <span className="font-semibold">up to 90 days</span>
-                  </div>
-                </div>
-
-                <Link to="/visa-application/saudi-arabia" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
-                  BUY NOW
-                </Link>
+            <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold text-purple-600">Business visa</h3>
+                <img src={businessIcon} alt="Business Visa" className="w-12 h-12 object-contain" />
               </div>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Validity:</span>
+                  <span className="font-semibold text-gray-800">1 year, multiple entry</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Stay per visit:</span>
+                  <span className="font-semibold text-gray-800">up to 90 days</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Government fee:</span>
+                  <span className="font-semibold text-gray-800">13017,32 ₹</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Service fee:</span>
+                  <span className="font-semibold text-gray-800">2500,00 ₹</span>
+                </div>
+              </div>
+              <Link to="/visa-application/saudi-arabia" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
+                APPLY NOW
+              </Link>
             </div>
           </div>
         </div>

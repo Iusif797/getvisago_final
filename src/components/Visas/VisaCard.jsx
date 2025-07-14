@@ -17,16 +17,20 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
 
   // Определяем путь в зависимости от страны
   const getPath = () => {
-    if (country === 'Saudi Arabia' || image.includes('Saudi') || title.includes('Saudi')) {
+    const slug = getCountrySlug();
+    if (slug === 'saudi-arabia') {
       return '/visa/saudi-arabia';
     }
-    return `/visa-detail/${getCountrySlug()}`;
+    if (slug === 'israel') {
+      return '/visa/israel';
+    }
+    return `/visa-detail/${slug}`;
   };
 
   // Обработчик клика по карточке для мобильных устройств
   const handleCardClick = () => {
     if (isMobile) {
-      navigate(`/visa-detail/${getCountrySlug()}`);
+      navigate(getPath());
     }
   };
 
@@ -75,9 +79,9 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
 
           {/* Кнопка действия */}
           <Link
-            to={getPath()}
+            to={`/get-visa/${getCountrySlug()}`}
             className="flex items-center justify-between bg-gradient-to-r from-[#8A3FEC] to-[#9B51E0] text-white py-3 px-5 rounded-full font-semibold transition-all duration-300 hover:shadow-[0_5px_15px_rgba(155,81,224,0.5)] overflow-hidden group-hover:from-[#9B51E0] group-hover:to-[#8A3FEC]"
-            onClick={(e) => isMobile && e.stopPropagation()} // Предотвращаем всплытие события для мобильных устройств
+            onClick={(e) => isMobile && e.stopPropagation()}
           >
             <span>APPLY NOW</span>
             <FaArrowRight className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1" />

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import SaudiArabiaVisa from './pages/SaudiArabiaVisa';
+import IsraelVisa from './pages/IsraelVisa';
 import VisaStatus from './pages/VisaStatus';
 import Blog from './pages/Blog';
 import VisaApplication from './pages/VisaApplication';
@@ -27,10 +28,11 @@ function App() {
         <Route path="/" element={<><Header /><Home /></>} />
         <Route path="/visas" element={<><Header /><Visas /></>} />
         <Route path="/visa/saudi-arabia" element={<><Header /><SaudiArabiaVisa /></>} />
+        <Route path="/visa/israel" element={<><Header /><IsraelVisa /></>} />
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
         <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />
-        <Route path="/get-visa" element={<><Header /><VisaApplication /></>} />
+        <Route path="/get-visa/:country?" element={<><Header /><VisaApplication /></>} />
         <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
         <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
         

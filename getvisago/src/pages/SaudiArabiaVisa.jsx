@@ -103,22 +103,21 @@ const SaudiArabiaVisa = () => {
             >
               APPLY VISA <FaPlaneDeparture className="ml-2" size={18} />
             </Link>
-          </div>
-        </div>
 
-        {/* Disclaimer Text with Hand Icon - СТРОГО ПО МАКЕТУ */}
-        <div className="relative z-10 w-full flex justify-center px-4 lg:absolute lg:bottom-8 lg:right-8 lg:w-auto lg:px-0">
-          <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-sm flex items-center gap-4 lg:mt-0" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
-            {/* Иконка */}
-            <img
-              src={handRightSideIcon}
-              alt="Hand pointing"
-              className="w-10 h-10 flex-shrink-0"
-            />
-            {/* Текст */}
-            <p className="text-gray-700 text-xs font-medium leading-relaxed">
-              GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
-            </p>
+            {/* Disclaimer Text with Hand Icon - СТРОГО ПО МАКЕТУ */}
+            <div className="relative z-10 w-full flex justify-center px-4 lg:absolute lg:bottom-8 lg:right-8 lg:w-auto lg:px-0">
+              <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-sm flex items-center gap-4 lg:mt-0" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
+                <img
+                  src={handRightSideIcon}
+                  alt="Hand pointing"
+                  className="w-10 h-10 flex-shrink-0"
+                />
+                <p className="text-gray-700 text-xs font-medium leading-relaxed">
+                  GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 

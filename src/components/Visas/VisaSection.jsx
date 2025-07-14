@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import VisaCard from './VisaCard';
 import { FaChevronDown, FaGlobeAsia } from 'react-icons/fa';
+import saudiArabiaImage from '../../assets/saudi_arabia_visa.png';
 import dubaiImage from '../../assets/dubai_getvisago.jpg';
 import omanImage from '../../assets/oman.jpg';
 import australiaImage from '../../assets/australia.jpg';
@@ -13,6 +14,15 @@ const VisaSection = () => {
   const [showAll, setShowAll] = useState(false);
 
   const visas = [
+    {
+      id: 0,
+      image: saudiArabiaImage,
+      country: 'Saudi Arabia',
+      title: 'Tourist Visa',
+      days: 30,
+      price: 5500,
+      processTime: '3'
+    },
     {
       id: 1,
       image: dubaiImage,

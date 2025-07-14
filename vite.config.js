@@ -9,7 +9,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: 'getvisago/src/assets/*.jpg',
+          src: 'src/assets/*.jpg',
           dest: 'assets/img'
         }
       ]

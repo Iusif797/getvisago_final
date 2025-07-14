@@ -105,25 +105,19 @@ const SaudiArabiaVisa = () => {
           </div>
         </div>
 
-        {/* Disclaimer Text with Hand Icon справа */}
+        {/* Disclaimer Text with Hand Icon слева, как на макете */}
         <div className="lg:absolute lg:bottom-8 lg:right-8 z-10 flex flex-col lg:flex-row items-start lg:items-center mx-4 mt-8 lg:mx-0">
-          <div className="bg-white rounded-2xl shadow-lg p-4 max-w-sm relative">
-            {/* hand icon mobile */}
+          <div className="bg-white rounded-2xl shadow-xl p-5 max-w-md w-full flex items-center gap-4" style={{ minWidth: '0', boxShadow: '0 6px 32px 0 rgba(80, 80, 120, 0.10)' }}>
             <img
               src={buttonHandSaudiArabia}
               alt="Hand pointing"
-              className="h-8 lg:hidden absolute -top-4 -left-4 rotate-[-15deg]"
+              className="w-10 h-10 flex-shrink-0 ml-1"
+              style={{ minWidth: '2.5rem' }}
             />
-            <p className="text-gray-600 text-xs leading-relaxed">
+            <p className="text-gray-800 text-sm font-medium leading-relaxed" style={{ lineHeight: '1.6' }}>
               GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
             </p>
           </div>
-          {/* hand icon desktop */}
-          <img
-            src={buttonHandSaudiArabia}
-            alt="Hand pointing"
-            className="hidden lg:block h-8 lg:h-10 ml-4 animate-bounce"
-          />
         </div>
       </div>
 

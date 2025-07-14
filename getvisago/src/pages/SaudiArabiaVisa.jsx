@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRight, FaArrowRight, FaClock, FaCalendarAlt, FaPlaneDeparture } from 'react-icons/fa';
 import saudiArabiaImage from '../assets/saudi_arabia_visa.png';
 import buttonGetVisa from '../assets/button_getvisa.png';
-import buttonHandSaudiArabia from '../assets/button_hand_saudi_arabia.svg';
+import handRightSideIcon from '../assets/hand_rightside.svg'; // Новая иконка
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
@@ -68,34 +68,35 @@ const SaudiArabiaVisa = () => {
         <div className="relative z-10 w-full flex justify-center lg:justify-start pl-4 sm:pl-12 lg:pl-64 pr-4 pt-24 lg:pt-32">
           <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-xs sm:max-w-sm md:max-w-md flex flex-col mx-auto lg:mx-0">
             {/* Title with Gradient */}
-            <h1 className="text-2xl lg:text-3xl font-bold mb-6 lg:ml-4">
-              <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Visa to</span>
-              <span className="text-gray-800"> </span>
+            <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-center sm:text-left">
+              <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Visa to </span>
               <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Saudi Arabia</span>
             </h1>
 
-            {/* Info Cards - Simple without icons */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-2 mb-8 sm:mb-12">
-              {/* Approval */}
-              <div className="bg-white border border-gray-200 rounded-lg p-3 text-center order-1 sm:order-1">
-                <p className="text-gray-600 text-xs mb-1">Approval:</p>
-                <p className="text-gray-900 font-bold text-xs">1–10 days</p>
+            {/* Info Cards - СТРОГО ПО МАКЕТУ */}
+            <div className="space-y-4 mb-8">
+              <div className="flex space-x-4">
+                {/* Approval */}
+                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 text-left flex-1">
+                  <p className="text-gray-500 text-sm mb-1">Approval:</p>
+                  <p className="text-gray-900 font-bold text-base">1–10 days</p>
+                </div>
+
+                {/* Valid for */}
+                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 text-left flex-1">
+                  <p className="text-gray-500 text-sm mb-1">Valid for:</p>
+                  <p className="text-gray-900 font-bold text-base">from 90 days</p>
+                </div>
               </div>
 
-              {/* Valid for */}
-              <div className="bg-white border border-gray-200 rounded-lg p-3 text-center order-2 sm:order-2">
-                <p className="text-gray-600 text-xs mb-1">Valid for:</p>
-                <p className="text-gray-900 font-bold text-xs">from 90 days</p>
-              </div>
-
-              {/* Cost (spans two columns on mobile) */}
-              <div className="bg-white border border-gray-200 rounded-lg p-3 text-center order-3 sm:order-3 col-span-2 sm:col-span-1">
-                <p className="text-gray-600 text-xs mb-1">Cost:</p>
-                <p className="text-gray-900 font-bold text-xs">From 14 270 ₹</p>
+              {/* Cost */}
+              <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 text-left w-full">
+                <p className="text-gray-500 text-sm mb-1">Cost:</p>
+                <p className="text-gray-900 font-bold text-base">From 14 270 ₹</p>
               </div>
             </div>
 
-            {/* GET VISA Button (опущена ниже) */}
+            {/* GET VISA Button (НЕ ТРОГАЕМ) */}
             <Link
               to="/visa-application/saudi-arabia"
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-sm lg:text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mt-auto"
@@ -105,26 +106,22 @@ const SaudiArabiaVisa = () => {
           </div>
         </div>
 
-        {/* Disclaimer Text with Hand Icon справа */}
-        <div className="lg:absolute lg:bottom-8 lg:right-8 z-10 flex flex-col lg:flex-row items-start lg:items-center mx-4 mt-8 lg:mx-0">
-          <div className="bg-white rounded-2xl shadow-lg p-4 max-w-sm relative">
-            {/* hand icon mobile */}
+        {/* Disclaimer Text with Hand Icon - СТРОГО ПО МАКЕТУ */}
+        <div className="relative z-10 w-full flex justify-center px-4 lg:absolute lg:bottom-8 lg:right-8 lg:w-auto lg:px-0">
+          <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-sm flex items-center gap-4 lg:mt-0" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
+            {/* Иконка */}
             <img
-              src={buttonHandSaudiArabia}
+              src={handRightSideIcon}
               alt="Hand pointing"
-              className="h-8 lg:hidden absolute -top-4 -left-4 rotate-[-15deg]"
+              className="w-10 h-10 flex-shrink-0"
             />
-            <p className="text-gray-600 text-xs leading-relaxed">
+            {/* Текст */}
+            <p className="text-gray-700 text-xs font-medium leading-relaxed">
               GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
             </p>
           </div>
-          {/* hand icon desktop */}
-          <img
-            src={buttonHandSaudiArabia}
-            alt="Hand pointing"
-            className="hidden lg:block h-8 lg:h-10 ml-4 animate-bounce"
-          />
         </div>
+
       </div>
 
       {/* Visa Type Selection Section - Both Desktop and Mobile */}

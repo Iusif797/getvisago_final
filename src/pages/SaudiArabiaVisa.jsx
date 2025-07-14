@@ -94,7 +94,7 @@ const SaudiArabiaVisa = () => {
               to="/visa-application/saudi-arabia"
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              APPLY VISA <FaPlaneDeparture className="ml-2" size={18} />
+              APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
             </Link>
           </div>
 

@@ -16,7 +16,6 @@ import mobilePayButton from '../assets/mobile_pay_button.png';
 import israelFlagIcon from '../assets/Israel (IL).svg';
 import omanFlagIcon from '../assets/oman.jpg';
 import australiaFlagIcon from '../assets/australia.jpg';
-import saudiArabiaFlagIcon from '../assets/saudi-arabia.png';
 
 
 const FlagIcon = () => (
@@ -58,12 +57,6 @@ const VisaApplication = () => {
             flag: australiaFlagIcon,
             title: 'Tourist visa',
             price: 60,
-            validity: '1 year',
-        },
-        'saudi-arabia': {
-            flag: saudiArabiaFlagIcon,
-            title: 'Tourist visa',
-            price: 270,
             validity: '1 year',
         },
     };
@@ -171,7 +164,7 @@ const VisaApplication = () => {
     const Step2Desktop = () => (
         <div className="grid grid-cols-2 gap-x-16">
             <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">2. Dates & purpose</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">2. Dates & purpose</h2>
                 <div className="space-y-5">
                     <div>
                         <label className="text-sm font-medium text-gray-700 mb-2 block flex items-center">Planned date of entry <FaInfoCircle className="ml-2 text-gray-400" /></label>
@@ -191,343 +184,14 @@ const VisaApplication = () => {
                 <h2 className="text-xl font-bold text-gray-900 mb-6">4. Passport details</h2>
                 <div className="space-y-5">
                     <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
-                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">First name</label><input type="text" name="firstName" placeholder="Your Name" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">First Name</label><input type="text" name="firstName" placeholder="Your Name" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div>
                     <div><label className="text-sm font-medium text-gray-700 mb-1 block">Last name</label><input type="text" name="lastName" placeholder="Your Surname" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div>
                     <div><label className="text-sm font-medium text-gray-700 mb-1 block">Sex</label><select className="w-full appearance-none bg-white border border-gray-300 rounded-lg p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500"><option>Male</option><option>Female</option></select></div>
                     <div><label className="text-sm font-medium text-gray-700 mb-2 block">Date of birth</label><DateSelector isStep4={true} /></div>
                 </div>
             </div>
             <div className="col-span-2 flex justify-center mt-8">
-                <button onClick={() => setStep(3)} className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
-            </div>
-        </div>
-    );
-
-    const Step3Desktop = () => (
-        <div className="grid grid-cols-2 gap-x-16">
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">4. Passport details</h2>
-                <div className="space-y-5">
-                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Passport number</label>
-                        <input type="text" placeholder="XX XX XXX XXX" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Passport type</label>
-                        <div className="relative">
-                            <select className="w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                                <option>Ordinary/Diplomatic/Official/Other</option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Nationality</label>
-                        <div className="relative flex items-center">
-                            <FlagIcon />
-                            <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                                <option>Your nationality</option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Date of issue</label>
-                        <DateSelector isStep4={true} />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Date of expiry</label>
-                        <DateSelector isStep4={true} />
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">4. Passport details</h2>
-                <div className="space-y-5">
-                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Place of issue</label>
-                        <div className="relative flex items-center">
-                            <FaMapMarkerAlt className="absolute left-4 text-purple-400" />
-                            <input type="text" placeholder="Enter place" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Issuing Authority</label>
-                        <input type="text" placeholder="issuing authority" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Religion</label>
-                        <input type="text" placeholder="Enter religion" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Place of birth</label>
-                        <div className="relative flex items-center">
-                            <FlagIcon />
-                            <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                                <option>Select country</option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Additional nationality</label>
-                        <div className="relative flex items-center">
-                            <FlagIcon />
-                            <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                                <option>Select country</option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="col-span-2 flex justify-center mt-8">
-                <button onClick={() => setStep(4)} className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
-            </div>
-        </div>
-    );
-
-    const Step4Desktop = () => (
-        <div className="grid grid-cols-2 gap-x-16">
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">5. Personal information</h2>
-                <div className="space-y-5">
-                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Marital status</label>
-                        <div className="relative">
-                            <select className="w-full appearance-none bg-white border border-gray-300 rounded-lg p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                                <option>Married</option>
-                                <option>Single</option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Father's name <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
-                        <input type="text" placeholder="Enter name" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Mother's name <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
-                        <input type="text" placeholder="Enter name" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Occupation <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
-                        <input type="text" placeholder="addasd" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Contact info <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
-                        <input type="text" placeholder="Hotel Address / Person Contacts" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">7. Add photos</h2>
-                <div className="space-y-5">
-                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
-                    <div className="space-y-4">
-                        <button className="w-full flex justify-between items-center p-4 border-2 border-[#04C495] rounded-xl text-[#04C495] font-bold hover:bg-[#04C495]/5 transition-all">
-                            <span>FACE PHOTO</span>
-                            <div className="bg-[#04C495] p-2 rounded-md">
-                                <FaUpload className="text-white" />
-                            </div>
-                        </button>
-                        <button className="w-full flex justify-between items-center p-4 border-2 border-[#04C495] rounded-xl text-[#04C495] font-bold hover:bg-[#04C495]/5 transition-all">
-                            <span>PASSPORT SCAN</span>
-                            <div className="bg-[#04C495] p-2 rounded-md">
-                                <FaUpload className="text-white" />
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div className="col-span-2 flex justify-center mt-8">
-                <button onClick={() => setStep(5)} className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
-            </div>
-        </div>
-    );
-
-    const Step5Desktop = () => (
-        <div className="grid grid-cols-2 gap-x-16">
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">6. Data verification</h2>
-                <div className="space-y-5">
-                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
-                    <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Name</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">Саламидов Вагтангович</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Citizenship</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">Россия</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Passport number</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">4851**4**</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Release date</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">05.05.2015</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Date of Expiry</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">05.05.2025</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Country of birth</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">Россия</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Date of birth</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">05.05.2015</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Sex</span>
-                            <div className="flex items-center">
-                                <span className="text-purple-600 font-bold mr-2">05.05.2015</span>
-                                <FaPencilAlt className="text-gray-400 cursor-pointer" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">6. Data verification</h2>
-                <div className="space-y-5">
-                    <div className="border border-gray-200 rounded-xl p-4">
-                        <h4 className="font-bold text-gray-900 mb-3">Visa information:</h4>
-                        <div className="space-y-3 text-sm">
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center text-purple-600 font-bold">
-                                    <img src={israelFlagIcon} alt="Israel Flag" className="w-6 h-6 mr-2" />
-                                    <span>Tourist visa B2</span>
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-700">Validity:</span>
-                                <span className="font-bold text-purple-600">2 years</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-700">Entries:</span>
-                                <span className="font-bold text-purple-600">Multiple entries</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-700">Stay:</span>
-                                <span className="font-bold text-purple-600">up to 90 days per visit</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-gray-700">Будет готова через</span>
-                                <span className="font-bold text-purple-600">2 days</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Email</label>
-                        <input type="email" value="your@email.com" readOnly className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Planned date of entry ®</label>
-                        <DateSelector isStep4={true} />
-                    </div>
-                    <div className="bg-[#00D6A9] text-white font-bold text-xl text-center p-4 rounded-xl">
-                        Total price: 55 $
-                    </div>
-                </div>
-            </div>
-            <div className="col-span-2 flex justify-center mt-8">
-                <button onClick={() => setStep(6)} className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
-            </div>
-        </div>
-    );
-
-    const Step6Desktop = () => (
-        <div className="grid grid-cols-2 gap-x-16">
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">7. Payment</h2>
-                <div className="space-y-5">
-                    <div className="flex justify-start items-center space-x-4 mb-6">
-                        <img src={visaCard} alt="Visa" className="h-8" />
-                        <img src={masterCard} alt="Mastercard" className="h-8" />
-                        <img src={amexCard} alt="Amex" className="h-8" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Full name</label>
-                        <div className="relative flex items-center">
-                            <FaUser className="absolute left-4 text-purple-400" />
-                            <input type="text" placeholder="Your Name" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                        </div>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Card Number</label>
-                        <input type="text" placeholder="XXXX XXXX XXXX XXXX" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div className="flex space-x-4">
-                        <div className="flex-1">
-                            <label className="text-sm font-medium text-gray-700 mb-1 block">MM/YY</label>
-                            <input type="text" placeholder="MM/YY" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                        </div>
-                        <div className="flex-1">
-                            <label className="text-sm font-medium text-gray-700 mb-1 block">CVV</label>
-                            <input type="text" placeholder="XXX" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-6">7. Billing Address</h2>
-                <div className="space-y-5">
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Address Line</label>
-                        <input type="text" placeholder="Address Line" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Country</label>
-                        <input type="text" placeholder="Address Line" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">City</label>
-                        <input type="text" placeholder="Address Line" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700 mb-1 block">Postal code</label>
-                        <input type="text" placeholder="Address Line" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
-                    </div>
-                    <button className="w-full bg-[#00D6A9] text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg transition-all duration-300">PAY 1488$</button>
-                </div>
+                <button className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
             </div>
         </div>
     );
@@ -962,34 +626,13 @@ const VisaApplication = () => {
             {isDesktop ? (
                 <div className="bg-white p-10 rounded-2xl shadow-xl w-full max-w-6xl mx-auto">
                     <div className="grid grid-cols-2 gap-x-8 items-center mb-10">
-                        <h1 className="text-5xl font-bold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">
-                            {step === 1 && 'Select visa type'}
-                            {step === 2 && 'Dates & purpose'}
-                            {step === 3 && 'Passport details'}
-                            {step === 4 && 'Personal information'}
-                            {step === 5 && 'Data verification'}
-                            {step === 6 && 'Payment'}
-                        </h1>
+                        <h1 className="text-5xl font-bold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">Select visa type</h1>
                         <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div
-                                className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out"
-                                style={{
-                                    width: step === 1 ? '16.67%' :
-                                        step === 2 ? '33.33%' :
-                                            step === 3 ? '50%' :
-                                                step === 4 ? '66.67%' :
-                                                    step === 5 ? '83.33%' :
-                                                        step === 6 ? '100%' : '16.67%'
-                                }}
-                            ></div>
+                            <div className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full" style={{ width: step === 1 ? '25%' : '50%' }}></div>
                         </div>
                     </div>
                     {step === 1 && <Step1Desktop />}
                     {step === 2 && <Step2Desktop />}
-                    {step === 3 && <Step3Desktop />}
-                    {step === 4 && <Step4Desktop />}
-                    {step === 5 && <Step5Desktop />}
-                    {step === 6 && <Step6Desktop />}
                 </div>
             ) : (
                 <div className="bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto">

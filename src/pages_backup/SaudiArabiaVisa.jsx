@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRight, FaArrowRight, FaClock, FaCalendarAlt, FaPlaneDeparture } from 'react-icons/fa';
-import saudiArabiaImage from '../assets/saudi_arabia_visa.png';
-import buttonGetVisa from '../assets/button_getvisa.png';
-import buttonHandSaudiArabia from '../assets/button_hand_saudi_arabia.svg';
+import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
+import saudiArabia from '../assets/saudi-arabia.png';
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
@@ -14,7 +12,7 @@ import Footer from '../components/Footer/Footer';
 const SaudiArabiaVisa = () => {
   const { width } = useWindowSize();
   const isDesktop = width >= 1024;
-
+  
   // Состояние для карусели
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
@@ -31,101 +29,121 @@ const SaudiArabiaVisa = () => {
       date: "27 May, 2025"
     }
   ];
-
+  
   // Функция для перехода к следующему слайду
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
-
+  
   // Функция для перехода к предыдущему слайду
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
-
+  
   // Автоматическая смена слайдов каждые 5 секунд
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 5000);
-
+    
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="saudi-visa-page">
-      {/* Hero Section with Background Image - According to Mockup */}
-      <div className="relative min-h-screen overflow-hidden rounded-none lg:rounded-3xl">
-        {/* Background Image - Full screen, no overlay */}
-        <div className="absolute inset-0">
-          <img
-            src={saudiArabiaImage}
-            alt="Saudi Arabia"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-
-        {/* Hero Content - Centered-left positioned White Card */}
-        <div className="relative z-10 w-full flex justify-center lg:justify-start pl-4 sm:pl-12 lg:pl-64 pr-4 pt-24 lg:pt-32">
-          <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-xs sm:max-w-sm md:max-w-md flex flex-col mx-auto lg:mx-0">
-            {/* Title with Gradient */}
-            <h1 className="text-2xl lg:text-3xl font-bold mb-6 lg:ml-4">
-              <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Visa to</span>
-              <span className="text-gray-800"> </span>
-              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Saudi Arabia</span>
-            </h1>
-
-            {/* Info Cards - Simple without icons */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-2 mb-8 sm:mb-12">
-              {/* Approval */}
-              <div className="bg-white border border-gray-200 rounded-lg p-3 text-center order-1 sm:order-1">
-                <p className="text-gray-600 text-xs mb-1">Approval:</p>
-                <p className="text-gray-900 font-bold text-xs">1–10 days</p>
+      {/* Desktop Version */}
+      {isDesktop ? (
+        <div className="pt-8 pb-16">
+          <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
+            <div className="flex flex-wrap items-center">
+              {/* Left Column - Image */}
+              <div className="w-full lg:w-1/2 pr-0 lg:pr-12">
+                <img 
+                  src={saudiArabia} 
+                  alt="Saudi Arabia Skyline" 
+                  className="w-full h-auto rounded-xl shadow-lg"
+                />
               </div>
-
-              {/* Valid for */}
-              <div className="bg-white border border-gray-200 rounded-lg p-3 text-center order-2 sm:order-2">
-                <p className="text-gray-600 text-xs mb-1">Valid for:</p>
-                <p className="text-gray-900 font-bold text-xs">from 90 days</p>
-              </div>
-
-              {/* Cost (spans two columns on mobile) */}
-              <div className="bg-white border border-gray-200 rounded-lg p-3 text-center order-3 sm:order-3 col-span-2 sm:col-span-1">
-                <p className="text-gray-600 text-xs mb-1">Cost:</p>
-                <p className="text-gray-900 font-bold text-xs">From 14 270 ₹</p>
+              
+              {/* Right Column - Content */}
+              <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex flex-col justify-center">
+                <h1 className="text-5xl font-bold bg-gradient-to-r from-[#00BFA5] to-[#7950ED] bg-clip-text text-transparent mb-6">
+                  Visa to Saudi Arabia
+                </h1>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div className="bg-white p-4 rounded-lg shadow-md">
+                    <p className="text-gray-600 text-sm">Cost:</p>
+                    <p className="text-gray-900 font-bold text-xl">from $500</p>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg shadow-md">
+                    <p className="text-gray-600 text-sm">Approval:</p>
+                    <p className="text-gray-900 font-bold text-xl">1-3 days</p>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg shadow-md">
+                    <p className="text-gray-600 text-sm">Valid for:</p>
+                    <p className="text-gray-900 font-bold text-xl">180 days</p>
+                  </div>
+                </div>
+                
+                <p className="text-gray-700 text-lg mb-8">
+                  Obtaining an official visa to Saudi Arabia online in a matter of minutes—without visiting the embassy and unnecessary bureaucracy. 24/7 support and guaranteed results will make your journey smooth.
+                </p>
+                
+                <Link to="/get-visa" className="bg-[#7950ED] text-white py-4 px-12 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-[#6A40E3] flex items-center justify-center gap-2">
+                  GET VISA
+                  <FaCreditCard size={20} />
+                </Link>
               </div>
             </div>
-
-            {/* GET VISA Button (опущена ниже) */}
-            <Link
-              to="/visa-application/saudi-arabia"
-              className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-sm lg:text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mt-auto"
-            >
-              APPLY VISA <FaPlaneDeparture className="ml-2" size={18} />
+          </div>
+        </div>
+      ) : (
+        /* Mobile Version */
+        <div className="pt-6 pb-12">
+          <div className="w-full px-4">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-[#00BFA5] to-[#7950ED] bg-clip-text text-transparent mb-4 text-center">
+              Visa to Saudi Arabia
+            </h1>
+            
+            <div className="mb-6">
+              <img 
+                src={saudiArabia} 
+                alt="Saudi Arabia Skyline" 
+                className="w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+            
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              <div className="bg-white p-3 rounded-lg shadow-sm">
+                <p className="text-gray-600 text-xs">Cost:</p>
+                <p className="text-gray-900 font-bold text-sm">from $500</p>
+              </div>
+              
+              <div className="bg-white p-3 rounded-lg shadow-sm">
+                <p className="text-gray-600 text-xs">Approval:</p>
+                <p className="text-gray-900 font-bold text-sm">1-3 days</p>
+              </div>
+              
+              <div className="bg-white p-3 rounded-lg shadow-sm">
+                <p className="text-gray-600 text-xs">Valid for:</p>
+                <p className="text-gray-900 font-bold text-sm">180 days</p>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 text-base mb-6">
+              Obtaining an official visa to Saudi Arabia online in a matter of minutes—without visiting the embassy and unnecessary bureaucracy. 24/7 support and guaranteed results will make your journey smooth.
+            </p>
+            
+            <Link to="/get-visa" className="w-full bg-[#7950ED] text-white py-3 px-6 rounded-full font-bold text-base shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#6A40E3] flex items-center justify-center gap-2">
+              GET VISA
+              <FaCreditCard size={18} />
             </Link>
           </div>
         </div>
-
-        {/* Disclaimer Text with Hand Icon справа */}
-        <div className="lg:absolute lg:bottom-8 lg:right-8 z-10 flex flex-col lg:flex-row items-start lg:items-center mx-4 mt-8 lg:mx-0">
-          <div className="bg-white rounded-2xl shadow-lg p-4 max-w-sm relative">
-            {/* hand icon mobile */}
-            <img
-              src={buttonHandSaudiArabia}
-              alt="Hand pointing"
-              className="h-8 lg:hidden absolute -top-4 -left-4 rotate-[-15deg]"
-            />
-            <p className="text-gray-600 text-xs leading-relaxed">
-              GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
-            </p>
-          </div>
-          {/* hand icon desktop */}
-          <img
-            src={buttonHandSaudiArabia}
-            alt="Hand pointing"
-            className="hidden lg:block h-8 lg:h-10 ml-4 animate-bounce"
-          />
-        </div>
-      </div>
+      )}
 
       {/* Visa Type Selection Section - Both Desktop and Mobile */}
       <div className="bg-gray-50 py-12">
@@ -133,7 +151,7 @@ const SaudiArabiaVisa = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-[#00BFA5] mb-10 text-center">
             Select visa type
           </h2>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Tourist Visa Card */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
@@ -144,7 +162,7 @@ const SaudiArabiaVisa = () => {
                     <FaUser className="text-[#00BFA5] text-2xl" />
                   </div>
                 </div>
-
+                
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between">
                     <span className="text-gray-700">Validity:</span>
@@ -155,13 +173,13 @@ const SaudiArabiaVisa = () => {
                     <span className="font-semibold">up to 90 days</span>
                   </div>
                 </div>
-
-                <Link to="/visa-application/saudi-arabia" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
+                
+                <Link to="/get-visa" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
                   BUY NOW
                 </Link>
               </div>
             </div>
-
+            
             {/* Business Visa Card */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="p-6 md:p-8">
@@ -171,7 +189,7 @@ const SaudiArabiaVisa = () => {
                     <FaBriefcase className="text-[#00BFA5] text-2xl" />
                   </div>
                 </div>
-
+                
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between">
                     <span className="text-gray-700">Validity:</span>
@@ -182,8 +200,8 @@ const SaudiArabiaVisa = () => {
                     <span className="font-semibold">up to 90 days</span>
                   </div>
                 </div>
-
-                <Link to="/visa-application/saudi-arabia" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
+                
+                <Link to="/get-visa" className="block w-full bg-white border-2 border-[#7950ED] text-[#7950ED] py-3 rounded-full font-bold text-lg hover:bg-[#7950ED]/[0.05] transition-all duration-300 text-center">
                   BUY NOW
                 </Link>
               </div>
@@ -198,7 +216,7 @@ const SaudiArabiaVisa = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-[#00BFA5] mb-10">
             Discover Saudi Arabia
           </h2>
-
+          
           {/* Carousel Navigation - Desktop */}
           {isDesktop && (
             <div className="flex justify-between items-center mb-8">
@@ -207,13 +225,14 @@ const SaudiArabiaVisa = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-[#7950ED]' : 'bg-[#D1C4E9]'
-                      }`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentSlide === index ? 'bg-[#7950ED]' : 'bg-[#D1C4E9]'
+                    }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
-
+              
               <div className="flex space-x-3">
                 <button
                   onClick={prevSlide}
@@ -232,14 +251,15 @@ const SaudiArabiaVisa = () => {
               </div>
             </div>
           )}
-
+          
           {/* Carousel Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`transition-all duration-500 ${isDesktop || index === currentSlide ? 'block' : 'hidden'
-                  }`}
+                className={`transition-all duration-500 ${
+                  isDesktop || index === currentSlide ? 'block' : 'hidden'
+                }`}
               >
                 <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
                   <div className="relative">
@@ -267,7 +287,7 @@ const SaudiArabiaVisa = () => {
               </div>
             ))}
           </div>
-
+          
           {/* Carousel Navigation - Mobile */}
           {!isDesktop && (
             <div className="flex justify-center mt-6">
@@ -276,15 +296,16 @@ const SaudiArabiaVisa = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-[#7950ED]' : 'bg-[#D1C4E9]'
-                      }`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentSlide === index ? 'bg-[#7950ED]' : 'bg-[#D1C4E9]'
+                    }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
           )}
-
+          
           {/* Blog Link Button */}
           <div className="flex justify-center mt-10">
             <a
@@ -293,7 +314,7 @@ const SaudiArabiaVisa = () => {
             >
               CHECK OUT OUR BLOG
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H9V17H7V10ZM11 7H13V17H11V7ZM15 13H17V17H15V13Z" fill="currentColor" />
+                <path d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H9V17H7V10ZM11 7H13V17H11V7ZM15 13H17V17H15V13Z" fill="currentColor"/>
               </svg>
             </a>
           </div>
@@ -305,7 +326,7 @@ const SaudiArabiaVisa = () => {
 
       {/* FAQ Section */}
       <FAQ />
-
+      
       {/* Footer Section */}
       <Footer />
     </div>

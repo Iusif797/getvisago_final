@@ -52,79 +52,68 @@ const SaudiArabiaVisa = () => {
   }, []);
 
   return (
-    <div className="saudi-visa-page">
-      {/* Hero Section with Background Image - According to Mockup */}
-      <div className="relative min-h-screen overflow-hidden rounded-none lg:rounded-3xl">
-        {/* Background Image - Full screen, no overlay */}
-        <div className="absolute inset-0">
+    <div className="saudi-visa-page bg-gray-50">
+      {/* Hero Section - СТРОГО ПО МАКЕТУ */}
+      <div className="relative">
+        {/* Background Image */}
+        <div className="h-80 lg:h-96">
           <img
             src={saudiArabiaImage}
             alt="Saudi Arabia"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover"
           />
         </div>
 
-        {/* Hero Content - Centered-left positioned White Card */}
-        <div className="relative z-10 w-full flex justify-center lg:justify-start pl-4 sm:pl-12 lg:pl-64 pr-4 pt-24 lg:pt-32">
-          <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-xs sm:max-w-sm md:max-w-md flex flex-col mx-auto lg:mx-0">
-            {/* Title with Gradient */}
-            <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-center sm:text-left">
+        {/* Content Section */}
+        <div className="relative px-4 sm:px-6 lg:px-8 -mt-32 sm:-mt-40">
+          {/* Main Info Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md mx-auto flex flex-col">
+            <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
               <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Visa to </span>
               <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Saudi Arabia</span>
             </h1>
 
-            {/* Info Cards - СТРОГО ПО МАКЕТУ */}
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4 mb-6">
               <div className="flex space-x-4">
-                {/* Approval */}
-                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 text-left flex-1">
+                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
                   <p className="text-gray-500 text-sm mb-1">Approval:</p>
                   <p className="text-gray-900 font-bold text-base">1–10 days</p>
                 </div>
-
-                {/* Valid for */}
-                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 text-left flex-1">
+                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
                   <p className="text-gray-500 text-sm mb-1">Valid for:</p>
                   <p className="text-gray-900 font-bold text-base">from 90 days</p>
                 </div>
               </div>
-
-              {/* Cost */}
-              <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-4 text-left w-full">
+              <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center w-full">
                 <p className="text-gray-500 text-sm mb-1">Cost:</p>
                 <p className="text-gray-900 font-bold text-base">From 14 270 ₹</p>
               </div>
             </div>
 
-            {/* GET VISA Button (НЕ ТРОГАЕМ) */}
             <Link
               to="/visa-application/saudi-arabia"
-              className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-sm lg:text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mt-auto"
+              className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               APPLY VISA <FaPlaneDeparture className="ml-2" size={18} />
             </Link>
+          </div>
 
-            {/* Disclaimer Text with Hand Icon - СТРОГО ПО МАКЕТУ */}
-            <div className="relative z-10 w-full flex justify-center px-4 lg:absolute lg:bottom-8 lg:right-8 lg:w-auto lg:px-0">
-              <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-sm flex items-center gap-4 lg:mt-0" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
-                <img
-                  src={handRightSideIcon}
-                  alt="Hand pointing"
-                  className="w-10 h-10 flex-shrink-0"
-                />
-                <p className="text-gray-700 text-xs font-medium leading-relaxed">
-                  GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
-                </p>
-              </div>
-            </div>
-
+          {/* Disclaimer Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-md mx-auto flex items-center gap-4" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
+            <img
+              src={handRightSideIcon}
+              alt="Hand pointing"
+              className="w-10 h-10 flex-shrink-0"
+            />
+            <p className="text-gray-700 text-xs font-medium leading-relaxed">
+              GetVisaGo Ltd is an independent agency offering fast and secure Saudi Arabia e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
+            </p>
           </div>
         </div>
-
       </div>
 
       {/* Visa Type Selection Section - Both Desktop and Mobile */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-50 pt-12 pb-12">
         <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#00BFA5] mb-10 text-center">
             Select visa type

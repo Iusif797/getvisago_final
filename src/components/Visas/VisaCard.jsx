@@ -22,6 +22,9 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
     if (slug === 'israel') {
       return '/visa/israel';
     }
+    if (slug === 'malaysia') {
+      return '/visa/malaysia';
+    }
     return `/visa-detail/${slug}`;
   };
 

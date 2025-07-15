@@ -159,7 +159,7 @@ const BahrainVisa = () => {
                   </div>
                 </div>
                 <Link to={`/visa-application/bahrain?type=${encodeURIComponent(visa.title)}`} className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
-                  BUY NOW
+                  APPLY NOW
                 </Link>
               </div>
             ))}

@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import SaudiArabiaVisa from './pages/SaudiArabiaVisa';
 import IsraelVisa from './pages/IsraelVisa';
 import MalaysiaVisa from './pages/MalaysiaVisa'; // Импортируем новую страницу
+import SriLankaVisa from './pages/SriLankaVisa'; // Импортируем новую страницу
+import BahrainVisa from './pages/BahrainVisa'; // Импортируем новую страницу
 import VisaStatus from './pages/VisaStatus';
 import Blog from './pages/Blog';
 import VisaApplication from './pages/VisaApplication';
@@ -31,6 +33,8 @@ function App() {
         <Route path="/visa/saudi-arabia" element={<><Header /><SaudiArabiaVisa /></>} />
         <Route path="/visa/israel" element={<><Header /><IsraelVisa /></>} />
         <Route path="/visa/malaysia" element={<><Header /><MalaysiaVisa /></>} /> {/* Добавляем новый маршрут */}
+        <Route path="/visa/sri-lanka" element={<><Header /><SriLankaVisa /></>} /> {/* Добавляем новый маршрут */}
+        <Route path="/visa/bahrain" element={<><Header /><BahrainVisa /></>} /> {/* Добавляем новый маршрут */}
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
         <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />

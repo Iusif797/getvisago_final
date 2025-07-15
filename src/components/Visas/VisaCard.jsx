@@ -25,6 +25,12 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
     if (slug === 'malaysia') {
       return '/visa/malaysia';
     }
+    if (slug === 'sri-lanka') {
+      return '/visa/sri-lanka';
+    }
+    if (slug === 'bahrain') {
+      return '/visa/bahrain';
+    }
     return `/visa-detail/${slug}`;
   };
 

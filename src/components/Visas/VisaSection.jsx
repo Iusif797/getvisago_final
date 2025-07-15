@@ -6,6 +6,8 @@ import dubaiImage from '../../assets/dubai_getvisago.jpg';
 import omanImage from '../../assets/oman.jpg';
 import australiaImage from '../../assets/australia.jpg';
 import malaysiaImage from '../../assets/Malaasiya.JPG'; // Импортируем новое изображение
+import sriLankaImage from '../../assets/Shrilanka.JPG'; // Импортируем новое изображение
+import bahrainImage from '../../assets/Bahrein.JPG'; // Импортируем новое изображение
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -35,6 +37,24 @@ const VisaSection = () => {
     },
     {
       id: 2,
+      image: sriLankaImage,
+      country: 'Sri Lanka',
+      title: 'Tourist ETA Double entry',
+      days: 180,
+      price: 2290,
+      processTime: '2'
+    },
+    {
+      id: 3,
+      image: bahrainImage,
+      country: 'Bahrain',
+      title: 'e-Visa',
+      days: 90,
+      price: 4701,
+      processTime: '7'
+    },
+    {
+      id: 4,
       image: dubaiImage,
       country: 'Dubai',
       title: 'Tourist Visa',
@@ -43,7 +63,7 @@ const VisaSection = () => {
       processTime: '2'
     },
     {
-      id: 3,
+      id: 5,
       image: dubaiImage,
       country: 'Singapore',
       title: 'Tourist Visa',
@@ -52,7 +72,7 @@ const VisaSection = () => {
       processTime: '6'
     },
     {
-      id: 4,
+      id: 6,
       image: australiaImage,
       country: 'Australia',
       title: 'Tourist Visa',
@@ -64,7 +84,7 @@ const VisaSection = () => {
 
   const additionalVisas = [
     {
-      id: 5,
+      id: 7,
       image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
@@ -73,7 +93,7 @@ const VisaSection = () => {
       processTime: '5'
     },
     {
-      id: 6,
+      id: 8,
       image: dubaiImage,
       country: 'Israel',
       title: 'Tourist Visa',
@@ -82,7 +102,7 @@ const VisaSection = () => {
       processTime: '7'
     },
     {
-      id: 7,
+      id: 9,
       image: dubaiImage,
       country: 'Egypt',
       title: 'Tourist Visa',

@@ -11,6 +11,7 @@ import bahrainImage from '../../assets/Bahrein.JPG'; // Импортируем �
 import cambodiaImage from '../../assets/CambodiaS.JPG';
 import turkeyImage from '../../assets/TurkeyS.JPG';
 import azerbaijanImage from '../../assets/AzerbaijanS.JPG';
+import southKoreaImage from '../../assets/SouthKoreaS.JPG';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -109,12 +110,21 @@ const VisaSection = () => {
       days: 30,
       price: 2500,
       processTime: '6'
+    },
+    {
+      id: 10,
+      image: southKoreaImage,
+      country: 'South Korea',
+      title: 'e-Visa',
+      days: 60,
+      price: 5200,
+      processTime: '7'
     }
   ];
 
   const additionalVisas = [
     {
-      id: 10,
+      id: 11,
       image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
@@ -123,7 +133,7 @@ const VisaSection = () => {
       processTime: '5'
     },
     {
-      id: 11,
+      id: 12,
       image: dubaiImage,
       country: 'Israel',
       title: 'Tourist Visa',
@@ -132,7 +142,7 @@ const VisaSection = () => {
       processTime: '7'
     },
     {
-      id: 12,
+      id: 13,
       image: dubaiImage,
       country: 'Egypt',
       title: 'Tourist Visa',

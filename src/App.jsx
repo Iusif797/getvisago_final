@@ -22,6 +22,7 @@ import CambodiaVisa from './pages/CambodiaVisa';
 import AustraliaVisa from './pages/AustraliaVisa';
 import TurkeyVisa from './pages/TurkeyVisa';
 import AzerbaijanVisa from './pages/AzerbaijanVisa';
+import SouthKoreaVisa from './pages/SouthKoreaVisa';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/visa/australia" element={<><Header /><AustraliaVisa /></>} />
         <Route path="/visa/turkey" element={<><Header /><TurkeyVisa /></>} />
         <Route path="/visa/azerbaijan" element={<><Header /><AzerbaijanVisa /></>} />
+        <Route path="/visa/south-korea" element={<><Header /><SouthKoreaVisa /></>} />
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
         <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />

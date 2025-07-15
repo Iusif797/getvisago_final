@@ -32,6 +32,8 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
       path = '/visa/australia';
     } else if (country.toLowerCase() === 'turkey') {
       path = '/visa/turkey';
+    } else if (country.toLowerCase() === 'azerbaijan') {
+      path = '/visa/azerbaijan';
     } else {
       path = `/visa/${country.toLowerCase().replace(/\s+/g, '-')}`;
     }

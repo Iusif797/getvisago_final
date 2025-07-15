@@ -8,6 +8,7 @@ import bahrainImage from '../assets/Bahrein.JPG';
 import cambodiaImage from '../assets/CambodiaS.JPG';
 import australiaImage from '../assets/australia.jpg';
 import turkeyImage from '../assets/TurkeyS.JPG';
+import azerbaijanImage from '../assets/AzerbaijanS.JPG';
 import dubaiImage from '../assets/dubai_getvisago.jpg';
 import omanImage from '../assets/oman.jpg';
 import visaIsrael from '../assets/israel.png';
@@ -34,15 +35,15 @@ const Visas = () => {
     { id: 4, image: cambodiaImage, country: 'Cambodia', title: 'Tourist Visa', days: 30, price: 49070.80, processTime: '2-5' },
     { id: 7, image: australiaImage, country: 'Australia', title: 'Tourist Visa', days: 30, price: 11500, processTime: '21' },
     { id: 8, image: turkeyImage, country: 'Turkey', title: 'Tourist Visa', days: 30, price: 3200, processTime: '5' },
+    { id: 9, image: azerbaijanImage, country: 'Azerbaijan', title: 'e-Visa', days: 30, price: 2500, processTime: '6' },
     { id: 5, image: dubaiImage, country: 'Dubai', title: 'Tourist Visa', days: 30, price: 6605, processTime: '2' },
     { id: 6, image: dubaiImage, country: 'Singapore', title: 'Tourist Visa', days: 30, price: 1900, processTime: '6' }
   ];
 
   const additionalVisas = [
-    { id: 9, image: omanImage, country: 'Oman', title: 'Tourist Visa', days: 30, price: 3500, processTime: '5' },
-    { id: 10, image: visaIsrael, country: 'Israel', title: 'Tourist Visa', days: 30, price: 4200, processTime: '7' },
-    { id: 11, image: visaEgypt, country: 'Egypt', title: 'Tourist Visa', days: 30, price: 2800, processTime: '3' },
-    { id: 12, image: visaAzerbaijan, country: 'Azerbaijan', title: 'Tourist Visa', days: 30, price: 2500, processTime: '6' },
+    { id: 10, image: omanImage, country: 'Oman', title: 'Tourist Visa', days: 30, price: 3500, processTime: '5' },
+    { id: 11, image: visaIsrael, country: 'Israel', title: 'Tourist Visa', days: 30, price: 4200, processTime: '7' },
+    { id: 12, image: visaEgypt, country: 'Egypt', title: 'Tourist Visa', days: 30, price: 2800, processTime: '3' },
     { id: 13, image: visaGeorgia, country: 'Georgia', title: 'Tourist Visa', days: 30, price: 2200, processTime: '4' },
     { id: 14, image: visaIndonesia, country: 'Indonesia', title: 'Tourist Visa', days: 30, price: 2900, processTime: '5' },
     { id: 15, image: visaSouthKorea, country: 'South Korea', title: 'Tourist Visa', days: 30, price: 5200, processTime: '7' }

@@ -4,7 +4,7 @@ import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRi
 import malaysiaImage from '../assets/Malaasiya.JPG'; // Изображение Малайзии
 import buttonGetVisa from '../assets/button_getvisa.png';
 import handRightSideIcon from '../assets/hand_rightside.svg';
-import arrivalCardIcon from '../assets/icon_VISA_form.svg'; // Иконка для карточки
+import touristIcon from '../assets/simple-3d-icon-of-a-tourist--blender-style--clean-.png'; // Правильная иконка
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
@@ -77,7 +77,7 @@ const MalaysiaVisa = () => {
               to="/visa-application/malaysia"
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              GET VISA <FaPlaneDeparture className="ml-2" size={18} />
+              APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
             </Link>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-md mx-auto flex items-center gap-4" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
@@ -100,7 +100,7 @@ const MalaysiaVisa = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-2xl font-bold text-purple-600">Malaysia Digital Arrival Card</h3>
-                <img src={arrivalCardIcon} alt="Arrival Card" className="w-12 h-12 object-contain" />
+                <img src={touristIcon} alt="Arrival Card" className="w-12 h-12 object-contain" />
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -125,7 +125,7 @@ const MalaysiaVisa = () => {
                 </div>
               </div>
               <Link to="/visa-application/malaysia" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
-                BUY NOW
+                APPLY NOW
               </Link>
             </div>
           </div>

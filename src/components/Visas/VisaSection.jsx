@@ -5,10 +5,11 @@ import saudiArabiaImage from '../../assets/saudi_arabia_visa.png';
 import dubaiImage from '../../assets/dubai_getvisago.jpg';
 import omanImage from '../../assets/oman.jpg';
 import australiaImage from '../../assets/australia.jpg';
-import malaysiaImage from '../../assets/Malaasiya.JPG'; // Импортируем новое изображение
+import malaysiaImage from '../../assets/malaysia.png';
 import sriLankaImage from '../../assets/Shrilanka.JPG'; // Импортируем новое изображение
 import bahrainImage from '../../assets/Bahrein.JPG'; // Импортируем новое изображение
 import cambodiaImage from '../../assets/CambodiaS.JPG';
+import turkeyImage from '../../assets/TurkeyS.JPG';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -89,12 +90,21 @@ const VisaSection = () => {
       days: 30,
       price: 11500,
       processTime: '21'
+    },
+    {
+      id: 8,
+      image: turkeyImage,
+      country: 'Turkey',
+      title: 'Tourist Visa',
+      days: 30,
+      price: 3200,
+      processTime: '5'
     }
   ];
 
   const additionalVisas = [
     {
-      id: 8,
+      id: 9,
       image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
@@ -103,7 +113,7 @@ const VisaSection = () => {
       processTime: '5'
     },
     {
-      id: 9,
+      id: 10,
       image: dubaiImage,
       country: 'Israel',
       title: 'Tourist Visa',
@@ -112,7 +122,7 @@ const VisaSection = () => {
       processTime: '7'
     },
     {
-      id: 10,
+      id: 11,
       image: dubaiImage,
       country: 'Egypt',
       title: 'Tourist Visa',

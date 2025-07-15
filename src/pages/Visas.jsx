@@ -2,24 +2,23 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronDown, FaGlobeAsia, FaPlane } from 'react-icons/fa';
 import saudiArabiaImage from '../assets/saudi_arabia_visa.png';
-import dubaiImage from '../assets/dubai_getvisago.jpg';
+import malaysiaImage from '../assets/malaysia.png';
+import sriLankaImage from '../assets/Shrilanka.JPG';
+import bahrainImage from '../assets/Bahrein.JPG';
+import cambodiaImage from '../assets/CambodiaS.JPG';
 import australiaImage from '../assets/australia.jpg';
+import turkeyImage from '../assets/TurkeyS.JPG';
+import dubaiImage from '../assets/dubai_getvisago.jpg';
 import omanImage from '../assets/oman.jpg';
 import visaIsrael from '../assets/israel.png';
 import visaEgypt from '../assets/egypt.png';
-import visaTurkey from '../assets/turkey.png';
 import visaAzerbaijan from '../assets/azerbaijan.png';
 import visaGeorgia from '../assets/georgia.png';
-import visaBahrain from '../assets/bahrain.png';
 import visaIndonesia from '../assets/indonesia.png';
 import visaSouthKorea from '../assets/southkorea.png';
-import malaysiaImage from '../assets/malaysia.png';
-import sriLankaImage from '../assets/Shrilanka.JPG'; // Импортируем новое изображение
-import bahrainImage from '../assets/Bahrein.JPG'; // Импортируем новое изображение
-import cambodiaImage from '../assets/CambodiaS.JPG';
 import useWindowSize from '../hooks/useWindowSize';
 import Footer from '../components/Footer/Footer';
-import VisaCard from '../components/Visas/VisaCard'; // Импортируем общий компонент
+import VisaCard from '../components/Visas/VisaCard';
 
 const Visas = () => {
   const { width } = useWindowSize();
@@ -28,162 +27,25 @@ const Visas = () => {
   const [showAllCountries, setShowAllCountries] = useState(false);
 
   const mainVisas = [
-    {
-      id: 0,
-      image: saudiArabiaImage,
-      country: 'Saudi Arabia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 5500,
-      processTime: '3'
-    },
-    {
-      id: 1,
-      image: malaysiaImage,
-      country: 'Malaysia',
-      title: 'Digital Arrival Card',
-      days: 30,
-      price: 2290,
-      processTime: '2'
-    },
-    {
-      id: 2,
-      image: sriLankaImage,
-      country: 'Sri Lanka',
-      title: 'Tourist ETA Double entry',
-      days: 180,
-      price: 2290,
-      processTime: '2'
-    },
-    {
-      id: 3,
-      image: bahrainImage,
-      country: 'Bahrain',
-      title: 'e-Visa',
-      days: 90,
-      price: 4701,
-      processTime: '7'
-    },
-    {
-      id: 4,
-      image: cambodiaImage,
-      country: 'Cambodia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 49070.80,
-      processTime: '2-5'
-    },
-    {
-      id: 5,
-      image: dubaiImage,
-      country: 'Dubai',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 6605,
-      processTime: '2'
-    },
-    {
-      id: 6,
-      image: dubaiImage,
-      country: 'Singapore',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 1900,
-      processTime: '6'
-    },
-    {
-      id: 7,
-      image: australiaImage,
-      country: 'Australia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 11500,
-      processTime: '21'
-    }
+    { id: 0, image: saudiArabiaImage, country: 'Saudi Arabia', title: 'Tourist Visa', days: 30, price: 5500, processTime: '3' },
+    { id: 1, image: malaysiaImage, country: 'Malaysia', title: 'Digital Arrival Card', days: 30, price: 2290, processTime: '2' },
+    { id: 2, image: sriLankaImage, country: 'Sri Lanka', title: 'Tourist ETA Double entry', days: 180, price: 2290, processTime: '2' },
+    { id: 3, image: bahrainImage, country: 'Bahrain', title: 'e-Visa', days: 90, price: 4701, processTime: '7' },
+    { id: 4, image: cambodiaImage, country: 'Cambodia', title: 'Tourist Visa', days: 30, price: 49070.80, processTime: '2-5' },
+    { id: 7, image: australiaImage, country: 'Australia', title: 'Tourist Visa', days: 30, price: 11500, processTime: '21' },
+    { id: 8, image: turkeyImage, country: 'Turkey', title: 'Tourist Visa', days: 30, price: 3200, processTime: '5' },
+    { id: 5, image: dubaiImage, country: 'Dubai', title: 'Tourist Visa', days: 30, price: 6605, processTime: '2' },
+    { id: 6, image: dubaiImage, country: 'Singapore', title: 'Tourist Visa', days: 30, price: 1900, processTime: '6' }
   ];
 
   const additionalVisas = [
-    {
-      id: 8,
-      image: omanImage,
-      country: 'Oman',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 3500,
-      processTime: '5'
-    },
-    {
-      id: 9,
-      image: visaIsrael,
-      country: 'Israel',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 4200,
-      processTime: '7'
-    },
-    {
-      id: 10,
-      image: visaEgypt,
-      country: 'Egypt',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2800,
-      processTime: '3'
-    },
-    {
-      id: 11,
-      image: visaTurkey,
-      country: 'Turkey',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 3200,
-      processTime: '5'
-    },
-    {
-      id: 12,
-      image: visaAzerbaijan,
-      country: 'Azerbaijan',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2500,
-      processTime: '6'
-    },
-    {
-      id: 13,
-      image: visaGeorgia,
-      country: 'Georgia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2200,
-      processTime: '4'
-    },
-    {
-      id: 14,
-      image: visaBahrain,
-      country: 'Bahrain',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 3800,
-      processTime: '3'
-    },
-    {
-      id: 15,
-      image: visaIndonesia,
-      country: 'Indonesia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2900,
-      processTime: '5'
-    },
-    {
-      id: 16,
-      image: visaSouthKorea,
-      country: 'South Korea',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 5200,
-      processTime: '7'
-    }
+    { id: 9, image: omanImage, country: 'Oman', title: 'Tourist Visa', days: 30, price: 3500, processTime: '5' },
+    { id: 10, image: visaIsrael, country: 'Israel', title: 'Tourist Visa', days: 30, price: 4200, processTime: '7' },
+    { id: 11, image: visaEgypt, country: 'Egypt', title: 'Tourist Visa', days: 30, price: 2800, processTime: '3' },
+    { id: 12, image: visaAzerbaijan, country: 'Azerbaijan', title: 'Tourist Visa', days: 30, price: 2500, processTime: '6' },
+    { id: 13, image: visaGeorgia, country: 'Georgia', title: 'Tourist Visa', days: 30, price: 2200, processTime: '4' },
+    { id: 14, image: visaIndonesia, country: 'Indonesia', title: 'Tourist Visa', days: 30, price: 2900, processTime: '5' },
+    { id: 15, image: visaSouthKorea, country: 'South Korea', title: 'Tourist Visa', days: 30, price: 5200, processTime: '7' }
   ];
 
   const visasToShow = [...mainVisas, ...(showAllCountries ? additionalVisas : [])];

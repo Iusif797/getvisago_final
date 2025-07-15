@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import VisaCard from './VisaCard';
 import { FaChevronDown, FaGlobeAsia } from 'react-icons/fa';
 import saudiArabiaImage from '../../assets/saudi_arabia_visa.png';
-import dubaiImage from '../../assets/dubai_getvisago.jpg';
-import omanImage from '../../assets/oman.jpg';
-import australiaImage from '../../assets/australia.jpg';
-import malaysiaImage from '../../assets/malaysia.png';
-import sriLankaImage from '../../assets/Shrilanka.JPG'; // Импортируем новое изображение
-import bahrainImage from '../../assets/Bahrein.JPG'; // Импортируем новое изображение
+import malaysiaImage from '../../assets/Malaasiya.JPG'; // Correct image
+import sriLankaImage from '../../assets/Shrilanka.JPG';
+import bahrainImage from '../../assets/Bahrein.JPG';
 import cambodiaImage from '../../assets/CambodiaS.JPG';
+import australiaImage from '../../assets/australia.jpg';
 import turkeyImage from '../../assets/TurkeyS.JPG';
 import azerbaijanImage from '../../assets/AzerbaijanS.JPG';
 import southKoreaImage from '../../assets/SouthKoreaS.JPG';
 import vietnamImage from '../../assets/Vietnam.JPG';
+import omanImage from '../../assets/oman.jpg';
+import israelImage from '../../assets/israel.png';
+import dubaiImage from '../../assets/dubai_getvisago.jpg';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -21,148 +22,26 @@ const VisaSection = () => {
   const isDesktop = width >= 1024;
   const [showAll, setShowAll] = useState(false);
 
-  const mainVisas = [
-    {
-      id: 1,
-      image: saudiArabiaImage,
-      country: 'Saudi Arabia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 5500,
-      processTime: '3'
-    },
-    {
-      id: 2,
-      image: malaysiaImage,
-      country: 'Malaysia',
-      title: 'Digital Arrival Card',
-      days: 30,
-      price: 2290,
-      processTime: '2'
-    },
-    {
-      id: 3,
-      image: sriLankaImage,
-      country: 'Sri Lanka',
-      title: 'Tourist ETA Double entry',
-      days: 180,
-      price: 2290,
-      processTime: '2'
-    },
-    {
-      id: 4,
-      image: bahrainImage,
-      country: 'Bahrain',
-      title: 'e-Visa',
-      days: 90,
-      price: 4701,
-      processTime: '7'
-    },
-    {
-      id: 5,
-      image: cambodiaImage,
-      country: 'Cambodia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 49070.80,
-      processTime: '2-5'
-    },
-    {
-      id: 6,
-      image: dubaiImage,
-      country: 'Dubai',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 6605,
-      processTime: '2'
-    },
-    {
-      id: 7,
-      image: dubaiImage,
-      country: 'Singapore',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 1900,
-      processTime: '6'
-    },
-    {
-      id: 8,
-      image: australiaImage,
-      country: 'Australia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 11500,
-      processTime: '21'
-    },
-    {
-      id: 9,
-      image: turkeyImage,
-      country: 'Turkey',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 3200,
-      processTime: '5'
-    },
-    {
-      id: 10,
-      image: azerbaijanImage,
-      country: 'Azerbaijan',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2100,
-      processTime: '3'
-    },
-    {
-      id: 11,
-      image: southKoreaImage,
-      country: 'South Korea',
-      title: 'Tourist Visa',
-      days: 90,
-      price: 11252,
-      processTime: '5'
-    },
-    {
-      id: 12,
-      image: vietnamImage,
-      country: 'Vietnam',
-      title: 'e-Visa',
-      days: 90,
-      price: 4379,
-      processTime: '2-12'
-    }
+  const allVisas = [
+    { id: 1, image: saudiArabiaImage, country: 'Saudi Arabia', path: '/visa/saudi-arabia', price: 5500, processTime: '3' },
+    { id: 2, image: malaysiaImage, country: 'Malaysia', path: '/malaysia-visa', price: 2290, processTime: '2' },
+    { id: 3, image: sriLankaImage, country: 'Sri Lanka', path: '/sri-lanka-visa', price: 2290, processTime: '2' },
+    { id: 4, image: bahrainImage, country: 'Bahrain', path: '/bahrain-visa', price: 4701, processTime: '7' },
+    { id: 5, image: cambodiaImage, country: 'Cambodia', path: '/cambodia-visa', price: 49070.80, processTime: '2-5' },
+    { id: 8, image: australiaImage, country: 'Australia', path: '/australia-visa', price: 11500, processTime: '21' },
+    { id: 9, image: turkeyImage, country: 'Turkey', path: '/turkey-visa', price: 3200, processTime: '5' },
+    { id: 10, image: azerbaijanImage, country: 'Azerbaijan', path: '/azerbaijan-visa', price: 2100, processTime: '3' },
+    { id: 11, image: southKoreaImage, country: 'South Korea', path: '/south-korea-visa', price: 11252, processTime: '5' },
+    { id: 12, image: vietnamImage, country: 'Vietnam', path: '/vietnam-visa', price: 4379, processTime: '2-12' },
+    { id: 13, image: omanImage, country: 'Oman', path: '/oman-visa', price: 3500, processTime: '5' },
+    { id: 14, image: israelImage, country: 'Israel', path: '/israel-visa', price: 4200, processTime: '7' },
+    { id: 15, image: dubaiImage, country: 'Dubai', path: '/', price: 6605, processTime: '2' }, // Placeholder
   ];
 
-  const additionalVisas = [
-    {
-      id: 12,
-      image: omanImage,
-      country: 'Oman',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 3500,
-      processTime: '5'
-    },
-    {
-      id: 13,
-      image: dubaiImage,
-      country: 'Israel',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 4200,
-      processTime: '7'
-    },
-    {
-      id: 14,
-      image: dubaiImage,
-      country: 'Egypt',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2800,
-      processTime: '3'
-    }
-  ];
+  const mainVisas = allVisas.slice(0, 6);
+  const additionalVisas = allVisas.slice(6);
 
-  const allVisas = [...mainVisas, ...(showAll ? additionalVisas : [])];
+  const visasToDisplay = showAll ? allVisas : mainVisas;
 
   if (isDesktop) {
     return <DesktopVisaSection visas={mainVisas} additionalVisas={additionalVisas} />;
@@ -191,13 +70,11 @@ const VisaSection = () => {
         </div>
 
         <div className="flex flex-col gap-8 mb-12">
-          {allVisas.map(visa => (
+          {visasToDisplay.map(visa => (
             <VisaCard
               key={visa.id}
               image={visa.image}
-              title={visa.title}
               country={visa.country}
-              days={visa.days}
               price={visa.price}
               processTime={visa.processTime}
             />

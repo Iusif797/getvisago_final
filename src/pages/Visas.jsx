@@ -21,6 +21,7 @@ import visaSouthKorea from '../assets/southkorea.png';
 import useWindowSize from '../hooks/useWindowSize';
 import Footer from '../components/Footer/Footer';
 import VisaCard from '../components/Visas/VisaCard';
+import VietnamImage from '../assets/Vietnam.JPG';
 
 const Visas = () => {
   const { width } = useWindowSize();
@@ -44,9 +45,11 @@ const Visas = () => {
   const additionalVisas = [
     { id: 11, image: omanImage, country: 'Oman', title: 'Tourist Visa', days: 30, price: 3500, processTime: '5' },
     { id: 12, image: visaIsrael, country: 'Israel', title: 'Tourist Visa', days: 30, price: 4200, processTime: '7' },
-    { id: 13, image: visaEgypt, country: 'Egypt', title: 'Tourist Visa', days: 30, price: 2800, processTime: '3' },
+    { id: 13, image: visaEgypt, country: 'Egypt', title: 'Tourist Visa', days: 30, price: 2100, processTime: '3' },
     { id: 14, image: visaGeorgia, country: 'Georgia', title: 'Tourist Visa', days: 30, price: 2200, processTime: '4' },
     { id: 15, image: visaIndonesia, country: 'Indonesia', title: 'Tourist Visa', days: 30, price: 2900, processTime: '5' },
+    { id: 16, image: visaSouthKorea, country: 'South Korea', title: 'e-Visa', days: 60, price: 5200, processTime: '7' },
+    { id: 17, image: VietnamImage, country: 'Vietnam', title: 'e-Visa', days: 90, price: 4379, processTime: '2-12' },
   ];
 
   const visasToShow = [...mainVisas, ...(showAllCountries ? additionalVisas : [])];

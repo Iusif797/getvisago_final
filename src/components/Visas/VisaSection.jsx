@@ -12,6 +12,7 @@ import cambodiaImage from '../../assets/CambodiaS.JPG';
 import turkeyImage from '../../assets/TurkeyS.JPG';
 import azerbaijanImage from '../../assets/AzerbaijanS.JPG';
 import southKoreaImage from '../../assets/SouthKoreaS.JPG';
+import vietnamImage from '../../assets/Vietnam.JPG';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -20,9 +21,9 @@ const VisaSection = () => {
   const isDesktop = width >= 1024;
   const [showAll, setShowAll] = useState(false);
 
-  const visas = [
+  const mainVisas = [
     {
-      id: 0,
+      id: 1,
       image: saudiArabiaImage,
       country: 'Saudi Arabia',
       title: 'Tourist Visa',
@@ -31,7 +32,7 @@ const VisaSection = () => {
       processTime: '3'
     },
     {
-      id: 1,
+      id: 2,
       image: malaysiaImage,
       country: 'Malaysia',
       title: 'Digital Arrival Card',
@@ -40,7 +41,7 @@ const VisaSection = () => {
       processTime: '2'
     },
     {
-      id: 2,
+      id: 3,
       image: sriLankaImage,
       country: 'Sri Lanka',
       title: 'Tourist ETA Double entry',
@@ -49,7 +50,7 @@ const VisaSection = () => {
       processTime: '2'
     },
     {
-      id: 3,
+      id: 4,
       image: bahrainImage,
       country: 'Bahrain',
       title: 'e-Visa',
@@ -58,7 +59,7 @@ const VisaSection = () => {
       processTime: '7'
     },
     {
-      id: 4,
+      id: 5,
       image: cambodiaImage,
       country: 'Cambodia',
       title: 'Tourist Visa',
@@ -67,7 +68,7 @@ const VisaSection = () => {
       processTime: '2-5'
     },
     {
-      id: 5,
+      id: 6,
       image: dubaiImage,
       country: 'Dubai',
       title: 'Tourist Visa',
@@ -76,7 +77,7 @@ const VisaSection = () => {
       processTime: '2'
     },
     {
-      id: 6,
+      id: 7,
       image: dubaiImage,
       country: 'Singapore',
       title: 'Tourist Visa',
@@ -85,7 +86,7 @@ const VisaSection = () => {
       processTime: '6'
     },
     {
-      id: 7,
+      id: 8,
       image: australiaImage,
       country: 'Australia',
       title: 'Tourist Visa',
@@ -94,7 +95,7 @@ const VisaSection = () => {
       processTime: '21'
     },
     {
-      id: 8,
+      id: 9,
       image: turkeyImage,
       country: 'Turkey',
       title: 'Tourist Visa',
@@ -103,28 +104,37 @@ const VisaSection = () => {
       processTime: '5'
     },
     {
-      id: 9,
+      id: 10,
       image: azerbaijanImage,
       country: 'Azerbaijan',
-      title: 'e-Visa',
+      title: 'Tourist Visa',
       days: 30,
-      price: 2500,
-      processTime: '6'
+      price: 2100,
+      processTime: '3'
     },
     {
-      id: 10,
+      id: 11,
       image: southKoreaImage,
       country: 'South Korea',
+      title: 'Tourist Visa',
+      days: 90,
+      price: 11252,
+      processTime: '5'
+    },
+    {
+      id: 12,
+      image: vietnamImage,
+      country: 'Vietnam',
       title: 'e-Visa',
-      days: 60,
-      price: 5200,
-      processTime: '7'
+      days: 90,
+      price: 4379,
+      processTime: '2-12'
     }
   ];
 
   const additionalVisas = [
     {
-      id: 11,
+      id: 12,
       image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
@@ -133,7 +143,7 @@ const VisaSection = () => {
       processTime: '5'
     },
     {
-      id: 12,
+      id: 13,
       image: dubaiImage,
       country: 'Israel',
       title: 'Tourist Visa',
@@ -142,7 +152,7 @@ const VisaSection = () => {
       processTime: '7'
     },
     {
-      id: 13,
+      id: 14,
       image: dubaiImage,
       country: 'Egypt',
       title: 'Tourist Visa',
@@ -152,10 +162,10 @@ const VisaSection = () => {
     }
   ];
 
-  const allVisas = [...visas, ...(showAll ? additionalVisas : [])];
+  const allVisas = [...mainVisas, ...(showAll ? additionalVisas : [])];
 
   if (isDesktop) {
-    return <DesktopVisaSection visas={visas} additionalVisas={additionalVisas} />;
+    return <DesktopVisaSection visas={mainVisas} additionalVisas={additionalVisas} />;
   }
 
   return (

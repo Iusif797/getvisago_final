@@ -15,23 +15,23 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
   };
 
   const getPath = () => {
-    const slug = getCountrySlug();
-    if (slug === 'saudi-arabia') {
-      return '/visa/saudi-arabia';
+    let path;
+    if (country.toLowerCase() === 'saudi-arabia') {
+      path = '/visa/saudi-arabia';
+    } else if (country.toLowerCase() === 'israel') {
+      path = '/visa/israel';
+    } else if (country.toLowerCase() === 'malaysia') {
+      path = '/visa/malaysia';
+    } else if (country.toLowerCase() === 'sri lanka') {
+      path = '/visa/sri-lanka';
+    } else if (country.toLowerCase() === 'bahrain') {
+      path = '/visa/bahrain';
+    } else if (country.toLowerCase() === 'cambodia') {
+      path = '/visa/cambodia';
+    } else {
+      path = `/visa/${country.toLowerCase().replace(/\s+/g, '-')}`;
     }
-    if (slug === 'israel') {
-      return '/visa/israel';
-    }
-    if (slug === 'malaysia') {
-      return '/visa/malaysia';
-    }
-    if (slug === 'sri-lanka') {
-      return '/visa/sri-lanka';
-    }
-    if (slug === 'bahrain') {
-      return '/visa/bahrain';
-    }
-    return `/visa-detail/${slug}`;
+    return path;
   };
 
   const handleCardClick = () => {

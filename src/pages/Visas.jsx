@@ -12,11 +12,11 @@ import visaAzerbaijan from '../assets/azerbaijan.png';
 import visaGeorgia from '../assets/georgia.png';
 import visaBahrain from '../assets/bahrain.png';
 import visaIndonesia from '../assets/indonesia.png';
-import visaCambodia from '../assets/cambodia.png';
 import visaSouthKorea from '../assets/southkorea.png';
-import malaysiaImage from '../assets/Malaasiya.JPG'; // Используем правильное изображение
+import malaysiaImage from '../assets/malaysia.png';
 import sriLankaImage from '../assets/Shrilanka.JPG'; // Импортируем новое изображение
 import bahrainImage from '../assets/Bahrein.JPG'; // Импортируем новое изображение
+import cambodiaImage from '../assets/CambodiaS.JPG';
 import useWindowSize from '../hooks/useWindowSize';
 import Footer from '../components/Footer/Footer';
 import VisaCard from '../components/Visas/VisaCard'; // Импортируем общий компонент
@@ -66,6 +66,15 @@ const Visas = () => {
     },
     {
       id: 4,
+      image: cambodiaImage,
+      country: 'Cambodia',
+      title: 'Tourist Visa',
+      days: 30,
+      price: 49070.80,
+      processTime: '2-5'
+    },
+    {
+      id: 5,
       image: dubaiImage,
       country: 'Dubai',
       title: 'Tourist Visa',
@@ -74,7 +83,7 @@ const Visas = () => {
       processTime: '2'
     },
     {
-      id: 5,
+      id: 6,
       image: dubaiImage,
       country: 'Singapore',
       title: 'Tourist Visa',
@@ -83,7 +92,7 @@ const Visas = () => {
       processTime: '6'
     },
     {
-      id: 6,
+      id: 7,
       image: australiaImage,
       country: 'Australia',
       title: 'Tourist Visa',
@@ -95,7 +104,7 @@ const Visas = () => {
 
   const additionalVisas = [
     {
-      id: 7,
+      id: 8,
       image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
@@ -104,7 +113,7 @@ const Visas = () => {
       processTime: '5'
     },
     {
-      id: 8,
+      id: 9,
       image: visaIsrael,
       country: 'Israel',
       title: 'Tourist Visa',
@@ -113,7 +122,7 @@ const Visas = () => {
       processTime: '7'
     },
     {
-      id: 9,
+      id: 10,
       image: visaEgypt,
       country: 'Egypt',
       title: 'Tourist Visa',
@@ -122,7 +131,7 @@ const Visas = () => {
       processTime: '3'
     },
     {
-      id: 10,
+      id: 11,
       image: visaTurkey,
       country: 'Turkey',
       title: 'Tourist Visa',
@@ -131,7 +140,7 @@ const Visas = () => {
       processTime: '5'
     },
     {
-      id: 11,
+      id: 12,
       image: visaAzerbaijan,
       country: 'Azerbaijan',
       title: 'Tourist Visa',
@@ -140,7 +149,7 @@ const Visas = () => {
       processTime: '6'
     },
     {
-      id: 12,
+      id: 13,
       image: visaGeorgia,
       country: 'Georgia',
       title: 'Tourist Visa',
@@ -149,7 +158,7 @@ const Visas = () => {
       processTime: '4'
     },
     {
-      id: 13,
+      id: 14,
       image: visaBahrain,
       country: 'Bahrain',
       title: 'Tourist Visa',
@@ -158,22 +167,13 @@ const Visas = () => {
       processTime: '3'
     },
     {
-      id: 14,
+      id: 15,
       image: visaIndonesia,
       country: 'Indonesia',
       title: 'Tourist Visa',
       days: 30,
       price: 2900,
       processTime: '5'
-    },
-    {
-      id: 15,
-      image: visaCambodia,
-      country: 'Cambodia',
-      title: 'Tourist Visa',
-      days: 30,
-      price: 2600,
-      processTime: '4'
     },
     {
       id: 16,

@@ -8,6 +8,7 @@ import australiaImage from '../../assets/australia.jpg';
 import malaysiaImage from '../../assets/Malaasiya.JPG'; // Импортируем новое изображение
 import sriLankaImage from '../../assets/Shrilanka.JPG'; // Импортируем новое изображение
 import bahrainImage from '../../assets/Bahrein.JPG'; // Импортируем новое изображение
+import cambodiaImage from '../../assets/CambodiaS.JPG';
 import useWindowSize from '../../hooks/useWindowSize';
 import DesktopVisaSection from './DesktopVisaSection';
 
@@ -55,6 +56,15 @@ const VisaSection = () => {
     },
     {
       id: 4,
+      image: cambodiaImage,
+      country: 'Cambodia',
+      title: 'Tourist Visa',
+      days: 30,
+      price: 49070.80,
+      processTime: '2-5'
+    },
+    {
+      id: 5,
       image: dubaiImage,
       country: 'Dubai',
       title: 'Tourist Visa',
@@ -63,7 +73,7 @@ const VisaSection = () => {
       processTime: '2'
     },
     {
-      id: 5,
+      id: 6,
       image: dubaiImage,
       country: 'Singapore',
       title: 'Tourist Visa',
@@ -72,7 +82,7 @@ const VisaSection = () => {
       processTime: '6'
     },
     {
-      id: 6,
+      id: 7,
       image: australiaImage,
       country: 'Australia',
       title: 'Tourist Visa',
@@ -84,7 +94,7 @@ const VisaSection = () => {
 
   const additionalVisas = [
     {
-      id: 7,
+      id: 8,
       image: omanImage,
       country: 'Oman',
       title: 'Tourist Visa',
@@ -93,7 +103,7 @@ const VisaSection = () => {
       processTime: '5'
     },
     {
-      id: 8,
+      id: 9,
       image: dubaiImage,
       country: 'Israel',
       title: 'Tourist Visa',
@@ -102,7 +112,7 @@ const VisaSection = () => {
       processTime: '7'
     },
     {
-      id: 9,
+      id: 10,
       image: dubaiImage,
       country: 'Egypt',
       title: 'Tourist Visa',

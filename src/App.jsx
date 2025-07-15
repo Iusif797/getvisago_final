@@ -19,6 +19,7 @@ import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import VisaDetailPage from './pages/VisaDetailPage';
 import CambodiaVisa from './pages/CambodiaVisa';
+import AustraliaVisa from './pages/AustraliaVisa';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/visa/sri-lanka" element={<><Header /><SriLankaVisa /></>} /> {/* Добавляем новый маршрут */}
         <Route path="/visa/bahrain" element={<><Header /><BahrainVisa /></>} /> {/* Добавляем новый маршрут */}
         <Route path="/visa/cambodia" element={<><Header /><CambodiaVisa /></>} />
+        <Route path="/visa/australia" element={<><Header /><AustraliaVisa /></>} />
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
         <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />

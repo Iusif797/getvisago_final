@@ -28,6 +28,8 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
       path = '/visa/bahrain';
     } else if (country.toLowerCase() === 'cambodia') {
       path = '/visa/cambodia';
+    } else if (country.toLowerCase() === 'australia') {
+      path = '/visa/australia';
     } else {
       path = `/visa/${country.toLowerCase().replace(/\s+/g, '-')}`;
     }

@@ -74,7 +74,7 @@ const SriLankaVisa = () => {
               </div>
             </div>
             <Link
-              to="/visa-application/sri-lanka"
+              to="/get-visa/sri-lanka"
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
@@ -120,11 +120,11 @@ const SriLankaVisa = () => {
                   <span className="font-semibold text-gray-800">2290 ₹</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Rush (6hours):</span>
+                  <span className="font-semibold text-gray-800">Rush (6hours):</span>
                   <span className="font-semibold text-gray-800">+ 2000 ₹</span>
                 </div>
               </div>
-              <Link to="/visa-application/sri-lanka" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
+              <Link to="/get-visa/sri-lanka" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
                 APPLY NOW
               </Link>
             </div>

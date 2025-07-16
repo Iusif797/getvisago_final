@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaShieldAlt, FaPassport, FaMoneyBillWave, FaCalendarAlt, FaPlane, FaCheck, FaInfoCircle, FaClock, FaMapMarkerAlt, FaRegClock, FaRegCalendarAlt, FaUsers } from 'react-icons/fa';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { MdOutlineVerified, MdStar } from 'react-icons/md';
@@ -16,6 +17,7 @@ import icon3 from '../../assets/icon3.png';
 import icon4 from '../../assets/icon4.png';
 
 const VisaDetailView = () => {
+  const navigate = useNavigate();
   const images = [image1, image2, image3, dubaiImage];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -109,8 +111,8 @@ const VisaDetailView = () => {
                 key={idx}
                 onClick={() => goToSlide(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex
-                    ? 'bg-white w-8 shadow-lg'
-                    : 'bg-white/40 hover:bg-white/70'
+                  ? 'bg-white w-8 shadow-lg'
+                  : 'bg-white/40 hover:bg-white/70'
                   }`}
                 aria-label={`Go to image ${idx + 1}`}
               />
@@ -161,8 +163,8 @@ const VisaDetailView = () => {
         <div className="flex mb-8 gap-2 justify-center">
           <button
             className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${activeTab === 'all'
-                ? 'bg-[#00BFA5] text-white shadow-md'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'bg-[#00BFA5] text-white shadow-md'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             onClick={() => setActiveTab('all')}
           >
@@ -170,8 +172,8 @@ const VisaDetailView = () => {
           </button>
           <button
             className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${activeTab === 'transit'
-                ? 'bg-[#00BFA5] text-white shadow-md'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'bg-[#00BFA5] text-white shadow-md'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             onClick={() => setActiveTab('transit')}
           >
@@ -179,8 +181,8 @@ const VisaDetailView = () => {
           </button>
           <button
             className={`py-2 px-8 rounded-full text-sm font-medium transition-all ${activeTab === 'business'
-                ? 'bg-[#00BFA5] text-white shadow-md'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ? 'bg-[#00BFA5] text-white shadow-md'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             onClick={() => setActiveTab('business')}
           >
@@ -329,7 +331,10 @@ const VisaDetailView = () => {
 
         {/* Action buttons - more elegant with gradient */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
-          <button className="w-full bg-gradient-to-r from-[#00BFA5] to-[#009688] text-white py-4 rounded-xl font-medium text-lg hover:shadow-lg transition-all flex items-center justify-center">
+          <button
+            onClick={() => navigate('/get-visa/dubai')}
+            className="w-full bg-gradient-to-r from-[#00BFA5] to-[#009688] text-white py-4 rounded-xl font-medium text-lg hover:shadow-lg transition-all flex items-center justify-center"
+          >
             <FaCheck className="mr-2" /> Apply Now
           </button>
           <button className="w-full bg-white border-2 border-[#00BFA5] text-[#00BFA5] py-4 rounded-xl font-medium text-lg hover:bg-[#00BFA5]/5 transition-all flex items-center justify-center">

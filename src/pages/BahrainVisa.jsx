@@ -111,7 +111,7 @@ const BahrainVisa = () => {
               </div>
             </div>
             <Link
-              to="/visa-application/bahrain"
+              to="/get-visa/bahrain"
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
@@ -158,7 +158,7 @@ const BahrainVisa = () => {
                     <span className="font-semibold text-gray-800">{visa.serviceFee}</span>
                   </div>
                 </div>
-                <Link to={`/visa-application/bahrain?type=${encodeURIComponent(visa.title)}`} className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
+                <Link to={`/get-visa/bahrain?type=${encodeURIComponent(visa.title)}`} className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
                   APPLY NOW
                 </Link>
               </div>

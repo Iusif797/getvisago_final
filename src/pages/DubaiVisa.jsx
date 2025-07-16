@@ -1,21 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPlaneDeparture } from 'react-icons/fa';
-import israelImage from '../assets/Israel_VisaPageBanner.JPG';
-import handRightSideIcon from '../assets/hand_svg.svg';
-import touristIcon from '../assets/tourist--blender-style.svg';
-import Footer from '../components/Footer/Footer';
+import { FaChevronLeft, FaChevronRight, FaPlaneDeparture } from 'react-icons/fa';
+import dubaiImage from '../assets/dubai_getvisago.jpg'; // Placeholder image
+import handRightSideIcon from '../assets/hand_rightside.svg';
+import touristIcon from '../assets/simple-3d-icon-of-a-tourist--blender-style--clean-.png';
+import bannerSA1 from '../assets/bannerSA1.png';
+import bannerSA2 from '../assets/bannerSA2.png';
+import useWindowSize from '../hooks/useWindowSize';
 import Reviews from '../components/Reviews/Reviews';
 import FAQ from '../components/FAQ/FAQ';
+import Footer from '../components/Footer/Footer';
 
-const IsraelVisa = () => {
+const DubaiVisa = () => {
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1024;
+
+  // Состояние для карусели
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    {
+      id: 1,
+      image: bannerSA1,
+      title: "Explore the futuristic city of Dubai.",
+      date: "27 May, 2025"
+    },
+    {
+      id: 2,
+      image: bannerSA2,
+      title: "From stunning skyscrapers to vast deserts.",
+      date: "27 May, 2025"
+    }
+  ];
+
+  // Функция для перехода к следующему слайду
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  // Функция для перехода к предыдущему слайду
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  // Автоматическая смена слайдов каждые 5 секунд
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="saudi-visa-page bg-gray-50">
+      {/* Hero Section */}
       <div className="relative">
         <div className="h-80 lg:h-96">
           <img
-            src={israelImage}
-            alt="Israel"
+            src={dubaiImage}
+            alt="Dubai"
             className="w-full h-full object-cover"
           />
         </div>
@@ -24,28 +67,28 @@ const IsraelVisa = () => {
           <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md mx-auto flex flex-col">
             <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
               <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Visa to </span>
-              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Israel</span>
+              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Dubai</span>
             </h1>
 
             <div className="space-y-4 mb-6">
               <div className="flex space-x-4">
                 <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
                   <p className="text-gray-500 text-sm mb-1">Approval:</p>
-                  <p className="text-gray-900 font-bold text-base">3-10 days</p>
+                  <p className="text-gray-900 font-bold text-base">1–5 days</p>
                 </div>
                 <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
                   <p className="text-gray-500 text-sm mb-1">Valid for:</p>
-                  <p className="text-gray-900 font-bold text-base">from 90 days</p>
+                  <p className="text-gray-900 font-bold text-base">from 30 days</p>
                 </div>
               </div>
               <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center w-full">
                 <p className="text-gray-500 text-sm mb-1">Cost:</p>
-                <p className="text-gray-900 font-bold text-base">₹ 5112</p>
+                <p className="text-gray-900 font-bold text-base">From 8 990 ₹</p>
               </div>
             </div>
 
             <Link
-              to="/get-visa/israel"
+              to="/get-visa/dubai"
               className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
@@ -59,7 +102,7 @@ const IsraelVisa = () => {
               className="w-10 h-10 flex-shrink-0"
             />
             <p className="text-gray-700 text-xs font-medium leading-relaxed">
-              GetVisaGo Ltd — your independent private agency for fast and secure Israel e-Visa-B2 processing. Apply fully online in minutes, without embassy visits or paperwork hassle. Our single transparent fee covers both our professional service (document check, secure submission, and 24/7 support) and the official government visa cost — no extra payments required. We are not affiliated with the Israel government; we assist you to get your visa easily and stress-free.
+              GetVisaGo Ltd is an independent agency offering fast and secure Dubai e-Visa processing. Apply fully online — no embassy visits or paperwork. One clear fee includes the official visa cost and our services: document check, secure submission, and 24/7 support. We are not a government body but help you get your visa easily and hassle-free.
             </p>
           </div>
         </div>
@@ -75,28 +118,28 @@ const IsraelVisa = () => {
           <div className="space-y-8">
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl font-bold text-purple-600">e-Visa-B2</h3>
-                <img src={touristIcon} alt="e-Visa-B2" className="w-12 h-12 object-contain" />
+                <h3 className="text-2xl font-bold text-purple-600">Tourist visa (30 days)</h3>
+                <img src={touristIcon} alt="Tourist Visa" className="w-12 h-12 object-contain" />
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-500">Validity:</span>
-                  <span className="font-semibold text-gray-800">90 days</span>
+                  <span className="font-semibold text-gray-800">60 days, single entry</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Stay per visit:</span>
-                  <span className="font-semibold text-gray-800">90 days</span>
+                  <span className="font-semibold text-gray-800">up to 30 days</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Government fee:</span>
-                  <span className="font-semibold text-gray-800">2 530 ₹</span>
+                  <span className="font-semibold text-gray-800">6500,00 ₹</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Service fee:</span>
-                  <span className="font-semibold text-gray-800">2 582 ₹</span>
+                  <span className="font-semibold text-gray-800">2490,00 ₹</span>
                 </div>
               </div>
-              <Link to="/get-visa/israel" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
+              <Link to="/get-visa/dubai" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
                 APPLY NOW
               </Link>
             </div>
@@ -111,4 +154,4 @@ const IsraelVisa = () => {
   );
 };
 
-export default IsraelVisa; 
+export default DubaiVisa; 

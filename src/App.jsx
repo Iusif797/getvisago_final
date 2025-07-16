@@ -7,6 +7,7 @@ import IsraelVisa from './pages/IsraelVisa';
 import MalaysiaVisa from './pages/MalaysiaVisa'; // Импортируем новую страницу
 import SriLankaVisa from './pages/SriLankaVisa'; // Импортируем новую страницу
 import BahrainVisa from './pages/BahrainVisa'; // Импортируем новую страницу
+import DubaiVisa from './pages/DubaiVisa'; // Импортируем новую страницу
 import VisaStatus from './pages/VisaStatus';
 import Blog from './pages/Blog';
 import VisaApplication from './pages/VisaApplication';
@@ -51,13 +52,12 @@ function App() {
         <Route path="/vietnam-visa" element={<><Header /><VietnamVisa /></>} />
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
-        <Route path="/visa-application" element={<><Header /><VisaApplication /></>} />
-        <Route path="/get-visa/:country?" element={<><Header /><VisaApplication /></>} />
+        <Route path="/get-visa/:country" element={<><Header /><VisaApplication /></>} />
         <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
         <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
 
         {/* Routes without header (has its own header) */}
-        <Route path="/visa/dubai" element={<VisaDetailPage />} />
+        <Route path="/visa/dubai" element={<><Header /><DubaiVisa /></>} />
         <Route path="/visa-detail/:country" element={<VisaDetailPage />} />
       </Routes>
       {isMobile && <MobileNavigation />}

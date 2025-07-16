@@ -93,7 +93,7 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
           </div>
 
           <Link
-            to={applyNowPath}
+            to={linkPath}
             className="flex items-center justify-center bg-gradient-to-r from-[#8A3FEC] to-[#9B51E0] text-white py-3 px-5 rounded-full font-semibold transition-all duration-300 hover:shadow-[0_5px_15px_rgba(155,81,224,0.5)] group-hover:from-[#9B51E0] group-hover:to-[#8A3FEC]"
           >
             <span>APPLY NOW</span>

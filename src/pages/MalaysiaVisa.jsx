@@ -1,35 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaIdCard, FaUser, FaBriefcase, FaCreditCard, FaChevronLeft, FaChevronRight, FaArrowRight, FaClock, FaCalendarAlt, FaPlaneDeparture } from 'react-icons/fa';
-import malaysiaImage from '../assets/Malaasiya.JPG'; // Изображение Малайзии
-import buttonGetVisa from '../assets/button_getvisa.png';
+import { FaChevronLeft, FaChevronRight, FaPlaneDeparture } from 'react-icons/fa';
+import malaysiaImage from '../assets/Malaasiya.JPG';
 import handRightSideIcon from '../assets/hand_rightside.svg';
-import touristIcon from '../assets/simple-3d-icon-of-a-tourist--blender-style--clean-.png'; // Правильная иконка
+import touristIcon from '../assets/simple-3d-icon-of-a-tourist--blender-style--clean-.png';
 import bannerSA1 from '../assets/bannerSA1.png';
 import bannerSA2 from '../assets/bannerSA2.png';
 import useWindowSize from '../hooks/useWindowSize';
 import Reviews from '../components/Reviews/Reviews';
 import FAQ from '../components/FAQ/FAQ';
 import Footer from '../components/Footer/Footer';
+import DesktopVisaPageLayout from '../components/Visas/DesktopVisaPageLayout';
 
 const MalaysiaVisa = () => {
   const { width } = useWindowSize();
   const isDesktop = width >= 1024;
 
+  const desktopVisaData = {
+    countryName: "Malaysia",
+    bannerImage: malaysiaImage,
+    cost: "From 1 ₹",
+    approvalTime: "1-2 days",
+    validity: "30 days after arrival",
+    getVisaLink: "/get-visa/malaysia",
+    agencyText: `GetVisaGo Ltd — your independent private agency for fast and secure Malaysia e-Visa processing. Apply fully online in minutes, without embassy visits or paperwork hassle. Our single transparent fee covers both our professional service (document check, secure submission, and 24/7 support) and the official government visa cost — no extra payments required. We are not affiliated with the Malaysia government; we assist you to get your visa easily and stress-free.`,
+    visaTypes: [
+      {
+        title: "Malaysia Digital Arrival Card",
+        icon: touristIcon,
+        applyLink: "/get-visa/malaysia",
+        details: [
+          { label: "Validity", value: "30 days" },
+          { label: "Stay per visit", value: "30 days" },
+          { label: "Government fee", value: "1(0)" },
+          { label: "Service fee", value: "2290 ₹" },
+          { label: "Rush (12-24hours)", value: "+ 2000 ₹" },
+        ]
+      }
+    ]
+  };
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    {
-      id: 1,
-      image: bannerSA1,
-      title: "Explore the vibrant culture and stunning landscapes of Malaysia.",
-      date: "27 May, 2025"
-    },
-    {
-      id: 2,
-      image: bannerSA2,
-      title: "From bustling cities to pristine beaches, Malaysia has it all.",
-      date: "27 May, 2025"
-    }
+    { id: 1, image: bannerSA1, title: "Explore the vibrant culture and stunning landscapes of Malaysia.", date: "27 May, 2025" },
+    { id: 2, image: bannerSA2, title: "From bustling cities to pristine beaches, Malaysia has it all.", date: "27 May, 2025" }
   ];
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -42,96 +56,100 @@ const MalaysiaVisa = () => {
 
   return (
     <div className="saudi-visa-page bg-gray-50">
-      {/* Hero Section */}
-      <div className="relative">
-        <div className="h-80 lg:h-96">
-          <img
-            src={malaysiaImage}
-            alt="Malaysia"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative px-4 sm:px-6 lg:px-8 -mt-32 sm:-mt-40">
-          <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md mx-auto flex flex-col">
-            <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
-              <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Malaysia Digital </span>
-              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Arrival Card</span>
-            </h1>
-            <div className="space-y-4 mb-6">
-              <div className="flex space-x-4">
-                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
-                  <p className="text-gray-500 text-sm mb-1">Approval:</p>
-                  <p className="text-gray-900 font-bold text-base">1-2 days</p>
-                </div>
-                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
-                  <p className="text-gray-500 text-sm mb-1">Valid for:</p>
-                  <p className="text-gray-900 font-bold text-base">30 days after arrival</p>
-                </div>
-              </div>
-              <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center w-full">
-                <p className="text-gray-500 text-sm mb-1">Cost:</p>
-                <p className="text-gray-900 font-bold text-base">From 1 ₹</p>
-              </div>
-            </div>
-            <Link
-              to="/get-visa/malaysia"
-              className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
-            </Link>
-          </div>
-          <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-md mx-auto flex items-center gap-4" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
-            <img src={handRightSideIcon} alt="Hand pointing" className="w-10 h-10 flex-shrink-0" />
-            <p className="text-gray-700 text-xs font-medium leading-relaxed">
-              GetVisaGo Ltd — your independent private agency for fast and secure Malaysia e-Visa processing. Apply fully online in minutes, without embassy visits or paperwork hassle. Our single transparent fee covers both our professional service (document check, secure submission, and 24/7 support) and the official government visa cost — no extra payments required. We are not affiliated with the Malaysia government; we assist you to get your visa easily and stress-free.
-            </p>
-          </div>
-        </div>
+      <div className="hidden lg:block">
+        <DesktopVisaPageLayout {...desktopVisaData} />
       </div>
-
-      {/* Visa Type Selection Section */}
-      <div className="bg-gray-50 py-12">
-        <div className="w-full max-w-md mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8">
-            <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Select visa </span>
-            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">type</span>
-          </h2>
-          <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl font-bold text-purple-600">Malaysia Digital Arrival Card</h3>
-                <img src={touristIcon} alt="Arrival Card" className="w-12 h-12 object-contain" />
-              </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-500">Validity:</span>
-                  <span className="font-semibold text-gray-800">30 days</span>
+      <div className="lg:hidden">
+        {/* Hero Section */}
+        <div className="relative">
+          <div className="h-80 lg:h-96">
+            <img
+              src={malaysiaImage}
+              alt="Malaysia"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative px-4 sm:px-6 lg:px-8 -mt-32 sm:-mt-40">
+            <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md mx-auto flex flex-col">
+              <h1 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
+                <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Malaysia Digital </span>
+                <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">Arrival Card</span>
+              </h1>
+              <div className="space-y-4 mb-6">
+                <div className="flex space-x-4">
+                  <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
+                    <p className="text-gray-500 text-sm mb-1">Approval:</p>
+                    <p className="text-gray-900 font-bold text-base">1-2 days</p>
+                  </div>
+                  <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center flex-1">
+                    <p className="text-gray-500 text-sm mb-1">Valid for:</p>
+                    <p className="text-gray-900 font-bold text-base">30 days after arrival</p>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500">Stay per visit:</span>
-                  <span className="font-semibold text-gray-800">30 days</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500">Government fee:</span>
-                  <span className="font-semibold text-gray-800">1(0)</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500">Service fee:</span>
-                  <span className="font-semibold text-gray-800">2290 ₹</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500">Rush (12-24hours):</span>
-                  <span className="font-semibold text-gray-800">+ 2000 ₹</span>
+                <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-3 text-center w-full">
+                  <p className="text-gray-500 text-sm mb-1">Cost:</p>
+                  <p className="text-gray-900 font-bold text-base">From 1 ₹</p>
                 </div>
               </div>
-              <Link to="/get-visa/malaysia" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
-                APPLY NOW
+              <Link
+                to="/get-visa/malaysia"
+                className="flex items-center justify-center w-full bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] text-white font-bold text-base py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                APPLY NOW <FaPlaneDeparture className="ml-2" size={18} />
               </Link>
             </div>
+            <div className="bg-white rounded-2xl shadow-lg p-4 mt-8 w-full max-w-md mx-auto flex items-center gap-4" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
+              <img src={handRightSideIcon} alt="Hand pointing" className="w-10 h-10 flex-shrink-0" />
+              <p className="text-gray-700 text-xs font-medium leading-relaxed">
+                GetVisaGo Ltd — your independent private agency for fast and secure Malaysia e-Visa processing. Apply fully online in minutes, without embassy visits or paperwork hassle. Our single transparent fee covers both our professional service (document check, secure submission, and 24/7 support) and the official government visa cost — no extra payments required. We are not affiliated with the Malaysia government; we assist you to get your visa easily and stress-free.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Visa Type Selection Section */}
+        <div className="bg-gray-50 py-12">
+          <div className="w-full max-w-md mx-auto px-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8">
+              <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Select visa </span>
+              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#3B82F6] bg-clip-text text-transparent">type</span>
+            </h2>
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-2xl font-bold text-purple-600">Malaysia Digital Arrival Card</h3>
+                  <img src={touristIcon} alt="Arrival Card" className="w-12 h-12 object-contain" />
+                </div>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Validity:</span>
+                    <span className="font-semibold text-gray-800">30 days</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Stay per visit:</span>
+                    <span className="font-semibold text-gray-800">30 days</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Government fee:</span>
+                    <span className="font-semibold text-gray-800">1(0)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Service fee:</span>
+                    <span className="font-semibold text-gray-800">2290 ₹</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-500">Rush (12-24hours):</span>
+                    <span className="font-semibold text-gray-800">+ 2000 ₹</span>
+                  </div>
+                </div>
+                <Link to="/get-visa/malaysia" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
+                  APPLY NOW
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       {/* Discover Section */}
       <div className="bg-white py-12 lg:py-16">
         <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">

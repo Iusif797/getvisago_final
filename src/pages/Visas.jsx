@@ -12,7 +12,7 @@ import azerbaijanImage from '../assets/AzerbaijanS.JPG';
 import southKoreaImage from '../assets/SouthKoreaS.JPG';
 import vietnamImage from '../assets/Vietnam.JPG';
 import omanImage from '../assets/oman.jpg';
-import israelImage from '../assets/israel.png';
+import israelImage from '../assets/Israel_VisaPageBanner.JPG';
 import dubaiImage from '../assets/dubai_getvisago.jpg';
 import useWindowSize from '../hooks/useWindowSize';
 import Footer from '../components/Footer/Footer';

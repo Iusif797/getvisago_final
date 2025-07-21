@@ -20,6 +20,7 @@ import saudiArabiaFlagIcon from '../assets/saudi-arabia.png';
 import malaysiaFlagIcon from '../assets/malaysia.png';
 import malaysiaFlagPng from '../assets/Flag_of_Malaysia.svg.png';
 import malaysiaNewFlag from '../assets/Flag_of_Malaysia.svg.png';
+import sriLankaFlag from '../assets/Flag_of_Sri_Lanka.svg';
 
 // Malaysia SVG flag component
 const MalaysiaFlagSvg = ({ className = "w-6 h-4 mr-2" }) => (
@@ -84,10 +85,16 @@ const VisaApplication = () => {
             validity: '1 year',
         },
         malaysia: {
-            flag: malaysiaNewFlag,
+            flag: malaysiaFlagPng,
             title: 'eNTRI Visa',
             price: 55,
             validity: '15 days',
+        },
+        srilanka: {
+            flag: sriLankaFlag,
+            title: 'Tourist ETA (Single Entry)',
+            price: 55,
+            validity: '30 days',
         },
     };
 
@@ -97,7 +104,8 @@ const VisaApplication = () => {
     const isDesktop = width >= 1024;
     const [step, setStep] = useState(1);
 
-    const initialSelectedVisa = countrySlug === 'malaysia' ? 'entrivisa' : 'tourist';
+    const initialSelectedVisa = countrySlug === 'malaysia' ? 'entrivisa' :
+        countrySlug === 'srilanka' ? 'tourist_single' : 'tourist';
     const [selectedVisa, setSelectedVisa] = useState(initialSelectedVisa);
     const [visaCount, setVisaCount] = useState(1);
     const [agreed, setAgreed] = useState(false);
@@ -134,6 +142,44 @@ const VisaApplication = () => {
             duration: '90 days',
             description: 'Expedited processing within 12–24 hours.'
         },
+    ];
+
+    const sriLankaVisaOptions = [
+        {
+            id: 'tourist_single',
+            label: 'Tourist ETA (Single Entry)',
+            price: 55,
+            duration: '90 days',
+            description: 'Up to 30 days, for tourism or visiting friends/family. Valid for 6 months from approval date. Single entry.'
+        },
+        {
+            id: 'tourist_double',
+            label: 'Tourist ETA (Double Entry)',
+            price: 80,
+            duration: '90 days',
+            description: 'Up to 30 days per entry, for tourism. Two entries allowed within 30 days. Valid for 6 months.'
+        },
+        {
+            id: 'business',
+            label: 'Business ETA',
+            price: 80,
+            duration: '90 days',
+            description: 'Up to 30 days, for meetings, conferences, or short business trips. No paid work allowed. Single or double entry.'
+        },
+        {
+            id: 'transit',
+            label: 'Transit ETA',
+            price: 80,
+            duration: '90 days',
+            description: 'Up to 2 days, for connecting flights only. Must show onward ticket.'
+        },
+        {
+            id: 'fast_visa',
+            label: 'Fast visa service (+25 USD)',
+            price: 80,
+            duration: '90 days',
+            description: 'Expedited processing within 12-24 hours.'
+        }
     ];
 
     const ProgressBar = ({ currentStep, totalSteps }) => {
@@ -461,6 +507,154 @@ const VisaApplication = () => {
                     </div>
                 </div>
                 <button className="w-full bg-[#00D6A9] text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg transition-all duration-300">PAY {meta.price}$</button>
+            </div>
+        </div>
+    );
+
+    // ----- DESKTOP STEPS (SRI LANKA) -----
+    const Step1DesktopSriLanka = () => (
+        <div className="grid grid-cols-2 gap-x-16">
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">1. Select visa type</h2>
+                <div className="space-y-4">
+                    {sriLankaVisaOptions.map(option => (
+                        <div key={option.id} className={`p-5 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === option.id ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100 hover:bg-gray-200'}`} onClick={() => setSelectedVisa(option.id)}>
+                            <div className="flex justify-between items-center">
+                                <div className="flex items-center">
+                                    <CustomRadio selected={selectedVisa === option.id} />
+                                    <span className="font-bold text-gray-800 flex items-center">
+                                        <img src={sriLankaFlag} alt="LK" className="w-6 h-4 mr-2 object-cover rounded" />
+                                        {option.label}
+                                    </span>
+                                </div>
+                                <span className="font-bold text-gray-800">{option.price} USD</span>
+                            </div>
+                            <div className="pl-10 mt-2">
+                                <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">{option.duration}</div>
+                                <p className="text-gray-500 text-sm">{option.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="mt-8">
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">Select number of visas</h3>
+                    <div className="flex items-center justify-between p-1.5 rounded-lg bg-white shadow-sm border border-gray-200 w-32">
+                        <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-500 hover:text-purple-700 p-2 rounded-md transition">
+                            <FaMinus />
+                        </button>
+                        <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                        <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-500 hover:text-purple-700 p-2 rounded-md transition">
+                            <FaPlus />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">2. Client data</h2>
+                <div className="space-y-5">
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">First and Last Name</label>
+                        <div className="relative">
+                            <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" />
+                            <input type="text" name="name" placeholder="Your Name" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">E-mail</label>
+                        <div className="relative">
+                            <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" />
+                            <input type="email" name="email" placeholder="your@email.com" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Phone number</label>
+                        <div className="relative">
+                            <FaPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" />
+                            <input type="tel" name="phone" placeholder="+1 123 325 57-73" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Home address</label>
+                        <div className="relative">
+                            <FaHome className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" />
+                            <input type="text" name="address" placeholder="Address" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-8 flex items-center">
+                    <input type="checkbox" id="privacy-desktop-srilanka" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 accent-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" />
+                    <label htmlFor="privacy-desktop-srilanka" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label>
+                </div>
+                <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
+            </div>
+        </div>
+    );
+
+    const Step4DesktopSriLanka = () => (
+        <div className="grid grid-cols-2 gap-x-16">
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">7. Add photos</h2>
+                <div className="space-y-5">
+                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
+                    <div className="space-y-4">
+                        {['FACE PHOTO', 'PASSPORT SCAN', 'RETURN TICKET (OPTIONAL)', 'HOTEL RESERVATION'].map((label, idx) => (
+                            <button key={idx} className="w-full flex justify-between items-center p-4 border-2 border-[#04C495] rounded-xl text-[#04C495] font-bold hover:bg-[#04C495]/5 transition-all">
+                                <span>{label}</span>
+                                <div className="bg-[#04C495] p-2 rounded-md">
+                                    <FaUpload className="text-white" />
+                                </div>
+                            </button>
+                        ))}
+                    </div>
+                    <div className="mt-4">
+                        <p className="text-gray-600 text-sm mb-2 flex items-center">
+                            Local address if you have no hotel reservation
+                            <FaInfoCircle className="ml-1 text-gray-400" />
+                        </p>
+                        <input
+                            type="text"
+                            placeholder="Hotel name or host info"
+                            className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">5. Personal information</h2>
+                <div className="space-y-5">
+                    <h3 className="text-lg font-bold text-purple-600">Applicant 1</h3>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Marital status</label>
+                        <div className="relative">
+                            <select className="w-full appearance-none bg-white border border-gray-300 rounded-lg p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option>Married</option>
+                                <option>Single</option>
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Father's name <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
+                        <input type="text" placeholder="Enter name" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Mother's name <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
+                        <input type="text" placeholder="Enter name" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Occupation <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
+                        <input type="text" placeholder="Enter occupation" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block flex items-center">Contact info <FaInfoCircle className="ml-1 text-gray-400 text-xs" /></label>
+                        <input type="text" placeholder="Hotel Address / Person Contacts" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                </div>
+            </div>
+            <div className="col-span-2 flex justify-center mt-8">
+                <button onClick={() => setStep(5)} className="w-1/2 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
             </div>
         </div>
     );
@@ -1208,6 +1402,225 @@ const VisaApplication = () => {
     };
 
     // ----- MOBILE STEPS (GENERIC) -----
+    const Step1Mobile = () => (
+        <>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">1. Select visa type</h2>
+            <div className="space-y-4">
+                <div className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === 'tourist' ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100'}`} onClick={() => setSelectedVisa('tourist')}>
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-center">
+                            <CustomRadio selected={selectedVisa === 'tourist'} />
+                            <span className="font-bold text-gray-800 text-base">Tourist visa B2</span>
+                        </div>
+                        <span className="font-bold text-gray-800">55 USD</span>
+                    </div>
+                    <div className="pl-10 mt-2">
+                        <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">90 days</div>
+                        <p className="text-gray-500 text-sm leading-tight">Up to 90 days, for tourism, visiting family, or short-term business.</p>
+                    </div>
+                </div>
+                <div className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === 'fastTourist' ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100'}`} onClick={() => setSelectedVisa('fastTourist')}>
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-center">
+                            <CustomRadio selected={selectedVisa === 'fastTourist'} />
+                            <span className="font-bold text-gray-800 text-base">Fast tourist visa B2</span>
+                        </div>
+                        <span className="font-bold text-gray-800">80 USD</span>
+                    </div>
+                    <div className="pl-10 mt-2">
+                        <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">90 days</div>
+                        <p className="text-gray-500 text-sm leading-tight">Expedited processing (+25 USD), still max 90 days.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">Select number of visas</h3>
+                <div className="flex items-center justify-between p-1 rounded-lg bg-gray-100 w-32">
+                    <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition">
+                        <FaMinus />
+                    </button>
+                    <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                    <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition">
+                        <FaPlus />
+                    </button>
+                </div>
+            </div>
+            <div className="mt-8 flex items-center">
+                <input type="checkbox" id="privacy-mobile-1" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" />
+                <label htmlFor="privacy-mobile-1" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label>
+            </div>
+            <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
+        </>
+    );
+
+    const Step2Mobile = () => (
+        <>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">2. Dates & purpose</h2>
+            <div className="space-y-5">
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-2 block flex items-center">Planned date of entry <FaInfoCircle className="ml-2 text-gray-400" /></label>
+                    <DateSelector />
+                </div>
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-2 block flex items-center">Planned date of exit <FaInfoCircle className="ml-2 text-gray-400" /></label>
+                    <DateSelector />
+                </div>
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-2 block flex items-center">Purpose of entry <FaInfoCircle className="ml-2 text-gray-400" /></label>
+                    <input type="text" placeholder="Перечислите места" className="w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" />
+                </div>
+            </div>
+            <div className="flex items-center justify-between mt-8">
+                <button onClick={() => setStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300"><FaChevronLeft /></button>
+                <button onClick={() => setStep(3)} className="bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 px-12 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
+            </div>
+        </>
+    );
+
+    const Step3Mobile = () => (
+        <>
+            <h2 className="text-xl font-bold text-black mb-6">3. Client data</h2>
+            <div className="space-y-4">
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">First and Last Name</label>
+                    <div className="relative flex items-center">
+                        <FaUser className="absolute left-4 text-purple-400" />
+                        <input type="text" placeholder="Your Name" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                </div>
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">E-mail</label>
+                    <div className="relative flex items-center">
+                        <FaEnvelope className="absolute left-4 text-purple-400" />
+                        <input type="email" placeholder="your@email.com" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                </div>
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">Phone number</label>
+                    <div className="relative flex items-center">
+                        <FaPhone className="absolute left-4 text-purple-400" />
+                        <input type="tel" placeholder="+1 123 325 57-73" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                </div>
+                <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">Home address</label>
+                    <div className="relative flex items-center">
+                        <FaHome className="absolute left-4 text-purple-400" />
+                        <input type="text" placeholder="Adress" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                </div>
+            </div>
+            <div className="flex items-center justify-between mt-8">
+                <button onClick={() => setStep(2)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300">
+                    <FaChevronLeft />
+                </button>
+                <button onClick={() => setStep(4)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">
+                    Continue
+                </button>
+            </div>
+        </>
+    );
+
+    const Step4Mobile = () => (
+        <>
+            <h2 className="text-xl font-bold text-black mb-2">4. Passport details</h2>
+            <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
+
+            {passportSubStep === 1 && (
+                <div className="space-y-4">
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Passport number</label>
+                        <input type="text" placeholder="XX XX XXX XXX" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Passport type</label>
+                        <div className="relative">
+                            <select className="w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option>Ordinary/Diplomatic/Official/Other</option>
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Nationality</label>
+                        <div className="relative flex items-center">
+                            <GenericFlagIcon />
+                            <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option>Your nationality</option>
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Date of issue</label>
+                        <DateSelector isStep4={true} />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Date of expiry</label>
+                        <DateSelector isStep4={true} />
+                    </div>
+                </div>
+            )}
+
+            {passportSubStep === 2 && (
+                <div className="space-y-4">
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Place of issue</label>
+                        <div className="relative flex items-center">
+                            <FaMapMarkerAlt className="absolute left-4 text-purple-400" />
+                            <input type="text" placeholder="Enter place" className="pl-12 w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Issuing Authority</label>
+                        <input type="text" placeholder="Issuing authority" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Religion</label>
+                        <input type="text" placeholder="Enter religion" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition" />
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Place of birth</label>
+                        <div className="relative flex items-center">
+                            <GenericFlagIcon />
+                            <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option>Select country</option>
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label className="text-sm font-medium text-gray-700 mb-1 block">Additional nationality</label>
+                        <div className="relative flex items-center">
+                            <GenericFlagIcon />
+                            <select className="pl-12 w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl p-3 pr-8 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option>Select country</option>
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <div className="flex items-center justify-between mt-8">
+                <button onClick={() => passportSubStep === 1 ? setStep(3) : setPassportSubStep(1)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300">
+                    <FaChevronLeft />
+                </button>
+                <button onClick={() => passportSubStep === 1 ? setPassportSubStep(2) : setStep(5)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">
+                    Continue
+                </button>
+            </div>
+        </>
+    );
+
     const Step5Mobile = () => (
         <>
             <h2 className="text-xl font-bold text-black mb-2">5. Personal information</h2>
@@ -1248,6 +1661,7 @@ const VisaApplication = () => {
             </div>
         </>
     );
+
     const Step6Mobile = () => {
         if (paymentSubStep === 1) {
             return (
@@ -1336,6 +1750,7 @@ const VisaApplication = () => {
             </>
         );
     };
+
     const Step7Mobile = () => {
         if (billingSubStep === 1) { // Billing Address
             return (
@@ -1401,6 +1816,7 @@ const VisaApplication = () => {
             </>
         );
     };
+
     const Step8Mobile = () => (
         <>
             <h2 className="text-xl font-bold text-black mb-2">8. Add photos</h2>
@@ -1426,6 +1842,83 @@ const VisaApplication = () => {
         </>
     );
 
+    // ----- MOBILE STEPS (SRI LANKA) -----
+    const Step1MobileSriLanka = () => (
+        <>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">1. Select visa type</h2>
+            <div className="space-y-4">
+                {sriLankaVisaOptions.map(option => (
+                    <div key={option.id} className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === option.id ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100'}`} onClick={() => setSelectedVisa(option.id)}>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <CustomRadio selected={selectedVisa === option.id} />
+                                <span className="font-bold text-gray-800 text-base flex items-center">
+                                    <img src={sriLankaFlag} alt="LK" className="w-6 h-4 mr-2 object-cover rounded" />
+                                    {option.label}
+                                </span>
+                            </div>
+                            <span className="font-bold text-gray-800">{option.price} USD</span>
+                        </div>
+                        <div className="pl-10 mt-2">
+                            <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">{option.duration}</div>
+                            <p className="text-gray-500 text-sm leading-tight">{option.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">Select number of visas</h3>
+                <div className="flex items-center justify-between p-1 rounded-lg bg-gray-100 w-32">
+                    <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition">
+                        <FaMinus />
+                    </button>
+                    <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                    <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition">
+                        <FaPlus />
+                    </button>
+                </div>
+            </div>
+            <div className="mt-8 flex items-center">
+                <input type="checkbox" id="privacy-mobile-srilanka" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" />
+                <label htmlFor="privacy-mobile-srilanka" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label>
+            </div>
+            <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
+        </>
+    );
+
+    const Step5MobileSriLanka = () => (
+        <>
+            <h2 className="text-xl font-bold text-black mb-2">5. Photos & Documents</h2>
+            <p className="text-[#9B51E0] font-bold mb-6">Applicant 1</p>
+            <div className="space-y-4">
+                {['FACE PHOTO', 'PASSPORT SCAN', 'RETURN TICKET (OPTIONAL)', 'HOTEL RESERVATION'].map((label, idx) => (
+                    <button key={idx} className="w-full flex justify-between items-center p-4 border-2 border-[#04C495] rounded-xl text-[#04C495] font-bold">
+                        <span>{label}</span>
+                        <div className="bg-[#04C495] p-2 rounded-md">
+                            <FaUpload className="text-white" />
+                        </div>
+                    </button>
+                ))}
+            </div>
+            <div className="mt-4">
+                <p className="text-gray-600 text-sm mb-2">Local address if you have no hotel reservation <FaInfoCircle className="inline ml-1 text-gray-400" /></p>
+                <input
+                    type="text"
+                    placeholder="Hotel name or host info"
+                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-purple-500 focus:border-purple-500 transition"
+                />
+            </div>
+            <div className="flex items-center justify-between mt-8">
+                <button onClick={() => setStep(4)} className="bg-gray-200 text-gray-600 p-4 rounded-full transition hover:bg-gray-300">
+                    <FaChevronLeft />
+                </button>
+                <button onClick={() => setStep(6)} className="flex-grow ml-4 bg-gradient-to-r from-[#9B51E0] to-[#7B2CBF] text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">
+                    Continue
+                </button>
+            </div>
+        </>
+    );
+
     const renderMobileStepContent = () => {
         if (countrySlug === 'malaysia') {
             switch (step) {
@@ -1440,6 +1933,20 @@ const VisaApplication = () => {
                 case 9: return <Step9MobileMalaysia />;
                 case 10: return <Step10MobileMalaysia />;
                 default: return <Step1MobileMalaysia />;
+            }
+        }
+
+        if (countrySlug === 'srilanka') {
+            switch (step) {
+                case 1: return <Step1MobileSriLanka />;
+                case 2: return <Step2Mobile />;
+                case 3: return <Step3Mobile />;
+                case 4: return <Step4Mobile />;
+                case 5: return <Step5MobileSriLanka />;
+                case 6: return <Step6Mobile />;
+                case 7: return <Step7Mobile />;
+                case 8: return <Step8Mobile />;
+                default: return <Step1MobileSriLanka />;
             }
         }
         // default behaviour for other countries
@@ -1504,6 +2011,15 @@ const VisaApplication = () => {
                             {step === 4 && <Step4DesktopMalaysia />}
                             {step === 5 && <Step5DesktopMalaysia />}
                             {step === 6 && <Step6DesktopMalaysia />}
+                        </>
+                    ) : countrySlug === 'srilanka' ? (
+                        <>
+                            {step === 1 && <Step1DesktopSriLanka />}
+                            {step === 2 && <Step2Desktop />}
+                            {step === 3 && <Step3Desktop />}
+                            {step === 4 && <Step4DesktopSriLanka />}
+                            {step === 5 && <Step5Desktop />}
+                            {step === 6 && <Step6Desktop />}
                         </>
                     ) : (
                         <>

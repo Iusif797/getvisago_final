@@ -34,7 +34,12 @@ module.exports = {
           300: '#e0e0e0',
           800: '#333333',
           900: '#222222'
-        }
+        },
+        'lightgray': '#F6F6F6',
+        'blacktext': '#1D1D1D',
+        'violetmain': '#8C4AFF',
+        'mintmain': '#04C495',
+        'inputs-stroke': '#9CA3AF'
       },
       spacing: {
         '320': '320px',
@@ -52,7 +57,14 @@ module.exports = {
         'green-button': '0 4px 10px rgba(0, 191, 166, 0.1)',
         'green-button-hover': '0 6px 15px rgba(0, 191, 166, 0.2)',
         'feature': '0 4px 10px rgba(0, 0, 0, 0.1)',
-        'feature-hover': '0 6px 15px rgba(0, 0, 0, 0.15)'
+        'feature-hover': '0 6px 15px rgba(0, 0, 0, 0.15)',
+        'shadow': '10px 0px 25px 0px rgba(0, 0, 0, 0.25)',
+        'shadow-large': '0px 4px 60px 0px rgba(0, 0, 0, 0.20)'
+      },
+      borderRadius: {
+        'corner-radius-medium': '12px',
+        'corner-radius-big': '20px',
+        'shape-radius-small': '10px'
       },
       animation: {
         'pulse-shadow': 'pulse-shadow 3s infinite',
@@ -114,4 +126,3 @@ module.exports = {
   },
   plugins: [],
 }
-

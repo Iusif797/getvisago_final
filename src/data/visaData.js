@@ -1,10 +1,12 @@
 import israelFlagIcon from '../assets/Israel (IL).svg';
 import omanFlagIcon from '../assets/oman.jpg';
 import australiaFlagIcon from '../assets/australia.jpg';
+import australiaFlag from '../assets/Flag_of_Australia.svg.png';
 import saudiArabiaFlagIcon from '../assets/saudi-arabia.png';
 import malaysiaFlagPng from '../assets/Flag_of_Malaysia.svg.png';
 import sriLankaFlag from '../assets/Flag_of_Sri_Lanka.svg';
 import bahrainFlag from '../assets/bahrain.png';
+import cambodiaFlag from '../assets/Flag_of_Cambodia.svg';
 
 export const visaMeta = {
     israel: {
@@ -20,9 +22,9 @@ export const visaMeta = {
         validity: '30 days',
     },
     australia: {
-        flag: australiaFlagIcon,
-        title: 'Tourist visa',
-        price: 60,
+        flag: australiaFlag,
+        title: 'ETA (Electronic Travel Authority)',
+        price: 55,
         validity: '1 year',
     },
     'saudi-arabia': {
@@ -47,6 +49,12 @@ export const visaMeta = {
         flag: bahrainFlag,
         title: 'Tourist eVisa',
         price: 45,
+        validity: '30 days',
+    },
+    cambodia: {
+        flag: cambodiaFlag,
+        title: 'Tourist eVisa (T Class)',
+        price: 55,
         validity: '30 days',
     },
 };
@@ -135,4 +143,45 @@ export const bahrainVisaOptions = [
         duration: '30 days',
         description: 'Expedited processing within 24-48 hours.'
     },
-]; 
+];
+
+export const cambodiaVisaOptions = [
+    {
+        id: 'tourist_single',
+        label: 'Tourist eVisa (T Class)',
+        price: 55,
+        duration: '14 days',
+        description: 'Up to 30 days, for tourism and short personal visits. Single entry only. Valid for 3 months from the date of issue.'
+    },
+    {
+        id: 'fast_processing',
+        label: 'Fast visa service (+25 USD)',
+        price: 80,
+        duration: '90 days',
+        description: 'Expedited processing within 12–24 hours.'
+    },
+];
+
+export const australiaVisaOptions = [
+    {
+        id: 'eta_601',
+        label: 'ETA (Electronic Travel Authority) — Subclass 601',
+        price: 55,
+        duration: '14 days',
+        description: 'Up to 14 days, for tourism, family visits, or business. Valid for 30 days from issue. One-time entry.'
+    },
+    {
+        id: 'evisitor_651',
+        label: 'eVisitor — Subclass 651',
+        price: 80,
+        duration: '30 days',
+        description: 'Up to 30 days per entry, for tourism. Two entries allowed within 30 days. Valid for 6 months.'
+    },
+    {
+        id: 'fast_visa',
+        label: 'Fast visa service (+25 USD)',
+        price: 80,
+        duration: '90 days',
+        description: 'Expedited processing within 12–24 hours.'
+    },
+];

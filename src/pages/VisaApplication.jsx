@@ -4,7 +4,7 @@ import useWindowSize from '../hooks/useWindowSize';
 import { FaUser, FaEnvelope, FaPhone, FaHome, FaMinus, FaPlus, FaChevronLeft, FaInfoCircle, FaMapMarkerAlt, FaPencilAlt, FaUpload, FaHourglassHalf, FaRegCreditCard, FaPaypal, FaApple, FaGoogle } from 'react-icons/fa';
 import { FaPlaneDeparture, FaRegCalendarDays, FaArrowsLeftRight } from "react-icons/fa6";
 import { CustomRadio, DateSelector, GenericFlagIcon, ProgressBar } from '../components/VisaForm/SharedComponents';
-import { visaMeta, malaysiaVisaOptions, sriLankaVisaOptions, bahrainVisaOptions } from '../data/visaData';
+import { visaMeta, malaysiaVisaOptions, sriLankaVisaOptions, bahrainVisaOptions, cambodiaVisaOptions, australiaVisaOptions } from '../data/visaData';
 import calendarIcon from '../assets/button_calendar.svg';
 import calendarIconDefault from '../assets/button_visa_apply.svg';
 import formFlagIcon from '../assets/flag_icon_form.svg';
@@ -18,6 +18,8 @@ import mobilePayButton from '../assets/mobile_pay_button.png';
 import sriLankaFlag from '../assets/Flag_of_Sri_Lanka.svg';
 import SriLankaSteps from '../components/VisaForm/SriLankaSteps';
 import BahrainSteps from '../components/VisaForm/BahrainSteps';
+import CambodiaSteps from '../components/VisaForm/CambodiaSteps';
+import AustraliaSteps from '../components/VisaForm/AustraliaSteps';
 
 
 
@@ -35,7 +37,9 @@ const VisaApplication = () => {
 
     const initialSelectedVisa = countrySlug === 'malaysia' ? 'entrivisa' :
         countrySlug === 'srilanka' ? 'tourist_single' :
-            countrySlug === 'bahrain' ? 'tourist_single' : 'tourist';
+            countrySlug === 'bahrain' ? 'tourist_single' :
+                countrySlug === 'cambodia' ? 'tourist_single' :
+                    countrySlug === 'australia' ? 'eta_601' : 'tourist';
     const [selectedVisa, setSelectedVisa] = useState(initialSelectedVisa);
     const [visaCount, setVisaCount] = useState(1);
     const [agreed, setAgreed] = useState(false);
@@ -1409,6 +1413,58 @@ const VisaApplication = () => {
                 />
             );
         }
+
+        if (countrySlug === 'cambodia') {
+            console.log('Rendering CambodiaSteps for mobile');
+            return (
+                <CambodiaSteps
+                    step={step}
+                    setStep={setStep}
+                    selectedVisa={selectedVisa}
+                    setSelectedVisa={setSelectedVisa}
+                    visaCount={visaCount}
+                    setVisaCount={setVisaCount}
+                    agreed={agreed}
+                    setAgreed={setAgreed}
+                    passportSubStep={passportSubStep}
+                    setPassportSubStep={setPassportSubStep}
+                    paymentSubStep={paymentSubStep}
+                    setPaymentSubStep={setPaymentSubStep}
+                    billingSubStep={billingSubStep}
+                    setBillingSubStep={setBillingSubStep}
+                    meta={meta}
+                    countrySlug={countrySlug}
+                    cambodiaVisaOptions={cambodiaVisaOptions}
+                    isDesktop={false}
+                />
+            );
+        }
+
+        if (countrySlug === 'australia') {
+            console.log('Rendering AustraliaSteps for mobile');
+            return (
+                <AustraliaSteps
+                    step={step}
+                    setStep={setStep}
+                    selectedVisa={selectedVisa}
+                    setSelectedVisa={setSelectedVisa}
+                    visaCount={visaCount}
+                    setVisaCount={setVisaCount}
+                    agreed={agreed}
+                    setAgreed={setAgreed}
+                    passportSubStep={passportSubStep}
+                    setPassportSubStep={setPassportSubStep}
+                    paymentSubStep={paymentSubStep}
+                    setPaymentSubStep={setPaymentSubStep}
+                    billingSubStep={billingSubStep}
+                    setBillingSubStep={setBillingSubStep}
+                    meta={meta}
+                    countrySlug={countrySlug}
+                    australiaVisaOptions={australiaVisaOptions}
+                    isDesktop={false}
+                />
+            );
+        }
         // default behaviour for other countries
         switch (step) {
             case 1:
@@ -1524,6 +1580,58 @@ const VisaApplication = () => {
                                 />
                             );
                         })()
+                    ) : countrySlug === 'cambodia' ? (
+                        (() => {
+                            console.log('Rendering CambodiaSteps for desktop');
+                            return (
+                                <CambodiaSteps
+                                    step={step}
+                                    setStep={setStep}
+                                    selectedVisa={selectedVisa}
+                                    setSelectedVisa={setSelectedVisa}
+                                    visaCount={visaCount}
+                                    setVisaCount={setVisaCount}
+                                    agreed={agreed}
+                                    setAgreed={setAgreed}
+                                    passportSubStep={passportSubStep}
+                                    setPassportSubStep={setPassportSubStep}
+                                    paymentSubStep={paymentSubStep}
+                                    setPaymentSubStep={setPaymentSubStep}
+                                    billingSubStep={billingSubStep}
+                                    setBillingSubStep={setBillingSubStep}
+                                    meta={meta}
+                                    countrySlug={countrySlug}
+                                    cambodiaVisaOptions={cambodiaVisaOptions}
+                                    isDesktop={true}
+                                />
+                            );
+                        })()
+                    ) : countrySlug === 'australia' ? (
+                        (() => {
+                            console.log('Rendering AustraliaSteps for desktop');
+                            return (
+                                <AustraliaSteps
+                                    step={step}
+                                    setStep={setStep}
+                                    selectedVisa={selectedVisa}
+                                    setSelectedVisa={setSelectedVisa}
+                                    visaCount={visaCount}
+                                    setVisaCount={setVisaCount}
+                                    agreed={agreed}
+                                    setAgreed={setAgreed}
+                                    passportSubStep={passportSubStep}
+                                    setPassportSubStep={setPassportSubStep}
+                                    paymentSubStep={paymentSubStep}
+                                    setPaymentSubStep={setPaymentSubStep}
+                                    billingSubStep={billingSubStep}
+                                    setBillingSubStep={setBillingSubStep}
+                                    meta={meta}
+                                    countrySlug={countrySlug}
+                                    australiaVisaOptions={australiaVisaOptions}
+                                    isDesktop={true}
+                                />
+                            );
+                        })()
                     ) : (
                         <>
                             {step === 1 && <Step1Desktop />}
@@ -1536,8 +1644,8 @@ const VisaApplication = () => {
                     )}
                 </div>
             ) : (
-                <div className={countrySlug === 'srilanka' ? "bg-neutral-100 w-full max-w-md mx-auto p-5" : "bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto"}>
-                    {countrySlug !== 'srilanka' && <ProgressBar currentStep={step} totalSteps={10} />}
+                <div className={(countrySlug === 'srilanka' || countrySlug === 'cambodia' || countrySlug === 'australia') ? "bg-neutral-100 w-full max-w-md mx-auto p-5" : "bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto"}>
+                    {(countrySlug !== 'srilanka' && countrySlug !== 'cambodia' && countrySlug !== 'australia') && <ProgressBar currentStep={step} totalSteps={10} />}
                     {renderMobileStepContent()}
                 </div>
             )}
@@ -1545,4 +1653,4 @@ const VisaApplication = () => {
     );
 };
 
-export default VisaApplication; 
+export default VisaApplication;

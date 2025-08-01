@@ -4,7 +4,7 @@ import useWindowSize from '../hooks/useWindowSize';
 import { FaUser, FaEnvelope, FaPhone, FaHome, FaMinus, FaPlus, FaChevronLeft, FaInfoCircle, FaMapMarkerAlt, FaPencilAlt, FaUpload, FaHourglassHalf, FaRegCreditCard, FaPaypal, FaApple, FaGoogle } from 'react-icons/fa';
 import { FaPlaneDeparture, FaRegCalendarDays, FaArrowsLeftRight } from "react-icons/fa6";
 import { CustomRadio, DateSelector, GenericFlagIcon, ProgressBar } from '../components/VisaForm/SharedComponents';
-import { visaMeta, malaysiaVisaOptions, sriLankaVisaOptions, bahrainVisaOptions, cambodiaVisaOptions, australiaVisaOptions } from '../data/visaData';
+import { visaMeta as originalVisaMeta, malaysiaVisaOptions, sriLankaVisaOptions, bahrainVisaOptions, cambodiaVisaOptions, australiaVisaOptions } from '../data/visaData';
 import calendarIcon from '../assets/button_calendar.svg';
 import calendarIconDefault from '../assets/button_visa_apply.svg';
 import formFlagIcon from '../assets/flag_icon_form.svg';
@@ -20,7 +20,82 @@ import SriLankaSteps from '../components/VisaForm/SriLankaSteps';
 import BahrainSteps from '../components/VisaForm/BahrainSteps';
 import CambodiaSteps from '../components/VisaForm/CambodiaSteps';
 import AustraliaSteps from '../components/VisaForm/AustraliaSteps';
+import azerbaijanFlag from '../assets/azerbaijan.png';
+import turkeyFlag from '../assets/turkey.png';
 
+
+const azerbaijanVisaOptions = [
+    {
+        id: 'tourist',
+        label: 'Tourist eVisa (ASAN)',
+        price: '55',
+        duration: '14 days',
+        description: 'Up to 30 days, for tourism, visiting friends/family, or business. Single entry. Valid for 90 days from date of issue.'
+    },
+    {
+        id: 'business',
+        label: 'Business eVisa (ASAN)',
+        price: '80',
+        duration: '30 days',
+        description: 'Same conditions as tourist eVisa. Can be used for conferences, meetings, negotiations. No paid work allowed.'
+    },
+    {
+        id: 'fast',
+        label: 'Fast eVisa (Urgent ASAN)',
+        price: '80',
+        duration: '30 days',
+        description: 'Issued in 3 hours (vs. standard 3 business days). All other terms the same.'
+    }
+];
+
+const turkeyVisaOptions = [
+    {
+        id: 'tourist_single',
+        label: 'Tourist eVisa (Single Entry)',
+        price: '55',
+        duration: '14 days',
+        description: 'Up to 30 days, for tourism or short visits. Valid for 180 days from approval. Entry must occur during this period. Available only for certain nationalities.'
+    },
+    {
+        id: 'tourist_multiple',
+        label: 'Tourist eVisa (Multiple Entry)',
+        price: '80',
+        duration: '30 days',
+        description: 'Up to 90 days, multiple entries allowed. Valid for 180 days. For eligible nationalities (e.g., USA, Canada, UAE, etc.).'
+    },
+    {
+        id: 'business',
+        label: 'Business eVisa',
+        price: '80',
+        duration: '30 days',
+        description: 'Same as tourist eVisa in terms of length. Used for attending conferences, meetings, fairs. No paid work permitted.'
+    },
+    {
+        id: 'fast',
+        label: 'Fast visa service (+25 USD)',
+        price: '80',
+        duration: '90 days',
+        description: 'Expedited processing within 12-24 hours.'
+    }
+];
+
+const visaMeta = {
+    ...originalVisaMeta,
+    azerbaijan: {
+        title: "Azerbaijan eVisa",
+        validity: "90 days",
+        price: "55",
+        steps: ['Select visa type', 'Dates & purpose', 'Passport details', 'Personal information', 'Data verification', 'Payment'],
+        flag: azerbaijanFlag,
+    },
+    turkey: {
+        title: "Turkey eVisa",
+        validity: "180 days",
+        price: "55",
+        steps: ['Select visa type', 'Dates & purpose', 'Passport details', 'Personal information', 'Data verification', 'Payment'],
+        flag: turkeyFlag,
+    },
+};
 
 
 const VisaApplication = () => {
@@ -39,7 +114,9 @@ const VisaApplication = () => {
         countrySlug === 'srilanka' ? 'tourist_single' :
             countrySlug === 'bahrain' ? 'tourist_single' :
                 countrySlug === 'cambodia' ? 'tourist_single' :
-                    countrySlug === 'australia' ? 'eta_601' : 'tourist';
+                    countrySlug === 'australia' ? 'eta_601' :
+                        countrySlug === 'azerbaijan' ? 'tourist' :
+                            countrySlug === 'turkey' ? 'tourist_single' : 'tourist';
     const [selectedVisa, setSelectedVisa] = useState(initialSelectedVisa);
     const [visaCount, setVisaCount] = useState(1);
     const [agreed, setAgreed] = useState(false);
@@ -49,6 +126,170 @@ const VisaApplication = () => {
 
 
 
+
+    // ----- AZERBAIJAN STEP 1 - DESKTOP -----
+    const Step1DesktopAzerbaijan = () => (
+        <div className="grid grid-cols-2 gap-x-16">
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">1. Select visa type</h2>
+                <div className="space-y-4">
+                    {azerbaijanVisaOptions.map(option => (
+                        <div key={option.id} className={`p-5 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === option.id ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100 hover:bg-gray-200'}`} onClick={() => setSelectedVisa(option.id)}>
+                            <div className="flex justify-between items-center">
+                                <div className="flex items-center">
+                                    <CustomRadio selected={selectedVisa === option.id} />
+                                    <span className="font-bold text-gray-800">{option.label}</span>
+                                </div>
+                                <span className="font-bold text-gray-800">{option.price} USD</span>
+                            </div>
+                            <div className="pl-10 mt-2">
+                                <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">{option.duration}</div>
+                                <p className="text-gray-500 text-sm">{option.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="mt-8">
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">Select number of visas</h3>
+                    <div className="flex items-center justify-between p-1.5 rounded-lg bg-white shadow-sm border border-gray-200 w-32">
+                        <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-500 hover:text-purple-700 p-2 rounded-md transition"><FaMinus /></button>
+                        <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                        <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-500 hover:text-purple-700 p-2 rounded-md transition"><FaPlus /></button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">2. Client data</h2>
+                <div className="space-y-5">
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">First and Last Name</label><div className="relative"><FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="text" name="name" placeholder="Your Name" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">E-mail</label><div className="relative"><FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="email" name="email" placeholder="your@email.com" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">Phone number</label><div className="relative"><FaPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="tel" name="phone" placeholder="+1 123 325 57-73" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">Home address</label><div className="relative"><FaHome className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="text" name="address" placeholder="Address" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                </div>
+                <div className="mt-8 flex items-center"><input type="checkbox" id="privacy-desktop" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 accent-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" /><label htmlFor="privacy-desktop" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label></div>
+                <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
+            </div>
+        </div>
+    );
+
+    // ----- TURKEY STEP 1 - DESKTOP -----
+    const Step1DesktopTurkey = () => (
+        <div className="grid grid-cols-2 gap-x-16">
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">1. Select visa type</h2>
+                <div className="space-y-4">
+                    {turkeyVisaOptions.map(option => (
+                        <div key={option.id} className={`p-5 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === option.id ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100 hover:bg-gray-200'}`} onClick={() => setSelectedVisa(option.id)}>
+                            <div className="flex justify-between items-center">
+                                <div className="flex items-center">
+                                    <CustomRadio selected={selectedVisa === option.id} />
+                                    <span className="font-bold text-gray-800">{option.label}</span>
+                                </div>
+                                <span className="font-bold text-gray-800">{option.price} USD</span>
+                            </div>
+                            <div className="pl-10 mt-2">
+                                <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">{option.duration}</div>
+                                <p className="text-gray-500 text-sm">{option.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="mt-8">
+                    <h3 className="text-lg font-bold text-gray-900 mb-4">Select number of visas</h3>
+                    <div className="flex items-center justify-between p-1.5 rounded-lg bg-white shadow-sm border border-gray-200 w-32">
+                        <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-500 hover:text-purple-700 p-2 rounded-md transition"><FaMinus /></button>
+                        <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                        <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-500 hover:text-purple-700 p-2 rounded-md transition"><FaPlus /></button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-6">2. Client data</h2>
+                <div className="space-y-5">
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">First and Last Name</label><div className="relative"><FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="text" name="name" placeholder="Your Name" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">E-mail</label><div className="relative"><FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="email" name="email" placeholder="your@email.com" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">Phone number</label><div className="relative"><FaPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="tel" name="phone" placeholder="+1 123 325 57-73" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                    <div><label className="text-sm font-medium text-gray-700 mb-1 block">Home address</label><div className="relative"><FaHome className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400" /><input type="text" name="address" placeholder="Address" className="pl-12 w-full p-3 bg-white border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition" /></div></div>
+                </div>
+                <div className="mt-8 flex items-center"><input type="checkbox" id="privacy-desktop" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 accent-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" /><label htmlFor="privacy-desktop" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label></div>
+                <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-purple-200 transition-all duration-300">Continue</button>
+            </div>
+        </div>
+    );
+
+    // ----- AZERBAIJAN STEP 1 - MOBILE -----
+    const Step1MobileAzerbaijan = () => (
+        <>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">1. Select visa type</h2>
+            <div className="space-y-4">
+                {azerbaijanVisaOptions.map(option => (
+                    <div key={option.id} className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === option.id ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100'}`} onClick={() => setSelectedVisa(option.id)}>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <CustomRadio selected={selectedVisa === option.id} />
+                                <span className="font-bold text-gray-800 text-base">{option.label}</span>
+                            </div>
+                            <span className="font-bold text-gray-800">{option.price} USD</span>
+                        </div>
+                        <div className="pl-10 mt-2">
+                            <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">{option.duration}</div>
+                            <p className="text-gray-500 text-sm leading-tight">{option.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">Select number of visas</h3>
+                <div className="flex items-center justify-between p-1 rounded-lg bg-gray-100 w-32">
+                    <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition"><FaMinus /></button>
+                    <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                    <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition"><FaPlus /></button>
+                </div>
+            </div>
+            <div className="mt-8 flex items-center">
+                <input type="checkbox" id="privacy-mobile-1" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" />
+                <label htmlFor="privacy-mobile-1" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label>
+            </div>
+            <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
+        </>
+    );
+
+    // ----- TURKEY STEP 1 - MOBILE -----
+    const Step1MobileTurkey = () => (
+        <>
+            <h2 className="text-xl font-bold text-gray-900 mb-5">1. Select visa type</h2>
+            <div className="space-y-4">
+                {turkeyVisaOptions.map(option => (
+                    <div key={option.id} className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${selectedVisa === option.id ? 'border-purple-600 bg-[#F6F0FF]' : 'border-transparent bg-gray-100'}`} onClick={() => setSelectedVisa(option.id)}>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <CustomRadio selected={selectedVisa === option.id} />
+                                <span className="font-bold text-gray-800 text-base">{option.label}</span>
+                            </div>
+                            <span className="font-bold text-gray-800">{option.price} USD</span>
+                        </div>
+                        <div className="pl-10 mt-2">
+                            <div className="inline-block bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-2">{option.duration}</div>
+                            <p className="text-gray-500 text-sm leading-tight">{option.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">Select number of visas</h3>
+                <div className="flex items-center justify-between p-1 rounded-lg bg-gray-100 w-32">
+                    <button onClick={() => setVisaCount(v => v > 1 ? v - 1 : 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition"><FaMinus /></button>
+                    <span className="font-bold text-lg text-gray-900">{visaCount}</span>
+                    <button onClick={() => setVisaCount(v => v + 1)} className="text-gray-600 hover:text-purple-700 p-2 rounded-md transition"><FaPlus /></button>
+                </div>
+            </div>
+            <div className="mt-8 flex items-center">
+                <input type="checkbox" id="privacy-mobile-1" checked={agreed} onChange={() => setAgreed(!agreed)} className="h-5 w-5 bg-gray-100 border-gray-300 rounded focus:ring-purple-500" />
+                <label htmlFor="privacy-mobile-1" className="ml-3 text-sm text-gray-600">By clicking "Continue", I agree to the Privacy Policy</label>
+            </div>
+            <button onClick={() => setStep(2)} className="w-full mt-6 bg-gradient-to-r from-purple-600 to-violet-600 text-white uppercase font-bold py-3.5 rounded-xl hover:shadow-lg transition-all duration-300">Continue</button>
+        </>
+    );
 
 
     // ----- DESKTOP STEPS (MALAYSIA) -----
@@ -647,7 +888,7 @@ const VisaApplication = () => {
                         <label className="text-sm font-medium text-gray-700 mb-1 block">Planned date of entry ®</label>
                         <DateSelector isStep4={true} />
                     </div>
-                    <div className="bg-[#00D6A9] text-white font-bold text-xl text-center p-4 rounded-xl">
+                    <div className="bg-[#00D6A9] text-white font-bold text-xl text-center p-4 rounded-xl mb-6">
                         Total price: 55 $
                     </div>
                 </div>
@@ -1346,6 +1587,27 @@ const VisaApplication = () => {
 
     const renderMobileStepContent = () => {
         console.log('renderMobileStepContent called, countrySlug:', countrySlug, 'step:', step);
+
+        const stepProps = {
+            step, setStep, selectedVisa, setSelectedVisa, visaCount, setVisaCount, agreed, setAgreed,
+            passportSubStep, setPassportSubStep, paymentSubStep, setPaymentSubStep, billingSubStep, setBillingSubStep,
+            meta, countrySlug, isDesktop: false,
+        };
+
+        if (countrySlug === 'azerbaijan') {
+            switch (step) {
+                case 1: return <Step1MobileAzerbaijan {...stepProps} />;
+                case 2: return <Step2Mobile {...stepProps} />;
+                case 3: return <Step3Mobile {...stepProps} />;
+                case 4: return <Step4Mobile {...stepProps} />;
+                case 5: return <Step5Mobile {...stepProps} />;
+                case 6: return <Step6Mobile {...stepProps} />;
+                case 7: return <Step7Mobile {...stepProps} />;
+                case 8: return <Step8Mobile {...stepProps} />;
+                default: return <Step1MobileAzerbaijan {...stepProps} />;
+            }
+        }
+
         if (countrySlug === 'malaysia') {
             switch (step) {
                 case 1: return <Step1MobileMalaysia />;
@@ -1465,6 +1727,13 @@ const VisaApplication = () => {
                 />
             );
         }
+
+        if (countrySlug === 'turkey') {
+            if (step === 1) {
+                return <Step1MobileTurkey />;
+            }
+        }
+
         // default behaviour for other countries
         switch (step) {
             case 1:
@@ -1492,160 +1761,189 @@ const VisaApplication = () => {
         }
     }
 
+    const renderDesktopStepContent = () => {
+        if (countrySlug === 'turkey') {
+            if (step === 1) {
+                return <Step1DesktopTurkey />;
+            }
+            // Fallback to generic steps for Turkey steps > 1
+            switch (step) {
+                case 2: return <Step2Desktop />;
+                case 3: return <Step3Desktop />;
+                case 4: return <Step4Desktop />;
+                case 5: return <Step5Desktop />;
+                case 6: return <Step6Desktop />;
+                default: return <Step1DesktopTurkey />;
+            }
+        }
+
+        if (countrySlug === 'azerbaijan') {
+            if (step === 1) {
+                return <Step1DesktopAzerbaijan />;
+            }
+            // Fallback to generic steps for Azerbaijan steps > 1
+            switch (step) {
+                case 2: return <Step2Desktop />;
+                case 3: return <Step3Desktop />;
+                case 4: return <Step4Desktop />;
+                case 5: return <Step5Desktop />;
+                case 6: return <Step6Desktop />;
+                default: return <Step1DesktopAzerbaijan />;
+            }
+        }
+
+        if (countrySlug === 'malaysia') {
+            return (
+                <>
+                    {step === 1 && <Step1DesktopMalaysia />}
+                    {step === 2 && <Step2DesktopMalaysia />}
+                    {step === 3 && <Step3DesktopMalaysia />}
+                    {step === 4 && <Step4DesktopMalaysia />}
+                    {step === 5 && <Step5DesktopMalaysia />}
+                    {step === 6 && <Step6DesktopMalaysia />}
+                </>
+            );
+        }
+
+        if (countrySlug === 'srilanka') {
+            console.log('Rendering SriLankaSteps for desktop');
+            return (
+                <SriLankaSteps
+                    step={step}
+                    setStep={setStep}
+                    selectedVisa={selectedVisa}
+                    setSelectedVisa={setSelectedVisa}
+                    visaCount={visaCount}
+                    setVisaCount={setVisaCount}
+                    agreed={agreed}
+                    setAgreed={setAgreed}
+                    passportSubStep={passportSubStep}
+                    setPassportSubStep={setPassportSubStep}
+                    paymentSubStep={paymentSubStep}
+                    setPaymentSubStep={setPaymentSubStep}
+                    billingSubStep={billingSubStep}
+                    setBillingSubStep={setBillingSubStep}
+                    meta={meta}
+                    countrySlug={countrySlug}
+                    sriLankaVisaOptions={sriLankaVisaOptions}
+                    isDesktop={true}
+                />
+            );
+        }
+
+        if (countrySlug === 'bahrain') {
+            console.log('Rendering BahrainSteps for desktop');
+            return (
+                <BahrainSteps
+                    step={step}
+                    setStep={setStep}
+                    selectedVisa={selectedVisa}
+                    setSelectedVisa={setSelectedVisa}
+                    visaCount={visaCount}
+                    setVisaCount={setVisaCount}
+                    agreed={agreed}
+                    setAgreed={setAgreed}
+                    passportSubStep={passportSubStep}
+                    setPassportSubStep={setPassportSubStep}
+                    paymentSubStep={paymentSubStep}
+                    setPaymentSubStep={setPaymentSubStep}
+                    billingSubStep={billingSubStep}
+                    setBillingSubStep={setBillingSubStep}
+                    meta={meta}
+                    countrySlug={countrySlug}
+                    bahrainVisaOptions={bahrainVisaOptions}
+                    isDesktop={true}
+                />
+            );
+        }
+
+        if (countrySlug === 'cambodia') {
+            console.log('Rendering CambodiaSteps for desktop');
+            return (
+                <CambodiaSteps
+                    step={step}
+                    setStep={setStep}
+                    selectedVisa={selectedVisa}
+                    setSelectedVisa={setSelectedVisa}
+                    visaCount={visaCount}
+                    setVisaCount={setVisaCount}
+                    agreed={agreed}
+                    setAgreed={setAgreed}
+                    passportSubStep={passportSubStep}
+                    setPassportSubStep={setPassportSubStep}
+                    paymentSubStep={paymentSubStep}
+                    setPaymentSubStep={setPaymentSubStep}
+                    billingSubStep={billingSubStep}
+                    setBillingSubStep={setBillingSubStep}
+                    meta={meta}
+                    countrySlug={countrySlug}
+                    cambodiaVisaOptions={cambodiaVisaOptions}
+                    isDesktop={true}
+                />
+            );
+        }
+
+        if (countrySlug === 'australia') {
+            console.log('Rendering AustraliaSteps for desktop');
+            return (
+                <AustraliaSteps
+                    step={step}
+                    setStep={setStep}
+                    selectedVisa={selectedVisa}
+                    setSelectedVisa={setSelectedVisa}
+                    visaCount={visaCount}
+                    setVisaCount={setVisaCount}
+                    agreed={agreed}
+                    setAgreed={setAgreed}
+                    passportSubStep={passportSubStep}
+                    setPassportSubStep={setPassportSubStep}
+                    paymentSubStep={paymentSubStep}
+                    setPaymentSubStep={setPaymentSubStep}
+                    billingSubStep={billingSubStep}
+                    setBillingSubStep={setBillingSubStep}
+                    meta={meta}
+                    countrySlug={countrySlug}
+                    australiaVisaOptions={australiaVisaOptions}
+                    isDesktop={true}
+                />
+            );
+        }
+
+        // Default generic steps
+        return (
+            <>
+                {step === 1 && <Step1Desktop />}
+                {step === 2 && <Step2Desktop />}
+                {step === 3 && <Step3Desktop />}
+                {step === 4 && <Step4Desktop />}
+                {step === 5 && <Step5Desktop />}
+                {step === 6 && <Step6Desktop />}
+            </>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-gray-50 flex justify-center px-4 pt-4 pb-24 lg:items-center lg:py-8">
             {isDesktop ? (
                 <div className="bg-white p-10 rounded-2xl shadow-xl w-full max-w-6xl mx-auto">
                     <div className="grid grid-cols-2 gap-x-8 items-center mb-10">
                         <h1 className="text-5xl font-bold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">
-                            {step === 1 && 'Select visa type'}
-                            {step === 2 && 'Dates & purpose'}
-                            {step === 3 && 'Passport details'}
-                            {step === 4 && 'Personal information'}
-                            {step === 5 && 'Data verification'}
-                            {step === 6 && 'Payment'}
+                            {meta.steps[step - 1] || `Step ${step}`}
                         </h1>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
                                 className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out"
                                 style={{
-                                    width: step === 1 ? '16.67%' :
-                                        step === 2 ? '33.33%' :
-                                            step === 3 ? '50%' :
-                                                step === 4 ? '66.67%' :
-                                                    step === 5 ? '83.33%' :
-                                                        step === 6 ? '100%' : '16.67%'
+                                    width: `${(step / (meta.steps.length || 6)) * 100}%`
                                 }}
                             ></div>
                         </div>
                     </div>
-                    {countrySlug === 'malaysia' ? (
-                        <>
-                            {step === 1 && <Step1DesktopMalaysia />}
-                            {step === 2 && <Step2DesktopMalaysia />}
-                            {step === 3 && <Step3DesktopMalaysia />}
-                            {step === 4 && <Step4DesktopMalaysia />}
-                            {step === 5 && <Step5DesktopMalaysia />}
-                            {step === 6 && <Step6DesktopMalaysia />}
-                        </>
-                    ) : countrySlug === 'srilanka' ? (
-                        (() => {
-                            console.log('Rendering SriLankaSteps for desktop');
-                            return (
-                                <SriLankaSteps
-                                    step={step}
-                                    setStep={setStep}
-                                    selectedVisa={selectedVisa}
-                                    setSelectedVisa={setSelectedVisa}
-                                    visaCount={visaCount}
-                                    setVisaCount={setVisaCount}
-                                    agreed={agreed}
-                                    setAgreed={setAgreed}
-                                    passportSubStep={passportSubStep}
-                                    setPassportSubStep={setPassportSubStep}
-                                    paymentSubStep={paymentSubStep}
-                                    setPaymentSubStep={setPaymentSubStep}
-                                    billingSubStep={billingSubStep}
-                                    setBillingSubStep={setBillingSubStep}
-                                    meta={meta}
-                                    countrySlug={countrySlug}
-                                    sriLankaVisaOptions={sriLankaVisaOptions}
-                                    isDesktop={true}
-                                />
-                            );
-                        })()
-                    ) : countrySlug === 'bahrain' ? (
-                        (() => {
-                            console.log('Rendering BahrainSteps for desktop');
-                            return (
-                                <BahrainSteps
-                                    step={step}
-                                    setStep={setStep}
-                                    selectedVisa={selectedVisa}
-                                    setSelectedVisa={setSelectedVisa}
-                                    visaCount={visaCount}
-                                    setVisaCount={setVisaCount}
-                                    agreed={agreed}
-                                    setAgreed={setAgreed}
-                                    passportSubStep={passportSubStep}
-                                    setPassportSubStep={setPassportSubStep}
-                                    paymentSubStep={paymentSubStep}
-                                    setPaymentSubStep={setPaymentSubStep}
-                                    billingSubStep={billingSubStep}
-                                    setBillingSubStep={setBillingSubStep}
-                                    meta={meta}
-                                    countrySlug={countrySlug}
-                                    bahrainVisaOptions={bahrainVisaOptions}
-                                    isDesktop={true}
-                                />
-                            );
-                        })()
-                    ) : countrySlug === 'cambodia' ? (
-                        (() => {
-                            console.log('Rendering CambodiaSteps for desktop');
-                            return (
-                                <CambodiaSteps
-                                    step={step}
-                                    setStep={setStep}
-                                    selectedVisa={selectedVisa}
-                                    setSelectedVisa={setSelectedVisa}
-                                    visaCount={visaCount}
-                                    setVisaCount={setVisaCount}
-                                    agreed={agreed}
-                                    setAgreed={setAgreed}
-                                    passportSubStep={passportSubStep}
-                                    setPassportSubStep={setPassportSubStep}
-                                    paymentSubStep={paymentSubStep}
-                                    setPaymentSubStep={setPaymentSubStep}
-                                    billingSubStep={billingSubStep}
-                                    setBillingSubStep={setBillingSubStep}
-                                    meta={meta}
-                                    countrySlug={countrySlug}
-                                    cambodiaVisaOptions={cambodiaVisaOptions}
-                                    isDesktop={true}
-                                />
-                            );
-                        })()
-                    ) : countrySlug === 'australia' ? (
-                        (() => {
-                            console.log('Rendering AustraliaSteps for desktop');
-                            return (
-                                <AustraliaSteps
-                                    step={step}
-                                    setStep={setStep}
-                                    selectedVisa={selectedVisa}
-                                    setSelectedVisa={setSelectedVisa}
-                                    visaCount={visaCount}
-                                    setVisaCount={setVisaCount}
-                                    agreed={agreed}
-                                    setAgreed={setAgreed}
-                                    passportSubStep={passportSubStep}
-                                    setPassportSubStep={setPassportSubStep}
-                                    paymentSubStep={paymentSubStep}
-                                    setPaymentSubStep={setPaymentSubStep}
-                                    billingSubStep={billingSubStep}
-                                    setBillingSubStep={setBillingSubStep}
-                                    meta={meta}
-                                    countrySlug={countrySlug}
-                                    australiaVisaOptions={australiaVisaOptions}
-                                    isDesktop={true}
-                                />
-                            );
-                        })()
-                    ) : (
-                        <>
-                            {step === 1 && <Step1Desktop />}
-                            {step === 2 && <Step2Desktop />}
-                            {step === 3 && <Step3Desktop />}
-                            {step === 4 && <Step4Desktop />}
-                            {step === 5 && <Step5Desktop />}
-                            {step === 6 && <Step6Desktop />}
-                        </>
-                    )}
+                    {renderDesktopStepContent()}
                 </div>
             ) : (
-                <div className={(countrySlug === 'srilanka' || countrySlug === 'cambodia' || countrySlug === 'australia') ? "bg-neutral-100 w-full max-w-md mx-auto p-5" : "bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto"}>
-                    {(countrySlug !== 'srilanka' && countrySlug !== 'cambodia' && countrySlug !== 'australia') && <ProgressBar currentStep={step} totalSteps={10} />}
+                <div className={(countrySlug === 'srilanka' || countrySlug === 'cambodia' || countrySlug === 'australia' || countrySlug === 'azerbaijan' || countrySlug === 'turkey') ? "bg-neutral-100 w-full max-w-md mx-auto p-5" : "bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto"}>
+                    {(countrySlug !== 'srilanka' && countrySlug !== 'cambodia' && countrySlug !== 'australia' && countrySlug !== 'azerbaijan' && countrySlug !== 'turkey') && <ProgressBar currentStep={step} totalSteps={10} />}
                     {renderMobileStepContent()}
                 </div>
             )}
@@ -1654,3 +1952,4 @@ const VisaApplication = () => {
 };
 
 export default VisaApplication;
+

@@ -19,7 +19,7 @@ const VietnamVisa = () => {
     cost: "From 4379,58 ₹",
     approvalTime: "2 - 12 days",
     validity: "90 days after issued",
-    getVisaLink: "/get-visa/vietnam",
+    getVisaLink: "/get-visa/vietnam-visa",
     agencyText: `GetVisaGo Ltd — your independent private agency for fast and secure Vietnam e-Visa processing. Apply fully online in minutes, without embassy visits or paperwork hassle. Our single transparent fee covers both our professional service (document check, secure submission, and 24/7 support) and the official government visa cost — no extra payments required. We are not affiliated with the Vietnam government; we assist you to get your visa easily and stress-free.`,
     visaTypes: [
       {

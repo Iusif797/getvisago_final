@@ -15,7 +15,7 @@ import Visas from './pages/Visas';
 import ScrollToTop from './components/ScrollToTop';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import useWindowSize from './hooks/useWindowSize';
-import AboutUs from './components/AboutUs/AboutUs';
+import About from './pages/About'; // Импортируем новую страницу About
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
 import VisaDetailPage from './pages/VisaDetailPage';
@@ -53,7 +53,7 @@ function App() {
         <Route path="/visa-status" element={<><Header /><VisaStatus /></>} />
         <Route path="/blog" element={<><Header /><Blog /></>} />
         <Route path="/get-visa/:country" element={<><Header /><VisaApplication /></>} />
-        <Route path="/about" element={<><Header /><AboutUs /><Footer /></>} />
+        <Route path="/about" element={<><Header /><About /><Footer /></>} />
         <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
 
         {/* Routes without header (has its own header) */}
@@ -66,5 +66,3 @@ function App() {
 }
 
 export default App;
-
-

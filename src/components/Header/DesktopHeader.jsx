@@ -52,7 +52,7 @@ const DesktopHeader = () => {
             <span className="text-[#9B51E0] font-bold text-2xl">VISAGO</span>
           </Link>
         </div>
-        
+
         {/* Правая часть (навигация, язык, кнопка) */}
         <div className="flex items-center">
           {/* Навигация */}
@@ -66,6 +66,9 @@ const DesktopHeader = () => {
             <Link to="/visa-status" className="text-gray-800 hover:text-[#9B51E0] transition-colors">
               Visa Status
             </Link>
+            <Link to="/about" className="text-gray-800 hover:text-[#9B51E0] transition-colors">
+              About Us
+            </Link>
             <Link to="/blog" className="text-gray-800 hover:text-[#9B51E0] transition-colors">
               Blog
             </Link>
@@ -76,23 +79,23 @@ const DesktopHeader = () => {
               Contacts
             </a>
           </nav>
-          
+
           {/* Язык */}
           <div className="cursor-pointer relative mr-4">
             <div onClick={toggleLanguage} className="flex items-center">
               <img src={language === 'en' ? ukFlag : indianFlag} alt="Language" className="w-8 h-8 rounded-full" />
             </div>
-            
+
             {showLanguageDropdown && (
               <div className="absolute top-full right-0 mt-2 bg-white rounded-md shadow-lg py-2 px-2 z-50 min-w-[120px]">
-                <div 
+                <div
                   className={`flex items-center gap-2 p-2 rounded cursor-pointer hover:bg-gray-100 ${language === 'en' ? 'bg-gray-100' : ''}`}
                   onClick={() => selectLanguage('en')}
                 >
                   <img src={ukFlag} alt="English" className="w-5 h-5 rounded-full" />
                   <span className="text-sm">English</span>
                 </div>
-                <div 
+                <div
                   className={`flex items-center gap-2 p-2 rounded cursor-pointer hover:bg-gray-100 ${language === 'hi' ? 'bg-gray-100' : ''}`}
                   onClick={() => selectLanguage('hi')}
                 >
@@ -102,7 +105,7 @@ const DesktopHeader = () => {
               </div>
             )}
           </div>
-          
+
           {/* Кнопка GET VISA */}
           <Link to="/get-visa" className="flex items-center bg-[#00C6A2] text-white py-2 px-6 rounded-full font-bold">
             GET VISA <FaIdCard className="ml-2 text-white" size={18} />
@@ -113,4 +116,4 @@ const DesktopHeader = () => {
   );
 };
 
-export default DesktopHeader; 
+export default DesktopHeader;

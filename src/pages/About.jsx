@@ -9,6 +9,9 @@ import DesktopReviews from '../components/Reviews/DesktopReviews';
 import handRight from '../assets/hand_rightside.svg';
 import laggageIcon from '../assets/laggage_icon.png';
 import ReactCountryFlag from 'react-country-flag';
+import backgroundAboutUs from '../assets/background_about_us.png';
+import buttonMaster from '../assets/button_master.png';
+import buttonStart from '../assets/button_start.png';
 
 const stats = [
   { id: 1, value: '250K+', label: 'Visas Processed', icon: FaRegCheckCircle },
@@ -386,6 +389,96 @@ const DesktopAboutPage = () => (
       </div>
     </section>
 
+    {/* Join Thousands Banner */}
+    <section className="w-full py-16 px-4 lg:px-6 bg-white flex items-center justify-center">
+      <div className="relative max-w-6xl w-full h-96 lg:h-[400px] rounded-3xl overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={backgroundAboutUs}
+          alt="Office background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/80 via-cyan-500/70 to-purple-600/80"></div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 lg:px-12 text-center">
+          <h2 className="text-white font-black text-2xl lg:text-4xl xl:text-5xl leading-tight mb-6 max-w-4xl">
+            Join Thousands of Happy Travelers
+          </h2>
+
+          <p className="text-white font-semibold text-base lg:text-xl xl:text-2xl leading-relaxed max-w-4xl">
+            We've already helped thousands of Indian travelers get their visas faster and with less stress.
+            Our average processing time is under 48 hours, and our support team answers most queries in under 15 minutes.
+          </p>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full backdrop-blur-sm"></div>
+        <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/10 rounded-full backdrop-blur-sm"></div>
+        <div className="absolute top-1/2 left-8 w-6 h-6 bg-white/20 rounded-full"></div>
+        <div className="absolute top-1/4 right-12 w-8 h-8 bg-white/15 rounded-full"></div>
+      </div>
+    </section>
+
+    {/* Action Cards */}
+    <section className="w-full py-16 px-4 lg:px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+          {/* Ready to travel Card */}
+          <div className="relative bg-white rounded-3xl shadow-lg p-8 lg:p-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-100 to-purple-100 rounded-2xl px-6 py-3 border-2 border-gradient-to-r from-teal-200 to-purple-200">
+                <span className="text-3xl">✈️</span>
+                <h3 className="text-2xl lg:text-3xl font-black bg-gradient-to-r from-teal-500 to-purple-600 bg-clip-text text-transparent">
+                  Ready to travel?
+                </h3>
+              </div>
+
+              <p className="text-gray-800 text-lg lg:text-xl font-normal leading-relaxed">
+                Find your country. Upload your documents. Pay online. And go.
+              </p>
+
+              <div className="flex justify-start">
+                <img
+                  src={buttonMaster}
+                  alt="Get Visa Button"
+                  className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-2xl"
+                  style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Start application Card */}
+          <div className="relative bg-white rounded-3xl shadow-lg p-8 lg:p-10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-2xl px-6 py-3 border-2 border-gradient-to-r from-teal-200 to-cyan-200">
+                <span className="text-3xl">👉</span>
+                <h3 className="text-2xl lg:text-3xl font-black bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">
+                  Start application now
+                </h3>
+              </div>
+
+              <p className="text-gray-800 text-lg lg:text-xl font-normal leading-relaxed">
+                Have a question? Message us on WhatsApp or email — we're available 24/7.
+              </p>
+
+              <div className="flex justify-start">
+                <img
+                  src={buttonStart}
+                  alt="Start Button"
+                  className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-2xl"
+                  style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))' }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Stats */}
     <section className="w-full py-16 lg:py-24 bg-white">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto px-4 lg:px-6">
@@ -420,17 +513,6 @@ const DesktopAboutPage = () => (
 
     {/* Reviews */}
     <DesktopReviews />
-
-    {/* Call to Action */}
-    <section className="relative py-24 flex flex-col items-center justify-center bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-600 overflow-hidden">
-      <h2 className="text-white text-4xl lg:text-5xl font-extrabold mb-10 text-center drop-shadow-lg">Ready to Start Your Journey?</h2>
-      <a href="/visas" className="relative inline-block group">
-        <span className="absolute inset-0 transform translate-x-1 translate-y-1 bg-black rounded-full transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
-        <span className="relative inline-flex items-center px-10 py-4 bg-white text-emerald-600 font-bold rounded-full text-lg shadow-lg">
-          APPLY FOR VISA NOW
-        </span>
-      </a>
-    </section>
   </main>
 );
 
@@ -442,23 +524,23 @@ const MobileAboutPage = () => (
         <img src={aboutHero} alt="Travel Banner" className="w-full h-64 object-cover rounded-2xl" />
       </div>
       <div className="bg-white rounded-xl shadow-lg p-6 w-full text-center order-2">
-        <p className="text-2xl font-extrabold text-[#00B09B] leading-tight">Travel Easy.</p>
-        <p className="text-2xl font-extrabold text-[#8E2DE2] leading-tight">Travel Smart.</p>
-        <p className="text-2xl font-extrabold text-[#5F30E2] leading-tight">Travel with GetVisaGo.</p>
+        <p className="text-xl font-extrabold text-[#00B09B] leading-tight">Travel Easy.</p>
+        <p className="text-xl font-extrabold text-[#8E2DE2] leading-tight">Travel Smart.</p>
+        <p className="text-xl font-extrabold text-[#5F30E2] leading-tight">Travel with GetVisaGo.</p>
       </div>
     </section>
 
     {/* Welcome Section */}
-    <section className="w-full py-12 px-4">
-      <div className="max-w-full mx-auto space-y-6">
+    <section className="w-full py-8 px-4">
+      <div className="max-w-full mx-auto space-y-4">
         <div className="text-center">
-          <h2 className="text-3xl font-bold leading-normal mb-4">
+          <h2 className="text-2xl font-bold leading-normal mb-3">
             <span className="bg-gradient-to-r from-teal-400 to-cyan-500 text-transparent bg-clip-text">
               Welcome to GetVisaGo — your trusted partner in fast, secure, and fully online e-Visa processing for over 30 countries.
             </span>
           </h2>
         </div>
-        <div className="text-gray-600 text-base leading-relaxed text-center">
+        <div className="text-gray-600 text-sm leading-relaxed text-center">
           <p>
             We are a UK-registered visa assistance company founded with a simple mission: to make international travel easier for Indian citizens. Whether you're planning a family holiday in Thailand, a honeymoon in the Maldives, a business trip to Dubai, or a spiritual journey to Israel — we're here to ensure your visa is never a roadblock.
           </p>
@@ -467,36 +549,36 @@ const MobileAboutPage = () => (
     </section>
 
     {/* Who We Are */}
-    <section className="max-w-full mx-auto mt-12 px-4">
+    <section className="max-w-full mx-auto mt-8 px-4">
       <div className="relative">
-        <h2 className="text-3xl font-extrabold mb-8 text-center">
+        <h2 className="text-2xl font-extrabold mb-6 text-center">
           <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 bg-clip-text text-transparent drop-shadow-sm">
             Who We Are
           </span>
         </h2>
 
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-6">
           {/* Enhanced Avatar */}
           <div className="flex relative group">
-            <div className="w-40 h-40 rounded-full bg-gradient-to-br from-white via-gray-50 to-gray-100 border-4 border-white shadow-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl flex-shrink-0">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-white via-gray-50 to-gray-100 border-4 border-white shadow-xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 flex-shrink-0">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-400/20 to-cyan-500/20 animate-pulse"></div>
-              <div className="relative z-10 p-6 rounded-full bg-gradient-to-br from-teal-50 to-cyan-50">
-                <FaUsers className="text-teal-600 text-4xl" />
+              <div className="relative z-10 p-4 rounded-full bg-gradient-to-br from-teal-50 to-cyan-50">
+                <FaUsers className="text-teal-600 text-3xl" />
               </div>
             </div>
             {/* Floating icons */}
-            <div className="absolute -top-1 -right-1 w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-              <FaRocket className="text-white text-sm" />
+            <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+              <FaRocket className="text-white text-xs" />
             </div>
-            <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-500">
+            <div className="absolute -bottom-1 -left-1 w-5 h-5 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-500">
               <FaHeart className="text-white text-xs" />
             </div>
           </div>
 
           {/* Enhanced Content */}
-          <div className="flex-1 space-y-6 text-center">
+          <div className="flex-1 space-y-4 text-center">
             <div className="relative">
-              <p className="text-gray-700 text-base leading-relaxed font-medium">
+              <p className="text-gray-700 text-sm leading-relaxed font-medium">
                 We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
               </p>
             </div>
@@ -562,13 +644,213 @@ const MobileAboutPage = () => (
       </div>
     </section>
 
-    <div className="w-full bg-[#F6F7FA] text-gray-800 py-16 px-6 grid grid-cols-2 gap-4">
+    {/* Join Thousands Banner Mobile */}
+    <section className="w-full py-8 px-4 bg-white flex items-center justify-center">
+      <div className="relative max-w-full w-full h-80 rounded-2xl overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={backgroundAboutUs}
+          alt="Office background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/80 via-cyan-500/70 to-purple-600/80"></div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
+          <h2 className="text-white font-black text-xl leading-tight mb-4">
+            Join Thousands of Happy Travelers
+          </h2>
+
+          <p className="text-white font-semibold text-sm leading-relaxed">
+            We've already helped thousands of Indian travelers get their visas faster and with less stress.
+            Our average processing time is under 48 hours, and our support team answers most queries in under 15 minutes.
+          </p>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-2 right-2 w-12 h-12 bg-white/10 rounded-full backdrop-blur-sm"></div>
+        <div className="absolute bottom-2 left-2 w-8 h-8 bg-white/10 rounded-full backdrop-blur-sm"></div>
+      </div>
+    </section>
+
+    {/* Action Cards Mobile */}
+    <section className="w-full py-8 px-4 bg-white">
+      <div className="max-w-full mx-auto space-y-6">
+        {/* Ready to travel Card */}
+        <div className="relative bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-100 to-purple-100 rounded-xl px-4 py-2 border border-teal-200">
+              <span className="text-2xl">✈️</span>
+              <h3 className="text-lg font-black bg-gradient-to-r from-teal-500 to-purple-600 bg-clip-text text-transparent">
+                Ready to travel?
+              </h3>
+            </div>
+
+            <p className="text-gray-800 text-sm leading-relaxed">
+              Find your country. Upload your documents. Pay online. And go.
+            </p>
+
+            <div className="flex justify-center">
+              <img
+                src={buttonMaster}
+                alt="Get Visa Button"
+                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-xl max-w-full h-auto"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))' }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Start application Card */}
+        <div className="relative bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-xl px-4 py-2 border border-teal-200">
+              <span className="text-2xl">👉</span>
+              <h3 className="text-lg font-black bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">
+                Start application now
+              </h3>
+            </div>
+
+            <p className="text-gray-800 text-sm leading-relaxed">
+              Have a question? Message us on WhatsApp or email — we're available 24/7.
+            </p>
+
+            <div className="flex justify-center">
+              <img
+                src={buttonStart}
+                alt="Start Button"
+                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-xl max-w-full h-auto"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))' }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* What Makes Us Different Mobile */}
+    <WhatMakesUsDifferent />
+
+    {/* Our Promise Mobile */}
+    <section className="w-full py-8 px-4 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-full mx-auto">
+        <div className="space-y-8">
+          {/* Image */}
+          <div className="flex justify-center">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-100/50 to-purple-100/50 rounded-2xl blur-xl opacity-40"></div>
+              <div className="relative bg-white rounded-2xl p-6 shadow-xl">
+                <img
+                  src={laggageIcon}
+                  alt="Travel luggage"
+                  className="w-full max-w-xs mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-extrabold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent mb-4 text-center">
+                Our Promise
+              </h2>
+              <p className="text-gray-700 text-sm leading-relaxed text-center">
+                We know your time is valuable. We also know how important your travel plans are — whether it's for love, work, family, or adventure. That's why we handle your application as if it were our own. With GetVisaGo, you're not just filling out a form — you're partnering with a reliable service that's always on your side.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-teal-50 to-purple-50 rounded-xl p-6 border border-teal-100 shadow-lg">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-1 h-12 bg-gradient-to-b from-teal-400 to-purple-500 rounded-full"></div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">Our Commitment</h3>
+                  <p className="text-gray-800 text-sm leading-relaxed">
+                    <strong>We double-check your documents, keep you updated, and handle any rejections or errors as fast as possible.</strong> If we ever make a mistake — we take full responsibility.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Features */}
+            <div className="grid grid-cols-1 gap-3">
+              <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100 text-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <FaRegCheckCircle className="text-white text-lg" />
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm mb-1">100% Secure</h4>
+                <p className="text-xs text-gray-600">Bank-level encryption</p>
+              </div>
+              <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100 text-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <FaBolt className="text-white text-lg" />
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm mb-1">Fast Response</h4>
+                <p className="text-xs text-gray-600">Within 24 hours</p>
+              </div>
+              <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100 text-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <FaUsers className="text-white text-lg" />
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm mb-1">Full Support</h4>
+                <p className="text-xs text-gray-600">Expert assistance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Countries We Cover Mobile */}
+    <section className="w-full py-8 px-4 bg-white">
+      <div className="max-w-full mx-auto">
+        <h2 className="text-2xl font-extrabold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent mb-6 text-center">
+          Countries We Cover
+        </h2>
+        <div className="space-y-4">
+          {/* Row 1 */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <CountryButton country="UAE" countryCode="AE" />
+            <CountryButton country="Oman" countryCode="OM" />
+            <CountryButton country="Saudi Arabia" countryCode="SA" />
+          </div>
+          {/* Row 2 */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <CountryButton country="Israel" countryCode="IL" />
+            <CountryButton country="Turkey" countryCode="TR" />
+            <CountryButton country="Egypt" countryCode="EG" />
+          </div>
+          {/* Row 3 */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <CountryButton country="Thailand" countryCode="TH" />
+            <CountryButton country="Malaysia" countryCode="MY" />
+            <CountryButton country="Singapore" countryCode="SG" />
+          </div>
+          {/* Row 4 */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <CountryButton country="Vietnam" countryCode="VN" />
+            <CountryButton country="Cambodia" countryCode="KH" />
+            <CountryButton country="Sri Lanka" countryCode="LK" />
+          </div>
+          {/* Row 5 */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <CountryButton country="Indonesia" countryCode="ID" />
+            <CountryButton country="Philippines" countryCode="PH" />
+            <CountryButton country="Maldives" countryCode="MV" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div className="w-full bg-[#F6F7FA] text-gray-800 py-8 px-4 grid grid-cols-2 gap-3">
       {stats.map(({ id, value, label }) => (
-        <div key={id} className="flex flex-col items-center bg-white rounded-2xl p-4 shadow-md">
-          <span className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-violet-600 bg-clip-text text-transparent">
+        <div key={id} className="flex flex-col items-center bg-white rounded-xl p-3 shadow-md">
+          <span className="text-xl font-bold bg-gradient-to-r from-emerald-500 to-violet-600 bg-clip-text text-transparent">
             {value}
           </span>
-          <span className="mt-1 text-sm text-center font-medium">{label}</span>
+          <span className="mt-1 text-xs text-center font-medium">{label}</span>
         </div>
       ))}
     </div>

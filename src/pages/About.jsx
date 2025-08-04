@@ -1,11 +1,14 @@
 import React from 'react';
-import { FaRegClock, FaGlobeAmericas, FaRegSmile, FaRegCheckCircle, FaUsers, FaRocket, FaHeart } from 'react-icons/fa';
+import { FaRegClock, FaGlobeAmericas, FaRegSmile, FaRegCheckCircle, FaUsers, FaRocket, FaHeart, FaLaptop, FaBolt, FaCompass, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useState } from 'react';
 import useWindowSize from '../hooks/useWindowSize';
 import aboutHero from '../assets/about_us.png';
 import backgroundImg from '../assets/background.png';
 import buttonApply from '../assets/button_visa_apply.svg';
 import DesktopReviews from '../components/Reviews/DesktopReviews';
 import handRight from '../assets/hand_rightside.svg';
+import laggageIcon from '../assets/laggage_icon.png';
+import ReactCountryFlag from 'react-country-flag';
 
 const stats = [
   { id: 1, value: '250K+', label: 'Visas Processed', icon: FaRegCheckCircle },
@@ -13,6 +16,124 @@ const stats = [
   { id: 3, value: '<12h', label: 'Avg. Approval Time', icon: FaRegClock },
   { id: 4, value: '99%', label: 'Approval Rate', icon: FaRegSmile },
 ];
+
+const differenceData = [
+  {
+    id: 1,
+    icon: FaLaptop,
+    title: "All-online application",
+    description: "No embassy visits. No paperwork. Just a few clicks."
+  },
+  {
+    id: 2,
+    icon: FaBolt,
+    title: "Fast Processing",
+    description: "Standard and urgent visas available — choose what works for your travel plan."
+  },
+  {
+    id: 3,
+    icon: FaCompass,
+    title: "Step-by-step guidance",
+    description: "Clear instructions, examples, and help at every stage."
+  },
+  {
+    id: 4,
+    icon: FaRegCheckCircle,
+    title: "Guaranteed approval",
+    description: "99% success rate with money-back guarantee if your visa is rejected."
+  },
+  {
+    id: 5,
+    icon: FaUsers,
+    title: "Expert support",
+    description: "24/7 customer service from visa specialists who know the process inside out."
+  }
+];
+
+const WhatMakesUsDifferent = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const itemsPerSlide = 3;
+  const totalSlides = Math.ceil(differenceData.length / itemsPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const getCurrentItems = () => {
+    const startIndex = currentSlide * itemsPerSlide;
+    return differenceData.slice(startIndex, startIndex + itemsPerSlide);
+  };
+
+  return (
+    <section className="w-full py-16 lg:py-20 px-4 lg:px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center justify-between mb-12">
+          <h2 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+            What Makes Us Different
+          </h2>
+          <div className="hidden lg:flex gap-3">
+            <button
+              onClick={prevSlide}
+              className="w-12 h-12 rounded-full bg-purple-100 hover:bg-purple-200 flex items-center justify-center text-purple-600 transition-colors"
+            >
+              <FaChevronLeft size={16} />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="w-12 h-12 rounded-full bg-purple-600 hover:bg-purple-700 flex items-center justify-center text-white transition-colors"
+            >
+              <FaChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
+          {getCurrentItems().map((item) => (
+            <div key={item.id} className="text-center group">
+              <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 mx-auto mb-6 flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                <item.icon className="text-white text-4xl lg:text-5xl" />
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Dots indicator */}
+        <div className="flex justify-center mt-12 gap-2">
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-purple-600' : 'bg-purple-200'
+                }`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CountryButton = ({ country, countryCode }) => (
+  <div className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-white rounded-full shadow-md border border-gray-100 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+    <span className="font-black text-gray-800 text-lg">{country}</span>
+    <ReactCountryFlag
+      countryCode={countryCode}
+      svg
+      style={{
+        width: '1.5em',
+        height: '1.5em',
+      }}
+    />
+  </div>
+);
 
 const StatCard = ({ value, label, Icon }) => (
   <div className="relative flex flex-col items-center justify-center rounded-2xl p-6 bg-gradient-to-br from-white/80 to-white/60 border border-white/40 backdrop-blur-xl shadow-xl transform-gpu transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
@@ -127,6 +248,139 @@ const DesktopAboutPage = () => (
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* What Makes Us Different */}
+    <WhatMakesUsDifferent />
+
+    {/* Our Promise */}
+    <section className="w-full py-16 lg:py-20 px-4 lg:px-6 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left side - Image */}
+          <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-100/50 to-purple-100/50 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 group-hover:scale-102 group-hover:shadow-2xl">
+                <img
+                  src={laggageIcon}
+                  alt="Travel luggage"
+                  className="w-full max-w-sm mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Content */}
+          <div className="order-1 lg:order-2 space-y-8">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent mb-6">
+                Our Promise
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                We know your time is valuable. We also know how important your travel plans are — whether it's for love, work, family, or adventure. That's why we handle your application as if it were our own. With GetVisaGo, you're not just filling out a form — you're partnering with a reliable service that's always on your side.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-teal-50 to-purple-50 rounded-2xl p-8 border border-teal-100 shadow-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-1 h-16 bg-gradient-to-b from-teal-400 to-purple-500 rounded-full"></div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Our Commitment</h3>
+                  <p className="text-gray-800 text-lg leading-relaxed">
+                    <strong>We double-check your documents, keep you updated, and handle any rejections or errors as fast as possible.</strong> If we ever make a mistake — we take full responsibility.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Features */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <FaRegCheckCircle className="text-white text-xl" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-1">100% Secure</h4>
+                <p className="text-sm text-gray-600">Bank-level encryption</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <FaBolt className="text-white text-xl" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-1">Fast Response</h4>
+                <p className="text-sm text-gray-600">Within 24 hours</p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                  <FaUsers className="text-white text-xl" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-1">Full Support</h4>
+                <p className="text-sm text-gray-600">Expert assistance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Countries We Cover */}
+    <section className="w-full py-16 lg:py-20 px-4 lg:px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent mb-12">
+          Countries We Cover
+        </h2>
+
+        <div className="space-y-6">
+          {/* Row 1 */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <CountryButton country="UAE" countryCode="AE" />
+            <CountryButton country="Oman" countryCode="OM" />
+            <CountryButton country="Saudi Arabia" countryCode="SA" />
+            <CountryButton country="Israel" countryCode="IL" />
+            <CountryButton country="Turkey" countryCode="TR" />
+            <CountryButton country="Egypt" countryCode="EG" />
+          </div>
+
+          {/* Row 2 */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <CountryButton country="Bahrain" countryCode="BH" />
+            <CountryButton country="Azerbaijan" countryCode="AZ" />
+            <CountryButton country="South Korea" countryCode="KR" />
+            <CountryButton country="Malaysia" countryCode="MY" />
+            <CountryButton country="Sri Lanka" countryCode="LK" />
+          </div>
+
+          {/* Row 3 */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <CountryButton country="Georgia" countryCode="GE" />
+            <CountryButton country="Armenia" countryCode="AM" />
+            <CountryButton country="Cambodia" countryCode="KH" />
+            <CountryButton country="Kenya" countryCode="KE" />
+            <CountryButton country="Thailand" countryCode="TH" />
+            <CountryButton country="Vietnam" countryCode="VN" />
+          </div>
+
+          {/* Row 4 */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <CountryButton country="Uzbekistan" countryCode="UZ" />
+            <CountryButton country="Argentina" countryCode="AR" />
+            <CountryButton country="Ethiopia" countryCode="ET" />
+            <CountryButton country="South Africa" countryCode="ZA" />
+            <CountryButton country="Jordan" countryCode="JO" />
+          </div>
+
+          {/* Row 5 */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <CountryButton country="New Zealand" countryCode="NZ" />
+            <CountryButton country="UK" countryCode="GB" />
+            <CountryButton country="Canada" countryCode="CA" />
+            <CountryButton country="Laos" countryCode="LA" />
+            <CountryButton country="Tajikistan" countryCode="TJ" />
           </div>
         </div>
       </div>

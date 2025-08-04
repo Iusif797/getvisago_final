@@ -288,65 +288,41 @@ const DesktopAboutPage = () => (
     </section>
 
     {/* Who We Are */}
-    <section className="max-w-5xl mx-auto mt-12 lg:mt-20 px-4 lg:px-6 relative">
-      {/* Background decoration - hidden on mobile */}
-      <div className="hidden lg:block absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-teal-100 to-cyan-100 rounded-full opacity-20 animate-pulse"></div>
-      <div className="hidden lg:block absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-purple-100 to-violet-100 rounded-full opacity-20 animate-pulse delay-1000"></div>
+    <section className="max-w-5xl mx-auto mt-12 lg:mt-20 px-4 lg:px-6">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-8 lg:mb-12 text-center lg:text-left">
+        <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
+          Who We Are
+        </span>
+      </h2>
 
-      <div className="relative">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-8 lg:mb-12 text-center lg:text-left">
-          <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 bg-clip-text text-transparent drop-shadow-sm">
-            Who We Are
-          </span>
-        </h2>
-
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-          {/* Enhanced Avatar - shown on mobile too but smaller */}
-          <div className="flex relative group">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full bg-gradient-to-br from-white via-gray-50 to-gray-100 border-4 border-white shadow-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl flex-shrink-0">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-400/20 to-cyan-500/20 animate-pulse"></div>
-              <div className="relative z-10 p-4 sm:p-6 lg:p-8 rounded-full bg-gradient-to-br from-teal-50 to-cyan-50">
-                <FaUsers className="text-teal-600 text-3xl sm:text-4xl lg:text-5xl" />
-              </div>
-            </div>
-            {/* Floating icons - smaller on mobile */}
-            <div className="absolute -top-1 -right-1 lg:-top-2 lg:-right-2 w-8 h-8 lg:w-12 lg:h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-              <FaRocket className="text-white text-sm lg:text-lg" />
-            </div>
-            <div className="absolute -bottom-1 -left-1 lg:-bottom-2 lg:-left-2 w-6 h-6 lg:w-10 lg:h-10 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-500">
-              <FaHeart className="text-white text-xs lg:text-sm" />
-            </div>
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+        {/* Simple Icon */}
+        <div className="flex-shrink-0">
+          <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-xl">
+            <FaUsers className="text-white text-4xl sm:text-5xl lg:text-6xl" />
           </div>
+        </div>
 
-          {/* Enhanced Content */}
-          <div className="flex-1 space-y-6 lg:space-y-8 text-center lg:text-left">
-            <div className="relative">
-              <p className="text-gray-700 text-base lg:text-lg leading-relaxed font-medium">
-                We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
-              </p>
-            </div>
+        {/* Content */}
+        <div className="flex-1 space-y-6 text-center lg:text-left">
+          <p className="text-gray-700 text-base lg:text-lg leading-relaxed">
+            We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
+          </p>
 
-            {/* Enhanced highlight card */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-2xl blur-sm opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="relative bg-white rounded-2xl shadow-xl p-6 lg:p-8 border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-teal-400 via-cyan-500 to-emerald-500"></div>
-                <div className="absolute top-4 right-4 w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-full opacity-50"></div>
-
-                <div className="flex flex-col sm:flex-row gap-4 lg:gap-5 items-start relative z-10">
-                  <div className="flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg mx-auto sm:mx-0">
-                    <img src={handRight} alt="thumbs up" className="w-5 h-5 lg:w-6 lg:h-6 brightness-0 invert" />
-                  </div>
-                  <div className="text-center sm:text-left">
-                    <p className="text-[#00B09B] font-bold text-base lg:text-lg leading-relaxed mb-3 lg:mb-2">
-                      Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
-                    </p>
-                    <div className="flex flex-wrap justify-center sm:justify-start gap-2 lg:gap-3 mt-4">
-                      <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-xs lg:text-sm font-medium">UK-Based</span>
-                      <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-xs lg:text-sm font-medium">India-Focused</span>
-                      <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs lg:text-sm font-medium">24/7 Support</span>
-                    </div>
-                  </div>
+          {/* Highlight card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 border-l-4 border-teal-400">
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg flex items-center justify-center mx-auto sm:mx-0">
+                <img src={handRight} alt="thumbs up" className="w-5 h-5 brightness-0 invert" />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-[#00B09B] font-bold text-base lg:text-lg leading-relaxed mb-3">
+                  Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
+                </p>
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
+                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">UK-Based</span>
+                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">India-Focused</span>
+                  <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">24/7 Support</span>
                 </div>
               </div>
             </div>
@@ -359,70 +335,38 @@ const DesktopAboutPage = () => (
     <WhatMakesUsDifferent />
 
     {/* Our Promise */}
-    <section className="w-full py-16 lg:py-20 px-4 lg:px-6 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left side - Image */}
-          <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-100/50 to-purple-100/50 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
-              <div className="relative bg-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 group-hover:scale-102 group-hover:shadow-2xl">
-                <img
-                  src={laggageIcon}
-                  alt="Travel luggage"
-                  className="w-full max-w-sm mx-auto"
-                />
-              </div>
+    <section className="w-full py-16 lg:py-20 px-4 lg:px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Title */}
+        <h2 className="text-4xl lg:text-5xl font-black mb-16 text-center lg:text-left">
+          <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+            Our Promise
+          </span>
+        </h2>
+
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          {/* Left side - Image (3 columns) */}
+          <div className="order-2 lg:order-1 lg:col-span-3 flex justify-center lg:justify-start">
+            <div className="bg-white rounded-3xl p-12 lg:p-16 shadow-xl">
+              <img
+                src={laggageIcon}
+                alt="Travel luggage with heart sticker"
+                className="w-full max-w-md lg:max-w-lg mx-auto"
+              />
             </div>
           </div>
 
-          {/* Right side - Content */}
-          <div className="order-1 lg:order-2 space-y-8">
+          {/* Right side - Content (2 columns) */}
+          <div className="order-1 lg:order-2 lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent mb-6">
-                Our Promise
-              </h2>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-medium mb-8">
                 We know your time is valuable. We also know how important your travel plans are — whether it's for love, work, family, or adventure. That's why we handle your application as if it were our own. With GetVisaGo, you're not just filling out a form — you're partnering with a reliable service that's always on your side.
               </p>
-            </div>
 
-            <div className="bg-gradient-to-r from-teal-50 to-purple-50 rounded-2xl p-8 border border-teal-100 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-1 h-16 bg-gradient-to-b from-teal-400 to-purple-500 rounded-full"></div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Our Commitment</h3>
-                  <p className="text-gray-800 text-lg leading-relaxed">
-                    <strong>We double-check your documents, keep you updated, and handle any rejections or errors as fast as possible.</strong> If we ever make a mistake — we take full responsibility.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <FaRegCheckCircle className="text-white text-xl" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-1">100% Secure</h4>
-                <p className="text-sm text-gray-600">Bank-level encryption</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <FaBolt className="text-white text-xl" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-1">Fast Response</h4>
-                <p className="text-sm text-gray-600">Within 24 hours</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <FaUsers className="text-white text-xl" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-1">Full Support</h4>
-                <p className="text-sm text-gray-600">Expert assistance</p>
+              <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border-l-4 border-teal-400">
+                <p className="text-lg lg:text-xl text-gray-900 leading-relaxed font-semibold">
+                  We double-check your documents, keep you updated, and handle any rejections or errors as fast as possible. If we ever make a mistake — we take full responsibility.
+                </p>
               </div>
             </div>
           </div>
@@ -749,68 +693,122 @@ const MobileAboutPage = () => (
     <WhatMakesUsDifferent />
 
     {/* Our Promise Mobile */}
-    <section className="w-full py-8 px-4 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-full mx-auto">
-        <div className="space-y-8">
-          {/* Image */}
+    <section className="w-full py-16 px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-cyan-50"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-teal-100/20 to-transparent rounded-full blur-2xl"></div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-100/20 to-transparent rounded-full blur-2xl"></div>
+
+      <div className="relative max-w-full mx-auto">
+        <div className="space-y-12">
+          {/* Enhanced Header */}
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-100 to-purple-100 rounded-full px-4 py-2 border border-teal-200/50">
+              <div className="w-1.5 h-1.5 bg-gradient-to-r from-teal-400 to-purple-500 rounded-full animate-pulse"></div>
+              <span className="text-xs font-semibold text-gray-700">Our Commitment to You</span>
+            </div>
+
+            <h2 className="text-3xl font-black leading-tight">
+              <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-purple-600 bg-clip-text text-transparent">
+                Our Promise
+              </span>
+            </h2>
+
+            <div className="w-16 h-1 bg-gradient-to-r from-teal-400 to-purple-600 rounded-full mx-auto"></div>
+          </div>
+
+          {/* Enhanced Image */}
           <div className="flex justify-center">
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-100/50 to-purple-100/50 rounded-2xl blur-xl opacity-40"></div>
-              <div className="relative bg-white rounded-2xl p-6 shadow-xl">
+              {/* Floating decorative elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl rotate-12 opacity-30 group-hover:rotate-45 transition-transform duration-500"></div>
+              <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-40 group-hover:scale-125 transition-transform duration-300"></div>
+              <div className="absolute top-1/2 -right-2 w-3 h-3 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
+
+              {/* Main image container */}
+              <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-white/50 backdrop-blur-sm transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-50/30 to-purple-50/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img
                   src={laggageIcon}
-                  alt="Travel luggage"
-                  className="w-full max-w-xs mx-auto"
+                  alt="Travel luggage with heart sticker"
+                  className="relative z-10 w-full max-w-[200px] mx-auto transform transition-transform duration-300 group-hover:scale-110"
                 />
+
+                {/* Shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 rounded-3xl"></div>
               </div>
+
+              {/* Background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-200/15 to-purple-200/15 rounded-3xl blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
 
           {/* Content */}
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-2xl font-extrabold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent mb-4 text-center">
-                Our Promise
-              </h2>
-              <p className="text-gray-700 text-sm leading-relaxed text-center">
-                We know your time is valuable. We also know how important your travel plans are — whether it's for love, work, family, or adventure. That's why we handle your application as if it were our own. With GetVisaGo, you're not just filling out a form — you're partnering with a reliable service that's always on your side.
-              </p>
+          <div className="space-y-8">
+            <p className="text-lg text-gray-700 leading-relaxed text-center font-medium">
+              We know your time is valuable. We also know how important your travel plans are — whether it's for love, work, family, or adventure.
+            </p>
+
+            {/* Enhanced Commitment Card */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 to-purple-500/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative bg-white/90 backdrop-blur-lg rounded-2xl p-6 border border-white/50 shadow-xl">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-1.5 h-16 bg-gradient-to-b from-teal-400 via-cyan-500 to-purple-600 rounded-full"></div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <span>Our Commitment</span>
+                      <div className="w-6 h-6 bg-gradient-to-br from-teal-400 to-purple-500 rounded-full flex items-center justify-center">
+                        <FaHeart className="text-white text-xs" />
+                      </div>
+                    </h3>
+                    <p className="text-base text-gray-800 leading-relaxed">
+                      <strong className="text-gray-900">We double-check your documents, keep you updated, and handle any rejections or errors as fast as possible.</strong> If we ever make a mistake — we take full responsibility.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-r from-teal-50 to-purple-50 rounded-xl p-6 border border-teal-100 shadow-lg">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-1 h-12 bg-gradient-to-b from-teal-400 to-purple-500 rounded-full"></div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Our Commitment</h3>
-                  <p className="text-gray-800 text-sm leading-relaxed">
-                    <strong>We double-check your documents, keep you updated, and handle any rejections or errors as fast as possible.</strong> If we ever make a mistake — we take full responsibility.
-                  </p>
+            {/* Enhanced Key Features */}
+            <div className="space-y-4">
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-100 to-green-100 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white rounded-2xl p-5 shadow-lg border border-emerald-100 flex items-center gap-4 transform transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <FaRegCheckCircle className="text-white text-lg" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">100% Secure</h4>
+                    <p className="text-sm text-gray-600">Bank-level encryption & data protection</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Key Features */}
-            <div className="grid grid-cols-1 gap-3">
-              <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100 text-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mx-auto mb-2 flex items-center justify-center">
-                  <FaRegCheckCircle className="text-white text-lg" />
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white rounded-2xl p-5 shadow-lg border border-cyan-100 flex items-center gap-4 transform transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <FaBolt className="text-white text-lg" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Lightning Fast</h4>
+                    <p className="text-sm text-gray-600">Response within 24 hours guaranteed</p>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">100% Secure</h4>
-                <p className="text-xs text-gray-600">Bank-level encryption</p>
               </div>
-              <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100 text-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full mx-auto mb-2 flex items-center justify-center">
-                  <FaBolt className="text-white text-lg" />
+
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-violet-100 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300"></div>
+                <div className="relative bg-white rounded-2xl p-5 shadow-lg border border-purple-100 flex items-center gap-4 transform transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-500 rounded-xl flex items-center justify-center shadow-md transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <FaUsers className="text-white text-lg" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Expert Support</h4>
+                    <p className="text-sm text-gray-600">Dedicated visa specialists 24/7</p>
+                  </div>
                 </div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">Fast Response</h4>
-                <p className="text-xs text-gray-600">Within 24 hours</p>
-              </div>
-              <div className="bg-white rounded-lg p-4 shadow-md border border-gray-100 text-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full mx-auto mb-2 flex items-center justify-center">
-                  <FaUsers className="text-white text-lg" />
-                </div>
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">Full Support</h4>
-                <p className="text-xs text-gray-600">Expert assistance</p>
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaRegClock, FaGlobeAmericas, FaRegSmile, FaRegCheckCircle, FaUsers, FaRocket, FaHeart, FaLaptop, FaBolt, FaCompass, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useState } from 'react';
 import useWindowSize from '../hooks/useWindowSize';
@@ -55,7 +56,9 @@ const differenceData = [
 
 const WhatMakesUsDifferent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const itemsPerSlide = 3;
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
+  const itemsPerSlide = isMobile ? 1 : 3;
   const totalSlides = Math.ceil(differenceData.length / itemsPerSlide);
 
   const nextSlide = () => {
@@ -70,6 +73,69 @@ const WhatMakesUsDifferent = () => {
     const startIndex = currentSlide * itemsPerSlide;
     return differenceData.slice(startIndex, startIndex + itemsPerSlide);
   };
+
+  if (isMobile) {
+    return (
+      <section className="w-full py-12 px-4 bg-gradient-to-br from-purple-50 to-cyan-50">
+        <div className="max-w-full mx-auto">
+          <h2 className="text-2xl font-extrabold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent mb-8 text-center">
+            What Makes Us Different
+          </h2>
+
+          <div className="relative">
+            <div className="overflow-hidden rounded-3xl">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                {differenceData.map((item) => (
+                  <div key={item.id} className="w-full flex-shrink-0 px-2">
+                    <div className="bg-white rounded-3xl p-8 shadow-xl border border-white/50 text-center group hover:shadow-2xl transition-all duration-300">
+                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 mx-auto mb-6 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110">
+                        <item.icon className="text-white text-3xl" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-4 leading-tight">{item.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="flex justify-between items-center mt-6">
+              <button
+                onClick={prevSlide}
+                className="w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl flex items-center justify-center text-purple-600 transition-all duration-300 hover:scale-105"
+              >
+                <FaChevronLeft size={16} />
+              </button>
+
+              {/* Dots indicator */}
+              <div className="flex gap-2">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                      ? 'bg-purple-600 scale-125'
+                      : 'bg-purple-200 hover:bg-purple-300'
+                      }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                className="w-12 h-12 rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-xl flex items-center justify-center text-white transition-all duration-300 hover:scale-105"
+              >
+                <FaChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full py-16 lg:py-20 px-4 lg:px-6 bg-white">
@@ -151,21 +217,54 @@ const StatCard = ({ value, label, Icon }) => (
 const DesktopAboutPage = () => (
   <main className="w-full bg-white">
     {/* Hero */}
-    <section className="relative max-w-6xl mx-auto pt-8 lg:pt-12 px-4 lg:px-6">
-      <div className="relative overflow-hidden rounded-3xl">
-        <img src={aboutHero} alt="Travel Banner" className="w-full h-[400px] lg:h-[450px] object-cover" />
-
-        {/* Text card positioned over the image - exactly like in mockup */}
-        <div className="absolute top-1/2 left-4 lg:left-12 -translate-y-1/2">
-          <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-10 max-w-[480px]">
-            <div className="space-y-0">
-              <p className="text-2xl lg:text-4xl font-extrabold leading-tight">
-                <span className="text-[#00B09B]">Travel Easy. </span>
-                <span className="text-[#8E2DE2]">Travel Smart.</span>
-              </p>
-              <p className="text-2xl lg:text-4xl font-extrabold text-[#00B09B] leading-tight">Travel with GetVisaGo.</p>
-            </div>
+    <section className="relative max-w-7xl mx-auto pt-8 lg:pt-12 px-4 lg:px-6">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Left side - Text content */}
+        <div className="order-2 lg:order-1 flex flex-col justify-center space-y-6 lg:pr-8">
+          <div className="space-y-2">
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight">
+              <span className="block text-[#00B09B]">Travel Easy.</span>
+              <span className="block text-[#8E2DE2]">Travel Smart.</span>
+              <span className="block text-[#00B09B]">Travel with GetVisaGo.</span>
+            </h1>
           </div>
+
+          <div className="w-16 h-1 bg-gradient-to-r from-teal-400 to-purple-600 rounded-full"></div>
+
+          <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg">
+            Your trusted partner in fast, secure, and fully online e-Visa processing for over 30 countries worldwide.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <Link to="/visas" className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold rounded-2xl hover:from-teal-500 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Get Started
+            </Link>
+            <Link to="/about" className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-800 font-semibold rounded-2xl border-2 border-gray-200 hover:border-purple-300 hover:text-purple-600 transition-all duration-300 shadow-md hover:shadow-lg">
+              Learn More
+            </Link>
+          </div>
+        </div>
+
+        {/* Right side - Image */}
+        <div className="order-1 lg:order-2 relative">
+          <div className="relative overflow-hidden rounded-3xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <img
+              src={aboutHero}
+              alt="Travel Banner"
+              className="w-full h-[400px] lg:h-[500px] object-cover shadow-2xl"
+            />
+
+            {/* Gradient overlay for better visual appeal */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+            {/* Floating elements */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full animate-bounce delay-300"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full animate-bounce delay-700"></div>
+            <div className="absolute top-1/2 -right-6 w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
+          </div>
+
+          {/* Background decoration */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-teal-100 to-purple-100 rounded-3xl -z-10 opacity-30 blur-xl"></div>
         </div>
       </div>
     </section>
@@ -644,91 +743,7 @@ const MobileAboutPage = () => (
       </div>
     </section>
 
-    {/* Join Thousands Banner Mobile */}
-    <section className="w-full py-8 px-4 bg-white flex items-center justify-center">
-      <div className="relative max-w-full w-full h-80 rounded-2xl overflow-hidden">
-        {/* Background Image */}
-        <img
-          src={backgroundAboutUs}
-          alt="Office background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/80 via-cyan-500/70 to-purple-600/80"></div>
-
-        {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-          <h2 className="text-white font-black text-xl leading-tight mb-4">
-            Join Thousands of Happy Travelers
-          </h2>
-
-          <p className="text-white font-semibold text-sm leading-relaxed">
-            We've already helped thousands of Indian travelers get their visas faster and with less stress.
-            Our average processing time is under 48 hours, and our support team answers most queries in under 15 minutes.
-          </p>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute top-2 right-2 w-12 h-12 bg-white/10 rounded-full backdrop-blur-sm"></div>
-        <div className="absolute bottom-2 left-2 w-8 h-8 bg-white/10 rounded-full backdrop-blur-sm"></div>
-      </div>
-    </section>
-
-    {/* Action Cards Mobile */}
-    <section className="w-full py-8 px-4 bg-white">
-      <div className="max-w-full mx-auto space-y-6">
-        {/* Ready to travel Card */}
-        <div className="relative bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-100 to-purple-100 rounded-xl px-4 py-2 border border-teal-200">
-              <span className="text-2xl">✈️</span>
-              <h3 className="text-lg font-black bg-gradient-to-r from-teal-500 to-purple-600 bg-clip-text text-transparent">
-                Ready to travel?
-              </h3>
-            </div>
-
-            <p className="text-gray-800 text-sm leading-relaxed">
-              Find your country. Upload your documents. Pay online. And go.
-            </p>
-
-            <div className="flex justify-center">
-              <img
-                src={buttonMaster}
-                alt="Get Visa Button"
-                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-xl max-w-full h-auto"
-                style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))' }}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Start application Card */}
-        <div className="relative bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-xl px-4 py-2 border border-teal-200">
-              <span className="text-2xl">👉</span>
-              <h3 className="text-lg font-black bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">
-                Start application now
-              </h3>
-            </div>
-
-            <p className="text-gray-800 text-sm leading-relaxed">
-              Have a question? Message us on WhatsApp or email — we're available 24/7.
-            </p>
-
-            <div className="flex justify-center">
-              <img
-                src={buttonStart}
-                alt="Start Button"
-                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-xl max-w-full h-auto"
-                style={{ filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15))' }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     {/* What Makes Us Different Mobile */}
     <WhatMakesUsDifferent />

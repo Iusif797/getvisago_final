@@ -288,43 +288,71 @@ const DesktopAboutPage = () => (
     </section>
 
     {/* Who We Are */}
-    <section className="max-w-5xl mx-auto mt-12 lg:mt-20 px-4 lg:px-6">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-8 lg:mb-12 text-center lg:text-left">
-        <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
-          Who We Are
-        </span>
-      </h2>
+    <section className="max-w-7xl mx-auto mt-12 lg:mt-20 px-4 lg:px-6">
+      {/* Desktop Layout */}
+      <div className="hidden lg:block">
+        {/* Title positioned above everything */}
+        <h2 className="text-4xl font-extrabold text-left mb-8">
+          <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
+            Who We Are
+          </span>
+        </h2>
 
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-        {/* Simple Icon */}
-        <div className="flex-shrink-0">
-          <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-xl">
-            <FaUsers className="text-white text-4xl sm:text-5xl lg:text-6xl" />
+        <div className="grid grid-cols-12 gap-8 items-start">
+          {/* Left Circle with Icon */}
+          <div className="col-span-3">
+            <div className="w-full aspect-square rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-xl">
+              <FaUsers className="text-white text-6xl lg:text-7xl" />
+            </div>
           </div>
-        </div>
 
-        {/* Content */}
-        <div className="flex-1 space-y-6 text-center lg:text-left">
-          <p className="text-gray-700 text-base lg:text-lg leading-relaxed">
-            We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
-          </p>
+          {/* Right Content */}
+          <div className="col-span-9">
+            <div className="space-y-8">
+              {/* Main Text */}
+              <p className="text-gray-800 text-lg leading-relaxed">
+                We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
+              </p>
 
-          {/* Highlight card */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 border-l-4 border-teal-400">
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg flex items-center justify-center mx-auto sm:mx-0">
-                <img src={handRight} alt="thumbs up" className="w-5 h-5 brightness-0 invert" />
-              </div>
-              <div className="text-center sm:text-left">
-                <p className="text-[#00B09B] font-bold text-base lg:text-lg leading-relaxed mb-3">
-                  Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
-                </p>
-                <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
-                  <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">UK-Based</span>
-                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">India-Focused</span>
-                  <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">24/7 Support</span>
+              {/* Highlight Card - positioned below text, wider and centered vertically with hand icon */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 max-w-2xl">
+                <div className="flex items-center gap-4">
+                  <img src={handRight} alt="thumbs up" className="w-8 h-8 flex-shrink-0" />
+                  <p className="text-[#00B09B] font-black text-lg leading-snug">
+                    Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
+                  </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Layout */}
+      <div className="block lg:hidden">
+        <div className="flex flex-col items-center space-y-8">
+          {/* Circle */}
+          <div className="w-40 h-40 rounded-full bg-gray-300"></div>
+
+          {/* Title and Text */}
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-extrabold">
+              <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 bg-clip-text text-transparent">
+                Who We Are
+              </span>
+            </h2>
+            <p className="text-gray-800 text-base leading-relaxed">
+              We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
+            </p>
+          </div>
+
+          {/* Highlight Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 w-full">
+            <div className="flex items-start gap-4">
+              <img src={handRight} alt="thumbs up" className="w-8 h-8 flex-shrink-0 mt-1" />
+              <p className="text-[#00B09B] font-bold text-base leading-snug">
+                Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
+              </p>
             </div>
           </div>
         </div>
@@ -522,37 +550,9 @@ const DesktopAboutPage = () => (
       </div>
     </section>
 
-    {/* Stats */}
-    <section className="w-full py-16 lg:py-24 bg-white">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto px-4 lg:px-6">
-        {stats.map(({ id, value, label, icon }) => (
-          <StatCard key={id} value={value} label={label} Icon={icon} />
-        ))}
-      </div>
-    </section>
 
-    {/* Mission */}
-    <section className="py-16 lg:py-24 px-4 lg:px-6 max-w-5xl mx-auto">
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
-        <div className="text-center lg:text-left">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-violet-600 bg-clip-text text-transparent">
-            Our Mission
-          </h2>
-          <p className="text-gray-700 text-base lg:text-lg leading-relaxed">
-            We eliminate the complexity of visa applications so you can focus on planning your journey. Our cutting-edge platform, expert team, and customer-centric approach guarantee a seamless, secure, and lightning-fast experience for travellers worldwide.
-          </p>
-        </div>
-        <div className="bg-white/60 backdrop-blur-lg rounded-2xl lg:rounded-3xl p-6 lg:p-12 shadow-2xl border border-white/40">
-          <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-gray-800 text-center lg:text-left">Why Choose GetVisaGo?</h3>
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start justify-center lg:justify-start"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />Transparent, flat pricing with no hidden fees.</li>
-            <li className="flex items-start justify-center lg:justify-start"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />AI-powered form validation to minimise errors.</li>
-            <li className="flex items-start justify-center lg:justify-start"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />24/7 multilingual human support.</li>
-            <li className="flex items-start justify-center lg:justify-start"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />Bank-level security & data encryption.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+
+
 
     {/* Reviews */}
     <DesktopReviews />
@@ -655,37 +655,9 @@ const MobileAboutPage = () => (
       </div>
     </section>
 
-    {/* Stats */}
-    <section className="w-full py-16 bg-white">
-      <div className="grid grid-cols-2 gap-4 max-w-full mx-auto px-4">
-        {stats.map(({ id, value, label, icon }) => (
-          <StatCard key={id} value={value} label={label} Icon={icon} />
-        ))}
-      </div>
-    </section>
 
-    {/* Mission */}
-    <section className="py-16 px-4 max-w-full mx-auto">
-      <div className="space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-emerald-500 to-violet-600 bg-clip-text text-transparent">
-            Our Mission
-          </h2>
-          <p className="text-gray-700 text-base leading-relaxed">
-            We eliminate the complexity of visa applications so you can focus on planning your journey. Our cutting-edge platform, expert team, and customer-centric approach guarantee a seamless, secure, and lightning-fast experience for travellers worldwide.
-          </p>
-        </div>
-        <div className="bg-white/60 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/40">
-          <h3 className="text-xl font-semibold mb-4 text-gray-800 text-center">Why Choose GetVisaGo?</h3>
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start justify-center"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />Transparent, flat pricing with no hidden fees.</li>
-            <li className="flex items-start justify-center"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />AI-powered form validation to minimise errors.</li>
-            <li className="flex items-start justify-center"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />24/7 multilingual human support.</li>
-            <li className="flex items-start justify-center"><FaRegCheckCircle className="text-emerald-500 mt-1 mr-2 flex-shrink-0" />Bank-level security & data encryption.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+
+
 
 
 

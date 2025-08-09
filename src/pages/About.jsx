@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaRegClock, FaGlobeAmericas, FaRegSmile, FaRegCheckCircle, FaUsers, FaRocket, FaHeart, FaLaptop, FaBolt, FaCompass, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useState } from 'react';
 import useWindowSize from '../hooks/useWindowSize';
-import aboutHero from '../assets/about_us.png';
+import aboutHero from '../assets/about_us_banner.png';
 import backgroundImg from '../assets/background.png';
 import buttonApply from '../assets/button_visa_apply.svg';
 import DesktopReviews from '../components/Reviews/DesktopReviews';
@@ -84,7 +84,7 @@ const WhatMakesUsDifferent = () => {
       <section className="w-full pt-12 pb-16 px-4 bg-white">
         <div className="max-w-full mx-auto">
           <div className="flex items-start justify-between">
-            <h2 className="text-[32px] font-black leading-[1.15] bg-gradient-to-r from-teal-400 via-cyan-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-[34px] font-black leading-[1.05] tracking-[-0.01em] bg-gradient-to-r from-[#04C495] via-[#49A9FF] to-[#8A7FFF] bg-clip-text text-transparent">
               What
               <br />
               Makes Us
@@ -93,11 +93,13 @@ const WhatMakesUsDifferent = () => {
             </h2>
 
             <div className="flex gap-3 mt-2">
-              <button onClick={prevSlide} className="w-12 h-12 rounded-xl bg-[#7C4DFF]/90 active:scale-95 transition-transform shadow-md flex items-center justify-center">
-                <img src={arrowLeft} alt="prev" className="w-6 h-6" />
+              <button onClick={prevSlide} className="relative w-14 h-14 rounded-2xl bg-[#7C4DFF] shadow-xl active:scale-95 transition-transform flex items-center justify-center">
+                <div className="absolute inset-0 rounded-2xl bg-white/10" />
+                <img src={arrowLeft} alt="prev" className="relative w-6 h-6" />
               </button>
-              <button onClick={nextSlide} className="w-12 h-12 rounded-xl bg-[#7C4DFF]/90 active:scale-95 transition-transform shadow-md flex items-center justify-center">
-                <img src={arrowRight} alt="next" className="w-6 h-6" />
+              <button onClick={nextSlide} className="relative w-14 h-14 rounded-2xl bg-[#7C4DFF] shadow-xl active:scale-95 transition-transform flex items-center justify-center">
+                <div className="absolute inset-0 rounded-2xl bg-white/10" />
+                <img src={arrowRight} alt="next" className="relative w-6 h-6" />
               </button>
             </div>
           </div>
@@ -108,9 +110,12 @@ const WhatMakesUsDifferent = () => {
                 {differenceData.map((item) => (
                   <div key={item.id} className="w-full flex-shrink-0">
                     <div className="flex flex-col items-start">
-                      <div className="w-[320px] h-[320px] rounded-full mx-auto bg-[#C7A6FF] shadow-[0_12px_40px_rgba(124,77,255,0.25)]"></div>
-                      <h3 className="mt-8 text-[28px] font-extrabold text-gray-900">{item.title}</h3>
-                      <p className="mt-3 text-gray-700 text-base leading-7 max-w-[90%]">
+                      <div className="relative mx-auto">
+                        <div className="w-[320px] h-[320px] rounded-full bg-gradient-to-b from-[#C9B2FF] via-[#B495FF] to-[#A07BFF] shadow-[0_24px_60px_rgba(124,77,255,0.28)] ring-8 ring-white/50"></div>
+                        <div className="absolute inset-0 rounded-full bg-white/10"></div>
+                      </div>
+                      <h3 className="mt-8 text-[28px] font-black text-gray-900 tracking-[-0.01em]">{item.title}</h3>
+                      <p className="mt-3 text-gray-700 text-[16px] leading-[1.6] max-w-[90%]">
                         {item.description}
                       </p>
                     </div>
@@ -120,10 +125,10 @@ const WhatMakesUsDifferent = () => {
             </div>
 
             {/* Dots */}
-            <div className="mt-6 flex gap-2 justify-center">
+            <div className="mt-6 flex gap-3 justify-center">
               {Array.from({ length: totalSlides }).map((_, index) => (
                 <button key={index} onClick={() => setCurrentSlide(index)}
-                  className={`w-2.5 h-2.5 rounded-full ${index === currentSlide ? 'bg-[#7C4DFF]' : 'bg-[#E0D5FF]'}`}
+                  className={`w-2.5 h-2.5 rounded-full transition-transform ${index === currentSlide ? 'bg-[#7C4DFF] scale-125' : 'bg-[#E0D5FF]'}`}
                 />
               ))}
             </div>
@@ -217,12 +222,12 @@ const DesktopAboutPage = () => (
       <div className="max-w-6xl mx-auto px-4 lg:px-6">
         <div className="relative h-[440px] lg:h-[480px]">
           {/* Image block aligned to the right */}
-          <div className="absolute right-0 top-0 h-full w-[820px] lg:w-[860px] rounded-[28px] overflow-hidden shadow-2xl">
+          <div className="absolute right-0 top-0 h-full w-[700px] lg:w-[780px] rounded-[28px] overflow-hidden shadow-2xl">
             <img src={aboutHero} alt="Travel Banner" className="w-full h-full object-cover" />
           </div>
 
           {/* White text card overlapping the image from the left */}
-          <div className="absolute left-2 lg:left-4 top-1/2 -translate-y-[46%] bg-white rounded-[26px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] px-6 py-5 lg:px-8 lg:py-6 w-[620px] lg:w-[700px]">
+          <div className="absolute left-2 lg:left-4 top-1/2 -translate-y-[46%] bg-white rounded-[26px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] px-7 py-5 lg:px-9 lg:py-6 w-[640px] lg:w-[720px]">
             <h1 className="font-black leading-[1.08] text-[38px] sm:text-[44px] lg:text-[52px] tracking-[-0.01em]">
               <span className="whitespace-nowrap bg-gradient-to-r from-[#04C495] to-[#8A7FFF] bg-clip-text text-transparent">Travel Easy. Travel Smart.</span>
               <br />
@@ -257,7 +262,7 @@ const DesktopAboutPage = () => (
         {/* Desktop Layout */}
         <div className="hidden lg:block">
           {/* Title */}
-          <h2 className="text-4xl font-extrabold text-left mb-8">
+          <h2 className="text-4xl lg:text-[44px] font-black tracking-[-0.01em] text-left mb-8">
             <span className="bg-gradient-to-r from-[#04C495] to-[#8A7FFF] bg-clip-text text-transparent">
               Who We Are
             </span>
@@ -273,14 +278,14 @@ const DesktopAboutPage = () => (
 
             {/* Right: Paragraph and highlight card */}
             <div className="col-span-7">
-              <p className="text-gray-800 text-lg leading-8">
+              <p className="text-gray-900 text-[18px] leading-[1.6] tracking-[0] max-w-[720px]">
                 We are a team of travel professionals, legal experts, and tech enthusiasts united by one goal — to simplify the visa process. With years of experience, our founders saw how confusing and stressful visa applications could be. That's why we built GetVisaGo: a transparent, mobile-friendly, 100% online visa service designed for real people — like you.
               </p>
 
               <div className="mt-8 bg-white rounded-2xl shadow-xl p-8">
-                <div className="flex items-start gap-5">
+                <div className="flex items-center gap-5">
                   <img src={handRight} alt="thumbs up" className="w-12 h-12 flex-shrink-0" />
-                  <p className="text-[#04C495] font-black text-2xl leading-snug">
+                  <p className="text-[#04C495] font-extrabold text-[22px] lg:text-[24px] leading-[1.35] tracking-[-0.01em]">
                     Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
                   </p>
                 </div>
@@ -311,7 +316,7 @@ const DesktopAboutPage = () => (
             <div className="bg-white rounded-2xl shadow-lg p-6 w-full">
               <div className="flex items-start gap-4">
                 <img src={handRight} alt="thumbs up" className="w-8 h-8 flex-shrink-0 mt-1" />
-                <p className="text-[#00B09B] font-bold text-base leading-snug">
+                <p className="text-[#04C495] font-extrabold text-[16px] leading-[1.4] tracking-[-0.01em]">
                   Our operations are based in the United Kingdom, but our heart beats for India's smart and ambitious travelers, especially those aged 25 to 45 who value speed, clarity, and real-time support.
                 </p>
               </div>
@@ -358,7 +363,7 @@ const DesktopAboutPage = () => (
     {/* Countries We Cover */}
     <section className="w-full py-16 lg:py-20 px-5 lg:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent mb-12">
+        <h2 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-[#04C495] to-[#8A7FFF] bg-clip-text text-transparent mb-12">
           Countries We Cover
         </h2>
 
@@ -413,9 +418,19 @@ const DesktopAboutPage = () => (
       </div>
     </section>
 
+    {/* Desktop hint above banner */}
+    <div className="hidden lg:block px-6">
+      <div className="max-w-6xl mx-auto text-center mb-6">
+        <p className="text-[20px] font-black text-gray-900 leading-tight">
+          Looking for a specific country? Just check our
+          <Link to="/visas" className="ml-2 text-[#7C4DFF] underline font-extrabold">visas page</Link>
+        </p>
+      </div>
+    </div>
+
     {/* Join Thousands Banner */}
-    <section className="w-full py-16 px-4 lg:px-6 bg-white flex items-center justify-center">
-      <div className="relative max-w-6xl w-full h-96 lg:h-[400px] rounded-3xl overflow-hidden">
+    <section className="w-full py-12 px-5 lg:px-6 bg-white flex items-center justify-center">
+      <div className="relative max-w-6xl w-full h-96 lg:h-[400px] rounded-[24px] overflow-hidden">
         {/* Background Image */}
         <img
           src={backgroundAboutUs}
@@ -424,15 +439,15 @@ const DesktopAboutPage = () => (
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/80 via-cyan-500/70 to-purple-600/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04C495]/85 via-[#6F78FF]/80 to-[#8A7FFF]/85"></div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 lg:px-12 text-center">
-          <h2 className="text-white font-black text-2xl lg:text-4xl xl:text-5xl leading-tight mb-6 max-w-4xl">
+          <h2 className="text-white font-black text-[26px] lg:text-[36px] leading-tight mb-6 max-w-4xl">
             Join Thousands of Happy Travelers
           </h2>
 
-          <p className="text-white font-semibold text-base lg:text-xl xl:text-2xl leading-relaxed max-w-4xl">
+          <p className="text-white font-extrabold text-[18px] lg:text-[22px] leading-[1.4] max-w-5xl">
             We've already helped thousands of Indian travelers get their visas faster and with less stress.
             Our average processing time is under 48 hours, and our support team answers most queries in under 15 minutes.
           </p>
@@ -650,12 +665,13 @@ const MobileAboutPage = () => (
 
     {/* Join Thousands of Happy Travelers (mobile) */}
     <section className="w-full mt-6 px-4">
-      <div className="relative w-full rounded-2xl overflow-hidden">
+      <div className="relative w-full overflow-hidden rounded-2xl">
         <img src={backgroundAboutUs} alt="office background" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#04C495E6] via-[#6F78FFE0] to-[#8A7FFFCC]" />
-        <div className="relative z-10 px-5 py-8 text-center text-white">
-          <h3 className="text-2xl font-black leading-snug mb-4">Join Thousands of Happy Travelers</h3>
-          <p className="text-base font-semibold leading-6">
+        <div className="absolute inset-0 bg-[linear-gradient(131deg,rgba(4,196,149,0.95)_0%,rgba(140,74,255,0.92)_100%)]" />
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="relative z-10 px-5 py-10 text-center text-white">
+          <h3 className="text-[24px] font-black leading-[1.22] tracking-[-0.01em] mb-5">Join Thousands of Happy Travelers</h3>
+          <p className="text-[20px] font-black leading-[1.55] tracking-[0]">
             We've already helped thousands of Indian travelers get their visas faster and with less stress. Our average processing time is under 48 hours, and our support team answers most queries in under 15 minutes.
           </p>
         </div>

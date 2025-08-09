@@ -4,6 +4,7 @@ import useWindowSize from '../hooks/useWindowSize';
 import { FaUser, FaEnvelope, FaPhone, FaHome, FaMinus, FaPlus, FaChevronLeft, FaInfoCircle, FaMapMarkerAlt, FaPencilAlt, FaUpload, FaHourglassHalf, FaRegCreditCard, FaPaypal, FaApple, FaGoogle } from 'react-icons/fa';
 import { FaPlaneDeparture, FaRegCalendarDays, FaArrowsLeftRight } from "react-icons/fa6";
 import { CustomRadio, DateSelector, GenericFlagIcon, ProgressBar } from '../components/VisaForm/SharedComponents';
+import ErrorBoundary from '../components/ErrorBoundary';
 import { visaMeta as originalVisaMeta, malaysiaVisaOptions, sriLankaVisaOptions, bahrainVisaOptions, cambodiaVisaOptions, australiaVisaOptions } from '../data/visaData';
 import calendarIcon from '../assets/button_calendar.svg';
 import calendarIconDefault from '../assets/button_visa_apply.svg';
@@ -1922,32 +1923,46 @@ const VisaApplication = () => {
         );
     }
 
+    // Ensure desktop header/progress do not crash when meta.steps is undefined
+    const stepsList = Array.isArray(meta.steps) && meta.steps.length
+        ? meta.steps
+        : [
+            'Select visa type',
+            'Dates & purpose',
+            'Passport details',
+            'Personal information',
+            'Data verification',
+            'Payment',
+        ];
+
     return (
-        <div className="min-h-screen bg-gray-50 flex justify-center px-4 pt-4 pb-24 lg:items-center lg:py-8">
-            {isDesktop ? (
-                <div className="bg-white p-10 rounded-2xl shadow-xl w-full max-w-6xl mx-auto">
-                    <div className="grid grid-cols-2 gap-x-8 items-center mb-10">
-                        <h1 className="text-5xl font-bold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">
-                            {meta.steps[step - 1] || `Step ${step}`}
-                        </h1>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div
-                                className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out"
-                                style={{
-                                    width: `${(step / (meta.steps.length || 6)) * 100}%`
-                                }}
-                            ></div>
+        <ErrorBoundary>
+            <div className="min-h-screen bg-gray-50 flex justify-center px-4 pt-4 pb-24 lg:items-center lg:py-8">
+                {isDesktop ? (
+                    <div className="bg-white p-10 rounded-2xl shadow-xl w-full max-w-6xl mx-auto">
+                        <div className="grid grid-cols-2 gap-x-8 items-center mb-10">
+                            <h1 className="text-5xl font-bold bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">
+                                {stepsList[step - 1] || `Step ${step}`}
+                            </h1>
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                                <div
+                                    className="bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] h-2 rounded-full transition-all duration-500 ease-in-out"
+                                    style={{
+                                        width: `${(step / (stepsList.length || 6)) * 100}%`
+                                    }}
+                                ></div>
+                            </div>
                         </div>
+                        {renderDesktopStepContent()}
                     </div>
-                    {renderDesktopStepContent()}
-                </div>
-            ) : (
-                <div className={(countrySlug === 'srilanka' || countrySlug === 'cambodia' || countrySlug === 'australia' || countrySlug === 'azerbaijan' || countrySlug === 'turkey') ? "bg-neutral-100 w-full max-w-md mx-auto p-5" : "bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto"}>
-                    {(countrySlug !== 'srilanka' && countrySlug !== 'cambodia' && countrySlug !== 'australia' && countrySlug !== 'azerbaijan' && countrySlug !== 'turkey') && <ProgressBar currentStep={step} totalSteps={10} />}
-                    {renderMobileStepContent()}
-                </div>
-            )}
-        </div>
+                ) : (
+                    <div className={(countrySlug === 'srilanka' || countrySlug === 'cambodia' || countrySlug === 'australia' || countrySlug === 'azerbaijan' || countrySlug === 'turkey') ? "bg-neutral-100 w-full max-w-md mx-auto p-5" : "bg-white p-5 rounded-3xl shadow-xl w-full max-w-md mx-auto"}>
+                        {(countrySlug !== 'srilanka' && countrySlug !== 'cambodia' && countrySlug !== 'australia' && countrySlug !== 'azerbaijan' && countrySlug !== 'turkey') && <ProgressBar currentStep={step} totalSteps={10} />}
+                        {renderMobileStepContent()}
+                    </div>
+                )}
+            </div>
+        </ErrorBoundary>
     );
 };
 

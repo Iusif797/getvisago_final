@@ -19,7 +19,7 @@ const SocialMediaDocs = () => {
           <div className="flex flex-col items-center">
             <h2 className="text-emerald-500 text-2xl font-bold mb-4">Documents</h2>
             <div className="flex flex-col space-y-3 items-center">
-              <a href="#document1" className="text-gray-700 hover:text-violet-600">
+              <a href="/documents/my-document-1" className="text-gray-700 hover:text-violet-600">
                 My document 1
               </a>
               <a href="#document2" className="text-gray-700 hover:text-violet-600">
@@ -30,7 +30,7 @@ const SocialMediaDocs = () => {
               </a>
             </div>
           </div>
-          
+
           <div className="flex flex-col items-center">
             <h2 className="text-emerald-500 text-2xl font-bold mb-4">Social media</h2>
             <div className="flex space-x-4">
@@ -46,7 +46,7 @@ const SocialMediaDocs = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col items-center w-full max-w-md">
           <div className="flex items-center space-x-8 justify-center mb-4">
             <FaCcVisa size={48} className="text-blue-700" />
@@ -54,7 +54,7 @@ const SocialMediaDocs = () => {
               <img src={mastercardSvg} alt="MasterCard" className="w-full h-full" />
             </div>
           </div>
-          
+
           <div className="text-sm text-gray-500 text-center">
             <p>© 2023 GETVISAGO</p>
           </div>

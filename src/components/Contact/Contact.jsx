@@ -76,12 +76,12 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-            
+
             {/* Documents */}
             <div className="flex flex-col items-center">
               <h2 className="text-emerald-500 text-2xl font-bold mb-6 text-center">Documents</h2>
               <div className="flex flex-col space-y-3 items-center">
-                <a href="#document1" className="text-gray-700 hover:text-violet-600">
+                <a href="/documents/my-document-1" className="text-gray-700 hover:text-violet-600">
                   My document 1
                 </a>
                 <a href="#document2" className="text-gray-700 hover:text-violet-600">
@@ -92,7 +92,7 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-            
+
             {/* Social Media */}
             <div className="flex flex-col items-center">
               <h2 className="text-emerald-500 text-2xl font-bold mb-6 text-center">Social media</h2>
@@ -110,7 +110,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col items-center">
           <div className="text-sm text-gray-500 mb-6 text-center">
             <p>Address: 123 Visa Street, Digital City</p>

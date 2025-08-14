@@ -1,5 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import homePng from '../../assets/Vector_home.png';
+import homePngActive from '../../assets/Vector_homeSS.png';
+import statusPng from '../../assets/Vector_statusS.png';
+import statusPngActive from '../../assets/Vector_statusSS.png';
+import aboutPng from '../../assets/Vector_aboutUS.png';
+import aboutPngActive from '../../assets/Vector_aboutusSS.png';
+import visasPng from '../../assets/Vector_visas.png';
+import visasPngActive from '../../assets/Vector_visasSS.png';
+import contactsPng from '../../assets/Vector_Contacts.png';
+import contactsPngActive from '../../assets/Vector_contactsSS.png';
 
 // Inline SVG icons for perfect sharpness on all DPR/zoom levels.
 // Each icon accepts a color prop to match inactive/active state.
@@ -52,13 +62,13 @@ function PhoneIcon({ color }) {
   );
 }
 
-function MobileNavItem({ to, label, children, exact, isExternal }) {
+function MobileNavItem({ to, label, children, exact, isExternal, isActiveOverride }) {
   const baseClasses = 'flex flex-col items-center justify-center py-1.5';
   if (isExternal) {
     return (
-      <a href={to} className={`${baseClasses} text-gray-500`} aria-label={label}>
+      <a href={to} className={`${baseClasses} ${isActiveOverride ? 'text-[#7C3AED] font-semibold' : 'text-gray-500'}`} aria-label={label}>
         <div className="flex items-center justify-center">
-          {children(false)}
+          {children(!!isActiveOverride)}
         </div>
         <span className="mt-1 text-[13px] leading-none">{label}</span>
       </a>
@@ -73,7 +83,7 @@ function MobileNavItem({ to, label, children, exact, isExternal }) {
     >
       {({ isActive }) => (
         <>
-          <div className={`flex items-center justify-center ${isActive ? 'ring-2 ring-[#7C3AED] rounded-md p-1.5' : ''}`}>
+          <div className="flex items-center justify-center">
             {children(isActive)}
           </div>
           <span className="mt-1 text-[13px] leading-none">{label}</span>
@@ -84,23 +94,39 @@ function MobileNavItem({ to, label, children, exact, isExternal }) {
 }
 
 const MobileNavigation = () => {
+  const location = useLocation();
+  const isContactsActive = location.hash === '#contacts';
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur rounded-t-3xl shadow-[0_-6px_24px_rgba(0,0,0,0.06)] border-t border-gray-100 py-2 px-2">
-      <div className="grid grid-cols-4 items-center text-center max-w-md mx-auto">
-        <MobileNavItem to="/visas" label="Visas" exact>
-          {(active) => <VisaIcon color={active ? '#7C3AED' : '#6B7280'} outlined={active} />}
+    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur rounded-t-3xl shadow-[0_-6px_24px_rgba(0,0,0,0.06)] border-t border-gray-100 pt-3 pb-2 px-2">
+      <div className="grid grid-cols-5 items-center text-center max-w-md mx-auto">
+        <MobileNavItem to="/" label="Home" exact>
+          {(active) => (
+            <img src={active ? homePngActive : homePng} alt="Home" className="h-7 w-auto transition" />
+          )}
         </MobileNavItem>
 
         <MobileNavItem to="/visa-status" label="Status" exact>
-          {(active) => <StatusIcon color={active ? '#7C3AED' : '#6B7280'} />}
+          {(active) => (
+            <img src={active ? statusPngActive : statusPng} alt="Status" className="h-7 w-auto transition" />
+          )}
         </MobileNavItem>
 
         <MobileNavItem to="/about" label="About us" exact>
-          {(active) => <AboutIcon color={active ? '#7C3AED' : '#6B7280'} />}
+          {(active) => (
+            <img src={active ? aboutPngActive : aboutPng} alt="About us" className="h-7 w-auto transition" />
+          )}
         </MobileNavItem>
 
-        <MobileNavItem to="/#contacts" label="Contacts" isExternal>
-          {(active) => <PhoneIcon color={active ? '#7C3AED' : '#6B7280'} />}
+        <MobileNavItem to="/visas" label="Visas" exact>
+          {(active) => (
+            <img src={active ? visasPngActive : visasPng} alt="Visas" className="h-7 w-auto transition" />
+          )}
+        </MobileNavItem>
+
+        <MobileNavItem to="/#contacts" label="Contacts" isExternal isActiveOverride={isContactsActive}>
+          {(active) => (
+            <img src={active ? contactsPngActive : contactsPng} alt="Contacts" className="h-7 w-auto transition" />
+          )}
         </MobileNavItem>
       </div>
     </nav>

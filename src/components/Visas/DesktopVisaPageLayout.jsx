@@ -59,8 +59,8 @@ const DesktopVisaPageLayout = ({
                 </div>
             </div>
 
-            <div className="bg-gray-50 -mt-56 relative">
-                <div className="container mx-auto px-4 pt-8 pb-16">
+            <div className="bg-gray-50 mt-12 relative">
+                <div className="container mx-auto px-4 pt-20 pb-16">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         <span style={{ color: '#24a59a' }}>Select visa type</span>
                     </h2>
@@ -71,17 +71,17 @@ const DesktopVisaPageLayout = ({
                                     <h3 className="text-2xl font-bold" style={{ color: '#9c5ee5' }}>{visa.title}</h3>
                                     <img src={visa.icon} alt={visa.title} className="w-16 h-16" />
                                 </div>
-                                <div className="space-y-3 text-gray-700">
+                                <div className="space-y-3 text-gray-900">
                                     {visa.details.map((detail, i) => (
-                                        <div key={i} className="flex justify-between">
-                                            <span>{detail.label}:</span>
-                                            <span className="font-bold text-black">{detail.value}</span>
+                                        <div key={i} className="flex justify-between text-base">
+                                            <span className="font-semibold">{detail.label}:</span>
+                                            <span className="font-extrabold">{detail.value}</span>
                                         </div>
                                     ))}
                                 </div>
                                 <Link to={visa.applyLink}>
-                                    <button className="mt-8 w-full border-2 border-purple-400 text-purple-500 font-bold py-3 rounded-xl hover:bg-purple-500 hover:text-white transition-colors duration-300">
-                                        APPLY NOW
+                                    <button className="mt-8 w-full border-2 border-purple-500 text-purple-600 font-bold py-3 rounded-full hover:bg-purple-600 hover:text-white transition-colors duration-300">
+                                        BUY NOW
                                     </button>
                                 </Link>
                             </div>

@@ -1,50 +1,53 @@
 import React from 'react';
-import { FaIdCard, FaUsers } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import getVisaPng from '../../assets/button_getvisa_desctop.png';
+import aboutUsPng from '../../assets/button_aboutus_desctop.png';
 import firstBanner from '../../assets/first-banner.png';
 
 const DesktopHero = () => {
   return (
-    <div className="w-full flex items-center py-14 bg-[#F6F7FA] px-8 lg:px-16 xl:px-24 overflow-hidden">
-      {/* Левая колонка (текст) */}
-      <div className="w-1/2 pl-2 pr-8 z-10">
-        <h1 className="text-5xl xl:text-6xl font-bold mb-5 leading-tight">
-          <span className="text-[#00BFA5]">Fast and</span> <br />
-          <span className="text-[#7950ED]">Reliable eVisas</span>
-        </h1>
-        
-        <p className="text-visa-gray-800 text-lg mb-8 leading-relaxed">
-          Apply for eVisa to your dream destinations in minutes.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button className="flex items-center bg-[#7950ED] text-white font-semibold px-7 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
-            <span className="uppercase">Get Visa</span>
-            <span className="ml-3 bg-white rounded-full w-8 h-8 flex items-center justify-center">
-              <FaIdCard className="text-[#7950ED]" size={16} />
-            </span>
-          </button>
-          
-          <button className="flex items-center bg-white text-[#00BFA5] border-2 border-[#00BFA5] font-semibold px-7 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
-            <span className="uppercase">About Us</span>
-            <span className="ml-3 bg-[#00BFA5] rounded-full w-8 h-8 flex items-center justify-center">
-              <FaUsers className="text-white" size={16} />
-            </span>
-          </button>
+    <div className="w-full bg-[#F6F7FA] py-14 overflow-hidden">
+      <div className="w-full max-w-[1400px] mx-auto flex items-center px-4">
+        {/* Левая колонка (текст) */}
+        <div className="w-1/2 pr-10 z-10">
+          <h1
+            className="text-5xl xl:text-6xl font-extrabold mb-5 leading-tight text-transparent bg-clip-text"
+            style={{
+              backgroundImage:
+                'linear-gradient(90deg, #00BFA5 0%, #3B82F6 50%, #7C3AED 100%)',
+            }}
+          >
+            Fast and<br />
+            Reliable eVisas
+          </h1>
+
+          <p className="text-visa-gray-800 text-lg mb-6 leading-relaxed max-w-md">
+            Apply for eVisa to your dream destinations in minutes.
+          </p>
+
+          <div className="flex flex-col gap-4 mt-4">
+            <Link to="/visas" className="inline-block w-fit">
+              <img src={getVisaPng} alt="Get Visa" className="block w-auto h-[56px] select-none" draggable="false" />
+            </Link>
+            <Link to="/about" className="inline-block w-fit">
+              <img src={aboutUsPng} alt="About us" className="block w-auto h-[56px] select-none" draggable="false" />
+            </Link>
+          </div>
         </div>
-      </div>
-      
-      {/* Правая колонка (изображение) */}
-      <div className="w-1/2 relative flex justify-center items-center h-[500px] pl-8">
-        {/* Овальный фон */}
-        <div className="absolute right-8 w-[80%] h-[90%] bg-[#E8F5FF] rounded-full z-0"></div>
-        
-        {/* Телефон */}
-        <div className="relative z-10 transform -rotate-3 hover:rotate-0 transition-all duration-700">
-          <img 
-            src={firstBanner} 
-            alt="GETVISAGO Mobile App" 
-            className="h-[480px] drop-shadow-xl"
-          />
+
+        {/* Правая колонка (изображение) */}
+        <div className="w-1/2 relative flex justify-end items-center h-[500px] pr-0">
+          {/* Овальный фон */}
+          <div className="absolute right-32 w-[80%] h-[90%] bg-[#E8F5FF] rounded-full z-0"></div>
+
+          {/* Телефон */}
+          <div className="relative z-10 transform -rotate-3 hover:rotate-0 transition-all duration-700 -translate-x-14">
+            <img
+              src={firstBanner}
+              alt="GETVISAGO Mobile App"
+              className="h-[480px] drop-shadow-xl"
+            />
+          </div>
         </div>
       </div>
     </div>

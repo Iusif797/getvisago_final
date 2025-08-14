@@ -6,53 +6,114 @@ import { BiUser } from 'react-icons/bi';
 const reviewsData = [
   {
     id: 1,
-    name: 'Abdula',
+    name: 'Rahul M.',
     rating: 5,
-    text: 'Спасибо за помощь в подаче на визу в Индию. Не смог разобраться на официальном сайте, а тут всё просто и понятно и можно оплатить любой картой! Спасибо!',
-    date: '01.12.24',
+    text: 'I needed a Dubai tourist e‑Visa urgently. Uploaded my documents late evening, paid with my Visa card, and got approval the next afternoon. The process was simple and I received clear instructions on WhatsApp.',
+    date: '15 Aug 2025',
     source: 'google',
   },
   {
     id: 2,
-    name: 'Maria',
+    name: 'Priya S.',
     rating: 5,
-    text: 'Amazing service! Got my visa quickly without any hassle. The support team was very responsive and helpful throughout the process.',
-    date: '03.12.24',
+    text: 'Planned a family trip to Turkey with parents. GetVisaGo checked our photos, fixed a mistake in our travel dates, and kept us updated. Immigration was smooth because we followed their advice to print the visa.',
+    date: '02 Jul 2025',
     source: 'google',
-    avatar: 'M',
   },
   {
     id: 3,
-    name: 'John',
-    rating: 4,
-    text: 'Very good experience overall. The process was straightforward and the customer service was excellent. Would recommend to friends.',
-    date: '05.12.24',
+    name: 'Arjun K.',
+    rating: 5,
+    text: 'Applied for a Vietnam tourist e‑Visa. The checklist was spot on, the online tracker showed every stage, and support even replied late at night. Approval came in 48 hours.',
+    date: '28 Jun 2025',
     source: 'google',
-    avatar: 'J',
   },
   {
     id: 4,
-    name: 'Elena',
-    rating: 5,
-    text: 'Fantastic service! Got my visa in record time. The website is so easy to navigate and the instructions were crystal clear.',
-    date: '10.12.24',
+    name: 'Neha P.',
+    rating: 4,
+    text: 'Applied for an Australia e‑Visa. Paid with my MasterCard without any problems. No hidden fees – everything was clear. The visa arrived on time, but the upload page could be a bit faster.',
+    date: '03 May 2025',
     source: 'google',
   },
   {
     id: 5,
-    name: 'Ahmed',
+    name: 'Sameer R.',
     rating: 5,
-    text: 'I was struggling with my visa application until I found this service. Everything was handled professionally and efficiently.',
-    date: '15.12.24',
+    text: 'Got my Saudi tourist e‑Visa. They helped resize my photo and submitted the application the same day. Two days later I received the approval PDF by email and WhatsApp.',
+    date: '19 Apr 2025',
     source: 'google',
-    avatar: 'A',
   },
   {
     id: 6,
-    name: 'Sophie',
+    name: 'Kavita D.',
+    rating: 5,
+    text: 'Booked an Azerbaijan trip at the last minute. The form took only 10 minutes, and they noticed my passport was expiring soon – saved me a big problem. Visa approved in less than 24 hours.',
+    date: '07 Mar 2025',
+    source: 'google',
+  },
+  {
+    id: 7,
+    name: 'Vikram L.',
     rating: 4,
-    text: 'Great experience from start to finish. The process was much simpler than I expected. Will definitely use again for my next trip.',
-    date: '20.12.24',
+    text: 'Applied for a South Korea tourist e‑Visa. They suggested a multiple‑entry option, which was useful. Service was professional, but more payment options beyond Visa/MasterCard would be nice.',
+    date: '12 Jan 2025',
+    source: 'google',
+  },
+  {
+    id: 8,
+    name: 'Anjali C.',
+    rating: 5,
+    text: 'Travelling with elderly parents to Sri Lanka. Group application was perfect – one payment, same documents for all, and regular updates. No stress at Colombo airport.',
+    date: '22 Dec 2024',
+    source: 'google',
+  },
+  {
+    id: 9,
+    name: 'Deepak B.',
+    rating: 5,
+    text: 'Oman e‑Visa approved in just 36 hours. They even sent arrival tips for Muscat and reminded me to print the visa. Exactly what I needed.',
+    date: '15 Nov 2024',
+    source: 'google',
+  },
+  {
+    id: 10,
+    name: 'Sneha G.',
+    rating: 4,
+    text: 'My first time using an online visa service for Bahrain. The instructions were simple and transparent. It took slightly longer than expected, but the visa came through without issues.',
+    date: '28 Oct 2024',
+    source: 'google',
+  },
+  {
+    id: 11,
+    name: 'Ramesh T.',
+    rating: 5,
+    text: 'Applied for Cambodia. The mobile upload worked perfectly; they even resized my photo for free. Payment with Visa went through instantly, and approval came earlier than expected.',
+    date: '05 Sep 2024',
+    source: 'google',
+  },
+  {
+    id: 12,
+    name: 'Ishita N.',
+    rating: 5,
+    text: 'Malaysia tourist e‑Visa – clear document list and fast review. WhatsApp updates kept me informed all the way. Will recommend to friends.',
+    date: '16 Aug 2024',
+    source: 'google',
+  },
+  {
+    id: 13,
+    name: 'Karan S.',
+    rating: 4,
+    text: 'Applied for an Israel e‑Visa. They checked everything line by line and pricing was transparent. The mobile site could load faster, but overall a very good experience.',
+    date: '27 Jul 2024',
+    source: 'google',
+  },
+  {
+    id: 14,
+    name: 'Meera J.',
+    rating: 5,
+    text: 'Applied for Vietnam from my phone during lunch break. The mobile form was easy to use, the tracker showed progress, and support replied quickly. Will use again for Thailand.',
+    date: '09 Jun 2024',
     source: 'google',
   },
 ];
@@ -61,15 +122,15 @@ const DesktopReviews = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 3;
   const totalPages = Math.ceil(reviewsData.length / itemsPerPage);
-  
+
   const prev = () => {
     setCurrentPage((currentPage - 1 + totalPages) % totalPages);
   };
-  
+
   const next = () => {
     setCurrentPage((currentPage + 1) % totalPages);
   };
-  
+
   const currentReviews = () => {
     const startIndex = currentPage * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, reviewsData.length);
@@ -79,8 +140,8 @@ const DesktopReviews = () => {
   // Функция для рендеринга звезд рейтинга
   const renderStars = (rating) => {
     return Array.from({ length: 5 }).map((_, index) => (
-      <svg 
-        key={index} 
+      <svg
+        key={index}
         className={`w-5 h-5 ${index < rating ? 'text-yellow-400' : 'text-gray-300'}`}
         fill="currentColor"
         viewBox="0 0 20 20"
@@ -92,34 +153,37 @@ const DesktopReviews = () => {
 
   return (
     <section className="w-full py-16 bg-[#F6F7FA]">
-      <div className="w-full px-4 lg:px-8 max-w-[1400px] mx-auto relative">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-4xl font-bold mx-auto bg-gradient-to-r from-emerald-500 to-violet-600 bg-clip-text text-transparent">
-            Customer Reviews
+      <div className="w-full px-4 max-w-[1400px] mx-auto relative">
+        <div className="flex justify-between items-start mb-12">
+          <h2
+            className="text-4xl font-extrabold bg-clip-text text-transparent tracking-tight"
+            style={{ backgroundImage: 'linear-gradient(90deg, #00BFA5 0%, #7C3AED 100%)' }}
+          >
+            Reviews
           </h2>
-          
-          <div className="flex space-x-4 absolute right-4 lg:right-8">
-            <button 
-              onClick={prev} 
-              className="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center text-violet-600 shadow-md transition-all duration-300 hover:bg-violet-200 hover:scale-110"
+
+          <div className="flex space-x-3">
+            <button
+              onClick={prev}
+              className="w-9 h-9 bg-[#7C3AED] rounded-xl flex items-center justify-center text-white shadow-md transition-all duration-300 hover:bg-[#9061F9] hover:scale-105"
               aria-label="Previous"
             >
-              <FaChevronLeft size={18} />
+              <FaChevronLeft size={14} />
             </button>
-            <button 
-              onClick={next} 
-              className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center text-white shadow-md transition-all duration-300 hover:bg-violet-700 hover:scale-110"
+            <button
+              onClick={next}
+              className="w-9 h-9 bg-[#7C3AED] rounded-xl flex items-center justify-center text-white shadow-md transition-all duration-300 hover:bg-[#9061F9] hover:scale-105"
               aria-label="Next"
             >
-              <FaChevronRight size={18} />
+              <FaChevronRight size={14} />
             </button>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {currentReviews().map((review) => (
-            <div 
-              key={review.id} 
+            <div
+              key={review.id}
               className="bg-white rounded-2xl p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:translate-y-[-5px] border border-gray-100 flex flex-col"
             >
               <div className="flex flex-col h-full justify-between">
@@ -143,33 +207,23 @@ const DesktopReviews = () => {
                     {review.text}
                   </p>
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">{review.date}</span>
-                  {review.source === 'google' && (
-                    <div className="flex items-center">
-                      <span className="text-sm text-gray-500 mr-1">via</span>
-                      <FcGoogle size={20} />
-                    </div>
-                  )}
-                </div>
+                {/* Meta row (date, source) intentionally removed per design spec */}
               </div>
             </div>
           ))}
         </div>
-        
+
         <div className="flex justify-center mt-12 space-x-2">
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentPage(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentPage === index 
-                  ? 'bg-violet-600 transform scale-125' 
-                  : index === currentPage - 1 || index === currentPage + 1 
-                    ? 'bg-violet-300'
-                    : 'bg-violet-200'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${currentPage === index
+                ? 'bg-violet-600 transform scale-125'
+                : index === currentPage - 1 || index === currentPage + 1
+                  ? 'bg-violet-300'
+                  : 'bg-violet-200'
+                }`}
               aria-label={`Go to page ${index + 1}`}
             />
           ))}

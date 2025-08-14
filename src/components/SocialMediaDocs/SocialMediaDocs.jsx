@@ -19,14 +19,14 @@ const SocialMediaDocs = () => {
           <div className="flex flex-col items-center">
             <h2 className="text-emerald-500 text-2xl font-bold mb-4">Documents</h2>
             <div className="flex flex-col space-y-3 items-center">
+              <a href="/documents/terms" className="text-gray-700 hover:text-violet-600">
+                Terms & Conditions
+              </a>
               <a href="/documents/my-document-1" className="text-gray-700 hover:text-violet-600">
-                My document 1
+                Privacy Policy
               </a>
-              <a href="#document2" className="text-gray-700 hover:text-violet-600">
-                My document 123
-              </a>
-              <a href="#document3" className="text-gray-700 hover:text-violet-600">
-                Your document 6
+              <a href="/documents/refund-policy" className="text-gray-700 hover:text-violet-600">
+                Refund & Cancellation Policy
               </a>
             </div>
           </div>

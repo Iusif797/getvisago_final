@@ -81,12 +81,12 @@ const VisaCard = ({ image, title, days, price, country, processTime, successVisa
       </Link>
       <div className="p-5">
         <div className="flex items-center justify-between mb-4">
-          <span className="text-gray-500 text-sm">Get Visas in</span>
+          <span className="text-transparent select-none">.</span>
           <span className="text-gray-900 text-lg font-bold">{processTime} Days</span>
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="text-left p-2 rounded-lg border border-gray-200">
+          <div className="text-left">
             <div className="flex items-center text-lg font-bold text-gray-900">
               {price} <FaRupeeSign className="ml-1 text-sm" />
             </div>

@@ -108,7 +108,7 @@ const MalaysiaVisa = () => {
         </div>
 
         {/* Visa Type Selection Section */}
-        <div className="bg-gray-50 py-12">
+        <div className="bg-gray-50 pt-16 pb-12">
           <div className="w-full max-w-md mx-auto px-4">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8">
               <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Select visa </span>
@@ -116,34 +116,36 @@ const MalaysiaVisa = () => {
             </h2>
             <div className="space-y-8">
               <div className="bg-white rounded-2xl shadow-lg p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-2xl font-bold text-purple-600">Malaysia Digital Arrival Card</h3>
-                  <img src={touristIcon} alt="Arrival Card" className="w-12 h-12 object-contain" />
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-2xl font-extrabold text-purple-600 leading-tight">Malaysia Digital
+                    <br />Arrival Card
+                  </h3>
+                  <img src={touristIcon} alt="Arrival Card" className="w-14 h-14 object-contain" />
                 </div>
-                <div className="space-y-3 text-sm">
+                <div className="space-y-3 text-base">
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Validity:</span>
-                    <span className="font-semibold text-gray-800">30 days</span>
+                    <span className="text-gray-700 font-medium">Validity:</span>
+                    <span className="font-bold text-gray-900">30 days</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Stay per visit:</span>
-                    <span className="font-semibold text-gray-800">30 days</span>
+                    <span className="text-gray-700 font-medium">Stay per visit:</span>
+                    <span className="font-bold text-gray-900">30 days</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Government fee:</span>
-                    <span className="font-semibold text-gray-800">1(0)</span>
+                  <div className="flex justify-start gap-2">
+                    <span className="text-gray-900 font-extrabold">Government  fee:</span>
+                    <span className="font-extrabold text-gray-900">1</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Service fee:</span>
-                    <span className="font-semibold text-gray-800">2290 ₹</span>
+                  <div className="flex justify-start gap-2">
+                    <span className="text-gray-900 font-extrabold">Service fee:</span>
+                    <span className="font-extrabold text-gray-900">2290</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-500">Rush (12-24hours):</span>
-                    <span className="font-semibold text-gray-800">+ 2000 ₹</span>
+                  <div className="flex justify-start gap-2">
+                    <span className="text-gray-900 font-extrabold">Rush(12-24hours)</span>
+                    <span className="font-extrabold text-gray-900">+ 2000 ₹</span>
                   </div>
                 </div>
-                <Link to="/get-visa/malaysia" className="block w-full mt-6 bg-white border-2 border-purple-600 text-purple-600 py-3 rounded-full font-bold text-center text-lg hover:bg-purple-50 transition-all duration-300">
-                  APPLY NOW
+                <Link to="/get-visa/malaysia" className="block w-full mt-6 border-2 border-purple-600 text-purple-600 py-3 rounded-full font-extrabold text-center text-lg hover:bg-purple-600 hover:text-white transition-all duration-300">
+                  BUY NOW
                 </Link>
               </div>
             </div>

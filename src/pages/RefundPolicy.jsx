@@ -1,37 +1,23 @@
 import React from 'react';
-import privacyText from './privacy-policy.txt?raw';
+import refundText from './refund-policy.txt?raw';
 
-const PrivacyPolicy = () => {
+const RefundPolicy = () => {
     const headings = [
-        'Introduction:',
-        'Information We Collect:',
-        'How We Use Your Data:',
-        'No Selling of Personal Data:',
-        'Information Sharing and Disclosure:',
-        'Data Retention:',
-        'Data Security:',
-        'Cookies & Analytics:',
-        'Your Data Protection Rights:',
-        'Exercising Your Rights:',
-        "Children’s Privacy:",
-        'Changes to This Privacy Policy:',
-        'Contact Us:',
-        'Additional Legal and Operational Notes',
-        'Promotional Offers and Codes:',
-        'Third-Party Services and Partnerships:',
-        'Industry Standards and Compliance:',
-        'Communications and Consent:',
-        'Termination of Access:',
-        'Complaint Resolution:',
-        'No Agency Relationship:',
-        'Notices:',
-        'Severability of Additional Notes:',
-        'Policy Acknowledgment:',
-        'Continued Improvement:',
-        'Conclusion:'
+        'Refund Policy',
+        'General Principle:',
+        'Non-Refundable Items:',
+        'Eligible Refund Situations:',
+        'How to Request a Refund:',
+        'Refund Method and Timing:',
+        'No Refund for Denied Visas or Government Delays:',
+        'Cancellation of Application:',
+        'Refunds for Delayed Services:',
+        'Chargebacks and Bank Disputes:',
+        'Updates or Changes to Refund Policy:',
+        'Contact for Refunds:'
     ];
 
-    const raw = privacyText.replace(/\r\n/g, '\n');
+    const raw = refundText.replace(/\r\n/g, '\n');
     const lines = raw.split('\n');
     const elements = [];
     let key = 0;
@@ -57,7 +43,7 @@ const PrivacyPolicy = () => {
             continue;
         }
 
-        if (trimmed.startsWith('·')) {
+        if (trimmed.startsWith('·') || /^\d+\./.test(trimmed)) {
             elements.push(
                 <p key={`b-${key++}`} className="text-sm text-gray-800 leading-6 max-w-3xl pl-6 whitespace-pre-wrap mb-2">{line}</p>
             );
@@ -79,7 +65,7 @@ const PrivacyPolicy = () => {
                             'linear-gradient(90deg, #00BFA5 0%, #3B82F6 50%, #7C3AED 100%)',
                     }}
                 >
-                    Privacy Policy
+                    Refund & Cancellation Policy
                 </h1>
 
                 <div>
@@ -90,4 +76,6 @@ const PrivacyPolicy = () => {
     );
 };
 
-export default PrivacyPolicy;
+export default RefundPolicy;
+
+

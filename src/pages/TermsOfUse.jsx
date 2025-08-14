@@ -1,50 +1,45 @@
 import React from 'react';
-import privacyText from './privacy-policy.txt?raw';
+import termsText from './terms-of-use.txt?raw';
 
-const PrivacyPolicy = () => {
+const TermsOfUse = () => {
     const headings = [
-        'Introduction:',
-        'Information We Collect:',
-        'How We Use Your Data:',
-        'No Selling of Personal Data:',
-        'Information Sharing and Disclosure:',
-        'Data Retention:',
-        'Data Security:',
-        'Cookies & Analytics:',
-        'Your Data Protection Rights:',
-        'Exercising Your Rights:',
-        "Children’s Privacy:",
-        'Changes to This Privacy Policy:',
-        'Contact Us:',
-        'Additional Legal and Operational Notes',
-        'Promotional Offers and Codes:',
-        'Third-Party Services and Partnerships:',
-        'Industry Standards and Compliance:',
-        'Communications and Consent:',
-        'Termination of Access:',
-        'Complaint Resolution:',
-        'No Agency Relationship:',
-        'Notices:',
-        'Severability of Additional Notes:',
-        'Policy Acknowledgment:',
-        'Continued Improvement:',
-        'Conclusion:'
+        'Acceptance of Terms:',
+        'About GetVisago’s Services:',
+        'User Responsibilities and Obligations:',
+        'Fees and Payment:',
+        'Service Process and Completion:',
+        'Disclaimer of Affiliation and Authority:',
+        'Disclaimers and Limitations of Liability:',
+        'Indemnification:',
+        'Intellectual Property Rights:',
+        'Right to Refuse or Terminate Service:',
+        'Travel Compliance:',
+        'Governing Law and Jurisdiction:',
+        'Severability:',
+        'No Waiver:',
+        'Modifications to Terms:',
+        'Entire Agreement:',
+        'Contact Information:'
     ];
 
-    const raw = privacyText.replace(/\r\n/g, '\n');
+    const raw = termsText.replace(/\r\n/g, '\n');
     const lines = raw.split('\n');
+
     const elements = [];
     let key = 0;
 
     for (const line of lines) {
         const trimmed = line.trim();
+
         if (!trimmed) {
+            // пустая строка — вертикальный интервал
             elements.push(<div key={`sp-${key++}`} className="h-2" />);
             continue;
         }
 
         const heading = headings.find(h => trimmed.startsWith(h));
         if (heading) {
+            // заголовок раздела в стиле Privacy Policy; текст после двоеточия — как абзац
             elements.push(
                 <h2 key={`h-${key++}`} className="text-emerald-500 text-2xl font-extrabold mt-10 mb-4">{heading}</h2>
             );
@@ -58,12 +53,14 @@ const PrivacyPolicy = () => {
         }
 
         if (trimmed.startsWith('·')) {
+            // маркеры оставляем как есть, оформляем отступом
             elements.push(
                 <p key={`b-${key++}`} className="text-sm text-gray-800 leading-6 max-w-3xl pl-6 whitespace-pre-wrap mb-2">{line}</p>
             );
             continue;
         }
 
+        // обычные абзацы
         elements.push(
             <p key={`p-${key++}`} className="text-sm text-gray-700 leading-6 max-w-3xl mb-3">{line}</p>
         );
@@ -79,7 +76,7 @@ const PrivacyPolicy = () => {
                             'linear-gradient(90deg, #00BFA5 0%, #3B82F6 50%, #7C3AED 100%)',
                     }}
                 >
-                    Privacy Policy
+                    Terms of Use
                 </h1>
 
                 <div>
@@ -90,4 +87,7 @@ const PrivacyPolicy = () => {
     );
 };
 
-export default PrivacyPolicy;
+export default TermsOfUse;
+
+
+

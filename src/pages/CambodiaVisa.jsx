@@ -101,7 +101,7 @@ const CambodiaVisa = () => {
         </div>
 
         {/* Visa Type Selection Section */}
-        <div className="bg-gray-50 py-12">
+        <div className="bg-gray-50 py-12 mt-10">
           <div className="w-full max-w-4xl mx-auto px-4">
             <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8">
               <span className="bg-gradient-to-r from-[#00B89F] to-[#00D6A9] bg-clip-text text-transparent">Select visa </span>

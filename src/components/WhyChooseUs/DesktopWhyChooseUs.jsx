@@ -9,20 +9,25 @@ import icon4 from '../../assets/icon4_newformat.png';
 const DesktopWhyChooseUs = () => {
   return (
     <section className="w-full py-16 bg-[#F6F7FA]">
-      <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
-        <h2 className="text-[#00BFA5] text-4xl font-bold mb-12 text-center">
+      <div className="w-full max-w-[1400px] mx-auto px-4">
+        <h2
+          className="text-4xl font-extrabold mb-10 text-left bg-clip-text text-transparent"
+          style={{
+            backgroundImage: 'linear-gradient(90deg, #00BFA5 0%, #3B82F6 100%)',
+          }}
+        >
           Why Choose Us
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Первый ряд - левая колонка */}
           <div className="flex justify-center">
             <div className="w-full">
               <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#00BFA5] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
                 <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
-                  <img 
-                    src={icon2} 
-                    alt="Simple Application" 
+                  <img
+                    src={icon2}
+                    alt="Simple Application"
                     className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -31,15 +36,15 @@ const DesktopWhyChooseUs = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Первый ряд - правая колонка */}
           <div className="flex justify-center">
             <div className="w-full">
               <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#8A3FFC] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
                 <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
-                  <img 
-                    src={icon1} 
-                    alt="Fast Processing" 
+                  <img
+                    src={icon1}
+                    alt="Fast Processing"
                     className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -48,15 +53,15 @@ const DesktopWhyChooseUs = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Второй ряд - левая колонка */}
           <div className="flex justify-center">
             <div className="w-full">
               <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#00BFA5] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
                 <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
-                  <img 
-                    src={icon4} 
-                    alt="Customer Support" 
+                  <img
+                    src={icon4}
+                    alt="Customer Support"
                     className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
                     loading="lazy"
                   />
@@ -65,15 +70,15 @@ const DesktopWhyChooseUs = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Второй ряд - правая колонка */}
           <div className="flex justify-center">
             <div className="w-full">
               <div className="w-full flex items-center rounded-full py-4 px-6 bg-[#8A3FFC] shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
                 <div className="w-12 h-12 flex-shrink-0 mr-5 flex items-center justify-center">
-                  <img 
-                    src={icon3} 
-                    alt="Refund Guarantee" 
+                  <img
+                    src={icon3}
+                    alt="Refund Guarantee"
                     className="w-12 h-12 object-contain hover:scale-110 transition-transform duration-300"
                     loading="lazy"
                   />

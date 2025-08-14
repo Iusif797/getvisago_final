@@ -24,9 +24,9 @@ const Footer = () => {
   if (isDesktop) {
     return (
       <footer id="contacts" className="w-full py-16 bg-[#F6F7FA]">
-        <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
+        <div className="w-full max-w-[1400px] mx-auto px-4">
           <div className="flex justify-center">
-            <div className="grid grid-cols-3 gap-16 w-full max-w-4xl">
+            <div className="grid grid-cols-3 gap-16 w-full">
               {/* Contact Us */}
               <div className="flex flex-col items-center">
                 <h2 className="text-emerald-500 text-2xl font-bold mb-6 text-center">Contact us</h2>
@@ -35,9 +35,9 @@ const Footer = () => {
                     <img src={phoneIcon} alt="Phone" className="mr-3 h-6" />
                     <span>+91-123 456 78-90</span>
                   </a>
-                  <a href="mailto:support@visadoc.com" className="flex items-center text-violet-600 hover:text-violet-700 uppercase transition-all duration-300 transform hover:scale-105">
+                  <a href="mailto:support@getvisago.com" className="flex items-center text-violet-600 hover:text-violet-700 uppercase transition-all duration-300 transform hover:scale-105">
                     <img src={emailIcon} alt="Email" className="mr-3 h-6" />
-                    <span>SUPPORT@VISADOC.COM</span>
+                    <span>SUPPORT@GETVISAGO.COM</span>
                   </a>
                   <a href="#chat" className="flex items-center text-violet-600 hover:text-violet-700 transition-all duration-300 transform hover:scale-105">
                     <img src={messageIcon} alt="Chat" className="mr-3 h-6" />
@@ -50,14 +50,14 @@ const Footer = () => {
               <div className="flex flex-col items-center">
                 <h2 className="text-emerald-500 text-2xl font-bold mb-6 text-center">Documents</h2>
                 <div className="flex flex-col space-y-3 items-center">
+                  <a href="/documents/terms" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
+                    Terms & Conditions
+                  </a>
                   <a href="/documents/my-document-1" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
-                    My document 1
+                    Privacy Policy
                   </a>
-                  <a href="#document2" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
-                    My document 123
-                  </a>
-                  <a href="#document3" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
-                    Your document 6
+                  <a href="/documents/refund-policy" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
+                    Refund & Cancellation Policy
                   </a>
                 </div>
               </div>
@@ -69,9 +69,6 @@ const Footer = () => {
                   <a href="#facebook" className="hover:opacity-80 transition-all duration-300 transform hover:scale-110">
                     <img src={facebookIcon} alt="Facebook" className="h-8 w-8" />
                   </a>
-                  <a href="#twitter" className="hover:opacity-80 transition-all duration-300 transform hover:scale-110">
-                    <img src={twitterIcon} alt="Twitter" className="h-8 w-8" />
-                  </a>
                   <a href="#instagram" className="hover:opacity-80 transition-all duration-300 transform hover:scale-110">
                     <img src={instagramIcon} alt="Instagram" className="h-8 w-8" />
                   </a>
@@ -80,10 +77,11 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-gray-200 flex justify-between items-center w-full max-w-4xl mx-auto">
+          <div className="mt-12 pt-8 border-t border-gray-200 flex justify-between items-center w-full mx-auto">
             <div className="text-sm text-gray-500">
-              <p>Address: Visago Street, 1</p>
-              <p>© 2025 GETVISAGO LTD</p>
+              <p>© 2025 GetVisaGo Ltd (Company No. 16470281, England & Wales)</p>
+              <p>Registered Office: 3rd Floor, 86–90 Paul Street, London, EC2A 4NE, United Kingdom</p>
+              <p>Not a government website — we are a private visa assistance service.</p>
             </div>
 
             <div className="flex items-center">
@@ -124,8 +122,8 @@ const Footer = () => {
             </a>
 
             {/* Email */}
-            <a href="mailto:support@visadoc.com" className="group flex items-center justify-between w-full py-4 pl-8 pr-6 bg-white rounded-full border-2 border-[#9B51E0] shadow-sm">
-              <span className="text-[#9B51E0] font-extrabold text-lg tracking-tight uppercase">SUPPORT@VISADOC.COM</span>
+            <a href="mailto:support@getvisago.com" className="group flex items-center justify-between w-full py-4 pl-8 pr-6 bg-white rounded-full border-2 border-[#9B51E0] shadow-sm">
+              <span className="text-[#9B51E0] font-extrabold text-lg tracking-tight uppercase">SUPPORT@GETVISAGO.COM</span>
               <FaEnvelope size={26} className="text-[#9B51E0] transition-transform duration-300 group-hover:scale-110" />
             </a>
 
@@ -144,9 +142,6 @@ const Footer = () => {
             <a href="#facebook" className="transition-transform duration-300 transform hover:scale-110">
               <img src={facebookIcon} alt="Facebook" className="h-8 w-8" />
             </a>
-            <a href="#twitter" className="transition-transform duration-300 transform hover:scale-110">
-              <img src={twitterIcon} alt="Twitter" className="h-8 w-8" />
-            </a>
             <a href="#instagram" className="transition-transform duration-300 transform hover:scale-110">
               <img src={instagramIcon} alt="Instagram" className="h-8 w-8" />
             </a>
@@ -157,14 +152,14 @@ const Footer = () => {
         <div className="mb-6">
           <h2 className="text-2xl font-extrabold mb-4 bg-gradient-to-r from-[#00C6A2] to-[#9B51E0] bg-clip-text text-transparent">Documents</h2>
           <div className="flex flex-col space-y-3">
+            <a href="/documents/terms" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
+              Terms & Conditions
+            </a>
             <a href="/documents/my-document-1" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
-              My document 1
+              Privacy Policy
             </a>
-            <a href="#document2" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
-              My document 123
-            </a>
-            <a href="#document3" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
-              Your document 6
+            <a href="/documents/refund-policy" className="text-gray-700 hover:text-violet-600 transition-all duration-300 transform hover:scale-105">
+              Refund & Cancellation Policy
             </a>
           </div>
         </div>
@@ -173,8 +168,9 @@ const Footer = () => {
         <div className="w-full pt-4 border-t border-gray-200">
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-500">
-              <p>Address: Visago Street, 1</p>
-              <p>© 2025 GETVISAGO LTD</p>
+              <p>© 2025 GetVisaGo Ltd (Company No. 16470281, England & Wales)</p>
+              <p>Registered Office: 3rd Floor, 86–90 Paul Street, London, EC2A 4NE, United Kingdom</p>
+              <p>Not a government website — we are a private visa assistance service.</p>
             </div>
 
             <div className="flex items-center">

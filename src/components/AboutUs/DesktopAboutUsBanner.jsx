@@ -7,7 +7,7 @@ const DesktopAboutUsBanner = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-violet-600 opacity-90 z-0"></div>
       <div className="absolute inset-0 bg-[url('/src/assets/first-banner.png')] bg-cover bg-center mix-blend-overlay z-0"></div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-8 lg:px-12 xl:px-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-8 max-w-3xl mx-auto leading-tight">
           We understand the frustration of dealing with complicated visa application processes.
         </h2>

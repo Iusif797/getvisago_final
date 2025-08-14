@@ -26,6 +26,8 @@ import AzerbaijanVisa from './pages/AzerbaijanVisa';
 import SouthKoreaVisa from './pages/SouthKoreaVisa';
 import VietnamVisa from './pages/VietnamVisa';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import RefundPolicy from './pages/RefundPolicy';
 
 
 function App() {
@@ -56,7 +58,9 @@ function App() {
         <Route path="/get-visa/:country" element={<><Header /><VisaApplication /></>} />
         <Route path="/about" element={<><Header /><About /><Footer /></>} />
         <Route path="/faq" element={<><Header /><FAQ /><Footer /></>} />
+        <Route path="/documents/terms" element={<><Header /><TermsOfUse /><Footer /></>} />
         <Route path="/documents/my-document-1" element={<><Header /><PrivacyPolicy /><Footer /></>} />
+        <Route path="/documents/refund-policy" element={<><Header /><RefundPolicy /><Footer /></>} />
 
         {/* Routes without header (has its own header) */}
         <Route path="/visa/dubai" element={<><Header /><DubaiVisa /></>} />
